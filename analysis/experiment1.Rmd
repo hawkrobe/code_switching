@@ -13,14 +13,13 @@ library(lmerTest)
 library(ggthemes)
 library(tidyboot)
 
-# this is a helper function to deal with the awful json columns
-ParseJSONColumn <- function(x) {
-   str_c("[ ", str_c(x, collapse = ",", sep=" "), " ]")  %>% 
-     fromJSON(flatten = T)
-}
+source('helpers.R')
 ```
 
 ```{r}
+d.games <- read_csv(here('data/games.csv')) %>% 
+  rename(gameId = `_id`)
+
 d.chat <- read_csv(here('data/rounds.csv')) %>%
   filter(createdAt >= lubridate::ymd('2021-01-21')) %>%
   mutate(data.chat = ifelse(is.na(data.chat), '{}', data.chat)) %>%
@@ -51,22 +50,16 @@ Get exit survey responses
 d.exit.survey <- read_csv(here('data/player-inputs.csv')) %>%
   filter(createdAt >= lubridate::ymd('2021-01-21')) %>%
   filter(!is.na(data.community)) %>%
-  left_join(read_csv(here('data/games.csv')) %>% rename(gameId = `_id`),
-            by = c('gameId')) %>%
+  left_join(d.games, by = c('gameId')) %>%
   select(where(~ !any(is.na(.))))
 
 correct_community_response <- d.exit.survey %>%
   filter(data.community == data.teamColor) %>%
   pull(playerId)
-
-english_native_language <- d.exit.survey %>%
-  filter(data.english == 'yes') %>%
-  pull(playerId)
 ```
 
 ```{r}
-roles.tmp <- read_csv(here('data/games.csv')) %>% 
-  rename(gameId = `_id`) %>%
+roles.tmp <- d.games %>%
   select(gameId, data.roleList) %>%
   mutate(data.roleList = map(data.roleList, .f = ParseJSONColumn)) %>%
   unnest(data.roleList) %>%
@@ -94,39 +87,6 @@ roles <- d.chat %>%
   spread(role, playerId)
 ```
 
-Look at complete games (where at least one message was sent on every round)
-
-```{r}
-time_outs <- d.room_info %>%
-  left_join(roles) %>%
-  group_by(listener, partnerNum, response) %>%
-  tally() %>%
-  filter(response == 'timed_out' | is.na(response)) %>%
-  filter(!is.na(listener)) %>%
-  group_by(listener, partnerNum) %>%
-  summarize(totalTimeouts = sum(n))
-```
-
-Fewer timeouts as the game proceeds (need to be careful about this as a confound with accuracy).
-
-```{r}
-time_outs %>%
-  ggplot(aes(x = totalTimeouts)) +
-    geom_histogram(bins = 5) +
-    geom_density(aes(y = ..count..), adjust = 3) +
-    facet_wrap(~ partnerNum)
-```
-
-Overall distribution of total timeouts per participant.
-
-```{r}
-time_outs %>%
-  group_by(listener) %>%
-  summarize(totalTimeouts = sum(totalTimeouts))  %>%
-  ggplot(aes(x = totalTimeouts)) +
-    geom_histogram(bins = 24) +
-    theme_few()
-```
 Some games had a number of rounds go by where no one talked (one possible upstream reason for timeouts...)
 
 ```{r}
@@ -187,16 +147,15 @@ d.chat %>%
 post_test.raw <- read_csv(here('data/player-inputs.csv')) %>%
   filter(gameId %in% talked) %>%
   filter(playerId %in% correct_community_response) %>%
-  mutate(low_timeout = playerId %in% sufficiently_low_timeouts) %>%
+  group_by(playerId) %>%
+  mutate(blockOrder = ifelse(row_number() <= 4, 'first', 'second')) %>%
   rename_with(~ gsub("data.", "", .x, fixed = TRUE)) %>%
-  mutate(text = gsub("\\n", '', fixed = T, text),
-         text = gsub("[/?/.]", ' ', text),
-         text = str_squish(text),
+  mutate(origText = gsub("\\n", '', fixed = T, text),
+         origText = str_squish(origText),
+         text = gsub("[/?/.]", ' ', origText),
          utt_length_chars = str_length(text), 
          utt_length_words = str_count(text, "\\W+") + 1,
          ownGroup = ifelse(ownGroup == group, 'ownGroup', 'otherGroup')) %>%
-  group_by(playerId) %>%
-  mutate(blockOrder = ifelse(row_number() <= 4, 'first', 'second')) %>%
   filter(!is.na(text))
 
 full_post_test <- post_test.raw %>%
@@ -206,32 +165,40 @@ full_post_test <- post_test.raw %>%
   pull(gameId)
 
 cat('we have', length(full_post_test), 'networks where all 4 participants gave post-test responses.\n')
-cat("that's", length(unique(post_test$playerId)), 'individual participants')
+cat("that's", length(unique(post_test.raw$playerId)), 'individual participants')
 ```
 
 ```{r}
 post_test <- post_test.raw %>%
-  filter(gameId %in% full_post_test)
+  filter(gameId %in% full_post_test) %>%
+  select(gameId, playerId, tangram, utt_length_words, ownGroup) %>%
+  spread(ownGroup, utt_length_words) %>%
+  mutate(diff = log(otherGroup / ownGroup)) %>%
+  left_join(post_test.raw %>% 
+              unite(condition, ownGroup, blockOrder) %>% 
+              group_by(playerId, tangram) %>% 
+              summarize(condition = first(condition)))
 
 total_avg <- post_test %>%
+  select(-diff) %>%
+  gather(ownGroup, utt_length_words, otherGroup, ownGroup) %>%
   group_by(ownGroup) %>%
   tidyboot::tidyboot_mean(utt_length_words, nboot = 100) %>%
   select(-n, -mean) %>%
   pivot_wider(names_from = ownGroup, values_from = c('empirical_stat', 'ci_lower', 'ci_upper')) 
 
 post_test %>%
-  group_by(gameId, playerId, ownGroup) %>%
-  summarize(m = mean(utt_length_words)) %>%
-  spread(ownGroup, m) %>%
   ggplot(aes(x = log(ownGroup), y = log(otherGroup), color = ownGroup > otherGroup)) +
-    geom_point() +
+    geom_point(position = position_jitter(width = 0.1, height = 0.1)) +
     geom_abline(aes(intercept = 0, slope = 1), linetype = 'dotted') +
+    facet_wrap(~ condition) +
     ggthemes::theme_few() +
     ylim(0, 3.5) +
     xlim(0, 3.5) +
     labs(x = 'log # words for own group', y = 'log # words for other group') +
     theme(aspect.ratio = 1)
 ```
+Try to visualize central tendencies.
 
 ```{r}
 error_bars <- post_test %>%
@@ -240,43 +207,174 @@ error_bars <- post_test %>%
   mutate(goingUp = TRUE)
 
 post_test %>%
-  group_by(gameId, playerId, ownGroup) %>%
-  summarize(m = log(mean(utt_length_words))) %>%
-  spread(ownGroup, m) %>%
   mutate(goingUp = otherGroup > ownGroup) %>%
   gather(ownGroup, m, otherGroup, ownGroup) %>%
-  ggplot(aes(x = ownGroup, y = m, color = goingUp)) +
-    geom_line(aes(group = playerId), alpha = 0.25) +
+  ggplot(aes(x = ownGroup, y = log(m), color = goingUp)) +
+    geom_line(aes(group = interaction(playerId, tangram)), alpha = 0.1) +
     geom_point(aes(x = ownGroup, y = log(empirical_stat)), 
-               data = error_bars) +
+               size = 5, data = error_bars) +
     geom_errorbar(aes(ymin = log(ci_lower), ymax = log(ci_upper), 
                       x = ownGroup, y = log(empirical_stat)), 
                   width = 0,
                   data = error_bars) +
-    geom_line(aes(x = ownGroup, group = 1, y = log(empirical_stat)), data = error_bars) +
+    facet_wrap(~ condition) +
+    geom_line(aes(x = ownGroup, group = 1, y = log(empirical_stat)), size= 2,data = error_bars) +
     theme_bw() +
     labs(x = '', y = 'log # words') +
     theme(aspect.ratio = 1)
 ```
 
+raincloud plot...
+
 ```{r}
-library(lme4)
-library(lmerTest)
+summary.df <- d.diffs %>%
+  group_by(playerId, condition) %>%
+  # z score
+  mutate(log_length = scale(log(utt_length_words))) %>%
+  group_by(condition) %>%
+  tidyboot_mean(log_length)
+
 post_test %>%
-  select(playerId, gameId, tangram,  ownGroup,low_timeout,blockOrder, utt_length_words) %>%
-  lmer(log(utt_length_words) ~ ownGroup + blockOrder 
-                               + (1  + ownGroup + blockOrder | playerId) 
-                               + (1 | gameId) 
+  group_by(playerId) %>%
+  # z score
+  mutate(log_length = scale(log(utt_length_words))) %>%
+  ggplot(aes(x = blockOrder, y = log_length, color = ownGroup)) +
+    geom_point(position = position_jitter(width = .2, height = 0.05), size = .1, alpha = 0.2) +
+    geom_boxplot(aes(x = blockOrder, color = ownGroup, y = log_length),
+                 outlier.shape = NA, alpha = 0.5, width = .5) +
+    geom_hline(yintercept = 0, linetype = 'dotted') +
+    theme_few() +
+    scale_x_discrete(labels=c("first"="other -> own",
+                            "second"="own -> other")) +
+    labs(x = '', y = 'log # words (z scored)') +
+    theme(aspect.ratio = 3, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
+```
+distribution of diffs...
+
+```{r}
+summary.df <- d.diffs %>%
+  group_by(playerId, condition) %>%
+  summarize(diff = mean(diff)) %>%
+  group_by(condition) %>%
+  tidyboot_mean(diff)
+
+d.diffs %>%
+  ggplot(aes(x = condition, y = diff)) +
+    geom_point(position = position_jitter(width = .2, height = 1), size = .05, alpha = 0.15) +
+    geom_point(aes(y = empirical_stat), data = summary.df) +
+    geom_errorbar(aes(y = empirical_stat, ymin = ci_lower, ymax = ci_upper),
+                  data = summary.df, width = 0) +
+  geom_hline(yintercept = 0, linetype = 'dotted') +
+    theme_few() +
+    scale_x_discrete(labels=c("otherGroup_first"="other -> own",
+                              "ownGroup_first"="own -> other")) +
+    labs(x = '', y = '# words for other vs. own (log ratio)') +
+    theme(aspect.ratio = 3, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
+```
+
+maximal lmer model that converges (we get boundary warning but can ignore)
+
+```{r}
+post_test.raw %>%
+  filter(gameId %in% full_post_test) %>%
+  lmer(log(utt_length_words) ~ ownGroup + blockOrder
+                               + (1 + ownGroup + blockOrder | playerId)
+                               + (1 | gameId)
                                + (1 | tangram),
-       control = lmerControl(optimizer = 'bobyqa'),
        data = .) %>%
   summary()
 ```
 
+check boundary warning against full-blown brms model
+
+```{r}
+library(lme4)
+library(lmerTest)
+library(brms)
+post_test.raw %>%
+  filter(gameId %in% full_post_test) %>%
+  select(gameId, playerId, tangram, utt_length_words, ownGroup, blockOrder) %>%
+  brms::brm(log(utt_length_words) ~ ownGroup + blockOrder
+                               + (1 + ownGroup + blockOrder | playerId)
+                               + (1 + ownGroup + blockOrder | gameId)
+                               + (1 + ownGroup + blockOrder | tangram),
+       data = .) %>%
+  summary()
+```
+
+```
+Links: mu = identity; sigma = identity 
+Formula: log(utt_length_words) ~ ownGroup + blockOrder + (1 + ownGroup + blockOrder | playerId) + (1 + ownGroup + blockOrder | gameId) + (1 + ownGroup + blockOrder | tangram) 
+   Data: . (Number of observations: 1056) 
+Samples: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup samples = 4000
+
+Group-Level Effects: 
+~gameId (Number of levels: 33) 
+                                       Estimate Est.Error l-95% CI
+sd(Intercept)                              0.30      0.09     0.12
+sd(ownGroupownGroup)                       0.06      0.05     0.00
+sd(blockOrdersecond)                       0.05      0.04     0.00
+cor(Intercept,ownGroupownGroup)            0.06      0.47    -0.82
+cor(Intercept,blockOrdersecond)           -0.20      0.47    -0.91
+cor(ownGroupownGroup,blockOrdersecond)    -0.05      0.50    -0.90
+                                       u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)                              0.48 1.01      628      734
+sd(ownGroupownGroup)                       0.17 1.00     1625     2048
+sd(blockOrdersecond)                       0.15 1.00     1908     2694
+cor(Intercept,ownGroupownGroup)            0.88 1.00     3295     2775
+cor(Intercept,blockOrdersecond)            0.77 1.00     3991     3215
+cor(ownGroupownGroup,blockOrdersecond)     0.87 1.00     3020     3024
+
+~playerId (Number of levels: 132) 
+                                       Estimate Est.Error l-95% CI
+sd(Intercept)                              0.54      0.05     0.44
+sd(ownGroupownGroup)                       0.16      0.06     0.04
+sd(blockOrdersecond)                       0.15      0.06     0.03
+cor(Intercept,ownGroupownGroup)            0.10      0.26    -0.37
+cor(Intercept,blockOrdersecond)            0.02      0.28    -0.47
+cor(ownGroupownGroup,blockOrdersecond)     0.64      0.28    -0.08
+                                       u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)                              0.64 1.00     1505     2315
+sd(ownGroupownGroup)                       0.27 1.00      998     1396
+sd(blockOrdersecond)                       0.26 1.00      815     1356
+cor(Intercept,ownGroupownGroup)            0.65 1.00     2352     2153
+cor(Intercept,blockOrdersecond)            0.63 1.00     2522     2146
+cor(ownGroupownGroup,blockOrdersecond)     0.97 1.00     1264     1498
+
+~tangram (Number of levels: 8) 
+                                       Estimate Est.Error l-95% CI
+sd(Intercept)                              0.10      0.05     0.02
+sd(ownGroupownGroup)                       0.06      0.05     0.00
+sd(blockOrdersecond)                       0.04      0.04     0.00
+cor(Intercept,ownGroupownGroup)            0.13      0.47    -0.77
+cor(Intercept,blockOrdersecond)           -0.00      0.49    -0.86
+cor(ownGroupownGroup,blockOrdersecond)     0.04      0.50    -0.86
+                                       u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)                              0.22 1.00     1863     2034
+sd(ownGroupownGroup)                       0.18 1.00     1512     1937
+sd(blockOrdersecond)                       0.13 1.00     2858     2374
+cor(Intercept,ownGroupownGroup)            0.89 1.00     4994     2805
+cor(Intercept,blockOrdersecond)            0.87 1.00     6107     3120
+cor(ownGroupownGroup,blockOrdersecond)     0.90 1.00     3834     3297
+
+Population-Level Effects: 
+                 Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+Intercept            1.94      0.08     1.78     2.11 1.00     2550
+ownGroupownGroup    -0.11      0.05    -0.20    -0.02 1.00     4135
+blockOrdersecond    -0.13      0.04    -0.21    -0.05 1.00     4542
+                 Tail_ESS
+Intercept            2528
+ownGroupownGroup     3015
+blockOrdersecond     2997
+
+Family Specific Parameters: 
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.45      0.01     0.43     0.47 1.00     3290     2960
+```
+
 ```{r}
 post_test %>%
-  select(playerId, gameId, tangram, ownGroup, utt_length_words) %>%
-  spread(ownGroup, utt_length_words) %>%
   ungroup() %>%
   summarize(result = list(t.test(.$ownGroup, .$otherGroup, paired = T))) %>%
   pull(result) 
@@ -302,7 +400,43 @@ qualitative.direction %>%
   mutate(prop = n / sum(n))
 ```
 
-Look at specific cases where people provided shorter description to other group
+# Supplemental
+
+## Investigate timeouts... 
+
+```{r}
+time_outs <- d.room_info %>%
+  left_join(roles) %>%
+  group_by(listener, partnerNum, response) %>%
+  tally() %>%
+  filter(response == 'timed_out' | is.na(response)) %>%
+  filter(!is.na(listener)) %>%
+  group_by(listener, partnerNum) %>%
+  summarize(totalTimeouts = sum(n))
+```
+
+Fewer timeouts as the game proceeds (need to be careful about this as a confound with accuracy).
+
+```{r}
+time_outs %>%
+  ggplot(aes(x = totalTimeouts)) +
+    geom_histogram(bins = 5) +
+    geom_density(aes(y = ..count..), adjust = 3) +
+    facet_wrap(~ partnerNum)
+```
+
+Overall distribution of total timeouts per participant.
+
+```{r}
+time_outs %>%
+  group_by(listener) %>%
+  summarize(totalTimeouts = sum(totalTimeouts))  %>%
+  ggplot(aes(x = totalTimeouts)) +
+    geom_histogram(bins = 24) +
+    theme_few()
+```
+
+## Look at specific cases where people provided shorter description to other group
 
 * playerId 2iWCDAdpFvRCNSrEM gave informative descriptions to own community and then just 'those are squares and diamonds' to other group
 * check possible effect of block order...
@@ -315,15 +449,11 @@ post_test %>%
   View()
 ```
 
-```{r}
-bonuses <- read_csv(here('data/players.csv')) %>%
-  rename_with(~ gsub("data.", "", .x, fixed = TRUE)) %>%
-  select(id, bonus) %>%
-  filter(!is.na(bonus)) %>%
-  filter(bonus > 0)
+## Write out post-test
 
-bonuses %>%
-  slice_tail(n = 182) %>%
-  mutate(bonus = round(bonus + 0.8,2)) %>%
-  write_csv('to_bonus.csv')
+```{r}
+post_test.raw %>%
+  filter(gameId %in% full_post_test) %>%
+  select(gameId, playerId, tangram, utt_length_words, ownGroup, text) %>%
+  write_json(here('data/comprehension/post_test_utterances.json'))
 ```
