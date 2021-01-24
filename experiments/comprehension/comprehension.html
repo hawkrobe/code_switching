@@ -13,6 +13,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+        <script type="text/javascript" src="post_test_utterances.js"></script>
         <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
         <style>
         button {
@@ -38,14 +39,16 @@
       setupGame();
     }
 
-      function setupGame () {
+    function setupGame () {
       var socket = io.connect();
       var timeline = [];
       var iterationName = 'full_sample'
-      var wordSetID = '0'
-      var descriptionSet = [{'description' : 'the tall one'}]
-        var turkInfo = jsPsych.turk.turkInfo();
-        console.log(jsPsych)
+      var tangramSubsets = _.groupBy(all_descriptions, 'tangram');
+      var descriptionSet = _.map(_.keys(tangramSubsets), function(tangram) {
+        return _.sample(tangramSubsets[tangram]);
+      });
+
+      var turkInfo = jsPsych.turk.turkInfo();
 
       var preview = {
         type: 'instructions',
@@ -113,20 +116,40 @@
       });
 
       /* define instructions trial */
-        timeline.push({
-          timeline: [{
-    	    type: "html-button-response",
-            stimulus: function() {
-              console.log(jsPsych.timelineVariable('description'))
-              return "<h1> " + jsPsych.timelineVariable('description', true) + " </h1>"
-            },
-            choices: [
-              '<img width="100px" src="images/tangram_A.png"></img>',
-              '<img width="100px" src="images/tangram_B.png"></img>',
-              '<img width="100px" src="images/tangram_C.png"></img>',
-              '<img width="100px" src="images/tangram_D.png"></img>'
-            ]
-          }],
+      timeline.push({
+        timeline: [{
+    	  type: "html-button-response",
+          stimulus: function() {
+            return "<h3> " + jsPsych.timelineVariable('origText', true) + " </h3>"
+          },
+          choices: function() {
+            if(_.includes(['A', 'B', 'C', 'D'], jsPsych.timelineVariable('tangram', true))) {
+              return _.shuffle([
+                '<img width="100px" src="images/tangram_A.png"></img>',
+                '<img width="100px" src="images/tangram_B.png"></img>',
+                '<img width="100px" src="images/tangram_C.png"></img>',
+                '<img width="100px" src="images/tangram_D.png"></img>'
+              ])
+            } else {
+              return _.shuffle([
+                '<img width="100px" src="images/tangram_E.png"></img>',
+                '<img width="100px" src="images/tangram_F.png"></img>',
+                '<img width="100px" src="images/tangram_G.png"></img>',
+                '<img width="100px" src="images/tangram_H.png"></img>'
+              ])
+            }
+          },
+          data: function() {
+            return {
+              'gameId' : jsPsych.timelineVariable('gameId', true),
+              'playerId' : jsPsych.timelineVariable('playerId', true),
+              'tangram' : jsPsych.timelineVariable('tangram', true),
+              'uttLengthWords' : jsPsych.timelineVariable('utt_length_words', true),
+              'targetAudience' : jsPsych.timelineVariable('ownGroup', true),
+              'origText' : jsPsych.timelineVariable('origText', true)
+            }
+          }
+        }],
         timeline_variables: descriptionSet,
         randomize_order: true,
         repetitions: 1
@@ -177,20 +200,21 @@
       jsPsych.init({
         timeline: timeline,
       	show_progress_bar: true,
+        auto_update_progress_bar: false,
       	on_finish: function() {
           jsPsych.data.displayData();
         },
         on_trial_finish: function(trialData) {
+          jsPsych.setProgressBar(trialData.trial_index / 11);
       	  var packet = _.extend({}, trialData, {
       	    dbname: 'code-switching',
       	    colname: 'comprehension',
       	    wID: turkInfo.workerId,
       	    aID: turkInfo.assignmentId,
       	    hitID: turkInfo.hitId,
-      	    iterationName: iterationName,
-      	    wordSetID: wordSetID
+      	    iterationName: iterationName
       	  })
-          console.log(trialData)
+          console.log(packet);
           socket.emit('currentData', packet);
         }
 

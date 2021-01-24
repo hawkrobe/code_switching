@@ -154,11 +154,17 @@ jsPsych.plugins["html-button-response"] = (function() {
       // kill any remaining setTimeout handlers
       jsPsych.pluginAPI.clearAllTimeouts();
 
+      var cleanedResponse = trial.choices[_.toInteger(response.button)]
+          .replace('<img width="100px" src="images/tangram_', '')
+          .replace('.png"></img>', '');
+
       // gather the data to store for the trial
       var trial_data = {
         "rt": response.rt,
         "stimulus": trial.stimulus,
-        "button_pressed": response.button
+        "button_pressed": response.button,
+        "choices" : trial.choices,
+        "response" : cleanedResponse
       };
 
       // clear the display
