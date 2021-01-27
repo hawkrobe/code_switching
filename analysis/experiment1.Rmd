@@ -100,6 +100,31 @@ talked <- d.chat %>%
   pull(gameId)
 ```
 
+```{r}
+post_test.raw <- read_csv(here('data/player-inputs.csv')) %>%
+  filter(gameId %in% talked) %>%
+  filter(playerId %in% correct_community_response) %>%
+  group_by(playerId) %>%
+  mutate(blockOrder = ifelse(row_number() <= 4, 'first', 'second')) %>%
+  rename_with(~ gsub("data.", "", .x, fixed = TRUE)) %>%
+  mutate(origText = gsub("\\n", '', fixed = T, text),
+         text = gsub("[/?/.]", ' ', origText),
+         text = str_squish(text),
+         utt_length_chars = str_length(text), 
+         utt_length_words = str_count(text, "\\W+") + 1,
+         ownGroup = ifelse(ownGroup == group, 'ownGroup', 'otherGroup')) %>%
+  filter(!is.na(text))
+
+full_post_test <- post_test.raw %>%
+  group_by(gameId) %>% 
+  tally() %>%
+  filter(n == 32) %>%
+  pull(gameId)
+
+cat('we have', length(full_post_test), 'networks where all 4 participants gave post-test responses.\n')
+cat("that's", length(unique(post_test.raw$playerId)), 'individual participants')
+```
+
 # Behavioral results during game 
 
 accuracy over time.
@@ -123,6 +148,16 @@ d.room_info %>%
 Utterance length over time.
 
 ```{r}
+dodge <- position_dodge(width = 0.5)
+
+final_block <- post_test.raw %>%
+  group_by(blockOrder, ownGroup) %>%
+  tidyboot_mean(utt_length_words) %>%
+  mutate(partnerNum = 3,
+         repNum = ifelse(blockOrder == 'first', 0, 1)) %>%
+  ungroup() %>%
+  select(-blockOrder)
+
 d.chat %>%
   filter(gameId %in% talked) %>%
   filter(role == 'speaker') %>%
@@ -135,154 +170,77 @@ d.chat %>%
   summarize(total_num_words = sum(utt_length_words),
             total_num_chars = sum(utt_length_chars)) %>%
   group_by(partnerNum, repNum) %>%
- tidyboot_mean(total_num_words) %>%
-  ggplot(aes(x = repNum, y = empirical_stat)) +
-    geom_line() +
-    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0) +
+  tidyboot_mean(total_num_words) %>%
+  bind_rows(final_block) %>%
+  ggplot(aes(x = repNum + 1, y = empirical_stat, group = ownGroup, color = ownGroup)) +
+    geom_line(position = dodge) +
+    geom_point(position = dodge) +
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0, position = dodge) +
     facet_grid(. ~ partnerNum) +
-    theme_few()
-```
+    theme_few() +
+    theme(aspect.ratio = 2)
 
-```{r}
-post_test.raw <- read_csv(here('data/player-inputs.csv')) %>%
-  filter(gameId %in% talked) %>%
-  filter(playerId %in% correct_community_response) %>%
-  group_by(playerId) %>%
-  mutate(blockOrder = ifelse(row_number() <= 4, 'first', 'second')) %>%
-  rename_with(~ gsub("data.", "", .x, fixed = TRUE)) %>%
-  mutate(origText = gsub("\\n", '', fixed = T, text),
-         origText = str_squish(origText),
-         text = gsub("[/?/.]", ' ', origText),
-         utt_length_chars = str_length(text), 
-         utt_length_words = str_count(text, "\\W+") + 1,
-         ownGroup = ifelse(ownGroup == group, 'ownGroup', 'otherGroup')) %>%
-  filter(!is.na(text))
-
-full_post_test <- post_test.raw %>%
-  group_by(gameId) %>% 
-  tally() %>%
-  filter(n == 32) %>%
-  pull(gameId)
-
-cat('we have', length(full_post_test), 'networks where all 4 participants gave post-test responses.\n')
-cat("that's", length(unique(post_test.raw$playerId)), 'individual participants')
+ggsave('../writing/speaker_curves.pdf', units = 'in', height = 3, width = 6)
 ```
 
 ```{r}
 post_test <- post_test.raw %>%
   filter(gameId %in% full_post_test) %>%
-  select(gameId, playerId, tangram, utt_length_words, ownGroup) %>%
+  select(gameId, playerId, tangram, utt_length_words, ownGroup, blockOrder) %>%
   spread(ownGroup, utt_length_words) %>%
   mutate(diff = log(otherGroup / ownGroup)) %>%
   left_join(post_test.raw %>% 
-              unite(condition, ownGroup, blockOrder) %>% 
-              group_by(playerId, tangram) %>% 
-              summarize(condition = first(condition)))
+      unite(condition, ownGroup, blockOrder) %>% 
+      group_by(playerId, tangram) %>% 
+      summarize(condition = first(condition)))
+```
 
-total_avg <- post_test %>%
-  select(-diff) %>%
+## description length longer for out-group
+
+```{r}
+post_test %>%
   gather(ownGroup, utt_length_words, otherGroup, ownGroup) %>%
-  group_by(ownGroup) %>%
-  tidyboot::tidyboot_mean(utt_length_words, nboot = 100) %>%
-  select(-n, -mean) %>%
-  pivot_wider(names_from = ownGroup, values_from = c('empirical_stat', 'ci_lower', 'ci_upper')) 
-
-post_test %>%
-  ggplot(aes(x = log(ownGroup), y = log(otherGroup), color = ownGroup > otherGroup)) +
-    geom_point(position = position_jitter(width = 0.1, height = 0.1)) +
-    geom_abline(aes(intercept = 0, slope = 1), linetype = 'dotted') +
-    facet_wrap(~ condition) +
-    ggthemes::theme_few() +
-    ylim(0, 3.5) +
-    xlim(0, 3.5) +
-    labs(x = 'log # words for own group', y = 'log # words for other group') +
-    theme(aspect.ratio = 1)
-```
-Try to visualize central tendencies.
-
-```{r}
-error_bars <- post_test %>%
-  group_by(ownGroup) %>%
-  tidyboot::tidyboot_mean(utt_length_words, nboot = 100) %>%
-  mutate(goingUp = TRUE)
-
-post_test %>%
-  mutate(goingUp = otherGroup > ownGroup) %>%
-  gather(ownGroup, m, otherGroup, ownGroup) %>%
-  ggplot(aes(x = ownGroup, y = log(m), color = goingUp)) +
-    geom_line(aes(group = interaction(playerId, tangram)), alpha = 0.1) +
-    geom_point(aes(x = ownGroup, y = log(empirical_stat)), 
-               size = 5, data = error_bars) +
-    geom_errorbar(aes(ymin = log(ci_lower), ymax = log(ci_upper), 
-                      x = ownGroup, y = log(empirical_stat)), 
-                  width = 0,
-                  data = error_bars) +
-    facet_wrap(~ condition) +
-    geom_line(aes(x = ownGroup, group = 1, y = log(empirical_stat)), size= 2,data = error_bars) +
-    theme_bw() +
-    labs(x = '', y = 'log # words') +
-    theme(aspect.ratio = 1)
-```
-
-raincloud plot...
-
-```{r}
-summary.df <- d.diffs %>%
-  group_by(playerId, condition) %>%
-  # z score
-  mutate(log_length = scale(log(utt_length_words))) %>%
-  group_by(condition) %>%
-  tidyboot_mean(log_length)
-
-post_test %>%
   group_by(playerId) %>%
   # z score
   mutate(log_length = scale(log(utt_length_words))) %>%
   ggplot(aes(x = blockOrder, y = log_length, color = ownGroup)) +
-    geom_point(position = position_jitter(width = .2, height = 0.05), size = .1, alpha = 0.2) +
+    geom_point(position = position_jitter(width = .2, height = 0.05), 
+               size = .1, alpha = 0.1) +
     geom_boxplot(aes(x = blockOrder, color = ownGroup, y = log_length),
-                 outlier.shape = NA, alpha = 0.5, width = .5) +
+                 outlier.shape = NA, alpha = 0.5, width = .6) +
     geom_hline(yintercept = 0, linetype = 'dotted') +
     theme_few() +
     scale_x_discrete(labels=c("first"="other -> own",
-                            "second"="own -> other")) +
+                              "second"="own -> other")) +
     labs(x = '', y = 'log # words (z scored)') +
-    theme(aspect.ratio = 3, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
-```
-distribution of diffs...
+    theme(aspect.ratio = 2, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
 
-```{r}
-summary.df <- d.diffs %>%
-  group_by(playerId, condition) %>%
-  summarize(diff = mean(diff)) %>%
-  group_by(condition) %>%
-  tidyboot_mean(diff)
-
-d.diffs %>%
-  ggplot(aes(x = condition, y = diff)) +
-    geom_point(position = position_jitter(width = .2, height = 1), size = .05, alpha = 0.15) +
-    geom_point(aes(y = empirical_stat), data = summary.df) +
-    geom_errorbar(aes(y = empirical_stat, ymin = ci_lower, ymax = ci_upper),
-                  data = summary.df, width = 0) +
-  geom_hline(yintercept = 0, linetype = 'dotted') +
-    theme_few() +
-    scale_x_discrete(labels=c("otherGroup_first"="other -> own",
-                              "ownGroup_first"="own -> other")) +
-    labs(x = '', y = '# words for other vs. own (log ratio)') +
-    theme(aspect.ratio = 3, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
+ggsave('../writing/utt_length.pdf', units = 'in', height = 3, width = 5)
 ```
 
 maximal lmer model that converges (we get boundary warning but can ignore)
 
 ```{r}
-post_test.raw %>%
+regular.mod <- post_test.raw %>%
   filter(gameId %in% full_post_test) %>%
   lmer(log(utt_length_words) ~ ownGroup + blockOrder
                                + (1 + ownGroup + blockOrder | playerId)
                                + (1 | gameId)
                                + (1 | tangram),
-       data = .) %>%
-  summary()
+       data = .)
+
+summary(regular.mod)
+```
+
+```{r}
+interaction.mod <- post_test.raw %>%
+  filter(gameId %in% full_post_test) %>%
+  lmer(log(utt_length_words) ~ ownGroup * blockOrder
+                               + (1 + ownGroup * blockOrder | playerId)
+                               + (1 | gameId)
+                               + (1 | tangram),
+       data = .)
+anova(regular.mod, interaction.mod)
 ```
 
 check boundary warning against full-blown brms model
@@ -436,6 +394,79 @@ time_outs %>%
     theme_few()
 ```
 
+## Look at individual differences
+
+```{r}
+total_avg <- post_test %>%
+  select(-diff) %>%
+  gather(ownGroup, utt_length_words, otherGroup, ownGroup) %>%
+  group_by(ownGroup) %>%
+  tidyboot::tidyboot_mean(utt_length_words, nboot = 100) %>%
+  select(-n, -mean) %>%
+  pivot_wider(names_from = ownGroup, values_from = c('empirical_stat', 'ci_lower', 'ci_upper')) 
+
+post_test %>%
+  ggplot(aes(x = log(ownGroup), y = log(otherGroup), color = ownGroup > otherGroup)) +
+    geom_point(position = position_jitter(width = 0.1, height = 0.1)) +
+    geom_abline(aes(intercept = 0, slope = 1), linetype = 'dotted') +
+    facet_wrap(~ condition) +
+    ggthemes::theme_few() +
+    ylim(0, 3.5) +
+    xlim(0, 3.5) +
+    labs(x = 'log # words for own group', y = 'log # words for other group') +
+    theme(aspect.ratio = 1)
+```
+
+## Try to visualize participants as lines?
+
+```{r}
+error_bars <- post_test %>%
+  group_by(ownGroup) %>%
+  tidyboot::tidyboot_mean(utt_length_words, nboot = 100) %>%
+  mutate(goingUp = TRUE)
+
+post_test %>%
+  mutate(goingUp = otherGroup > ownGroup) %>%
+  gather(ownGroup, m, otherGroup, ownGroup) %>%
+  ggplot(aes(x = ownGroup, y = log(m), color = goingUp)) +
+    geom_line(aes(group = interaction(playerId, tangram)), alpha = 0.1) +
+    geom_point(aes(x = ownGroup, y = log(empirical_stat)), 
+               size = 5, data = error_bars) +
+    geom_errorbar(aes(ymin = log(ci_lower), ymax = log(ci_upper), 
+                      x = ownGroup, y = log(empirical_stat)), 
+                  width = 0,
+                  data = error_bars) +
+    facet_wrap(~ condition) +
+    geom_line(aes(x = ownGroup, group = 1, y = log(empirical_stat)), size= 2,data = error_bars) +
+    theme_bw() +
+    labs(x = '', y = 'log # words') +
+    theme(aspect.ratio = 1)
+```
+
+# Vizualize the distribution of diffs in utterance length within participant
+
+```{r}
+summary.df <- post_test %>%
+  group_by(playerId, condition) %>%
+  summarize(diff = mean(diff)) %>%
+  group_by(condition) %>%
+  tidyboot_mean(diff)
+
+post_test %>%
+  ggplot(aes(x = condition, y = diff)) +
+    geom_point(position = position_jitter(width = .2, height = 1), size = .05, alpha = 0.15) +
+    geom_point(aes(y = empirical_stat), data = summary.df) +
+    geom_errorbar(aes(y = empirical_stat, ymin = ci_lower, ymax = ci_upper),
+                  data = summary.df, width = 0) +
+  geom_hline(yintercept = 0, linetype = 'dotted') +
+    theme_few() +
+    scale_x_discrete(labels=c("otherGroup_first"="other -> own",
+                              "ownGroup_first"="own -> other")) +
+    labs(x = '', y = '# words for other vs. own (log ratio)') +
+    theme(aspect.ratio = 3, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
+```
+
+
 ## Look at specific cases where people provided shorter description to other group
 
 * playerId 2iWCDAdpFvRCNSrEM gave informative descriptions to own community and then just 'those are squares and diamonds' to other group
@@ -454,6 +485,7 @@ post_test %>%
 ```{r}
 post_test.raw %>%
   filter(gameId %in% full_post_test) %>%
-  select(gameId, playerId, tangram, utt_length_words, ownGroup, text) %>%
-  write_json(here('data/comprehension/post_test_utterances.json'))
+  unite(condition, ownGroup, blockOrder, remove = F) %>%
+  select(gameId, playerId, tangram, utt_length_words, ownGroup, blockOrder, condition, origText) %>%
+  write_csv(here('data/comprehension/post_test_utterances.csv'))
 ```
