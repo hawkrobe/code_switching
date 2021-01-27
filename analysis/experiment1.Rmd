@@ -20,7 +20,7 @@ source('helpers.R')
 d.games <- read_csv(here('data/games.csv')) %>% 
   rename(gameId = `_id`)
 
-d.chat <- read_csv(here('data/rounds.csv')) %>%
+d.chat.raw <- read_csv(here('data/rounds.csv')) %>%
   filter(createdAt >= lubridate::ymd('2021-01-21')) %>%
   mutate(data.chat = ifelse(is.na(data.chat), '{}', data.chat)) %>%
   rename(row_id = `_id`) %>%
@@ -74,7 +74,7 @@ roles.tmp <- d.games %>%
          repNum = floor(trialNum/4) %% 4) %>%
   select(-n)
 
-roles <- d.chat %>%
+roles <- d.chat.raw %>%
   ungroup() %>%
   mutate(row_id = row_number()) %>%
   group_by(gameId, partnerNum, roomId, trialNum, repNum) %>%
@@ -90,7 +90,7 @@ roles <- d.chat %>%
 Some games had a number of rounds go by where no one talked (one possible upstream reason for timeouts...)
 
 ```{r}
-talked <- d.chat %>%
+talked <- d.chat.raw %>%
   filter(!is.na(text)) %>%
   group_by(gameId, trialNum, roomId, partnerNum) %>%
   tally() %>%
@@ -98,6 +98,22 @@ talked <- d.chat %>%
   tally() %>%
   filter(n >= 90) %>%
   pull(gameId)
+
+d.chat <- d.chat.raw %>%
+  filter(gameId %in% talked) %>%
+  filter(role == 'speaker') %>%
+  mutate(text = gsub("\\n", '', fixed = T, text),
+         text = gsub("[/?/.]", ' ', text),
+         text = str_squish(text),
+         tangram = gsub('/experiment/tangram_', '', target, fixed=TRUE),
+         tangram = gsub('.png', '', tangram, fixed=TRUE),
+         utt_length_chars = str_length(text), 
+         utt_length_words = str_count(text, "\\W+") + 1) %>%
+  group_by(gameId, trialNum, partnerNum, repNum, roomId, tangram) %>%
+  summarize(text = paste0(text, collapse = ', '),
+            total_num_words = sum(utt_length_words),
+            total_num_chars = sum(utt_length_chars)) %>%
+  left_join(roles)
 ```
 
 ```{r}
@@ -107,9 +123,11 @@ post_test.raw <- read_csv(here('data/player-inputs.csv')) %>%
   group_by(playerId) %>%
   mutate(blockOrder = ifelse(row_number() <= 4, 'first', 'second')) %>%
   rename_with(~ gsub("data.", "", .x, fixed = TRUE)) %>%
-  mutate(origText = gsub("\\n", '', fixed = T, text),
+  mutate(origText = gsub("\\n", '', text, fixed = T),
          text = gsub("[/?/.]", ' ', origText),
          text = str_squish(text),
+         tangram = gsub('/experiment/tangram_', '', tangram, fixed=TRUE),
+         tangram = gsub('.png', '', tangram, fixed=TRUE),
          utt_length_chars = str_length(text), 
          utt_length_words = str_count(text, "\\W+") + 1,
          ownGroup = ifelse(ownGroup == group, 'ownGroup', 'otherGroup')) %>%
@@ -120,12 +138,29 @@ full_post_test <- post_test.raw %>%
   tally() %>%
   filter(n == 32) %>%
   pull(gameId)
+```
 
-cat('we have', length(full_post_test), 'networks where all 4 participants gave post-test responses.\n')
-cat("that's", length(unique(post_test.raw$playerId)), 'individual participants')
+Write out for easy access in python
+
+```{r}
+post_test.raw %>%
+  select(gameId, playerId, tangram, text, ownGroup, blockOrder, utt_length_words) %>%
+  write_csv('../data/cleaned_post_test.csv')
+
+d.chat %>%
+  write_csv('../data/cleaned_messages.csv')
 ```
 
 # Behavioral results during game 
+
+What's our sample size?
+
+```{r}
+cat('we have', length(full_post_test),
+    'networks where all 4 participants gave post-test responses.\n')
+cat("that's", length(unique(post_test.raw$playerId)), 
+    'individual participants')
+```
 
 accuracy over time.
 
@@ -159,16 +194,6 @@ final_block <- post_test.raw %>%
   select(-blockOrder)
 
 d.chat %>%
-  filter(gameId %in% talked) %>%
-  filter(role == 'speaker') %>%
-  mutate(text = gsub("\\n", '', fixed = T, text),
-         text = gsub("[/?/.]", ' ', text),
-         text = str_squish(text),
-         utt_length_chars = str_length(text), 
-         utt_length_words = str_count(text, "\\W+") + 1) %>%
-  group_by(gameId, trialNum, partnerNum, repNum, roomId) %>%
-  summarize(total_num_words = sum(utt_length_words),
-            total_num_chars = sum(utt_length_chars)) %>%
   group_by(partnerNum, repNum) %>%
   tidyboot_mean(total_num_words) %>%
   bind_rows(final_block) %>%
@@ -223,13 +248,23 @@ maximal lmer model that converges (we get boundary warning but can ignore)
 ```{r}
 regular.mod <- post_test.raw %>%
   filter(gameId %in% full_post_test) %>%
-  lmer(log(utt_length_words) ~ ownGroup + blockOrder
+  lmer(utt_length_words ~ ownGroup + blockOrder
                                + (1 + ownGroup + blockOrder | playerId)
                                + (1 | gameId)
                                + (1 | tangram),
        data = .)
 
 summary(regular.mod)
+
+post_test.raw %>%
+  group_by(blockOrder, ownGroup) %>%
+  tidyboot_mean(utt_length_words)
+```
+
+```{r}
+emm1 = emmeans::emmeans(regular.mod, specs = pairwise ~ ownGroup + blockOrder,
+                        type = "response", lmer.df = "satterthwaite")
+plot(ggeffects::ggpredict(regular.mod, c("ownGroup", "blockOrder")))
 ```
 
 ```{r}
