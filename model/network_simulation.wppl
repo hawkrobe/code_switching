@@ -1,0 +1,204 @@
+// run using, e.g.:
+// webppl partnerspecificity.wppl --require ./refModule/ --require webppl-csv
+var numUtterances = 4;
+var numStates = 2;
+var lexDims = [numUtterances, numStates];
+var primitiveUtterances = map(function(i) {return 'word' + i;}, _.range(1, numUtterances+1));
+var states = map(function(i) {return 'object' + i;}, _.range(1, numStates+1));
+
+var params = {
+  alpha : argv.alpha,
+  costWeight: argv.costWeight,
+  model: argv.model,
+  context: ['object1', 'object2'],
+  primitiveUtterances: primitiveUtterances,
+  states : states,
+  utterances : (['word1_word2', 'word3_word4'])
+    .concat(primitiveUtterances)
+};
+
+console.log(params);
+var tensorSoftplus = function(x) {
+  return T.log(T.add(T.exp(x), 1));
+};
+
+var partnerGuide = function(paramName) {
+  return function() {
+    return DiagCovGaussian({
+      mu: param({name: 'mu' + paramName, dims: lexDims, init: function(dims) {
+        return T.mul(Tensor(lexDims, [1, -1, 1, -1, -1, 1, -1, 1]), .25);
+      }}),
+      sigma: tensorSoftplus(param({name: 'sigma' + paramName, dims: lexDims}))
+    });
+  };
+};
+
+var getPrior = function(mu) {
+  return DiagCovGaussian({mu: mu, sigma: T.mul(ones(lexDims), 1)});
+};
+
+var sampleLexicon = function(agentID, partner) {
+  var prior = getPrior(T.mul(Tensor(lexDims, [1, -1, 1, -1, -1, 1, -1, 1]), .25));
+  if(params.model == 'no_pooling') {
+    return sample(prior, {guide: partnerGuide(partner.id)});
+  } else {
+    var populationLevel = sample(prior, {guide: partnerGuide('hyper-' + agentID)});
+    if(params.model == 'complete_pooling') {
+      return populationLevel;
+    } else if(params.model == 'hierarchical') {
+      return sample(getPrior(populationLevel), {guide: partnerGuide(agentID + '-' + partner.id)});
+    } else if(params.model == 'community') {
+      var communityLevel = sample(getPrior(populationLevel), {guide: partnerGuide(agentID + '-' + partner.group)});
+      return sample(getPrior(communityLevel), {guide: partnerGuide(agentID + '-' + partner.id)});
+    }
+  }
+};
+
+// literal listener (using real-valued lexicon)
+var S = function(state, agentID, partner) {
+  return Infer({method: "enumerate"}, function() {
+    var utt = uniformDraw(params.utterances);
+    var utility = expectation(Infer({method:"forward", samples: 50000, guide:true}, function(){
+      var lexicon = sampleLexicon(agentID, partner);
+      return (params.alpha * refModule.getListenerScore(state, utt, extend(params, {lexicon: lexicon}))
+              - params.costWeight * utt.split('_').length);
+    }));
+    display(utt);
+    display(utility);
+    factor(utility);
+    return utt;
+  });
+};
+
+var L = function(utt, agentID, partner) {
+  return Infer({method: "enumerate"}, function() {
+    var state = uniformDraw(params.states);
+    var utility = expectation(Infer({method:"forward", samples: 50000, guide:true}, function(){
+      var lexicon = sampleLexicon(agentID, partner);
+      return Math.exp(refModule.getListenerScore(state, utt, extend(params, {lexicon: lexicon})));
+    }));
+    display(state);
+    display(utility);
+    factor(Math.log(utility));
+    return state;
+  });
+};
+
+var update = function(role, agentID, dataSoFar) {
+  Optimize({
+    steps: 5000, verbose: false, optMethod: {adam: {stepSize: 0.001}},
+    model: function() {
+      var lexica = {
+        1 : sampleLexicon(agentID, {id: 1, group: 'red'}),
+	2 : sampleLexicon(agentID, {id: 2, group: 'red'}),
+	3 : sampleLexicon(agentID, {id: 3, group: 'red'}),
+	4 : sampleLexicon(agentID, {id: 4, group: 'red'}),
+	5 : sampleLexicon(agentID, {id: 5, group: 'blue'}),                 
+      };
+      mapData({data: dataSoFar}, function(trial) {
+	var i = trial.partner.id;
+	var lex = lexica[i];
+        var score = (
+          role == 'speaker' ?
+            refModule.getListenerScore(trial.target, trial.wordID, extend(params, {lexicon: lex})) :
+            refModule.getSpeakerScore(trial.wordID, trial.clickedName, extend(params, {lexicon: lex}))
+        );
+        factor(score);
+      });
+    }
+  });
+};
+
+// for each point in data, we want the model's predictions 
+var iterate = function(outputFile, remainingTrials, dataSoFar) {
+  var currTrial = first(remainingTrials);
+  
+  // run VI on current data
+  if(!_.isEmpty(dataSoFar[currTrial.speakerID])) {
+    update('speaker', currTrial.speakerID, dataSoFar[currTrial.speakerID]);
+    update('listener', currTrial.listenerID, dataSoFar[currTrial.listenerID]);
+  } 
+  
+  // get marginal prediction of next data point over lexicon posterior
+  var speakerOutput = S(currTrial.target, currTrial.speakerID, currTrial.partner);
+  var hypotheticalPartnerOutput = S(currTrial.target, currTrial.listenerID, currTrial.partner);  
+  var nextUtt = sample(speakerOutput);
+  var listenerOutput = L(nextUtt, currTrial.listenerID, currTrial.partner);
+  var nextChoice = sample(listenerOutput);
+  
+  console.log('chosen utt for partner ' + currTrial.partner.id + ' is: ' + nextUtt);
+  console.log('chosen object for partner ' + currTrial.partner.id + ' is: ' + nextChoice);  
+  csv.writeLine([argv.model, argv.chainNum, params.alpha, params.costWeight, currTrial.t,
+                 currTrial.speakerID, currTrial.listenerID, currTrial.partner.id,
+                 nextUtt, speakerOutput.score('word1_word2'),
+                 speakerOutput.score('word1'), hypotheticalPartnerOutput.score('word1'),
+                 nextChoice, listenerOutput.score('object1')].join(','), outputFile);
+
+  var trialPacket = {
+    partner: currTrial.partner,
+    target: currTrial.target,
+    t: currTrial.t,
+    wordID: nextUtt,
+    clickedName: nextChoice
+  };
+
+  var newDataSoFar = _.zipObject(_.range(1, 5), map(function(id) {
+    if(id == currTrial.speakerID || id == currTrial.listenerID) {
+      return dataSoFar[id].concat(trialPacket);
+    } else {
+      return dataSoFar[id];
+    }
+  }, _.range(1, 5)));
+
+  if(!_.isEmpty(rest(remainingTrials))) {
+    iterate(outputFile, rest(remainingTrials), newDataSoFar);
+  }
+};
+
+var trials = [
+  {t: 1, speakerID: 1, listenerID: 2, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 2, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 3, speakerID: 1, listenerID: 2, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 4, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 1, speakerID: 3, listenerID: 4, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 2, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 3, speakerID: 3, listenerID: 4, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 4, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 5, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 6, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 7, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 8, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 5, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 6, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 7, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 8, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 9,  speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 10, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 11, speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 12, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 9,  speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 10, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 11, speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 12, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object1'}
+];
+
+var f = csv.open('./output/networkOutput' + argv.model + argv.chainNum + '.csv');
+csv.writeLine('model,chainNum,alpha,costWeight,time,speakerID,listenerID,partnerID,utt,longUttScore,word1Score,objectPicked,object1Score',f);
+iterate(f, trials, {1: [], 2: [], 3: [], 4: []});
+csv.close(f);
+
+// own-group post-test
+// csv.writeJoint(S('object1', 1, {id: 4, group: 'red'}),
+var ownFile = csv.open('./output/network_PostTest' + argv.model + argv.chainNum + '.csv');
+csv.writeLine('model,speakerID,intendedAudience,chainNum,alpha,costWeight,word1word2_score,word1_score,word2_score', ownFile);
+map(function(id) {
+  var ownS = S('object1', id, {id: 4, group: 'red'});
+  var otherS = S('object1', id, {id: 5, group: 'blue'});
+  csv.writeLine([argv.model, id, 'own', argv.chainNum, params.alpha, params.costWeight, 
+                 Math.exp(ownS.score('word1_word2')), Math.exp(ownS.score('word1')), Math.exp(ownS.score('word2'))].join(','), ownFile);
+  csv.writeLine([argv.model, id, 'other', argv.chainNum, params.alpha, params.costWeight, 
+                 Math.exp(otherS.score('word1_word2')), Math.exp(otherS.score('word1')), Math.exp(otherS.score('word2'))].join(','), ownFile);
+}, [1,2,3,4]);
+''
+// console.log(JSON.stringify();
+// console.log(JSON.stringify(S('object1', 1, {id: 5, group: 'blue'})));
