@@ -17,7 +17,6 @@ var params = {
     .concat(primitiveUtterances)
 };
 
-console.log(params);
 var tensorSoftplus = function(x) {
   return T.log(T.add(T.exp(x), 1));
 };
@@ -58,13 +57,11 @@ var sampleLexicon = function(agentID, partner) {
 var S = function(state, agentID, partner) {
   return Infer({method: "enumerate"}, function() {
     var utt = uniformDraw(params.utterances);
-    var utility = expectation(Infer({method:"forward", samples: 10000, guide:true}, function(){
+    var utility = expectation(Infer({method:"forward", samples: 5000, guide:true}, function(){
       var lexicon = sampleLexicon(agentID, partner);
       return (params.alpha * refModule.getListenerScore(state, utt, extend(params, {lexicon: lexicon}))
               - params.costWeight * utt.split('_').length);
     }));
-    display(utt);
-    display(utility);
     factor(utility);
     return utt;
   });
@@ -73,12 +70,10 @@ var S = function(state, agentID, partner) {
 var L = function(utt, agentID, partner) {
   return Infer({method: "enumerate"}, function() {
     var state = uniformDraw(params.states);
-    var utility = expectation(Infer({method:"forward", samples: 10000, guide:true}, function(){
+    var utility = expectation(Infer({method:"forward", samples: 5000, guide:true}, function(){
       var lexicon = sampleLexicon(agentID, partner);
       return Math.exp(refModule.getListenerScore(state, utt, extend(params, {lexicon: lexicon})));
     }));
-    display(state);
-    display(utility);
     factor(Math.log(utility));
     return state;
   });
@@ -126,8 +121,6 @@ var iterate = function(outputFile, remainingTrials, dataSoFar) {
   var listenerOutput = L(nextUtt, currTrial.listenerID, currTrial.partner);
   var nextChoice = sample(listenerOutput);
   
-  console.log('chosen utt for partner ' + currTrial.partner.id + ' is: ' + nextUtt);
-  console.log('chosen object for partner ' + currTrial.partner.id + ' is: ' + nextChoice);  
   csv.writeLine([argv.model, argv.chainNum, params.alpha, params.costWeight, currTrial.t,
                  currTrial.speakerID, currTrial.listenerID, currTrial.partner.id,
                  nextUtt, speakerOutput.score('word1_word2'),
@@ -157,29 +150,58 @@ var iterate = function(outputFile, remainingTrials, dataSoFar) {
 
 var trials = [
   {t: 1, speakerID: 1, listenerID: 2, partner: {id: 1, group: 'red'}, target: 'object1'},
-  {t: 2, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 2, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object2'},
   {t: 3, speakerID: 1, listenerID: 2, partner: {id: 1, group: 'red'}, target: 'object1'},
-  {t: 4, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 4, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object2'},
+  {t: 5, speakerID: 1, listenerID: 2, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 6, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object2'},
+  {t: 7, speakerID: 1, listenerID: 2, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 8, speakerID: 2, listenerID: 1, partner: {id: 1, group: 'red'}, target: 'object2'},
+
   {t: 1, speakerID: 3, listenerID: 4, partner: {id: 1, group: 'red'}, target: 'object1'},
-  {t: 2, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 2, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object2'},
   {t: 3, speakerID: 3, listenerID: 4, partner: {id: 1, group: 'red'}, target: 'object1'},
-  {t: 4, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object1'},
-  {t: 5, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 6, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 7, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 8, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 5, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 6, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 7, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 8, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object1'},
-  {t: 9,  speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
-  {t: 10, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object1'},
-  {t: 11, speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
-  {t: 12, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object1'},
-  {t: 9,  speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
-  {t: 10, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object1'},
-  {t: 11, speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
-  {t: 12, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object1'}
+  {t: 4, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object2'},
+  {t: 5, speakerID: 3, listenerID: 4, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 6, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object2'},
+  {t: 7, speakerID: 3, listenerID: 4, partner: {id: 1, group: 'red'}, target: 'object1'},
+  {t: 8, speakerID: 4, listenerID: 3, partner: {id: 1, group: 'red'}, target: 'object2'},  
+
+  {t: 9, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 10, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object2'},
+  {t: 11, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 12, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object2'},
+  {t: 13, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 14, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object2'},
+  {t: 15, speakerID: 1, listenerID: 3, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 16, speakerID: 3, listenerID: 1, partner: {id: 2, group: 'red'}, target: 'object2'},
+
+  {t: 9, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 10, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object2'},
+  {t: 11, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 12, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object2'},
+  {t: 13, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 14, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object2'},
+  {t: 15, speakerID: 2, listenerID: 4, partner: {id: 2, group: 'red'}, target: 'object1'},
+  {t: 16, speakerID: 4, listenerID: 2, partner: {id: 2, group: 'red'}, target: 'object2'},
+
+  {t: 17, speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 18, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object2'},
+  {t: 19, speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 20, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object2'},
+  {t: 21, speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 22, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object2'},
+  {t: 23, speakerID: 1, listenerID: 4, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 24, speakerID: 4, listenerID: 1, partner: {id: 3, group: 'red'}, target: 'object2'},
+
+  {t: 17, speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 18, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object2'},
+  {t: 19, speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 20, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object2'},
+  {t: 21, speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 22, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object2'},
+  {t: 23, speakerID: 2, listenerID: 3, partner: {id: 3, group: 'red'}, target: 'object1'},
+  {t: 24, speakerID: 3, listenerID: 2, partner: {id: 3, group: 'red'}, target: 'object2'}
 ];
 
 var f = csv.open('./output/networkOutput' + argv.model + argv.chainNum + '.csv');
