@@ -58,7 +58,7 @@ var sampleLexicon = function(agentID, partner) {
 var S = function(state, agentID, partner) {
   return Infer({method: "enumerate"}, function() {
     var utt = uniformDraw(params.utterances);
-    var utility = expectation(Infer({method:"forward", samples: 50000, guide:true}, function(){
+    var utility = expectation(Infer({method:"forward", samples: 10000, guide:true}, function(){
       var lexicon = sampleLexicon(agentID, partner);
       return (params.alpha * refModule.getListenerScore(state, utt, extend(params, {lexicon: lexicon}))
               - params.costWeight * utt.split('_').length);
@@ -73,7 +73,7 @@ var S = function(state, agentID, partner) {
 var L = function(utt, agentID, partner) {
   return Infer({method: "enumerate"}, function() {
     var state = uniformDraw(params.states);
-    var utility = expectation(Infer({method:"forward", samples: 50000, guide:true}, function(){
+    var utility = expectation(Infer({method:"forward", samples: 10000, guide:true}, function(){
       var lexicon = sampleLexicon(agentID, partner);
       return Math.exp(refModule.getListenerScore(state, utt, extend(params, {lexicon: lexicon})));
     }));
@@ -131,7 +131,7 @@ var iterate = function(outputFile, remainingTrials, dataSoFar) {
   csv.writeLine([argv.model, argv.chainNum, params.alpha, params.costWeight, currTrial.t,
                  currTrial.speakerID, currTrial.listenerID, currTrial.partner.id,
                  nextUtt, speakerOutput.score('word1_word2'),
-                 speakerOutput.score('word1'), hypotheticalPartnerOutput.score('word1'),
+                 speakerOutput.score('word1'), speakerOutput.score('word2'),
                  nextChoice, listenerOutput.score('object1')].join(','), outputFile);
 
   var trialPacket = {
@@ -183,7 +183,7 @@ var trials = [
 ];
 
 var f = csv.open('./output/networkOutput' + argv.model + argv.chainNum + '.csv');
-csv.writeLine('model,chainNum,alpha,costWeight,time,speakerID,listenerID,partnerID,utt,longUttScore,word1Score,objectPicked,object1Score',f);
+csv.writeLine('model,chainNum,alpha,costWeight,time,speakerID,listenerID,partnerID,utt,longUttScore,word1Score,word2Score,objectPicked,object1Score',f);
 iterate(f, trials, {1: [], 2: [], 3: [], 4: []});
 csv.close(f);
 
