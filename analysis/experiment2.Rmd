@@ -1,0 +1,214 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(here)
+library(tidyboot)
+library(lme4)
+library(lmerTest)
+library(ggthemes)
+```
+
+```{r}
+d.targetData <- read_csv(here('data/comprehension/post_test_utterances.csv'))
+d.comprehension.raw <- read_csv(here('data/comprehension/dataFromMongo.csv')) %>%
+  filter(iterationName != 'full_sample')
+  
+passed_catch <- d.comprehension.raw %>%
+  filter(tangram == 'catch' & trial_type == 'html-button-response') %>%
+  filter(response == 'G') %>%
+  pull(wID)
+
+complete_data <- d.comprehension.raw %>%
+  group_by(wID) %>%
+  summarize(final_trial = last(trial_index)) %>%
+  filter(final_trial >= 21) %>%
+  pull(wID)
+
+d.comprehension <- d.comprehension.raw %>%
+  filter(wID %in% passed_catch) %>%
+  filter(wID %in% complete_data) %>%
+  filter(!is.na(tangram)) %>%
+  ungroup() %>%
+  mutate(correct = response == tangram,
+         logrt = log(rt),
+         upper = mean(logrt) + 2*sd(logrt),
+         lower = mean(logrt) - 2*sd(logrt)) %>%
+  filter(logrt < upper, logrt > lower)
+```
+
+Look at how many annotations we got for each description.
+
+```{r}
+d.targetData %>%
+  mutate(tangram = substr(tangram, 21, 21)) %>%
+  rename(targetAudience = ownGroup) %>%
+  left_join(d.comprehension %>%
+    group_by(playerId, tangram, origText) %>%
+    filter(wID %in% passed_catch) %>%
+    filter(wID %in% complete_data) %>%
+    tally()) %>%
+  group_by(n) %>%
+  tally() %>%
+  ggplot(aes(x = n/2, y = nn)) +
+    geom_bar(stat = 'identity') +
+    theme_few() +
+    labs('# tangrams with annotations', '# annotations')
+```
+
+Look at response time distribution to get a sense of outliers.
+
+```{r}
+d.comprehension %>%
+  ggplot(aes(x = logrt)) +
+    geom_histogram() +
+    geom_vline(aes(xintercept = lower)) +
+    geom_vline(aes(xintercept = upper))
+```
+Implement exclusions and pre-process data frame
+
+```{r}
+d.4afc <- d.comprehension %>%
+  filter(trial_type == 'html-button-response') %>%
+  filter(tangram != 'catch') %>%
+  left_join(d.targetData, by = c('playerId', 'tangram', 'origText', 'gameId')) %>%
+  select(-targetAudience) %>%
+  rename(targetAudience = ownGroup) %>%
+  mutate(condition = case_when(
+    condition == 'ownGroup_second' ~ 'otherGroup_first', 
+    condition == 'otherGroup_second' ~ 'ownGroup_first',
+    TRUE ~ condition)
+  ) %>%
+  filter(!is.na(condition))
+```
+
+```{r}
+dodge <- position_dodge(width = 0.2)
+d.4afc %>%
+  select(playerId, tangram, condition, targetAudience, correct, logrt) %>%
+  mutate(correct = 100 * correct) %>%
+  gather(metric, value, correct, logrt) %>%
+  group_by(metric, condition, targetAudience) %>%
+  tidyboot_mean(value, na.rm = T) %>%
+  ggplot(aes(x = condition, y = empirical_stat, color = targetAudience)) +
+    geom_point(position= dodge) +
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper),
+                  width = 0, position= dodge) +
+    theme_few() +
+    # scale_x_discrete(labels=c("first"="other -> own",
+    #                           "second"="own -> other")) +
+    labs(x = '', y = '% correct') +
+    facet_wrap(~ metric, scales = 'free') +
+    theme(aspect.ratio = 1, 
+          axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
+
+ggsave('../writing/exp2_results_raw.pdf', units = 'in', height = 3, width = 4)
+```
+
+Not controlling for clustered variance, it looks like we just have a (very) weak simple effect of audience for participants where the 'other group' question was asked first.
+
+```{r}
+d.4afc %>%
+  glm(correct ~ targetAudience * condition,
+       family = 'binomial',
+       data = .) %>%
+  summary()
+```
+
+Controlling for clustered variance at the annotator level and the source speaker level, the simple effect of audience remains significant but we also get a marginal interaction.
+
+```{r}
+d.4afc %>%
+  select(gameId, wID, playerId, tangram, origText, targetAudience, condition, correct, blockOrder) %>%
+  group_by(gameId, playerId, tangram, targetAudience, condition) %>%
+  summarize(prop = mean(correct), n = length(correct)) %>%
+  glmer(prop ~ targetAudience * condition  
+        + (1 + condition | tangram)
+        + (1 + condition | gameId)
+        + (1 | playerId),
+        weights = n,
+       family = 'binomial',
+       data = .) %>%
+  summary()
+```
+
+```{r}
+d.4afc %>%
+  brms::brm(correct ~ targetAudience * condition  
+                + (1 | wID)
+                + (1 + targetAudience * condition | tangram) 
+                + (1 + targetAudience | playerId),
+       family = 'bernoulli',
+       data = .) %>%
+  summary()
+```
+
+
+```{r}
+d.4afc %>%
+  lmer(logrt ~ targetAudience * condition  
+             + (1 + targetAudience | playerId) 
+             + (1 | tangram)
+             + (1 + targetAudience + condition | wID)
+             + (1 | gameId),
+        control = lmerControl(optimizer = 'bobyqa'),
+       data = .) %>%
+  summary()
+```
+
+
+```{r}
+d.slider <- d.comprehension %>%
+  filter(wID %in% passed_catch) %>%
+  filter(!is.na(tangram)) %>%
+  filter(tangram != 'catch') %>%
+  select(wID, rt, origText, response, tangram, gameId, playerId, trial_type) %>%
+  left_join(d.targetData %>% 
+              mutate(tangram = substr(tangram, 21, 21)) %>% 
+              rename(targetAudience = ownGroup),
+            by = c('playerId', 'tangram', 'origText', 'gameId')) %>%
+  mutate(condition = case_when(
+    condition == 'ownGroup_second' ~ 'otherGroup_first', 
+    condition == 'otherGroup_second' ~ 'ownGroup_first',
+    TRUE ~ condition)
+  ) %>%
+  pivot_wider(names_from = trial_type, values_from = c('response', 'rt')) %>%
+  unnest() %>%
+  mutate(correct = `response_html-button-response` == tangram,
+         `response_html-slider-response` = as.numeric(`response_html-slider-response`))
+
+d.slider %>%
+  group_by(correct, targetAudience, condition) %>%
+  tidyboot_mean(`response_html-slider-response`) %>%
+  ggplot(aes(x = condition, y = empirical_stat, color = targetAudience)) +
+    geom_point(position = dodge) +
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), position = dodge, width = 0) +
+    facet_wrap(~ correct) +
+    theme_few()
+```
+
+```{r}
+d.cor <- d.4afc %>% 
+  group_by(gameId, playerId, tangram, targetAudience) %>% 
+  summarize(correct = mean(correct), rt = mean(rt), uttLength = mean(uttLengthWords)) %>% 
+  pivot_wider(names_from = targetAudience, values_from = c('correct', 'rt', 'uttLength')) %>% 
+  mutate(correct_diff = correct_otherGroup -correct_ownGroup,
+         rt_diff = rt_otherGroup - rt_ownGroup,
+         uttLength_diff = uttLength_otherGroup - uttLength_ownGroup) %>%
+  select(gameId, playerId, tangram, ends_with('diff'))
+  
+cor.test(d.cor$uttLength_diff, d.cor$correct_diff, use="complete.obs")
+```
+
+Plot relationship... 
+
+```{r}
+d.cor %>%
+  ggplot(aes(x = scale(uttLength_diff), y = scale(correct_diff))) +
+    geom_jitter(width = .5, height = .5) +
+    geom_smooth(method = 'lm')
+```
