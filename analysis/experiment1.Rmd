@@ -149,6 +149,14 @@ post_test.raw %>%
 
 d.chat %>%
   write_csv('../data/cleaned_messages.csv')
+
+# A special csv for input to the comprehension experiment
+post_test.raw %>%
+  filter(gameId %in% full_post_test) %>%
+  unite(condition, ownGroup, blockOrder, remove = F) %>%
+  select(gameId, playerId, tangram, utt_length_words, 
+         ownGroup, blockOrder, condition, origText) %>%
+  write_csv(here('data/comprehension/post_test_utterances.csv'))
 ```
 
 # Behavioral results during game 
@@ -203,10 +211,51 @@ d.chat %>%
     geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0, position = dodge) +
     facet_grid(. ~ partnerNum) +
     theme_few() +
-    theme(aspect.ratio = 2)
+    theme(aspect.ratio = 1, legend.position = 'none')
 
-ggsave('../writing/speaker_curves.pdf', units = 'in', height = 3, width = 6)
+ggsave('../writing/speaker_curves.pdf', units = 'in', height = 3, width = 4)
 ```
+
+```{r}
+mainEffect.reduction <- d.chat %>%  
+  lmer(log(total_num_words) ~ repNum + (1 + repNum | speaker) + (1 + repNum |tangram),
+              control = lmerControl("bobyqa"),
+              data = .)
+
+summary(mainEffect.reduction)
+```
+
+```{r}
+boundary.reduction <- d.chat %>% 
+  ungroup() %>%
+  unite("key", partnerNum, repNum) %>%
+  select(gameId, roomId, tangram, total_num_words, key) %>%
+  group_by(gameId, roomId, tangram, key) %>%
+  spread(key, total_num_words) %>% 
+  select(tangram, gameId, roomId, `0_3`, `1_0`, `1_3`, `2_0`) %>%
+  gather(jump, total_num_words, `0_3`:`2_0`) %>%
+  mutate(jump = case_when(jump == '0_3' ~ 'first_end',
+                          jump == '1_0'  ~ 'first_start',
+                          jump == '1_3' ~ 'second_end',
+                          jump == '2_0' ~ 'second_start')) %>%
+  separate(jump, into = c('jumpID', 'timepoint')) %>%
+  ungroup() %>%
+  lmer(log(total_num_words) ~ timepoint + jumpID + (1 | tangram) + (1 + timepoint | gameId) , 
+        contrasts = list(jumpID = contr.sum),
+        data = .) 
+summary(boundary.reduction)
+```
+
+```{r}
+increase.reduction <- d.chat %>%  
+  filter(repNum == 0) %>%
+  lmer(log(total_num_words) ~ partnerNum + (1 + partnerNum  | speaker) + (1|tangram),
+    data = .) 
+
+summary(increase.reduction)
+```
+
+# Post test
 
 ```{r}
 post_test <- post_test.raw %>%
@@ -249,9 +298,9 @@ maximal lmer model that converges (we get boundary warning but can ignore)
 regular.mod <- post_test.raw %>%
   filter(gameId %in% full_post_test) %>%
   lmer(utt_length_words ~ ownGroup + blockOrder
-                               + (1 + ownGroup + blockOrder | playerId)
-                               + (1 | gameId)
-                               + (1 | tangram),
+                         + (1 + ownGroup + blockOrder | playerId)
+                         + (1 | gameId)
+                         + (1 | tangram),
        data = .)
 
 summary(regular.mod)
@@ -366,31 +415,39 @@ Family Specific Parameters:
 sigma     0.45      0.01     0.43     0.47 1.00     3290     2960
 ```
 
+## Analysis of matching content
+
 ```{r}
-post_test %>%
-  ungroup() %>%
-  summarize(result = list(t.test(.$ownGroup, .$otherGroup, paired = T))) %>%
-  pull(result) 
+similarity <- read_csv(here('analysis/post_test_similarity.csv')) %>%
+  group_by(speaker, tangram, partnerNum) %>%
+  summarize(non_empty_own = max(non_empty_own), non_empty_other = max(non_empty_other)) %>%
+  gather(targetAudience, intersection, non_empty_own, non_empty_other) %>%
+  group_by(targetAudience, partnerNum) %>%
+  tidyboot_mean(intersection)
+
+similarity %>%
+  mutate(targetAudience = ifelse(targetAudience == 'non_empty_other', 'other', 'own')) %>%
+  ggplot(aes(x =factor(partnerNum + 1), y = empirical_stat, group = targetAudience, color = targetAudience)) +
+    geom_point() +
+    geom_line() +
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0) +
+    theme_few() +
+    labs(x = 'partner #', y = 'overlap b/w post-test & earlier utterances') +
+    theme(aspect.ratio = 2)
+ggsave('../writing/overlap.pdf', units = 'in', height = 3, width = 6)
 ```
 
+
 ```{r}
-qualitative.direction <- post_test %>%
-  group_by(gameId, playerId, ownGroup) %>%
-  summarize(m = mean(utt_length_words)) %>%
-  select(playerId, ownGroup, m) %>%
-  spread(ownGroup, m) %>%
-  mutate(qualitative = case_when(otherGroup > ownGroup ~ 'more',
-                                 otherGroup == ownGroup ~ 'same',
-                                 TRUE ~ 'less')) 
-
-less_informative_to_other_group <- qualitative.direction %>%
-  filter(qualitative=='less') %>%
-  pull(playerId)
-
-qualitative.direction %>%
-  group_by(qualitative) %>%
-  tally() %>%
-  mutate(prop = n / sum(n))
+read_csv(here('analysis/post_test_similarity.csv')) %>%
+  group_by(speaker, tangram, partnerNum) %>%
+  summarize(non_empty_own = max(non_empty_own), non_empty_other = max(non_empty_other)) %>%
+  gather(targetAudience, intersection, non_empty_own, non_empty_other) %>%
+  glmer(intersection ~ targetAudience * partnerNum + (1 | tangram) + (1 | speaker),
+        family = 'binomial',
+        contrasts = list(targetAudience = contr.sum(2)),
+        data = .) %>%
+  summary()
 ```
 
 # Supplemental
@@ -501,11 +558,41 @@ post_test %>%
     theme(aspect.ratio = 3, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
 ```
 
+## Paired t-test instead of lmer just for illustration
 
-## Look at specific cases where people provided shorter description to other group
+```{r}
+post_test %>%
+  ungroup() %>%
+  summarize(result = list(t.test(.$ownGroup, .$otherGroup, paired = T))) %>%
+  pull(result) 
+```
+
+## Look at individual differences in the qualitative direction of the effect
+
+```{r}
+qualitative.direction <- post_test %>%
+  group_by(gameId, playerId, ownGroup) %>%
+  summarize(m = mean(utt_length_words)) %>%
+  select(playerId, ownGroup, m) %>%
+  spread(ownGroup, m) %>%
+  mutate(qualitative = case_when(otherGroup > ownGroup ~ 'more',
+                                 otherGroup == ownGroup ~ 'same',
+                                 TRUE ~ 'less')) 
+
+less_informative_to_other_group <- qualitative.direction %>%
+  filter(qualitative=='less') %>%
+  pull(playerId)
+
+qualitative.direction %>%
+  group_by(qualitative) %>%
+  tally() %>%
+  mutate(prop = n / sum(n))
+```
+
+There are some specific cases where people provided shorter description to other group
 
 * playerId 2iWCDAdpFvRCNSrEM gave informative descriptions to own community and then just 'those are squares and diamonds' to other group
-* check possible effect of block order...
+* check possible effect of block order...?
 
 ```{r}
 post_test %>%
@@ -513,14 +600,4 @@ post_test %>%
   select(playerId, gameId, tangram, ownGroup, text) %>%
   spread(ownGroup, text) %>%
   View()
-```
-
-## Write out post-test
-
-```{r}
-post_test.raw %>%
-  filter(gameId %in% full_post_test) %>%
-  unite(condition, ownGroup, blockOrder, remove = F) %>%
-  select(gameId, playerId, tangram, utt_length_words, ownGroup, blockOrder, condition, origText) %>%
-  write_csv(here('data/comprehension/post_test_utterances.csv'))
 ```
