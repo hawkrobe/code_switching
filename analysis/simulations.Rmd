@@ -1,0 +1,43 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(jsonlite)
+library(here)
+library(lme4)
+library(lmerTest)
+library(ggthemes)
+library(tidyboot)
+```
+
+```{r}
+postTest <- read_csv('../model/output/postTest.csv') %>%
+  group_by(model, intendedAudience) %>%
+  tidyboot_mean(word1word2_score + 1) %>%
+  mutate(time = 1, partnerID = 4)
+
+trajectories <- read_csv('../model/output/trajectories.csv') %>%
+  mutate(time = (floor((time + 1) / 2) - 1) %% 4)  %>%
+  group_by(time, partnerID, model) %>%
+  mutate(uttLength = str_count(utt, '_') + 1) %>%
+  tidyboot_mean(uttLength) %>%
+  mutate(intendedAudience = 'own')
+
+postTest %>%
+  bind_rows(trajectories) %>%
+  filter(model == 'community') %>%
+  ggplot(aes(x = time + 1, y = empirical_stat, color = intendedAudience)) +
+    geom_point() +
+    geom_line() +
+    geom_errorbar(aes(ymin = ci_lower, ymax=ci_upper), width =0) +
+    facet_grid( ~ partnerID) +
+    theme_few() +
+    theme(aspect.ratio = 1, legend.position = 'none')
+
+ggsave('../writing/simulations.pdf', units = 'in', height = 3, width = 4)
+```
+
