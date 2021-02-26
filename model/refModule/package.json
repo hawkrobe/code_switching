@@ -5,8 +5,9 @@
     "wppl": []
   },
   "dependencies": {
+    "JSONStream": "*",
     "babyparse": "*",
     "lodash": "~4.17.13",
-    "JSONStream": "*"
+    "webppl-csv": "0.0.3"
   }
 }

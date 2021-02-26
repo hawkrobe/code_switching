@@ -22,9 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Edits for readability">
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Integrating with refModule, renaming file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/codeswitch.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/codeswitch.wppl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/refModule/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/model/refModule/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +102,7 @@
       <workItem from="1610146030561" duration="790000" />
       <workItem from="1610376638872" duration="18896000" />
       <workItem from="1611274364702" duration="7118000" />
-      <workItem from="1614368338205" duration="749000" />
+      <workItem from="1614368338205" duration="2608000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -257,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614368621902</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Integrating with refModule, renaming file">
+      <created>1614369172554</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1614369172554</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +308,8 @@
     <MESSAGE value="Editing comprehension experiment instructions" />
     <MESSAGE value="Creating initial simulation structure - Speaker, Listener, basic file structure" />
     <MESSAGE value="Edits for readability" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edits for readability" />
+    <MESSAGE value="Integrating with refModule, renaming file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Integrating with refModule, renaming file" />
   </component>
   <component name="WindowStateProjectService">
     <state x="59" y="191" key="EditFileWatcherDialog" timestamp="1605841285653">

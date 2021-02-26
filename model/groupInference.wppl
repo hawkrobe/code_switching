@@ -1,5 +1,5 @@
 // run using, e.g.:
-// webppl codeswitch.wppl --require ./refModule/ --require webppl-csv
+// webppl groupInference.wppl --require ./refModule/
 
 // inference of speaker choosing an utterance
 var S = function(object, posterior, params){ // posterior = beliefs
@@ -17,7 +17,7 @@ var S = function(object, posterior, params){ // posterior = beliefs
       return refModule.getListenerScore(object, utt, extend(params, {lexicon}))
     })
     var utility = ((1-params.costWeight)*inf - params.costWeight*utt.split('_').length);
-    factor(speakerAlpha * utility);
+    factor(params.speakerAlpha * utility);
     return utt;
   };
 
@@ -38,7 +38,7 @@ var L = function(utt, posterior, params){
       return refModule.getSpeakerScore(utt, object, extend(params, {lexicon}))
     });
     var utility = (inf);
-    factor(listenerAlpha * utility);
+    factor(params.listenerAlpha * utility);
     return object;
   };
   return Infer({method: "enumerate"}, modelL)
@@ -49,12 +49,10 @@ var updatePosterior = function(data, lexicalPrior, params){
     var lexicon = lexicalPrior();
 
     // guessing the community
-
     var groupUtt = repeat(params.numGroups, function (){
       // distribution within each community
       return dirichlet({alpha: ones([params.utterances.length, 1])})
     })
-
     var groupObj = repeat(params.numGroups, function (){
       // distribution within each community
       return dirichlet({alpha: ones([params.objects.length, 1])})
@@ -70,11 +68,11 @@ var updatePosterior = function(data, lexicalPrior, params){
 
 // setting up simulations
 
-var utterances = [];
-var objects = [];
-var meanings = [];
+var utterances = ['word1', 'word2'];
+var objects = ['circle', 'square'];
+var meanings = ['circle', 'square'];
 var numMeanings = meanings.length;
-var groups = [];
+var groups = ['red', 'blue'];
 var numGroups = groups.length;
 var groupDist = dirichlet({alpha: ones([numGroups, 1])})
 
@@ -93,3 +91,45 @@ var lexicalPrior = function() {
     return sample(Categorical({vs: meanings}));
   }, utterances))
 };
+
+// for each point in data, we want the model's predictions
+// for each point in data, we want the model's predictions
+var iterate = function(iterationNum, dataSoFar) {
+  var trialNum = dataSoFar[1].length;
+  var currTrial = {
+    intendedName: uniformDraw(objects),
+    trialNum: trialNum,
+    partnerID: 1,
+    speakerID: (trialNum % 2) == 0 ? 1 : 2,
+    listenerID: (trialNum % 2) == 0 ? 2 : 1
+  };
+
+  var config = extend(params, {context: currTrial.context});
+  var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, config);
+  var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, config);
+
+  // get marginal prediction of next data point over lexicon posterior
+  var speakerOutput = S(currTrial.intendedName, speakerPosterior, config);
+  var topSpeakerChoice =  sample(speakerOutput);
+
+
+  var listenerOutput = L(topSpeakerChoice, listenerPosterior, config);
+  var topListenerChoice =  sample(listenerOutput);
+
+  writeLine(params, currTrial, topListenerChoice, topSpeakerChoice);
+  if(currTrial.trialNum < params.numTrials) {
+    var ids = [currTrial.speakerID, currTrial.listenerID];
+    iterate(iterationNum, _.zipObject(ids, map(function(id) {
+      return dataSoFar[id].concat(extend(currTrial, {
+        role : id == currTrial.speakerID ? 'speaker' : 'listener',
+        wordID : topSpeakerChoice,
+        clickedName : topListenerChoice
+      }));
+    }, ids)));
+  }
+};
+
+map(function(i) {
+  console.log('iteration', i);
+  iterate(i, {1: [], 2: []});
+}, _.range(100));
