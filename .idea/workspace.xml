@@ -22,12 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Updating red/blue communities">
-      <change beforePath="$PROJECT_DIR$/.idea/room-assignment-csop.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/room-assignment-csop.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2021_1_29_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_11_2021_1_29_PM__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Editing comprehension experiment instructions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/comprehension/comprehension.html" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/comprehension/comprehension.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +99,7 @@
       <workItem from="1610039969249" duration="4033000" />
       <workItem from="1610146030561" duration="790000" />
       <workItem from="1610376638872" duration="18896000" />
-      <workItem from="1611274364702" duration="5862000" />
+      <workItem from="1611274364702" duration="7118000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -238,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610398676136</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Editing comprehension experiment instructions">
+      <created>1611342911883</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1611342911883</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +281,8 @@
     <MESSAGE value="make team details depend on treatment color" />
     <MESSAGE value="Importing images to repository" />
     <MESSAGE value="Updating red/blue communities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating red/blue communities" />
+    <MESSAGE value="Editing comprehension experiment instructions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Editing comprehension experiment instructions" />
   </component>
   <component name="WindowStateProjectService">
     <state x="59" y="191" key="EditFileWatcherDialog" timestamp="1605841285653">
