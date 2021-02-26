@@ -1,0 +1,93 @@
+// inference of speaker choosing an utterance
+var S = function(object, posterior, params){ // posterior = beliefs
+
+  var modelS = function(){
+    // determining which community
+    var z = sample(Discrete({ps: params.groupDist}))
+    var community = posterior.groupUtt[z];
+
+    // utterance chosen based on what they know about the community
+    var utt = categorical({ps: community, vs: params.utterances});
+    // var utt = uniformDraw(params.utterances);
+
+    var inf = expectation(posterior, function(lexicon){
+      return shared.getL1Score(object, utt, extend(params, {lexicon})) // need to import shared
+    })
+    // var utility = ((1-params.costWeight)*inf - params.costWeight*shared.getUttCost(utt)); // cost is length
+    var utility = ((1-params.costWeight)*inf - params.costWeight*utt.split('_').length);
+    factor(speakerAlpha * utility);
+    return utt;
+  };
+
+  return Infer({method: "enumerate"}, modelS);
+};
+
+// inference of listener choosing an object
+var L = function(utt, posterior, params){
+  var modelL = function(){
+    // object chosen based on speaker community
+    var z = sample(Discrete({ps: params.groupDist}))
+    var community = posterior.groupObj[z];
+
+    var object = categorical({ps: community, vs: params.objects});
+    // var object = uniformDraw(params.objects);
+
+    var inf = expectation(posterior, function(lexicon){
+      return shared.getS1Score(utt, object, extend(params, {lexicon})) // need to import shared
+    });
+    var utility = (inf);
+    factor(listenerAlpha * utility);
+    return object;
+  };
+  return Infer({method: "enumerate"}, modelL)
+};
+
+var updatePosterior = function(data, lexicalPrior, params){
+  return Infer(params.inferOptions, function() {
+    var lexicon = lexicalPrior();
+
+    // guessing the community
+
+    var groupUtt = repeat(params.numGroups, function (){
+      // distribution within each community
+      return dirichlet({alpha: ones([params.utterances.length, 1])})
+    })
+
+    var groupObj = repeat(params.numGroups, function (){
+      // distribution within each community
+      return dirichlet({alpha: ones([params.objects.length, 1])})
+    })
+
+    mapData({data: data}, function(trial){
+
+    })
+
+    return {groupUtt: groupUtt, groupObj: groupObj};
+  });
+};
+
+// setting up simulations
+
+var utterances = [];
+var objects = [];
+var meanings = [];
+var numMeanings = meanings.length;
+var groups = [];
+var numGroups = groups.length;
+var groupDist = dirichlet({alpha: ones([numGroups, 1])})
+
+var params = {
+  utterances: utterances,
+  objects: objects,
+  numGroups: numGroups,
+  groupDist: groupDist,
+  costWeight: 0,
+  speakerAlpha: 1,
+  listenerAlpha: 1
+}
+
+var lexicalPrior = function() {
+  return _.zipObject(utterances, map(function(utt) {
+    return sample(Categorical({vs: meanings}));
+  }, utterances))
+};
