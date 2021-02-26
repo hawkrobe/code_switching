@@ -2,19 +2,18 @@
 // webppl groupInference.wppl --require ./refModule/
 
 // inference of speaker choosing an utterance
-var S = function(object, posterior, params){ // posterior = beliefs
-
+var S = function(object, posterior, params){
   var modelS = function(){
     // determining which community
-    var z = sample(Discrete({ps: params.groupDist}))
-    var community = posterior.groupUtt[z];
+    // var z = sample(Discrete({ps: params.groupDist}))
+    // var community = posterior.groupUtt[z];
 
     // utterance chosen based on what they know about the community
-    var utt = categorical({ps: community, vs: params.utterances});
-    // var utt = uniformDraw(params.utterances);
+    // var utt = categorical({ps: community, vs: params.utterances});
+    var utt = uniformDraw(params.utterances);
 
     var inf = expectation(posterior, function(lexicon){
-      return refModule.getListenerScore(object, utt, extend(params, {lexicon}))
+      return refModule.getL0Score(object, utt, extend(params, {lexicon: lexicon}))
     })
     var utility = ((1-params.costWeight)*inf - params.costWeight*utt.split('_').length);
     factor(params.speakerAlpha * utility);
@@ -28,14 +27,14 @@ var S = function(object, posterior, params){ // posterior = beliefs
 var L = function(utt, posterior, params){
   var modelL = function(){
     // object chosen based on speaker community
-    var z = sample(Discrete({ps: params.groupDist}))
-    var community = posterior.groupObj[z];
+    // var z = sample(Discrete({ps: params.groupDist}))
+    // var community = posterior.groupObj[z];
 
-    var object = categorical({ps: community, vs: params.objects});
-    // var object = uniformDraw(params.objects);
+    // var object = categorical({ps: community, vs: params.objects});
+    var object = uniformDraw(params.objects);
 
     var inf = expectation(posterior, function(lexicon){
-      return refModule.getSpeakerScore(utt, object, extend(params, {lexicon}))
+      return refModule.getSpeakerScore(utt, object, extend(params, {lexicon: lexicon}))
     });
     var utility = (inf);
     factor(params.listenerAlpha * utility);
@@ -46,23 +45,32 @@ var L = function(utt, posterior, params){
 
 var updatePosterior = function(data, lexicalPrior, params){
   return Infer(params.inferOptions, function() {
+    // global prototype
     var lexicon = lexicalPrior();
 
     // guessing the community
-    var groupUtt = repeat(params.numGroups, function (){
-      // distribution within each community
-      return dirichlet({alpha: ones([params.utterances.length, 1])})
-    })
-    var groupObj = repeat(params.numGroups, function (){
-      // distribution within each community
-      return dirichlet({alpha: ones([params.objects.length, 1])})
-    })
+    // var groupUtt = repeat(params.numGroups, function (){
+    //   // distribution within each community
+    //   return dirichlet({alpha: ones([params.utterances.length, 1])})
+    // })
+    // var groupObj = repeat(params.numGroups, function (){
+    //   // distribution within each community
+    //   return dirichlet({alpha: ones([params.objects.length, 1])})
+    // })
 
-    mapData({data: data}, function(trial){
+    // mapData({data: data}, function(trial) {
+    //    var beta = Math.pow(params.discountFactor,  data.length - trial.trialNum);
+    //    var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
+    //    var trialParams = extend(params, {context: trial.context, lexicon: lexicon[trial.partnerID]});
+    //    if(trial.role == 'speaker') {
+    //      factor(beta * refModule.getL0Score(object, trial.wordID, trialParams));
+    //    } else {
+    //      factor(beta * refModule.getSpeakerScore(trial.wordID, object, trialParams));
+    //    }
+    // });
 
-    })
-
-    return {groupUtt: groupUtt, groupObj: groupObj};
+    // return {groupUtt: groupUtt.data, groupObj: groupObj.data};
+    return lexicon;
   });
 };
 
@@ -79,11 +87,14 @@ var groupDist = dirichlet({alpha: ones([numGroups, 1])})
 var params = {
   utterances: utterances,
   objects: objects,
+  context: objects,
+  states: objects,
   numGroups: numGroups,
   groupDist: groupDist,
   costWeight: 0,
   speakerAlpha: 1,
-  listenerAlpha: 1
+  listenerAlpha: 1,
+  inferOptions: {method: 'MCMC', samples: 20000}
 }
 
 var lexicalPrior = function() {
@@ -92,7 +103,6 @@ var lexicalPrior = function() {
   }, utterances))
 };
 
-// for each point in data, we want the model's predictions
 // for each point in data, we want the model's predictions
 var iterate = function(iterationNum, dataSoFar) {
   var trialNum = dataSoFar[1].length;
@@ -112,11 +122,10 @@ var iterate = function(iterationNum, dataSoFar) {
   var speakerOutput = S(currTrial.intendedName, speakerPosterior, config);
   var topSpeakerChoice =  sample(speakerOutput);
 
-
   var listenerOutput = L(topSpeakerChoice, listenerPosterior, config);
   var topListenerChoice =  sample(listenerOutput);
 
-  writeLine(params, currTrial, topListenerChoice, topSpeakerChoice);
+  // writeLine(params, currTrial, topListenerChoice, topSpeakerChoice);
   if(currTrial.trialNum < params.numTrials) {
     var ids = [currTrial.speakerID, currTrial.listenerID];
     iterate(iterationNum, _.zipObject(ids, map(function(id) {
@@ -132,4 +141,4 @@ var iterate = function(iterationNum, dataSoFar) {
 map(function(i) {
   console.log('iteration', i);
   iterate(i, {1: [], 2: []});
-}, _.range(100));
+}, _.range(5));
