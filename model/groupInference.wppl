@@ -1,3 +1,6 @@
+// run using, e.g.:
+// webppl codeswitch.wppl --require ./refModule/ --require webppl-csv
+
 // inference of speaker choosing an utterance
 var S = function(object, posterior, params){ // posterior = beliefs
 
@@ -11,9 +14,8 @@ var S = function(object, posterior, params){ // posterior = beliefs
     // var utt = uniformDraw(params.utterances);
 
     var inf = expectation(posterior, function(lexicon){
-      return shared.getL1Score(object, utt, extend(params, {lexicon})) // need to import shared
+      return refModule.getListenerScore(object, utt, extend(params, {lexicon}))
     })
-    // var utility = ((1-params.costWeight)*inf - params.costWeight*shared.getUttCost(utt)); // cost is length
     var utility = ((1-params.costWeight)*inf - params.costWeight*utt.split('_').length);
     factor(speakerAlpha * utility);
     return utt;
@@ -33,7 +35,7 @@ var L = function(utt, posterior, params){
     // var object = uniformDraw(params.objects);
 
     var inf = expectation(posterior, function(lexicon){
-      return shared.getS1Score(utt, object, extend(params, {lexicon})) // need to import shared
+      return refModule.getSpeakerScore(utt, object, extend(params, {lexicon}))
     });
     var utility = (inf);
     factor(listenerAlpha * utility);
