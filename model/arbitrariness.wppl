@@ -1,0 +1,85 @@
+// run using, e.g.:
+// webppl arbitrariness.wppl --require ./refModule/ --require webppl-csv -- --gameNum 'game1'
+
+var utterances = ['word1', 'word2'];
+var objects = ['circle', 'square'];
+var meanings = ['circle', 'square'];
+var numMeanings = meanings.length;
+
+var params = {
+  speakerAlpha : argv.speakerAlpha,
+  listenerAlpha: argv.listenerAlpha,
+  discountFactor: argv.discountFactor,
+  guessingEpsilon: argv.guessingEpsilon,
+  costWeight: 0,
+  numTrials: 40,
+  context : objects,
+  partnerID: 1,
+  utterances: utterances,
+  objects: objects,
+  inferOptions: {method: 'enumerate'}
+};
+
+var pragStr = ('discount:' + params.discountFactor);
+var outputFile = csv.open('./output/arbitrariness_trajectory_' + pragStr + '_' + argv.gameNum + '.csv');
+var header = 'gameNum,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessingEpsilon,\
+              trialNum,speakerID,listenerID,intendedName,topSpeakerChoice,topListenerChoice,correct';
+csv.writeLine(header, outputFile);
+
+var lexicalPrior = function() {
+  return {'1' : _.zipObject(utterances, map(function(utt) {
+    return sample(Categorical({vs: meanings}));
+  }, utterances))};
+};
+
+var writeLine = function(iterationNum, currTrial, topListenerChoice, topSpeakerChoice) {
+  csv.writeLine([
+    iterationNum, params.speakerAlpha, params.listenerAlpha, params.costWeight, params.discountFactor, params.guessingEpsilon,
+    currTrial.trialNum, currTrial.speakerID, currTrial.listenerID, currTrial.intendedName,
+    topSpeakerChoice, topListenerChoice,
+    topListenerChoice == currTrial.intendedName
+  ].join(','), outputFile);
+};
+
+
+// for each point in data, we want the model's predictions
+var iterate = function(iterationNum, dataSoFar) {
+  var trialNum = dataSoFar[1].length;
+  var currTrial = {
+    intendedName: uniformDraw(objects),
+    trialNum: trialNum,
+    partnerID: 1,
+    context: objects,
+    speakerID: (trialNum % 2) == 0 ? 1 : 2,
+    listenerID: (trialNum % 2) == 0 ? 2 : 1
+  };
+
+  var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
+  var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
+
+  // get marginal prediction of next data point over lexicon posterior
+  var speakerOutput = S(currTrial.intendedName, speakerPosterior, params);
+  var topSpeakerChoice =  sample(speakerOutput);
+
+
+  var listenerOutput = L(topSpeakerChoice, listenerPosterior, params);
+  var topListenerChoice =  sample(listenerOutput);
+
+  writeLine(params, currTrial, topListenerChoice, topSpeakerChoice);
+  if(currTrial.trialNum < params.numTrials) {
+    var ids = [currTrial.speakerID, currTrial.listenerID];
+    iterate(iterationNum, _.zipObject(ids, map(function(id) {
+      return dataSoFar[id].concat(extend(currTrial, {
+        role : id == currTrial.speakerID ? 'speaker' : 'listener',
+        wordID : topSpeakerChoice,
+        clickedName : topListenerChoice
+      }));
+    }, ids)));
+  }
+};
+
+map(function(i) {
+  console.log('iteration', i);
+  iterate(i, {1: [], 2: []});
+}, _.range(100));
+csv.close(outputFile);

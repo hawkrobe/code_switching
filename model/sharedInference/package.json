@@ -1,5 +1,5 @@
 {
-  "name": "shared",
+  "name": "sharedInference",
   "webppl": {
     "wppl": [
       "agents.wppl"

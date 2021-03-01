@@ -22,12 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Debugging simulations - commented out community code for now, still some bugs">
-      <change afterPath="$PROJECT_DIR$/model/groupInference/groupInference.wppl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/groupInference/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/groupInference/package.json" afterDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Importing &quot;shared&quot; folder and restructuring into subdirectory">
+      <change afterPath="$PROJECT_DIR$/model/arbitrariness.wppl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/arbitrariness_trajectory_discount" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/sharedInference/agents.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/sharedInference/agents.wppl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/sharedInference/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/sharedInference/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/model/sharedInference/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +74,11 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\irina\Documents\code_switching\model" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -108,7 +114,7 @@
       <workItem from="1610376638872" duration="18896000" />
       <workItem from="1611274364702" duration="7118000" />
       <workItem from="1614368338205" duration="10716000" />
-      <workItem from="1614629311469" duration="338000" />
+      <workItem from="1614629311469" duration="9097000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -285,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614374737876</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Importing &quot;shared&quot; folder and restructuring into subdirectory">
+      <created>1614629816642</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1614629816642</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,13 +345,14 @@
     <MESSAGE value="Integrating with refModule, renaming file" />
     <MESSAGE value="Adding initial code for running multiple iterations" />
     <MESSAGE value="Debugging simulations - commented out community code for now, still some bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debugging simulations - commented out community code for now, still some bugs" />
+    <MESSAGE value="Importing &quot;shared&quot; folder and restructuring into subdirectory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Importing &quot;shared&quot; folder and restructuring into subdirectory" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="59" y="191" key="EditFileWatcherDialog" timestamp="1605841285653">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
+      <screen x="-3840" y="0" width="2560" height="1440" />
     </state>
-    <state x="59" y="191" key="EditFileWatcherDialog/0.0.1536.824/460.1080.1000.504@0.0.1536.824" timestamp="1605841285653" />
+    <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/460.1080.1000.504/-3840.0.2560.1440@-3840.0.2560.1440" timestamp="1614631255045" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607058647231">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
