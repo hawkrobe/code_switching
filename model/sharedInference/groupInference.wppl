@@ -1,5 +1,5 @@
 // run using, e.g.:
-// webppl groupInference.wppl --require ./refModule/
+// webppl groupInference.wppl --require ./sharedInference/
 
 // inference of speaker choosing an utterance
 var S = function(object, posterior, params){

@@ -1,0 +1,71 @@
+// var L0 = cache(function(utt, params) {
+//   var nullObj = params.lexicon[utt];
+//   return Mixture({
+//     dists: [
+//       Categorical({vs: params.context}),
+//       Infer({method: "enumerate"}, function() {
+//         console.log(params)
+//         var obj = uniformDraw(params.context).concat(nullObj);
+//         factor(Math.log(shared.getLexiconElement(utt, obj, params)));
+//         return obj;
+//       })],
+//     ps: [params.guessingEpsilon, 1 - params.guessingEpsilon]
+//   });
+// }, 10000);
+
+// var S1 = cache(function(obj, params) {
+//   return Mixture({
+//     dists: [
+//       Categorical({vs: params.utterances}),
+//       Infer({method: "enumerate"}, function() {
+//         var utt = uniformDraw(params.utterances);
+//         var utility = ((1-params.costWeight) * L0(utt, params).score(obj)
+//                        - params.costWeight * shared.getUttCost(utt));
+//         factor(params.speakerAlpha * utility);
+//         return utt;
+//       })],
+//     ps: [params.guessingEpsilon, 1 - params.guessingEpsilon]
+//   })
+// }, 10000)
+
+var S = function(object, posterior, params) {
+  return Infer({method: "enumerate"}, function() {
+    var utt = uniformDraw(params.utterances);
+    var inf = expectation(posterior, function(lexicon) {
+      return shared.getL0Score(object, utt, extend(params, {lexicon: lexicon[params.partnerID]}));
+    });
+    var utility = ((1-params.costWeight) * inf
+                   - params.costWeight * shared.getUttCost(utt));
+
+    factor(params.speakerAlpha * utility);
+    return utt;
+  });
+};
+
+var L = function(utt, posterior, params) {
+  return Infer({method: "enumerate"}, function() {
+    var object = uniformDraw(params.context);
+    var utility = expectation(posterior, function(lexicon) {
+      return shared.getS1Score(utt, object, extend(params, {lexicon: lexicon[params.partnerID]}));
+    });
+    factor(params.listenerAlpha * utility);
+    return object;
+  });
+};
+
+var updatePosterior = function(data, lexicalPrior, params) {
+  return Infer(params.inferOptions, function() {
+    var lexicon = lexicalPrior();
+    mapData({data: data}, function(trial) {
+      var beta = Math.pow(params.discountFactor,  data.length - trial.trialNum);
+      var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
+      var trialParams = extend(params, {context: trial.context, lexicon: lexicon[trial.partnerID]});
+      if(trial.role == 'speaker') {
+        factor(beta * shared.getL0Score(object, trial.wordID, trialParams));
+      } else {
+        factor(beta * shared.getS1Score(trial.wordID, object, trialParams));
+      }
+    });
+    return lexicon;
+  });
+};
