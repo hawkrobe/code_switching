@@ -12,16 +12,17 @@ var S = function(object, posterior, params) {
     // var utt = categorical({ps: community, vs: params.utterances});
 
     var utt = uniformDraw(params.utterances);
-        var inf = expectation(posterior, function(lexicon) {
-          return sharedInference.getL0Score(object, utt, extend(params, {lexicon: lexicon[params.partnerID]}));
-        });
-        var utility = ((1-params.costWeight) * inf
-                       - params.costWeight * sharedInference.getUttCost(utt));
+    console.log(posterior.lexicon);
+    var inf = expectation(posterior, function(lexicon) {
+       return sharedInference.getL0Score(object, utt, extend(params, {lexicon: lexicon[params.partnerID]}));
+    });
+    var utility = ((1-params.costWeight) * inf
+                    - params.costWeight * sharedInference.getUttCost(utt));
 
-        factor(params.speakerAlpha * utility);
+    factor(params.speakerAlpha * utility);
     return utt;
   }
-  return Infer({method: "enumerate"}, modelS);
+  return Infer(params.inferOptions, modelS);
 };
 
 // inference of listener choosing an object
@@ -39,13 +40,13 @@ var L = function(utt, posterior, params) {
         factor(params.listenerAlpha * utility);
         return object;
   }
-  return Infer({method: "enumerate"}, modelL);
+  return Infer(params.inferOptions, modelL);
 };
 
 var updatePosterior = function(data, lexicalPrior, params) {
   return Infer(params.inferOptions, function() {
     // global prototype
-    var lexicon = lexicalPrior();
+    var lexicon = lexicalPrior().lexicon;
 
     // guessing the community
         // var groupUtt = repeat(params.numGroups, function (){
@@ -56,17 +57,6 @@ var updatePosterior = function(data, lexicalPrior, params) {
         //   // distribution within each community
         //   return dirichlet({alpha: ones([params.objects.length, 1])})
         // })
-
-        // mapData({data: data}, function(trial) {
-        //    var beta = Math.pow(params.discountFactor,  data.length - trial.trialNum);
-        //    var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
-        //    var trialParams = extend(params, {context: trial.context, lexicon: lexicon[trial.partnerID]});
-        //    if(trial.role == 'speaker') {
-        //      factor(beta * refModule.getL0Score(object, trial.wordID, trialParams));
-        //    } else {
-        //      factor(beta * refModule.getSpeakerScore(trial.wordID, object, trialParams));
-        //    }
-        // });
 
         // return {groupUtt: groupUtt.data, groupObj: groupObj.data};
 
@@ -85,12 +75,13 @@ var updatePosterior = function(data, lexicalPrior, params) {
 };
 
 var utterances = ['word1', 'word2'];
-var objects = ['circle', 'square'];
-var meanings = ['circle', 'square'];
+var objects = ['A', 'B'];
+var meanings = ['A', 'B'];
 var numMeanings = meanings.length;
-var groups = ['red', 'blue'];
+var groups = ['group1', 'group2'];
 var numGroups = groups.length;
 var groupDist = dirichlet({alpha: ones([numGroups, 1])});
+var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
 
 var params = {
   speakerAlpha : 1,
@@ -103,8 +94,8 @@ var params = {
   partnerID: 1,
   utterances: utterances,
   objects: objects,
-  // inferOptions: {method: 'MCMC', samples: 1000}
-  inferOptions: {method: 'enumerate'}
+  inferOptions: {method: 'MCMC', samples: 1}
+  // inferOptions: {method: 'enumerate'}
 };
 
 var pragStr = ('discount:' + params.discountFactor);
@@ -113,10 +104,51 @@ var header = 'gameNum,speakerAlpha,listenerAlpha,costWeight,discountFactor,guess
               trialNum,speakerID,listenerID,intendedName,topSpeakerChoice,topListenerChoice,correct';
 csv.writeLine(header, outputFile);
 
+var sampleProbs = function() {
+  var hyperScale = exponential({a:1});
+  return T.mul(ones([numMeanings, 1]), hyperScale);
+}
+
 var lexicalPrior = function() {
-  return {'1' : _.zipObject(utterances, map(function(utt) {
-    return sample(Categorical({vs: meanings}));
-  }, utterances))};
+  var groupAssignmentZ = {
+    'partner1': uniformDraw(groups),
+    'partner2': uniformDraw(groups),
+    'partner3': uniformDraw(groups),
+    'partner4': uniformDraw(groups)
+  }
+
+  var partnerMeaning = map(function(utt){
+    var hyperParams = {
+      'group1': dirichlet(sampleProbs()),
+      'group2': dirichlet(sampleProbs())
+    };
+    return map(function(partnerID) {
+      var partnerGroup = groupAssignmentZ[partnerID];
+      return categorical({vs: meanings, ps: hyperParams[partnerGroup]});
+    }, partners);
+  }, utterances);
+
+  //return {'1' : _.zipObject(utterances, map(function(utt) { //'1' is probably partnerID!
+  //  return sample(Categorical({vs: meanings}));
+  //}, utterances))};
+
+  return {
+    'groupAssignment': groupAssignmentZ,
+    'lexicon': {
+        '1': {
+            'word1': partnerMeaning[0][0], 'word2': partnerMeaning[1][0]
+        },
+        '2': {
+            'word1': partnerMeaning[0][1], 'word2': partnerMeaning[1][1]
+        },
+        '3': {
+            'word1': partnerMeaning[0][2], 'word2': partnerMeaning[1][2]
+        },
+        '4': {
+            'word1': partnerMeaning[0][3], 'word2': partnerMeaning[1][3]
+        }
+    }
+  }
 };
 
 var writeLine = function(iterationNum, currTrial, topListenerChoice, topSpeakerChoice) {
@@ -142,6 +174,9 @@ var iterate = function(iterationNum, dataSoFar) {
   };
 
   var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
+  console.log(lexicalPrior());
+  console.log(lexicalPrior().lexicon);
+  console.log(speakerPosterior);
   var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
 
   // get marginal prediction of next data point over lexicon posterior

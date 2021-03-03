@@ -22,13 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Importing &quot;shared&quot; folder and restructuring into subdirectory">
-      <change afterPath="$PROJECT_DIR$/model/arbitrariness.wppl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/arbitrariness_trajectory_discount" afterDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Debugging and making sure that the base code works. Integrating new code with arbitrariness.wppl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sharedInference/agents.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/sharedInference/agents.wppl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sharedInference/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sharedInference/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/model/sharedInference/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +110,8 @@
       <workItem from="1610376638872" duration="18896000" />
       <workItem from="1611274364702" duration="7118000" />
       <workItem from="1614368338205" duration="10716000" />
-      <workItem from="1614629311469" duration="9097000" />
+      <workItem from="1614629311469" duration="9176000" />
+      <workItem from="1614786094475" duration="8155000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -298,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614629816642</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Debugging and making sure that the base code works. Integrating new code with arbitrariness.wppl">
+      <created>1614643134130</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1614643134130</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +350,8 @@
     <MESSAGE value="Adding initial code for running multiple iterations" />
     <MESSAGE value="Debugging simulations - commented out community code for now, still some bugs" />
     <MESSAGE value="Importing &quot;shared&quot; folder and restructuring into subdirectory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Importing &quot;shared&quot; folder and restructuring into subdirectory" />
+    <MESSAGE value="Debugging and making sure that the base code works. Integrating new code with arbitrariness.wppl" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugging and making sure that the base code works. Integrating new code with arbitrariness.wppl" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
