@@ -22,8 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Adding initial code for running multiple iterations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Updating iteration code for increased efficiency">
+      <change afterPath="$PROJECT_DIR$/model/output/undefined1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,12 +40,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1iWevA434BJYvUjwGYKAW4ZLSLg" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="enabled" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -66,6 +69,11 @@
     <property name="prettierjs.PrettierConfiguration.Package" value="/usr/local/lib/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\irina\Documents\code_switching\model" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -101,7 +109,10 @@
       <workItem from="1610146030561" duration="790000" />
       <workItem from="1610376638872" duration="18896000" />
       <workItem from="1611274364702" duration="7118000" />
-      <workItem from="1614368338205" duration="6207000" />
+      <workItem from="1614368338205" duration="10716000" />
+      <workItem from="1614629311469" duration="9176000" />
+      <workItem from="1614786094475" duration="8986000" />
+      <workItem from="1614955287892" duration="8607000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -271,7 +282,42 @@
       <option name="project" value="LOCAL" />
       <updated>1614371310002</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Debugging simulations - commented out community code for now, still some bugs">
+      <created>1614374737876</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1614374737876</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Importing &quot;shared&quot; folder and restructuring into subdirectory">
+      <created>1614629816642</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1614629816642</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Debugging and making sure that the base code works. Integrating new code with arbitrariness.wppl">
+      <created>1614643134130</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1614643134130</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Initial integration of group assignments within the lexicalPrior function. Includes: partner-specific meanings, hyperparameters, and returns group assignments + lexicons as an array.">
+      <created>1614803891448</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1614803891448</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Updating iteration code for increased efficiency">
+      <created>1614964459071</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1614964459071</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,12 +336,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="Removed player requirement for displaying chat &amp; event log" />
-    <MESSAGE value="Added TODOs and informational comments about various objects and functions within Empirica (based on API).&#10;&#10;Fixed a few of the initial errors. There are still errors." />
     <MESSAGE value="Editing TaskDetails and constants to (attempt to) fix the type error in Task. Still receiving a TypeError but should be closer to what we need than before." />
     <MESSAGE value="Initial edits to LESS/CSS content, creating sections for tangrams" />
     <MESSAGE value="Importing data from constants.js into the rest of the project. Still some issues with the code (tangramURLs undefined) but mostly there. Temporarily set stages to 6." />
@@ -316,13 +361,18 @@
     <MESSAGE value="Edits for readability" />
     <MESSAGE value="Integrating with refModule, renaming file" />
     <MESSAGE value="Adding initial code for running multiple iterations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding initial code for running multiple iterations" />
+    <MESSAGE value="Debugging simulations - commented out community code for now, still some bugs" />
+    <MESSAGE value="Importing &quot;shared&quot; folder and restructuring into subdirectory" />
+    <MESSAGE value="Debugging and making sure that the base code works. Integrating new code with arbitrariness.wppl" />
+    <MESSAGE value="Initial integration of group assignments within the lexicalPrior function. Includes: partner-specific meanings, hyperparameters, and returns group assignments + lexicons as an array." />
+    <MESSAGE value="Updating iteration code for increased efficiency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating iteration code for increased efficiency" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="59" y="191" key="EditFileWatcherDialog" timestamp="1605841285653">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
+      <screen x="-3840" y="0" width="2560" height="1440" />
     </state>
-    <state x="59" y="191" key="EditFileWatcherDialog/0.0.1536.824/460.1080.1000.504@0.0.1536.824" timestamp="1605841285653" />
+    <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/460.1080.1000.504/-3840.0.2560.1440@-3840.0.2560.1440" timestamp="1614631255045" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1607058647231">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -331,11 +381,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="557" y="110" key="VCS.ChangeListViewerDialog/0.0.1536.824/460.1080.1000.504@0.0.1536.824" timestamp="1609197542035" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1614368633994">
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2" timestamp="1614375019086">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-3238" y="231" key="Vcs.Push.Dialog.v2/0.0.1536.824/460.1080.1000.504/-3840.0.2560.1440@-3840.0.2560.1440" timestamp="1610398680084" />
-    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824/460.1080.1000.504@0.0.1536.824" timestamp="1614368633994" />
+    <state x="361" y="132" key="Vcs.Push.Dialog.v2/0.0.1536.824/460.1080.1000.504@0.0.1536.824" timestamp="1614375019086" />
     <state x="-3043" y="19" width="965" height="1400" key="find.popup" timestamp="1610400505457">
       <screen x="-3840" y="0" width="2560" height="1440" />
     </state>

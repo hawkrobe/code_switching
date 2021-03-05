@@ -1,0 +1,14 @@
+{
+  "name": "sharedInference",
+  "webppl": {
+    "wppl": [
+      "agents.wppl"
+    ]
+  },
+  "main": "main.js",
+  "dependencies": {
+    "babyparse": "*",
+    "lodash": "~4.17.13",
+    "JSONStream": "*"
+  }
+}
