@@ -17,7 +17,8 @@ var params = {
   partnerID: 1,
   utterances: utterances,
   objects: objects,
-  inferOptions: {method: 'enumerate'}
+  //inferOptions: {method: 'enumerate'}
+  inferOptions: {method: 'MCMC', samples: 2500, burn:5000, lag:5}
 };
 
 var pragStr = ('discount:' + params.discountFactor);
