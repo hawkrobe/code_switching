@@ -22,11 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Initial integration of group assignments within the lexicalPrior function. Includes: partner-specific meanings, hyperparameters, and returns group assignments + lexicons as an array.">
-      <change afterPath="$PROJECT_DIR$/model/output/group_Inferencediscount" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/undefinedundefined.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/arbitrariness.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/arbitrariness.wppl" afterDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Updating iteration code for increased efficiency">
+      <change afterPath="$PROJECT_DIR$/model/output/undefined1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +112,7 @@
       <workItem from="1614368338205" duration="10716000" />
       <workItem from="1614629311469" duration="9176000" />
       <workItem from="1614786094475" duration="8986000" />
-      <workItem from="1614955287892" duration="7354000" />
+      <workItem from="1614955287892" duration="8607000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -313,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614803891448</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Updating iteration code for increased efficiency">
+      <created>1614964459071</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1614964459071</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +341,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="Added TODOs and informational comments about various objects and functions within Empirica (based on API).&#10;&#10;Fixed a few of the initial errors. There are still errors." />
     <MESSAGE value="Editing TaskDetails and constants to (attempt to) fix the type error in Task. Still receiving a TypeError but should be closer to what we need than before." />
     <MESSAGE value="Initial edits to LESS/CSS content, creating sections for tangrams" />
     <MESSAGE value="Importing data from constants.js into the rest of the project. Still some issues with the code (tangramURLs undefined) but mostly there. Temporarily set stages to 6." />
@@ -362,7 +365,8 @@
     <MESSAGE value="Importing &quot;shared&quot; folder and restructuring into subdirectory" />
     <MESSAGE value="Debugging and making sure that the base code works. Integrating new code with arbitrariness.wppl" />
     <MESSAGE value="Initial integration of group assignments within the lexicalPrior function. Includes: partner-specific meanings, hyperparameters, and returns group assignments + lexicons as an array." />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial integration of group assignments within the lexicalPrior function. Includes: partner-specific meanings, hyperparameters, and returns group assignments + lexicons as an array." />
+    <MESSAGE value="Updating iteration code for increased efficiency" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating iteration code for increased efficiency" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
