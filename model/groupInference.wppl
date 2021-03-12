@@ -12,7 +12,7 @@ var S = function(object, posterior, params) {
     // var utt = categorical({ps: community, vs: params.utterances});
 
     var utt = uniformDraw(params.utterances);
-    var inf = expectation(posterior, function(lexicon) {
+    var inf = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
        return sharedInference.getL0Score(object, utt, extend(params, {lexicon: lexicon[params.partnerID]}));
     });
     var utility = ((1-params.costWeight) * inf
@@ -35,7 +35,7 @@ var S = function(object, posterior, params) {
             condition(utt == params.utterances[0])
         }
     }
-
+    console.log('test')
     return utt;
   }
   return Infer({method: 'enumerate'}, modelS);
@@ -50,7 +50,7 @@ var L = function(utt, posterior, params) {
     // var object = categorical({ps: community, vs: params.objects});
   var modelL = function () {
     var object = uniformDraw(params.context);
-    var utility = expectation(posterior, function(lexicon) {
+    var utility = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
       return sharedInference.getS1Score(utt, object, extend(params, {lexicon: lexicon[params.partnerID]}));
     });
     factor(params.listenerAlpha * utility);
@@ -63,7 +63,9 @@ var updatePosterior = function(data, lexicalPrior, params) {
   console.log('updating posterior')
   return Infer(params.inferOptions, function() {
     // global prototype
-    var lexicon = lexicalPrior().lexicon;
+    var prior = lexicalPrior();
+    var lexicon = prior.lexicon;
+    var groupAssignment = prior.groupAssignment;
 
     // guessing the community
         // var groupUtt = repeat(params.numGroups, function (){
@@ -87,7 +89,7 @@ var updatePosterior = function(data, lexicalPrior, params) {
         factor(beta * sharedInference.getS1Score(trial.wordID, object, trialParams));
       }
     });
-    return lexicon;
+    return {lexicon: lexicon, groupAssignment: groupAssignment};
   });
 };
 

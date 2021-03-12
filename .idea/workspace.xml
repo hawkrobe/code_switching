@@ -22,10 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Setting up initial context: Group 1 always uses word1 to refer to A and word2 to refer to B, and Group 2 always uses word2 to refer to A and word1 to refer to B">
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Refining first context">
+      <change afterPath="$PROJECT_DIR$/model/output/M1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/undefinedundefined.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/undefinedundefined.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +116,7 @@
       <workItem from="1614955287892" duration="12590000" />
       <workItem from="1614997041439" duration="65000" />
       <workItem from="1615233167255" duration="4853000" />
-      <workItem from="1615555014708" duration="1211000" />
+      <workItem from="1615555014708" duration="3769000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -335,7 +335,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615238000477</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Refining first context">
+      <created>1615556242066</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1615556242066</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +366,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="Importing data from constants.js into the rest of the project. Still some issues with the code (tangramURLs undefined) but mostly there. Temporarily set stages to 6." />
     <MESSAGE value="Changed stage transition conditions (enabled stage change through clicking on tangrams)&#10;&#10;Change stage progression to selection &amp; feedback cycle" />
     <MESSAGE value="fixed bug" />
     <MESSAGE value="only allowing players to click tangrams after a message has been sent" />
@@ -384,7 +390,8 @@
     <MESSAGE value="Updating iteration code for increased efficiency" />
     <MESSAGE value="Quick debug + commenting out unused code" />
     <MESSAGE value="Setting up initial context: Group 1 always uses word1 to refer to A and word2 to refer to B, and Group 2 always uses word2 to refer to A and word1 to refer to B" />
-    <option name="LAST_COMMIT_MESSAGE" value="Setting up initial context: Group 1 always uses word1 to refer to A and word2 to refer to B, and Group 2 always uses word2 to refer to A and word1 to refer to B" />
+    <MESSAGE value="Refining first context" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refining first context" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
