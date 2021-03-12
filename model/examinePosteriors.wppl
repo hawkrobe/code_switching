@@ -1,0 +1,157 @@
+// run using, e.g.:
+// webppl groupInference.wppl --require ./sharedInference/ --require webppl-csv -- --gameNum 'game1'
+
+// inference of speaker choosing an utterance
+var S = function(object, posterior, params) {
+  var modelS = function () {
+    // determining which community
+    // var z = sample(Discrete({ps: params.groupDist}))
+    // var community = posterior.groupUtt[z];
+    // utterance chosen based on what they know about the community
+    // var utt = categorical({ps: community, vs: params.utterances});
+
+    var utt = uniformDraw(params.utterances);
+    var inf = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
+       return sharedInference.getL0Score(object, utt, extend(params, {lexicon: lexicon[params.partnerID]}));
+    });
+    var utility = ((1-params.costWeight) * inf
+                    - params.costWeight * sharedInference.getUttCost(utt));
+
+    factor(params.speakerAlpha * utility);
+
+    // context 1
+    // if speakerID = 1 or 3 then if object = A...
+    if (params.speakerID == 1 || params.speakerID == 3) {
+        if (object == params.objects[0]) {
+            condition(utt == params.utterances[0])
+        } else {
+            condition(utt == params.utterances[1])
+        }
+    } else { // if speakerID = 2 or 4 then if object = A...
+        if (object == params.objects[0]) {
+            condition(utt == params.utterances[1])
+        } else {
+            condition(utt == params.utterances[0])
+        }
+    }
+    return utt;
+  }
+  return Infer({method: 'enumerate'}, modelS);
+};
+
+// inference of listener choosing an object
+var L = function(utt, posterior, params) {
+    // object chosen based on speaker community
+    // var z = sample(Discrete({ps: params.groupDist}))
+    // var community = posterior.groupObj[z];
+    // var object = categorical({ps: community, vs: params.objects});
+
+  var modelL = function () {
+    var object = uniformDraw(params.context);
+    var utility = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
+      return sharedInference.getS1Score(utt, object, extend(params, {lexicon: lexicon[params.partnerID]}));
+    });
+    factor(params.listenerAlpha * utility);
+    return object;
+  }
+  return Infer({method: 'enumerate'}, modelL);
+};
+
+var updatePosterior = function(data, lexicalPrior, params) {
+  return Infer(params.inferOptions, function() {
+    // global prototype
+    var prior = lexicalPrior();
+    var lexicon = prior.lexicon;
+    //console.log(lexicon);
+    var groupAssignment = prior.groupAssignment;
+    console.log(groupAssignment);
+    mapData({data: data}, function(trial) {
+      var beta = Math.pow(params.discountFactor,  data.length - trial.trialNum);
+      var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
+      var trialParams = extend(params, {context: trial.context, lexicon: lexicon[trial.partnerID]});
+      if(trial.role == 'speaker') {
+        factor(beta * sharedInference.getL0Score(object, trial.wordID, trialParams));
+      } else {
+        factor(beta * sharedInference.getS1Score(trial.wordID, object, trialParams));
+      }
+    });
+    return {lexicon: lexicon, groupAssignment: groupAssignment};
+  });
+};
+
+var utterances = ['word1', 'word2'];
+var objects = ['A', 'B'];
+var meanings = ['A', 'B'];
+var numMeanings = meanings.length;
+var groups = ['group1', 'group2'];
+var numGroups = groups.length;
+var groupDist = dirichlet({alpha: ones([numGroups, 1])});
+var partners = ['partner1', 'partner2'];
+var model = 'M1';
+
+var params = {
+  speakerAlpha : 5,
+  listenerAlpha: 5,
+  discountFactor: 0.9,
+  guessingEpsilon: 0.01,
+  costWeight: 0,
+  numTrials: 20,
+  context : objects,
+  utterances: utterances,
+  objects: objects,
+  inferOptions: {method: 'MCMC', samples: 2500, burn:5000, lag:5, verbose: true},
+  model: model
+};
+
+var sampleProbs = function() {
+  var hyperScale = exponential({a:1});
+  return T.mul(ones([numMeanings, 1]), hyperScale);
+}
+
+var lexicalPrior = function() {
+  var groupAssignmentZ = {
+    'partner1': uniformDraw(groups),
+    'partner2': uniformDraw(groups),
+  }
+  //console.log(groupAssignmentZ)
+  var meaning = map(function(utt){
+    var hyperParams = {
+      'group1': dirichlet(sampleProbs()),
+      'group2': dirichlet(sampleProbs())
+    };
+    return {
+      group1hyperParams : hyperParams['group1'],
+      group2hyperParams : hyperParams['group2'],
+      partnerMeaning: map(function(partnerID) {
+        var partnerGroup = groupAssignmentZ[partnerID];
+        return categorical({vs: meanings, ps: hyperParams[partnerGroup]});
+      }, partners)
+    };
+  }, utterances);
+
+  return {
+    'groupAssignment': groupAssignmentZ,
+    'group1hyperParams' : {'word1': meaning[0].group1hyperParams, 'word2' : meaning[1].group1hyperParams},
+    'group2hyperParams' : {'word1': meaning[0].group2hyperParams, 'word2' : meaning[1].group2hyperParams},    
+    'lexicon': {
+      '1': {
+        'word1': meaning[0].partnerMeaning[0], 'word2': meaning[1].partnerMeaning[0]
+      },
+      '2': {
+        'word1': meaning[0].partnerMeaning[1], 'word2': meaning[1].partnerMeaning[1]
+      },
+    }
+  }
+};
+
+var prevData = [
+  {trialNum: 1, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1', clickedName: 'A', context:params.context},
+  {trialNum: 2, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2', clickedName: 'B',context:params.context},
+  {trialNum: 3, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1', clickedName: 'A',context:params.context},
+  {trialNum: 4, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2', clickedName: 'B',context:params.context},
+  {trialNum: 5, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2', clickedName: 'A', context:params.context},
+  {trialNum: 6, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1', clickedName: 'B',context:params.context},
+  {trialNum: 7, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2', clickedName: 'A',context:params.context},
+  {trialNum: 8, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1', clickedName: 'B',context:params.context},
+];
+updatePosterior(prevData, lexicalPrior, params);
