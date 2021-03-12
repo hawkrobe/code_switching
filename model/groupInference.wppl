@@ -7,7 +7,6 @@ var S = function(object, posterior, params) {
     // determining which community
     // var z = sample(Discrete({ps: params.groupDist}))
     // var community = posterior.groupUtt[z];
-
     // utterance chosen based on what they know about the community
     // var utt = categorical({ps: community, vs: params.utterances});
 
@@ -45,8 +44,8 @@ var L = function(utt, posterior, params) {
     // object chosen based on speaker community
     // var z = sample(Discrete({ps: params.groupDist}))
     // var community = posterior.groupObj[z];
-
     // var object = categorical({ps: community, vs: params.objects});
+
   var modelL = function () {
     var object = uniformDraw(params.context);
     var utility = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
@@ -125,7 +124,7 @@ csv.writeLine('model,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessi
 
 var posttest_file = csv.open('./output/meaningTest_' + model + '.csv');
 csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,\
-                  condition,agentID,object,partner,val', posttest_file);
+                  condition,partnerID,partner,val', posttest_file);
 
 var writeLine2 = function(currTrial, speakerChoice, listenerChoice, speakerOutput, listenerOutput) {
   csv.writeLine([
@@ -209,7 +208,7 @@ var iterate2 = function(outputF, remainingTrials, dataSoFar) {
   var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
   var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
 
-  postTest(currTrial, marginalize(listenerPosterior, 'groupAssignment'));
+  postTest(currTrial, marginalize(speakerPosterior, 'groupAssignment'));
 
   // get marginal prediction of next data point over lexicon posterior
   var trialParams = extend(params, {partnerID: currTrial.partnerID, speakerID: currTrial.speakerID});
@@ -230,7 +229,7 @@ var iterate2 = function(outputF, remainingTrials, dataSoFar) {
     });
     return (id == currTrial.speakerID || id == currTrial.listenerID ?
             dataSoFar[id].concat(trialPacket) : dataSoFar[id]);
-  }, _.range(1, 6))); // UPDATE FOR ID?
+  }, _.range(1, 6)));
 
   if(!_.isEmpty(rest(remainingTrials))) {
     iterate2(outputF, rest(remainingTrials), newDataSoFar);
