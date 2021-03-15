@@ -63,19 +63,13 @@ var updatePosterior = function(data, lexicalPrior, params) {
     // global prototype
     var prior = lexicalPrior();
     var lexicon = prior.lexicon;
+    //console.log(lexicon);
     var groupAssignment = prior.groupAssignment;
-
-    // guessing the community
-        // var groupUtt = repeat(params.numGroups, function (){
-        //   // distribution within each community
-        //   return dirichlet({alpha: ones([params.utterances.length, 1])})
-        // })
-        // var groupObj = repeat(params.numGroups, function (){
-        //   // distribution within each community
-        //   return dirichlet({alpha: ones([params.objects.length, 1])})
-        // })
-
-        // return {groupUtt: groupUtt.data, groupObj: groupObj.data};
+    var hyper1 = prior.group1hyperParams;
+    var hyper2 = prior.group2hyperParams;
+    //console.log(groupAssignment)
+    //console.log(hyper1)
+    //console.log(hyper2)
 
     mapData({data: data}, function(trial) {
       var beta = Math.pow(params.discountFactor,  data.length - trial.trialNum);
@@ -98,7 +92,7 @@ var numMeanings = meanings.length;
 var groups = ['group1', 'group2'];
 var numGroups = groups.length;
 var groupDist = dirichlet({alpha: ones([numGroups, 1])});
-var partners = ['partner1', 'partner2', 'partner3', 'partner4', 'partner5'];
+var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
 var model = 'M1';
 
 var params = {
@@ -111,7 +105,7 @@ var params = {
   context : objects,
   utterances: utterances,
   objects: objects,
-  inferOptions: {method: 'MCMC', samples: 2500, burn:5000, lag:5, verbose: true},
+  inferOptions: {method: 'MCMC', samples: 10000, burn:5000, lag:5, verbose: true},
   model: model
 };
 
@@ -144,42 +138,48 @@ var sampleProbs = function() {
 
 var lexicalPrior = function() {
   var groupAssignmentZ = {
-    'partner1': uniformDraw(groups),
+    'partner1': 'group1',
     'partner2': uniformDraw(groups),
     'partner3': uniformDraw(groups),
     'partner4': uniformDraw(groups),
-    'partner5': uniformDraw(groups)
+    //'partner5': uniformDraw(groups)
   }
 
-  var partnerMeaning = map(function(utt){
+  var meaning = map(function(utt){
     var hyperParams = {
       'group1': dirichlet(sampleProbs()),
       'group2': dirichlet(sampleProbs())
     };
-    return map(function(partnerID) {
-      var partnerGroup = groupAssignmentZ[partnerID];
-      return categorical({vs: meanings, ps: hyperParams[partnerGroup]});
-    }, partners);
+    return {
+        group1hyperParams: hyperParams['group1'],
+        group2hyperParams: hyperParams['group2'],
+        partnerMeaning: map(function(partnerID) {
+          var partnerGroup = groupAssignmentZ[partnerID];
+          return categorical({vs: meanings, ps: hyperParams[partnerGroup]});
+        }, partners)
+    };
   }, utterances);
 
   return {
     'groupAssignment': groupAssignmentZ,
+    'group1hyperParams' : {'word1': meaning[0].group1hyperParams, 'word2' : meaning[1].group1hyperParams},
+    'group2hyperParams' : {'word1': meaning[0].group2hyperParams, 'word2' : meaning[1].group2hyperParams},
     'lexicon': {
         '1': {
-            'word1': partnerMeaning[0][0], 'word2': partnerMeaning[1][0]
+            'word1': meaning[0].partnerMeaning[0], 'word2': meaning[1].partnerMeaning[0]
         },
         '2': {
-            'word1': partnerMeaning[0][1], 'word2': partnerMeaning[1][1]
+            'word1': meaning[0].partnerMeaning[1], 'word2': meaning[1].partnerMeaning[1]
         },
         '3': {
-            'word1': partnerMeaning[0][2], 'word2': partnerMeaning[1][2]
+            'word1': meaning[0].partnerMeaning[2], 'word2': meaning[1].partnerMeaning[2]
         },
         '4': {
-            'word1': partnerMeaning[0][3], 'word2': partnerMeaning[1][3]
-        },
-        '5': {
-            'word1': partnerMeaning[0][4], 'word2': partnerMeaning[1][4]
+            'word1': meaning[0].partnerMeaning[3], 'word2': meaning[1].partnerMeaning[3]
         }
+        //'5': {
+        //    'word1': meaning[0].partnerMeaning[4], 'word2': meaning[1].partnerMeaning[4]
+        //}
     }
   }
 };
@@ -199,16 +199,17 @@ csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,t
 
 var iterate2 = function(outputF, remainingTrials, dataSoFar) {
   var currTrial = extend(first(remainingTrials), {
-    context : objects,
+    context : params.context,
   });
 
   console.log('Trial Number: ' + currTrial.trialNum);
   console.log('Partner ID: ' + currTrial.partnerID);
+  //console.log(dataSoFar);
   // run VI on current data
   var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
+  //console.log(dataSoFar[currTrial.listenerID]);
   var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
-
-  postTest(currTrial, marginalize(speakerPosterior, 'groupAssignment'));
+  postTest(currTrial, marginalize(listenerPosterior, 'groupAssignment'));
 
   // get marginal prediction of next data point over lexicon posterior
   var trialParams = extend(params, {partnerID: currTrial.partnerID, speakerID: currTrial.speakerID});
@@ -242,22 +243,30 @@ var trials = [
 // Group 1 refers to A as "word1" and B as "word2"
 // Group 2 refers to A as "word2" and B as "word1"
 
-  {trialNum: 1, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A'},
-  {trialNum: 2, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B'},
-  {trialNum: 3, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A'},
-  {trialNum: 4, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B'},
-  {trialNum: 5, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A'},
-  {trialNum: 6, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B'},
-  {trialNum: 7, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A'},
-  {trialNum: 8, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B'},
-  {trialNum: 9, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A'},
-  {trialNum: 10, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B'},
-  {trialNum: 11, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A'},
-  {trialNum: 12, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B'},
-  {trialNum: 13, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A'},
-  {trialNum: 14, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B'},
-  {trialNum: 15, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A'},
-  {trialNum: 16, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B'}
+  {trialNum: 1, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1'},
+  {trialNum: 2, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2'},
+  {trialNum: 3, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1'},
+  {trialNum: 4, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2'},
+  {trialNum: 5, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1'},
+  {trialNum: 6, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2'},
+  {trialNum: 7, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2'},
+  {trialNum: 8, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1'},
+  {trialNum: 9, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2'},
+  {trialNum: 10, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1'},
+  {trialNum: 11, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2'},
+  {trialNum: 12, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1'},
+  {trialNum: 13, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A', wordID: 'word1'},
+  {trialNum: 14, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B', wordID: 'word2'},
+  {trialNum: 15, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A', wordID: 'word1'},
+  {trialNum: 16, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B', wordID: 'word2'},
+  {trialNum: 17, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A', wordID: 'word1'},
+  {trialNum: 18, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B', wordID: 'word2'},
+  {trialNum: 19, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A', wordID: 'word2'},
+  {trialNum: 20, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B', wordID: 'word1'},
+  {trialNum: 21, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A', wordID: 'word2'},
+  {trialNum: 22, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B', wordID: 'word1'},
+  {trialNum: 23, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A', wordID: 'word2'},
+  {trialNum: 24, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B', wordID: 'word1'}
 
 ];
 

@@ -1,0 +1,8 @@
+model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,                  condition,partnerID,partner,val
+M1,5,5,0.9,0.01,,,partner1,group1,1
+M1,5,5,0.9,0.01,,,partner2,group1,0.38039999999999996
+M1,5,5,0.9,0.01,,,partner2,group2,0.6196
+M1,5,5,0.9,0.01,,,partner3,group1,0.6519999999999999
+M1,5,5,0.9,0.01,,,partner3,group2,0.348
+M1,5,5,0.9,0.01,,,partner4,group1,0.3827999999999999
+M1,5,5,0.9,0.01,,,partner4,group2,0.6172000000000002
