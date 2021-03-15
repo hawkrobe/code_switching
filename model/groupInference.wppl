@@ -21,19 +21,19 @@ var S = function(object, posterior, params) {
 
     // context 1
     // if speakerID = 1 or 3 then if object = A...
-    if (params.speakerID == 1 || params.speakerID == 3) {
-        if (object == params.objects[0]) {
-            condition(utt == params.utterances[0])
-        } else {
-            condition(utt == params.utterances[1])
-        }
-    } else { // if speakerID = 2 or 4 then if object = A...
-        if (object == params.objects[0]) {
-            condition(utt == params.utterances[1])
-        } else {
-            condition(utt == params.utterances[0])
-        }
-    }
+    //if (params.speakerID == 1 || params.speakerID == 3) {
+    //    if (object == params.objects[0]) {
+    //        condition(utt == params.utterances[0])
+    //    } else {
+    //        condition(utt == params.utterances[1])
+    //    }
+    //} else { // if speakerID = 2 or 4 then if object = A...
+    //    if (object == params.objects[0]) {
+    //        condition(utt == params.utterances[1])
+    //    } else {
+    //        condition(utt == params.utterances[0])
+    //    }
+    //}
     return utt;
   }
   return Infer({method: 'enumerate'}, modelS);
@@ -215,6 +215,7 @@ var iterate2 = function(outputF, remainingTrials, dataSoFar) {
   var trialParams = extend(params, {partnerID: currTrial.partnerID, speakerID: currTrial.speakerID});
   var speakerOutput = S(currTrial.intendedName, speakerPosterior, trialParams);
   var nextUtt = sample(speakerOutput);
+  //var nextUtt = currTrial.wordID;
 
   var listenerOutput = L(nextUtt, listenerPosterior, trialParams);
   var nextChoice = sample(listenerOutput);

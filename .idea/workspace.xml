@@ -22,10 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Initial post-test calculations">
-      <change afterPath="$PROJECT_DIR$/model/output/examinePost_M1.csv" afterDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Updating postTest from speakerPosterior to listenerPosterior">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/examinePosteriors.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/examinePosteriors.wppl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/output/M1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/M1.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/output/meaningTest_M1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_M1.csv" afterDir="false" />
@@ -122,7 +120,7 @@
       <workItem from="1615555014708" duration="13877000" />
       <workItem from="1615570351084" duration="46000" />
       <workItem from="1615585474865" duration="3788000" />
-      <workItem from="1615822393158" duration="7542000" />
+      <workItem from="1615822393158" duration="9024000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -376,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615585508690</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Updating postTest from speakerPosterior to listenerPosterior">
+      <created>1615831324090</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1615831324090</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,7 +405,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="only allowing players to click tangrams after a message has been sent" />
     <MESSAGE value="Initial introduction updates. Some images still needed (to be updated once interface is complete)" />
     <MESSAGE value="Updating introduction to emphasize communities, adding questions to attention quiz." />
     <MESSAGE value="Adding revised exit survey, still needs some formatting" />
@@ -425,7 +429,8 @@
     <MESSAGE value="Refining first context" />
     <MESSAGE value="Updating posterior to include groupAssignment" />
     <MESSAGE value="Initial post-test calculations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial post-test calculations" />
+    <MESSAGE value="Updating postTest from speakerPosterior to listenerPosterior" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating postTest from speakerPosterior to listenerPosterior" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
