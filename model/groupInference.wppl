@@ -3,13 +3,7 @@
 
 // inference of speaker choosing an utterance
 var S = function(object, posterior, params) {
-  var modelS = function () {
-    // determining which community
-    // var z = sample(Discrete({ps: params.groupDist}))
-    // var community = posterior.groupUtt[z];
-    // utterance chosen based on what they know about the community
-    // var utt = categorical({ps: community, vs: params.utterances});
-
+  return Infer({method: 'enumerate'}, function () {
     var utt = uniformDraw(params.utterances);
     var inf = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
        return sharedInference.getL0Score(object, utt, extend(params, {lexicon: lexicon[params.partnerID]}));
@@ -18,43 +12,20 @@ var S = function(object, posterior, params) {
                     - params.costWeight * sharedInference.getUttCost(utt));
 
     factor(params.speakerAlpha * utility);
-
-    // context 1
-    // if speakerID = 1 or 3 then if object = A...
-    //if (params.speakerID == 1 || params.speakerID == 3) {
-    //    if (object == params.objects[0]) {
-    //        condition(utt == params.utterances[0])
-    //    } else {
-    //        condition(utt == params.utterances[1])
-    //    }
-    //} else { // if speakerID = 2 or 4 then if object = A...
-    //    if (object == params.objects[0]) {
-    //        condition(utt == params.utterances[1])
-    //    } else {
-    //        condition(utt == params.utterances[0])
-    //    }
-    //}
     return utt;
-  }
-  return Infer({method: 'enumerate'}, modelS);
+  })
 };
 
 // inference of listener choosing an object
 var L = function(utt, posterior, params) {
-    // object chosen based on speaker community
-    // var z = sample(Discrete({ps: params.groupDist}))
-    // var community = posterior.groupObj[z];
-    // var object = categorical({ps: community, vs: params.objects});
-
-  var modelL = function () {
+  return Infer({method: 'enumerate'}, function () {
     var object = uniformDraw(params.context);
     var utility = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
       return sharedInference.getS1Score(utt, object, extend(params, {lexicon: lexicon[params.partnerID]}));
     });
     factor(params.listenerAlpha * utility);
     return object;
-  }
-  return Infer({method: 'enumerate'}, modelL);
+  });
 };
 
 var updatePosterior = function(data, lexicalPrior, params) {
@@ -91,7 +62,6 @@ var meanings = ['A', 'B'];
 var numMeanings = meanings.length;
 var groups = ['group1', 'group2'];
 var numGroups = groups.length;
-var groupDist = dirichlet({alpha: ones([numGroups, 1])});
 var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
 var model = 'M1';
 
@@ -120,20 +90,18 @@ var posttest_file = csv.open('./output/meaningTest_' + model + '.csv');
 csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,\
                   condition,partnerID,partner,val', posttest_file);
 
-var writeLine2 = function(currTrial, speakerChoice, listenerChoice, speakerOutput, listenerOutput) {
+var writeLine2 = function(currTrial, speakerChoice, listenerChoice, listenerOutput) {
   csv.writeLine([
     params.model, params.speakerAlpha, params.listenerAlpha,
     params.costWeight, params.discountFactor, params.guessingEpsilon,
     currTrial.trialNum, currTrial.speakerID, currTrial.listenerID, currTrial.partnerID,
     currTrial.intendedName, speakerChoice, listenerChoice,
-    Math.exp(speakerOutput.score('word1_word2')) + Math.exp(speakerOutput.score('word3_word4')),
     listenerOutput.score(currTrial.intendedName),
   ].join(','), f);
 };
 
 var sampleProbs = function() {
-  var hyperScale = exponential({a:1});
-  return T.mul(ones([numMeanings, 1]), hyperScale);
+  return T.mul(ones([numMeanings, 1]), 0.1);
 }
 
 var lexicalPrior = function() {
@@ -151,12 +119,12 @@ var lexicalPrior = function() {
       'group2': dirichlet(sampleProbs())
     };
     return {
-        group1hyperParams: hyperParams['group1'],
-        group2hyperParams: hyperParams['group2'],
-        partnerMeaning: map(function(partnerID) {
-          var partnerGroup = groupAssignmentZ[partnerID];
-          return categorical({vs: meanings, ps: hyperParams[partnerGroup]});
-        }, partners)
+      group1hyperParams: hyperParams['group1'],
+      group2hyperParams: hyperParams['group2'],
+      partnerMeaning: map(function(partnerID) {
+        var partnerGroup = groupAssignmentZ[partnerID];
+        return categorical({vs: meanings, ps: hyperParams[partnerGroup]});
+      }, partners)
     };
   }, utterances);
 
@@ -204,25 +172,22 @@ var iterate2 = function(outputF, remainingTrials, dataSoFar) {
 
   console.log('Trial Number: ' + currTrial.trialNum);
   console.log('Partner ID: ' + currTrial.partnerID);
-  //console.log(dataSoFar);
-  // run VI on current data
+
   var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
-  //console.log(dataSoFar[currTrial.listenerID]);
   var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
   postTest(currTrial, marginalize(listenerPosterior, 'groupAssignment'));
 
   // get marginal prediction of next data point over lexicon posterior
   var trialParams = extend(params, {partnerID: currTrial.partnerID, speakerID: currTrial.speakerID});
-  var speakerOutput = S(currTrial.intendedName, speakerPosterior, trialParams);
-  var nextUtt = sample(speakerOutput);
-  //var nextUtt = currTrial.wordID;
+  var nextUtt = currTrial.wordID;
 
   var listenerOutput = L(nextUtt, listenerPosterior, trialParams);
   var nextChoice = sample(listenerOutput);
-
+  console.log(marginalize(listenerPosterior, 'groupAssignment'));
+  console.log(listenerOutput)
   //console.log(marginalize(listenerPosterior, 'groupAssignment'))
 
-  writeLine2(currTrial, nextUtt, nextChoice, speakerOutput, listenerOutput);
+  writeLine2(currTrial, nextUtt, nextChoice, listenerOutput);
   var newDataSoFar = _.zipObject(_.range(1, 6), map(function(id) {
     var trialPacket = extend(currTrial, {
       role: id == currTrial.speakerID ? "speaker" : "listener",
