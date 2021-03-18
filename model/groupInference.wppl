@@ -63,7 +63,8 @@ var numMeanings = meanings.length;
 var groups = ['group1', 'group2'];
 var numGroups = groups.length;
 var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
-var model = 'M1';
+var model = 'Listener';
+var scalingFactor = 0.1;
 
 var params = {
   speakerAlpha : 5,
@@ -75,25 +76,25 @@ var params = {
   context : objects,
   utterances: utterances,
   objects: objects,
-  inferOptions: {method: 'MCMC', samples: 10000, burn:5000, lag:5, verbose: true},
+  inferOptions: {method: 'MCMC', samples: 20000, burn:5000, lag:5, verbose: true},
   model: model
 };
 
 // model 1 - completely distinct groups with opposite lexicons, single listener
 
-var f = csv.open('./output/' + model + '.csv');
-csv.writeLine('model,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessingEpsilon,\
+var f = csv.open('./output/' + model + scalingFactor + '.csv');
+csv.writeLine('model,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessingEpsilon,scalingFactor,\
               trialNum,speakerID,listenerID,partnerID,intendedName,speakerChoice,listenerChoice,\
               longUttScore,correctProb', f);
 
-var posttest_file = csv.open('./output/meaningTest_' + model + '.csv');
+var posttest_file = csv.open('./output/meaningTest_' + model + scalingFactor + '.csv');
 csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,\
                   condition,partnerID,partner,val', posttest_file);
 
 var writeLine2 = function(currTrial, speakerChoice, listenerChoice, listenerOutput) {
   csv.writeLine([
     params.model, params.speakerAlpha, params.listenerAlpha,
-    params.costWeight, params.discountFactor, params.guessingEpsilon,
+    params.costWeight, params.discountFactor, params.guessingEpsilon, params.scalingFactor,
     currTrial.trialNum, currTrial.speakerID, currTrial.listenerID, currTrial.partnerID,
     currTrial.intendedName, speakerChoice, listenerChoice,
     listenerOutput.score(currTrial.intendedName),
@@ -101,7 +102,7 @@ var writeLine2 = function(currTrial, speakerChoice, listenerChoice, listenerOutp
 };
 
 var sampleProbs = function() {
-  return T.mul(ones([numMeanings, 1]), 0.1);
+  return T.mul(ones([numMeanings, 1]), scalingFactor);
 }
 
 var lexicalPrior = function() {
@@ -162,8 +163,8 @@ var postTest = function(trial, posterior){
     }, partners);
 }
 
-csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,\
-                  condition,agentID,object,word,val', posttest_file);
+//csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,\
+//                  condition,agentID,object,word,val', posttest_file);
 
 var iterate2 = function(outputF, remainingTrials, dataSoFar) {
   var currTrial = extend(first(remainingTrials), {
