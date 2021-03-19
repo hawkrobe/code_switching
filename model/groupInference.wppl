@@ -70,7 +70,7 @@ var groups = ['group1', 'group2'];
 var numGroups = groups.length;
 var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
 var model = 'Listener';
-var scalingFactor = 0.1;
+var scalingFactor = 0.05;
 
 var params = {
   speakerAlpha : 5,
@@ -205,6 +205,7 @@ var iterate2 = function(outputF, remainingTrials, dataSoFar) {
   // get marginal prediction of next data point over lexicon posterior
   var trialParams = extend(params, {partnerID: currTrial.partnerID, speakerID: currTrial.speakerID});
   var nextUtt = currTrial.wordID;
+  //var nextUtt = sample(speakerOutput);
 
   var listenerOutput = L(nextUtt, listenerPosterior, trialParams);
   var nextChoice = sample(listenerOutput);

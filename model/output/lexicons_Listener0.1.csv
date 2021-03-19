@@ -1,2 +1,0 @@
-model,speakerAlpha,listenerAlpha,costWeight, discountFactor,guessingEpsilon,scalingFactor,               trialNum,speakerID,listenerID,partnerID,hyper1,hyper2,partnerLex
-Listener,5,5,0,0.9,0.01,0.1,1,1,5,1,,

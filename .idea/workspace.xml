@@ -27,12 +27,25 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Adding initial scaling factor variables">
-      <change afterPath="$PROJECT_DIR$/model/output/Listener0.1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/lexicons_Listener0.1.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener0.1.csv" afterDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Rewriting for easier export of hyperParameters">
+      <change afterPath="$PROJECT_DIR$/model/output/Listener0.05.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Listener0.5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Listener1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Listener10.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Listener5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener0.05.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener0.5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener10.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/simulationGraphs.m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/Listener0.1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener0.1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/lexicons_Listener0.1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener0.1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener0.1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/undefined1.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/undefinedundefined.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +141,7 @@
       <workItem from="1615585474865" duration="3788000" />
       <workItem from="1615822393158" duration="9024000" />
       <workItem from="1615925838489" duration="1855000" />
-      <workItem from="1616087916768" duration="4994000" />
+      <workItem from="1616087916768" duration="9354000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -403,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616088359822</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Rewriting for easier export of hyperParameters">
+      <created>1616092986959</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1616092986959</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +453,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="Adding revised exit survey, still needs some formatting" />
     <MESSAGE value="Adding exit survey after the post test" />
     <MESSAGE value="Uploading new jdenticons and avatar name colors" />
     <MESSAGE value="Importing introduction images to git" />
@@ -458,7 +477,8 @@
     <MESSAGE value="Updating postTest from speakerPosterior to listenerPosterior" />
     <MESSAGE value="Allowing for initial listener learning" />
     <MESSAGE value="Adding initial scaling factor variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding initial scaling factor variables" />
+    <MESSAGE value="Rewriting for easier export of hyperParameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rewriting for easier export of hyperParameters" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
