@@ -19,15 +19,15 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Updating postTest from speakerPosterior to listenerPosterior">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/M1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/M1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_M1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_M1.csv" afterDir="false" />
-    </list>
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Setting up initial simulation graphs for partner group over time" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,6 +121,8 @@
       <workItem from="1615570351084" duration="46000" />
       <workItem from="1615585474865" duration="3788000" />
       <workItem from="1615822393158" duration="9024000" />
+      <workItem from="1615925838489" duration="1855000" />
+      <workItem from="1616087916768" duration="10030000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -381,7 +383,35 @@
       <option name="project" value="LOCAL" />
       <updated>1615831324090</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Allowing for initial listener learning">
+      <created>1616088313896</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1616088313896</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Adding initial scaling factor variables">
+      <created>1616088359822</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1616088359822</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Rewriting for easier export of hyperParameters">
+      <created>1616092986959</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1616092986959</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Setting up initial simulation graphs for partner group over time">
+      <created>1616119702956</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1616119702956</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,7 +422,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -405,10 +441,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="Initial introduction updates. Some images still needed (to be updated once interface is complete)" />
-    <MESSAGE value="Updating introduction to emphasize communities, adding questions to attention quiz." />
-    <MESSAGE value="Adding revised exit survey, still needs some formatting" />
-    <MESSAGE value="Adding exit survey after the post test" />
     <MESSAGE value="Uploading new jdenticons and avatar name colors" />
     <MESSAGE value="Importing introduction images to git" />
     <MESSAGE value="make team details depend on treatment color" />
@@ -430,7 +462,11 @@
     <MESSAGE value="Updating posterior to include groupAssignment" />
     <MESSAGE value="Initial post-test calculations" />
     <MESSAGE value="Updating postTest from speakerPosterior to listenerPosterior" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updating postTest from speakerPosterior to listenerPosterior" />
+    <MESSAGE value="Allowing for initial listener learning" />
+    <MESSAGE value="Adding initial scaling factor variables" />
+    <MESSAGE value="Rewriting for easier export of hyperParameters" />
+    <MESSAGE value="Setting up initial simulation graphs for partner group over time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Setting up initial simulation graphs for partner group over time" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
@@ -456,9 +492,9 @@
     </state>
     <state x="-3043" y="19" width="965" height="1400" key="find.popup/0.0.1536.824/460.1080.1000.504/-3840.0.2560.1440@-3840.0.2560.1440" timestamp="1610400505457" />
     <state x="478" y="11" width="579" height="801" key="find.popup/0.0.1536.824/460.1080.1000.504@0.0.1536.824" timestamp="1609890575225" />
-    <state x="-3121" y="253" width="1120" height="1185" key="search.everywhere.popup" timestamp="1615823131780">
+    <state x="-3121" y="253" width="1120" height="1185" key="search.everywhere.popup" timestamp="1616088038104">
       <screen x="-3840" y="0" width="2560" height="1440" />
     </state>
-    <state x="-3121" y="253" width="1120" height="1185" key="search.everywhere.popup/0.0.1536.824/460.1080.1000.504/-3840.0.2560.1440@-3840.0.2560.1440" timestamp="1615823131780" />
+    <state x="-3121" y="253" width="1120" height="1185" key="search.everywhere.popup/0.0.1536.824/460.1080.1000.504/-3840.0.2560.1440@-3840.0.2560.1440" timestamp="1616088038104" />
   </component>
 </project>

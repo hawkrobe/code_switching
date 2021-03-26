@@ -36,8 +36,8 @@ var updatePosterior = function(data, lexicalPrior, params) {
     var lexicon = prior.lexicon;
     //console.log(lexicon);
     var groupAssignment = prior.groupAssignment;
-    var hyper1 = prior.group1hyperParams;
-    var hyper2 = prior.group2hyperParams;
+    var hyper1 = prior.hyperParams.group1hyperParams;
+    var hyper2 = prior.hyperParams.group2hyperParams;
     //console.log(groupAssignment)
     //console.log(hyper1)
     //console.log(hyper2)
@@ -52,7 +52,13 @@ var updatePosterior = function(data, lexicalPrior, params) {
         factor(beta * sharedInference.getS1Score(trial.wordID, object, trialParams));
       }
     });
-    return {lexicon: lexicon, groupAssignment: groupAssignment};
+    return {lexicon: lexicon,
+            groupAssignment: groupAssignment,
+            hyperParams: {
+                group1hyper: hyper1,
+                group2hyper: hyper2
+            }
+    };
   });
 };
 
@@ -63,7 +69,8 @@ var numMeanings = meanings.length;
 var groups = ['group1', 'group2'];
 var numGroups = groups.length;
 var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
-var model = 'M1';
+var model = 'Listener';
+var scalingFactor = 0.05;
 
 var params = {
   speakerAlpha : 5,
@@ -75,33 +82,51 @@ var params = {
   context : objects,
   utterances: utterances,
   objects: objects,
-  inferOptions: {method: 'MCMC', samples: 10000, burn:5000, lag:5, verbose: true},
-  model: model
+  inferOptions: {method: 'MCMC', samples: 20000, burn:5000, lag:5, verbose: true},
+  model: model,
+  scalingFactor: scalingFactor
 };
 
 // model 1 - completely distinct groups with opposite lexicons, single listener
 
-var f = csv.open('./output/' + model + '.csv');
-csv.writeLine('model,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessingEpsilon,\
+var f = csv.open('./output/' + model + scalingFactor + '.csv');
+csv.writeLine('model,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessingEpsilon,scalingFactor,\
               trialNum,speakerID,listenerID,partnerID,intendedName,speakerChoice,listenerChoice,\
               longUttScore,correctProb', f);
 
-var posttest_file = csv.open('./output/meaningTest_' + model + '.csv');
+var posttest_file = csv.open('./output/meaningTest_' + model + scalingFactor + '.csv');
 csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,\
                   condition,partnerID,partner,val', posttest_file);
+
+//var lexicon_file = csv.open('./output/lexicons_' + model + scalingFactor + '.csv');
+//csv.writeLine('model,speakerAlpha,listenerAlpha,costWeight, discountFactor,guessingEpsilon,scalingFactor,\
+//               trialNum,speakerID,listenerID,partnerID,hyper1,hyper2,partnerLex', lexicon_file);
 
 var writeLine2 = function(currTrial, speakerChoice, listenerChoice, listenerOutput) {
   csv.writeLine([
     params.model, params.speakerAlpha, params.listenerAlpha,
-    params.costWeight, params.discountFactor, params.guessingEpsilon,
+    params.costWeight, params.discountFactor, params.guessingEpsilon, params.scalingFactor,
     currTrial.trialNum, currTrial.speakerID, currTrial.listenerID, currTrial.partnerID,
     currTrial.intendedName, speakerChoice, listenerChoice,
     listenerOutput.score(currTrial.intendedName),
   ].join(','), f);
 };
 
+//var writeLex = function(currTrial, posterior){
+//  var hyperParams = marginalize(posterior, 'hyperParams')
+//  var partnerLex = marginalize(posterior, 'lexicon')
+// console.log(expectation(marginalize(marginalize(hyperParams, 'group1hyper'), 'word1')))
+  //console.log(partnerLex)
+//  csv.writeLine([
+//    params.model, params.speakerAlpha, params.listenerAlpha,
+//    params.costWeight, params.discountFactor, params.guessingEpsilon, params.scalingFactor,
+//    currTrial.trialNum, currTrial.speakerID, currTrial.listenerID, currTrial.partnerID,
+//    hyperParams.group1hyper, hyperParams.group2hyper
+//  ].join(','), lexicon_file);
+//};
+
 var sampleProbs = function() {
-  return T.mul(ones([numMeanings, 1]), 0.1);
+  return T.mul(ones([numMeanings, 1]), scalingFactor);
 }
 
 var lexicalPrior = function() {
@@ -130,8 +155,10 @@ var lexicalPrior = function() {
 
   return {
     'groupAssignment': groupAssignmentZ,
-    'group1hyperParams' : {'word1': meaning[0].group1hyperParams, 'word2' : meaning[1].group1hyperParams},
-    'group2hyperParams' : {'word1': meaning[0].group2hyperParams, 'word2' : meaning[1].group2hyperParams},
+    'hyperParams' : {
+        'group1hyperParams' : {'word1': meaning[0].group1hyperParams, 'word2' : meaning[1].group1hyperParams},
+        'group2hyperParams' : {'word1': meaning[0].group2hyperParams, 'word2' : meaning[1].group2hyperParams},
+    },
     'lexicon': {
         '1': {
             'word1': meaning[0].partnerMeaning[0], 'word2': meaning[1].partnerMeaning[0]
@@ -162,9 +189,6 @@ var postTest = function(trial, posterior){
     }, partners);
 }
 
-csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,trialNum,\
-                  condition,agentID,object,word,val', posttest_file);
-
 var iterate2 = function(outputF, remainingTrials, dataSoFar) {
   var currTrial = extend(first(remainingTrials), {
     context : params.context,
@@ -176,15 +200,17 @@ var iterate2 = function(outputF, remainingTrials, dataSoFar) {
   var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
   var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
   postTest(currTrial, marginalize(listenerPosterior, 'groupAssignment'));
+//  writeLex(currTrial, listenerPosterior);
 
   // get marginal prediction of next data point over lexicon posterior
   var trialParams = extend(params, {partnerID: currTrial.partnerID, speakerID: currTrial.speakerID});
   var nextUtt = currTrial.wordID;
+  //var nextUtt = sample(speakerOutput);
 
   var listenerOutput = L(nextUtt, listenerPosterior, trialParams);
   var nextChoice = sample(listenerOutput);
-  console.log(marginalize(listenerPosterior, 'groupAssignment'));
-  console.log(listenerOutput)
+  //console.log(marginalize(listenerPosterior, 'groupAssignment'));
+  //console.log(listenerOutput)
   //console.log(marginalize(listenerPosterior, 'groupAssignment'))
 
   writeLine2(currTrial, nextUtt, nextChoice, listenerOutput);
@@ -239,3 +265,4 @@ var trials = [
 iterate2(f, trials, {1: [], 2:[], 3:[], 4:[], 5 :[]});
 csv.close(f);
 csv.close(posttest_file);
+//csv.close(lexicon_file);
