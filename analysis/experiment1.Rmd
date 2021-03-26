@@ -272,7 +272,7 @@ post_test <- post_test.raw %>%
 ## description length longer for out-group
 
 ```{r}
-post_test %>%
+p <- post_test %>%
   gather(ownGroup, utt_length_words, otherGroup, ownGroup) %>%
   group_by(playerId) %>%
   # z score
@@ -288,6 +288,8 @@ post_test %>%
                               "second"="own -> other")) +
     labs(x = '', y = 'log # words (z scored)') +
     theme(aspect.ratio = 2, axis.text.x = element_text(angle = 45,  vjust = 1, hjust=1))
+
+pg <- ggplot_build(p)
 
 ggsave('../writing/utt_length.pdf', units = 'in', height = 3, width = 5)
 ```
