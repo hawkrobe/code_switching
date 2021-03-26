@@ -1,0 +1,1057 @@
+gameId,playerId,tangram,utt_length_words,ownGroup,blockOrder,condition,origText
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,H,1,ownGroup,first,ownGroup_first,buddha
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,E,1,ownGroup,first,ownGroup_first,rabbit
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,F,1,ownGroup,first,ownGroup_first,depressed
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,G,1,ownGroup,first,ownGroup_first,dancer
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,G,10,otherGroup,first,otherGroup_first,A dancer.Some people see a long dressed woman dancing.
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,G,1,ownGroup,first,ownGroup_first,dancer
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,H,2,otherGroup,second,otherGroup_second,no legs
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,G,12,ownGroup,first,ownGroup_first,It's like a dancing woman with a long dress. Without ears
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,G,2,otherGroup,second,otherGroup_second,open chest
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,E,14,otherGroup,first,otherGroup_first,Like a big eared person.Or 2 triangles on the top of a square.
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,F,1,otherGroup,second,otherGroup_second,sad
+hXJrmsG9Q2uWDXN7T,9sgexPGxSg8dbfjky,E,1,otherGroup,second,otherGroup_second,rabbit
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,F,9,ownGroup,first,ownGroup_first,"like a seated man, with legs but without ears"
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,H,11,otherGroup,first,otherGroup_first,"Looks like a buddha, stall image, no movement, like crossed legs."
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,H,6,ownGroup,first,ownGroup_first,buddha or infant in a bed
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,E,1,ownGroup,first,ownGroup_first,rabbit
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,F,20,otherGroup,first,otherGroup_first,"Sitting down dude, with his back to the right wall, looking up/down depending how you see it.No ears."
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,H,12,ownGroup,first,ownGroup_first,it's a buddha: without ears and arms and with crossed legs
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,F,6,ownGroup,first,ownGroup_first,"depressed man, sitting against a wall"
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,E,14,ownGroup,first,ownGroup_first,looks like a sad rabbit or like a seated man with so big ears
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,F,16,ownGroup,second,ownGroup_second,"Sitting down person, looking up/down. Has no ears. Has the back against the right wall."
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,H,7,otherGroup,second,otherGroup_second,"buddha, or small baby in a bed"
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,G,1,otherGroup,second,otherGroup_second,dancer
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,H,4,ownGroup,second,ownGroup_second,Budha. No movement whatsoever.
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,E,1,otherGroup,second,otherGroup_second,rabbit
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,G,10,otherGroup,second,otherGroup_second,like a dancing woman with a long dress. without ears
+hXJrmsG9Q2uWDXN7T,ek7RGAsMfmiuKv9ZW,F,6,otherGroup,second,otherGroup_second,"depressed man, sitting against a wall"
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,G,13,ownGroup,second,ownGroup_second,"Dancer. Kneed with the long leg, and a arm up to the right."
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,E,13,otherGroup,second,otherGroup_second,like a sad rabbit or like a seated man with very big ears
+hXJrmsG9Q2uWDXN7T,mGLLgXimwZwoxxH5h,E,7,ownGroup,second,ownGroup_second,A bunny?Has a ribbon/big ears.
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,H,13,otherGroup,second,otherGroup_second,it's a buddha with crossed legs and without both ears and arms
+hXJrmsG9Q2uWDXN7T,gshiC5i6aoPJL3yat,F,5,otherGroup,second,otherGroup_second,a seated man without ears
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,H,9,ownGroup,first,ownGroup_first,Looks like a candle or a people kneeling down
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,H,4,otherGroup,first,otherGroup_first,Baby in a swaddle
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,E,1,ownGroup,first,ownGroup_first,bunny
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,G,1,ownGroup,first,ownGroup_first,mess
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,H,14,otherGroup,first,otherGroup_first,"A baby wrapped in a blanket, or a head and body with no limbs."
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,F,9,otherGroup,first,otherGroup_first,A man sitting on the floor against a wall
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,F,14,ownGroup,first,ownGroup_first,"Looks like a man sitting down against a wall and looking down, no triangles"
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,E,4,otherGroup,first,otherGroup_first,Looks like a bunny
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,H,8,ownGroup,first,ownGroup_first,bent penis ejaculating diamond spunk into the sky
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,G,11,otherGroup,first,otherGroup_first,An abstract shape with two triangles sticking out on the right.
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,G,13,ownGroup,first,ownGroup_first,"Abstract mess, two triangles on the right side and a square on top"
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,G,5,otherGroup,first,otherGroup_first,Kind of abstract messy shape
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,E,14,otherGroup,first,otherGroup_first,This one looks like it has bunny ears on top of a square head.
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,E,6,ownGroup,first,ownGroup_first,looks like it has bunny ears
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,F,1,ownGroup,first,ownGroup_first,person
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,F,5,otherGroup,first,otherGroup_first,the guy sitting and thinking
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,G,3,ownGroup,second,ownGroup_second,Messy abstract shape
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,G,1,otherGroup,second,otherGroup_second,mess
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,F,10,otherGroup,first,otherGroup_first,This one looks like a man sitting on the floor.
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,H,1,otherGroup,second,otherGroup_second,candle
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,G,9,otherGroup,first,otherGroup_first,the one that has open arms and does yoga
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,F,1,otherGroup,second,otherGroup_second,person
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,E,6,otherGroup,first,otherGroup_first,the one with  the bunny ears
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,D,10,otherGroup,first,otherGroup_first,the guy standing upright with a box in his hands
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,H,10,otherGroup,first,otherGroup_first,"Looks like a candle, or a person with no limbs"
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,G,14,otherGroup,second,otherGroup_second,"Looks like an abstract mess, two triangles on the right and square on top"
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,F,8,ownGroup,second,ownGroup_second,Man sitting on the floor against a wall
+jK9WHXtaAGcGZpsZQ,p9eNbJEPFbqTSTYcR,E,1,otherGroup,second,otherGroup_second,bunny
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,G,8,ownGroup,second,ownGroup_second,"Abstract one, triangles sticking out on the right."
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,E,6,otherGroup,second,otherGroup_second,Looks like it has bunny ears
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,H,4,ownGroup,second,ownGroup_second,Baby in a swaddle
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,C,11,otherGroup,first,otherGroup_first,"the guy with both of his hands up, waving it around"
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,H,6,otherGroup,first,otherGroup_first,the one that has no arms
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,H,2,ownGroup,first,ownGroup_first,still standing
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,E,5,ownGroup,second,ownGroup_second,This one has bunny ears.
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,B,4,otherGroup,first,otherGroup_first,the guy kneeling down
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,H,8,otherGroup,first,otherGroup_first,Looks like a candle or a standing man.
+jK9WHXtaAGcGZpsZQ,K4ReDWLvXcwJZn5DZ,E,4,ownGroup,second,ownGroup_second,Looks like a bunny
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,F,6,otherGroup,first,otherGroup_first,Looks like a guy sitting down
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,A,9,ownGroup,first,ownGroup_first,"one foot up, and a box on his back"
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,F,13,otherGroup,second,otherGroup_second,"Looks like a man sitting against a wall looking down, no triangle ears"
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,A,6,otherGroup,first,otherGroup_first,the guy with one foot up
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,F,8,ownGroup,second,ownGroup_second,its the one that is sitting and thinking
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,G,1,ownGroup,first,ownGroup_first,yoga
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,H,12,ownGroup,second,ownGroup_second,"A baby wrapped up, or a head and body with no limbs."
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,A,6,ownGroup,second,ownGroup_second,the guy with one foot up
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,E,1,ownGroup,first,ownGroup_first,cusco
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,B,3,otherGroup,first,otherGroup_first,kneeling praying guy
+jK9WHXtaAGcGZpsZQ,6Lw73R2unZvNB2vZE,F,5,ownGroup,second,ownGroup_second,Man sitting against a wall.
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,G,7,ownGroup,second,ownGroup_second,the one with open arms doing yoga
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,C,6,ownGroup,first,ownGroup_first,"with arms open, bragging of something"
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,B,4,ownGroup,second,ownGroup_second,the guy kneeling down
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,G,8,otherGroup,first,otherGroup_first,Looks like someone doing Yoga with open arms
+jK9WHXtaAGcGZpsZQ,s4iDhxc6wyabMRhgh,H,8,otherGroup,second,otherGroup_second,Looks like  a candle or a person kneeling
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,C,2,otherGroup,first,otherGroup_first,Y guy
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,D,10,ownGroup,second,ownGroup_second,"the guy standing upright, with a box in his hands"
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,H,5,ownGroup,second,ownGroup_second,the one with no arms
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,F,1,ownGroup,first,ownGroup_first,contemplating
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,B,12,ownGroup,first,ownGroup_first,"looks like a mice, with a square and triangular ear, looking left"
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,A,4,otherGroup,first,otherGroup_first,one leg up guy
+d9p3wuzB2BQYCy7zP,6KWYzzrpMzXoof6mc,E,6,ownGroup,second,ownGroup_second,the one with the bunny ears
+NLsYdbJ2XrBW64HqK,HuJDt7rLM3oPmxzQN,C,11,ownGroup,second,ownGroup_second,"the guy with both of his hands up, waving it around"
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,D,8,ownGroup,first,ownGroup_first,looks like a person holding a square item
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,F,7,otherGroup,first,otherGroup_first,Looks like a man thinking about suicide.
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,G,2,otherGroup,second,otherGroup_second,tai-chi
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,H,4,otherGroup,second,otherGroup_second,dust in the wind
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,D,15,ownGroup,first,ownGroup_first,"looks like a guy standing straight, with a square pot in his hands, looking left"
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,E,12,otherGroup,first,otherGroup_first,Looks like someone sitting down with bunny ears or like Emperor Cuzco
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,B,5,ownGroup,first,ownGroup_first,looks least like a person
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,F,2,otherGroup,second,otherGroup_second,contemplating guy
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,D,7,otherGroup,first,otherGroup_first,priest with both legs down palms upward
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,A,5,ownGroup,first,ownGroup_first,two heads one leg up
+d9p3wuzB2BQYCy7zP,uefqbKWbBYsSeJE88,E,1,otherGroup,second,otherGroup_second,cusco
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,B,9,otherGroup,second,otherGroup_second,"like a mice, triangular and square ear, looking left"
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,H,9,ownGroup,second,ownGroup_second,Looks like a candle or someone with no limbs
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,C,2,ownGroup,first,ownGroup_first,waving hands
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,B,2,ownGroup,second,ownGroup_second,least human
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,E,6,otherGroup,first,otherGroup_first,Looks like someone with bunny ears.
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,A,4,ownGroup,second,ownGroup_second,standing one leg up
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,B,9,otherGroup,second,otherGroup_second,looks like the least human of all 4 shapes
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,C,8,otherGroup,second,otherGroup_second,"with arms open, bragging of something, leaning left"
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,E,9,ownGroup,second,ownGroup_second,Someone sitting down WITH bunny ears or Emperor Cuzco
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,C,2,ownGroup,second,ownGroup_second,open arms
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,A,9,otherGroup,second,otherGroup_second,"with a box on his back, one foot up"
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,G,15,otherGroup,first,otherGroup_first,If it was a human he would be lying on his back with open arms.
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,G,7,ownGroup,second,ownGroup_second,A person doing Yoga with open arms
+NLsYdbJ2XrBW64HqK,M4qbRoF5yXYPGhotP,D,9,otherGroup,second,otherGroup_second,"standing straight, with a square pot in his hands"
+NLsYdbJ2XrBW64HqK,9hRopcMnnYmR9e2dW,D,8,ownGroup,second,ownGroup_second,"standing both legs down, square item in hands"
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,C,2,otherGroup,second,otherGroup_second,waving hands
+d9p3wuzB2BQYCy7zP,BGeqchdkvshi65XDN,F,3,ownGroup,second,ownGroup_second,Just sitting down 
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,A,2,otherGroup,second,otherGroup_second,two heads
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,G,10,ownGroup,second,ownGroup_second,Looks like someone lying on his backs with open arms.
+NLsYdbJ2XrBW64HqK,3WPKgStmvDmiq4cf8,D,1,otherGroup,second,otherGroup_second,square
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,H,8,ownGroup,second,ownGroup_second,Looks like a candle or a standing man.
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,F,8,ownGroup,second,ownGroup_second,Looks like a guy thinking to commit suicide.
+d9p3wuzB2BQYCy7zP,JZ7s2cW82QJHtZEE2,E,6,ownGroup,second,ownGroup_second,Looks like someone with bunny ears.
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,H,8,ownGroup,first,ownGroup_first,head and body with no arms or legs
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,G,5,ownGroup,first,ownGroup_first,person with wings looking left
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,E,3,ownGroup,first,ownGroup_first,rabbit looking right
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,H,7,otherGroup,first,otherGroup_first,newborn just head and body no arms
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,G,6,ownGroup,first,ownGroup_first,winged man looking left with hair
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,E,12,otherGroup,first,otherGroup_first,"looks like a rabbit with ears looking to the right, no arms"
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,F,8,ownGroup,first,ownGroup_first,person looking left with knees bent sitting down
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,H,6,ownGroup,first,ownGroup_first,"newborn, no visible arms, no hair"
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,F,12,otherGroup,first,otherGroup_first,bent knees looking to the left head legs and body no arms
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,G,15,otherGroup,first,otherGroup_first,it looks like a woman looking to the left with her wings and legs outstretched
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,F,6,otherGroup,second,otherGroup_second,knees bent sitting down looking left
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,E,3,ownGroup,first,ownGroup_first,rabbit looking right
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,E,5,otherGroup,first,otherGroup_first,rabbit looking to the right
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,E,3,otherGroup,second,otherGroup_second,rabbit looking right
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,H,7,otherGroup,second,otherGroup_second,head and body no arms or legs
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,F,10,otherGroup,first,otherGroup_first,looks like a big man looking left with bent knees
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,G,11,otherGroup,first,otherGroup_first,man with the wings from the back looking to the left
+RXcJQ3BxKX2p7ifiG,X8ZXNCLZ8HHxBrnGt,G,5,otherGroup,second,otherGroup_second,person with wings looking left
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,F,8,ownGroup,first,ownGroup_first,depressed man looking left with his knees bent
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,E,1,ownGroup,second,ownGroup_second,rabbit
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,H,9,otherGroup,first,otherGroup_first,"a body without arms or legs, just the head"
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,G,7,ownGroup,second,ownGroup_second,man with the wings from back. angel
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,F,10,otherGroup,second,otherGroup_second,man looking left with his knees bent and no arms
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,A,16,otherGroup,first,otherGroup_first,"One leg up and the other one on the ground, with its head on the right "
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,H,7,ownGroup,second,ownGroup_second,newborn no arms just head and body
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,G,15,ownGroup,second,ownGroup_second,it looks like a woman looking to the left with her wings and legs outstretched
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,D,38,ownGroup,first,ownGroup_first,"It's a standing figure, very vertical. Looks like their head is straight up. Both feet and arms are on the left side. Looks like it's holding a gun or praying. Overall kinda looks like a monk."
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,E,10,ownGroup,second,ownGroup_second,looks like a rabbit with ears looking to the right
+RXcJQ3BxKX2p7ifiG,gfNqBikGHHPWfNb5y,F,8,ownGroup,second,ownGroup_second,bent knees looking to the left no arms
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,H,8,otherGroup,second,otherGroup_second,"newborn with no arms and legs, no hair"
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,H,9,ownGroup,second,ownGroup_second,"a body without arms or legs, just the head"
+RXcJQ3BxKX2p7ifiG,aqWoXHG74vjhTAnW8,F,10,ownGroup,second,ownGroup_second,looks like a big man looking left with bent knees
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,E,5,otherGroup,second,otherGroup_second,rabbit looking to the right
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,D,12,otherGroup,first,otherGroup_first,the one standing on both legs and both hands on the left
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,C,9,otherGroup,first,otherGroup_first,"it's a diagonal figure, it has open arms"
+RXcJQ3BxKX2p7ifiG,yWRdsvdGgjJib8TGk,G,6,otherGroup,second,otherGroup_second,winged man looking left with hair
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,A,17,otherGroup,first,otherGroup_first,"looks like someone with one leg up high, head is kinda falling, kind of like is slipping"
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,B,34,ownGroup,first,ownGroup_first,"It looks like a person on their knees, maybe a lady with a big dress and a hat. It's the shortest figure of all. Most of the tangram pieces are towards the bottom."
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,C,6,otherGroup,first,otherGroup_first,diagonal body with both hands up
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,B,8,otherGroup,first,otherGroup_first,"looks like someone on his knees, maybe praying"
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,B,9,otherGroup,first,otherGroup_first,"the on on its knees, looks like hes praying"
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,D,12,otherGroup,first,otherGroup_first,"standing figure, hands to the left. looks like is poiting at something"
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,A,36,ownGroup,first,ownGroup_first,"It looks someone with one leg up and one down, and their head is falling behind, like they're tripping. Both legs on the left, head falling towards the right, arms also on the left side."
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,B,19,otherGroup,first,otherGroup_first,"looks like an angel praying, he's on his knees with wings on the right. he's looking up"
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,C,8,otherGroup,first,otherGroup_first,"arms open up high, diagonal body, no legs"
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,C,8,ownGroup,second,ownGroup_second,"arms open up high, diagonal body, no legs"
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,C,19,ownGroup,first,ownGroup_first,"It looks like someone with open arms and no feet, very oblique. Like it's ready to hug someone."
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,D,12,ownGroup,second,ownGroup_second,"standing figure, hands to the left. looks like is poiting at something"
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,C,5,ownGroup,second,ownGroup_second,"both hands up, diagonal body"
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,A,12,otherGroup,first,otherGroup_first,looks like a man with a leg up on the left side.
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,B,6,ownGroup,second,ownGroup_second,"someone on his knees, maybe praying"
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,A,27,otherGroup,second,otherGroup_second,"It looks like someone with one leg up and one leg down. Head falling behind, like it's tripping. Both legs and arms on the left side."
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,D,11,ownGroup,second,ownGroup_second,both legs on the ground and nboth hands on the right
+WXEAiwy3fGXsLfgTM,q8v5akN6y9cx3ux4N,A,13,ownGroup,second,ownGroup_second,"one leg up high, head is kinda falling, kind of like is slipping"
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,D,12,otherGroup,second,otherGroup_second,"Looks like someone standing up straight, maybe holding a gun. Very vertical."
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,A,16,ownGroup,second,ownGroup_second,one leg up and the other leg on the ground with its head on the right
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,D,17,otherGroup,first,otherGroup_first,looks like a man standing straight. both legs on the ground with feet and hands facing left
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,C,17,otherGroup,second,otherGroup_second,"Looks like someone with open arms, like it's ready to hug someone. No feet. Very oblique."
+WXEAiwy3fGXsLfgTM,yGpY3B6jvDaHxJEYk,B,9,ownGroup,second,ownGroup_second,the one on its knees looks like hes praying
+WXEAiwy3fGXsLfgTM,fwktYPNXpfQMdCLr9,B,18,otherGroup,second,otherGroup_second,"Looks like someone on their knees, praying or something. Very short figure, many tangram blocks towards the bottom."
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,C,10,ownGroup,second,ownGroup_second,looks like a man with open arms and diagonal body
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,A,12,ownGroup,second,ownGroup_second,looks like a man with a leg up on the left side
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,B,14,ownGroup,second,ownGroup_second,"looks like an angel praying on his knees, has wings on the right side"
+WXEAiwy3fGXsLfgTM,eRsyj87Bj8p8ph33i,D,18,ownGroup,second,ownGroup_second,"a figure standing straight with both feet on the ground, feet and hands are on the left side"
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,H,5,otherGroup,first,otherGroup_first,it looks like a baby
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,F,11,ownGroup,first,ownGroup_first,"Looks like a man looking at his knees, a fat guy"
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,G,6,otherGroup,first,otherGroup_first,man with hands behind his back
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,E,1,otherGroup,first,otherGroup_first,bunny
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,F,3,otherGroup,first,otherGroup_first,man doing crunches
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,F,5,ownGroup,first,ownGroup_first,human looking at his knee
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,H,1,ownGroup,second,ownGroup_second,baby
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,H,10,otherGroup,first,otherGroup_first,It's a baby or directly looking at you person
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,F,2,ownGroup,second,ownGroup_second,man exercising
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,E,6,ownGroup,first,ownGroup_first,human looking on the right side
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,E,1,ownGroup,second,ownGroup_second,bunny
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,E,28,ownGroup,first,ownGroup_first,"Looks a mix between a bunny and a person, it is looking to the right side and the body looks like a mountain going down to the right."
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,H,10,ownGroup,first,ownGroup_first,Looks like a baby with a star on his head
+9wpj9KkiFEADFNfx8,QzbYDCJLpA454ptia,G,6,ownGroup,second,ownGroup_second,man with hand behind his back
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,H,3,ownGroup,first,ownGroup_first,Human looking us.
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,G,5,ownGroup,first,ownGroup_first,Human with arm at back
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,G,14,ownGroup,first,ownGroup_first,Looks like a person looking at the left with his arms behind his back.
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,F,10,otherGroup,first,otherGroup_first,"Sitting, looking left person, exercising or looking at his knees"
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,F,6,otherGroup,second,otherGroup_second,human sitting and see his knee
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,G,7,otherGroup,second,otherGroup_second,Human at the arm on the back
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,E,4,otherGroup,first,otherGroup_first,bunny/rabbit looking right
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,E,6,otherGroup,second,otherGroup_second,Human looking on the right side
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,E,28,otherGroup,second,otherGroup_second,"Looks like a bunny mixed with a person, it has two ears and his looking to the right with the body of a mountain sliding to the right"
+9wpj9KkiFEADFNfx8,seW6HvhD9zC4ToSZy,H,3,otherGroup,second,otherGroup_second,Human looking us
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,G,17,otherGroup,second,otherGroup_second,Looks like a person looking to the left with his arms behind his back to the right.
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,G,12,otherGroup,first,otherGroup_first,dog/rabbit looking left or a person with arms behind his back
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,F,24,otherGroup,second,otherGroup_second,"Looks like a fat man looking at his knees, the head is tilted to the left the legs are on the left side too"
+9wpj9KkiFEADFNfx8,CTWQ52YTATppdzer5,H,10,otherGroup,second,otherGroup_second,Looks like a baby with a star on his head
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,E,4,ownGroup,second,ownGroup_second,Bunny/rabbit looking right
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,B,5,ownGroup,first,ownGroup_first,Guy on his knee/sitting
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,A,4,ownGroup,first,ownGroup_first,1 leg/foot up
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,C,5,ownGroup,first,ownGroup_first,Arms up like a bird
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,G,12,ownGroup,second,ownGroup_second,dog/rabbit looking left or a person with arms behind his back
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,B,7,otherGroup,first,otherGroup_first,Looks like praying angel or woman sitting
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,B,2,ownGroup,first,ownGroup_first,sitting woman
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,D,6,ownGroup,first,ownGroup_first,Pope with hands to the front
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,C,5,ownGroup,first,ownGroup_first,hands up in the air
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,C,4,ownGroup,first,ownGroup_first,hands in the air
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,C,6,otherGroup,second,otherGroup_second,Arms up looks like a bird
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,D,10,otherGroup,first,otherGroup_first,"Man standing still with hands in front, looks like pope"
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,A,2,ownGroup,first,ownGroup_first,leg up
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,A,3,ownGroup,first,ownGroup_first,one leg up
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,D,6,otherGroup,second,otherGroup_second,Pope with hands to the front
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,B,2,ownGroup,first,ownGroup_first,woman sitting
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,A,6,otherGroup,first,otherGroup_first,Dancing man with one leg up
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,D,2,ownGroup,first,ownGroup_first,pope standing
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,H,7,ownGroup,second,ownGroup_second,Baby or person directly looking at you
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,B,6,otherGroup,second,otherGroup_second,Guy with knee on the ground
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,C,2,otherGroup,second,otherGroup_second,hands up
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,D,4,ownGroup,first,ownGroup_first,hands in front hrizontially
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,C,12,otherGroup,first,otherGroup_first,"Looks like a falling person, with two hands up, no legs visible"
+JP4KRrdASPaZ6Yooo,FtMMLpE3SZ6PtDBSr,A,6,otherGroup,second,otherGroup_second,Guy with 1 leg/foot up
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,D,2,otherGroup,second,otherGroup_second,standing pope
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,B,1,otherGroup,second,otherGroup_second,sitting
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,C,5,otherGroup,second,otherGroup_second,hands up in the air
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,B,5,ownGroup,second,ownGroup_second,Woman sitting or praying angel
+JP4KRrdASPaZ6Yooo,QzpwtyuzRYiem3fSe,A,2,otherGroup,second,otherGroup_second,carry flag
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,A,6,ownGroup,second,ownGroup_second,Dancing man with one leg up
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,C,11,ownGroup,second,ownGroup_second,"falling man, no legs visible, two hands up in the air"
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,G,2,ownGroup,first,ownGroup_first,Dancing woman
+JP4KRrdASPaZ6Yooo,o7sPurKB299KjuJK5,D,9,ownGroup,second,ownGroup_second,man standing still with hands in front of him
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,B,2,otherGroup,second,otherGroup_second,woman sitting
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,E,1,ownGroup,first,ownGroup_first,Bunny
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,H,4,ownGroup,first,ownGroup_first,legless man / alphabet i
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,G,2,ownGroup,first,ownGroup_first,dancing emoji
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,H,4,ownGroup,first,ownGroup_first,Legless and armless man
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,E,1,ownGroup,first,ownGroup_first,bunny
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,F,5,ownGroup,first,ownGroup_first,sad man sitting facing left
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,G,2,ownGroup,first,ownGroup_first,dancing woman
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,D,9,otherGroup,second,otherGroup_second,man standing with the hands in the front horizontially
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,F,5,ownGroup,first,ownGroup_first,Sad man sitting looking leff
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,F,4,ownGroup,first,ownGroup_first,sad man facing left
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,H,5,ownGroup,first,ownGroup_first,"legless man, alphabet letter i"
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,G,4,otherGroup,first,otherGroup_first,Woman dancing in dress
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,F,4,otherGroup,second,otherGroup_second,sad man facing left
+9wpj9KkiFEADFNfx8,AQ7Rw7b42BTvhgRbJ,F,11,ownGroup,second,ownGroup_second,Exercising person looking left or sitting person looking at his knees
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,E,1,otherGroup,second,otherGroup_second,Bunny
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,E,2,otherGroup,first,otherGroup_first,Sad bunny
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,H,4,otherGroup,first,otherGroup_first,Legless and armless man
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,E,5,ownGroup,first,ownGroup_first,sad bunny sitting facing right
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,F,5,otherGroup,second,otherGroup_second,Sitting sad man looking left
+JP4KRrdASPaZ6Yooo,k6aatfn6D3cGqmLKj,A,9,otherGroup,second,otherGroup_second,man with the one leg up carrying a flag
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,F,2,otherGroup,first,otherGroup_first,Sad man
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,E,5,otherGroup,second,otherGroup_second,bunny sitting and facing right
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,F,2,ownGroup,second,ownGroup_second,Sad man
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,H,4,otherGroup,second,otherGroup_second,Legless and armless man
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,G,2,otherGroup,second,otherGroup_second,dancing emoji
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,H,5,otherGroup,second,otherGroup_second,"legless man, alphabet letter i"
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,E,2,ownGroup,second,ownGroup_second,sad bunny
+cGNuegcWYpFzhERdS,s8yg6tepLJ69GuzxQ,G,2,otherGroup,second,otherGroup_second,Dancing woman
+cGNuegcWYpFzhERdS,8ALKyt78tFfcichK5,H,4,otherGroup,second,otherGroup_second,legless man / alphabet i
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,G,4,otherGroup,second,otherGroup_second,"dancing emoji, dancing woman"
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,G,4,ownGroup,second,ownGroup_second,dancing woman in dress
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,F,5,otherGroup,second,otherGroup_second,sad man sitting facing left
+cGNuegcWYpFzhERdS,5DC2WsGji9n2GFJbt,H,4,ownGroup,second,ownGroup_second,legless and armless man
+cGNuegcWYpFzhERdS,n2YifJ8rKzFZHWFnE,E,7,otherGroup,second,otherGroup_second,sad bunny sitting looking to the right
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,G,5,ownGroup,first,ownGroup_first,"head to left, broken back"
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,E,11,ownGroup,first,ownGroup_first,"two triangles (or bunny ears) on top, one big triangle beneath"
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,H,9,otherGroup,first,otherGroup_first,"square on top and a pillar bottom, perfectly connected"
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,E,8,otherGroup,first,otherGroup_first,Bunny ears/ 2 triangles on the square head
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,E,8,ownGroup,first,ownGroup_first,"bunny ears, head to right, feet like mountain"
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,F,6,ownGroup,first,ownGroup_first,"a man sitting down, facing left"
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,F,5,otherGroup,first,otherGroup_first,"a sitting man, depressed person"
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,F,6,otherGroup,first,otherGroup_first,"man sitting, facing left/ depressed guy"
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,H,7,ownGroup,first,ownGroup_first,"potato,  nice connected, other head to right"
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,F,1,ownGroup,first,ownGroup_first,depression
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,G,14,ownGroup,first,ownGroup_first,"square on top, all to the left. Resembles like a sea lion facing right"
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,G,8,otherGroup,first,otherGroup_first,"aquare and a triangle on top, facing left"
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,H,8,otherGroup,first,otherGroup_first,Potato with a square on top/ perfectly connected
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,F,2,otherGroup,second,otherGroup_second,Pog depressionPog
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,E,2,otherGroup,first,otherGroup_first,bunny ears
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,H,5,otherGroup,second,otherGroup_second,"idk, looks like a potato"
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,H,10,ownGroup,first,ownGroup_first,square on top and beneath it looks like a potatoe
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,G,11,otherGroup,first,otherGroup_first,it resembles sea lion/ head facing left side on weird shape
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,E,4,otherGroup,second,otherGroup_second,haha bunny goes brrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
+WYftRDkmrSjsHDx7x,9AJjndrGjG3sFp7Y3,G,5,otherGroup,second,otherGroup_second,broken back like broken bones
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,F,6,otherGroup,second,otherGroup_second,"a man sitting down, facing left"
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,H,14,ownGroup,second,ownGroup_second,"square on top and a perfectly connected pillar, potato with a square on top"
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,G,12,ownGroup,second,ownGroup_second,Head facing left on the weird shape/ it resembles a sea lion
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,F,4,ownGroup,second,ownGroup_second,"depressed man, sitting person"
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,E,2,ownGroup,second,ownGroup_second,Bunny ears
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,E,10,otherGroup,second,otherGroup_second,"two triangles (bunny ears) on top, one big triangle beneath"
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,F,6,ownGroup,second,ownGroup_second,"depressed guy/ man sitting, facing left"
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,G,7,ownGroup,second,ownGroup_second,"facing left, triangle and square on top"
+WYftRDkmrSjsHDx7x,MXrLRWDEy9T8DeiQv,E,2,ownGroup,second,ownGroup_second,bunny ears
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,H,6,otherGroup,second,otherGroup_second,square on top of a potatoe
+WYftRDkmrSjsHDx7x,pGLkeyufdyWGnJrKW,H,8,ownGroup,second,ownGroup_second,potato with a square on top/ perfectly connected
+WYftRDkmrSjsHDx7x,dFXiFC9fEvXXFFqA9,G,11,otherGroup,second,otherGroup_second,"square all to the left, resembles a sea lion looking right"
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,E,8,ownGroup,first,ownGroup_first,"bunny ears, 90 degree angle at the bottom"
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,F,2,otherGroup,first,otherGroup_first,person sitting
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,H,4,otherGroup,first,otherGroup_first,looks like a potato
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,G,10,otherGroup,first,otherGroup_first,"the weird one, with a big leg on the left"
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,H,2,ownGroup,first,ownGroup_first,"potato, round"
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,F,2,ownGroup,first,ownGroup_first,sitting person
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,F,5,otherGroup,first,otherGroup_first,"the sitting person, facing left"
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,G,4,ownGroup,first,ownGroup_first,"angel, weird, big leg"
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,E,5,otherGroup,first,otherGroup_first,the one with rabbit ears
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,G,22,otherGroup,first,otherGroup_first,has a triangle on the bottom right and a square on its head (also might look like an angel with wings)
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,E,9,otherGroup,second,otherGroup_second,"bunny rabbit ears, 90 degree angle at the bottom"
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,H,8,otherGroup,first,otherGroup_first,the round one that looks like a potato
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,F,2,otherGroup,second,otherGroup_second,person sitting
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,E,13,otherGroup,first,otherGroup_first,looks like it has rabbit ears / 90 degree corner in the bottom left
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,H,2,otherGroup,second,otherGroup_second,"potato, round"
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,E,10,otherGroup,first,otherGroup_first,It have rabbit ears. Something like a sitting human rabbit
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,G,10,ownGroup,second,ownGroup_second,"the weird one, with a big leg on the left"
+LiXLPe9s6Cnxdjtxv,ptXfp9RXwbpoqCATr,G,4,otherGroup,second,otherGroup_second,"big leg, weird, angel"
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,G,11,ownGroup,second,ownGroup_second,"triangle bottom right attached by a corner, square on its head"
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,F,5,ownGroup,second,ownGroup_second,the sitting person facing left
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,E,11,ownGroup,second,ownGroup_second,looks like it has rabbit ears / 90 degree corner bottom left
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,H,8,ownGroup,second,ownGroup_second,the round one that looks like a potato
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,H,13,otherGroup,first,otherGroup_first,It's a little round. It may remind some people of a potato
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,F,2,ownGroup,second,ownGroup_second,person sitting
+LiXLPe9s6Cnxdjtxv,iq8k7nXW3gsbiMbjq,H,1,ownGroup,second,ownGroup_second,potato
+LiXLPe9s6Cnxdjtxv,MzWb5XwwGQaqdivQA,E,5,ownGroup,second,ownGroup_second,the one with rabbit ears
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,F,11,otherGroup,first,otherGroup_first,It's just a sitting person looking to the left side
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,G,20,otherGroup,first,otherGroup_first,That's the weird one. For me it looks like an angel with two wings. Also sitting. Maybe fallen angel?
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,H,9,ownGroup,second,ownGroup_second,This most round shape. Something like a potato :D
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,E,10,ownGroup,second,ownGroup_second,It have rabbit ears. It's just sitting human rabbit
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,G,14,ownGroup,second,ownGroup_second,This is the werid one. I call it fallen angel. It have two wings
+LiXLPe9s6Cnxdjtxv,rzzTajaydncxQgw2F,F,9,ownGroup,second,ownGroup_second,Just a sitting person looking to the left side
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,D,10,ownGroup,first,ownGroup_first,A person standing straight with both feet with diamond head
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,A,5,ownGroup,first,ownGroup_first,"Standing on one foot, kicking"
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,C,2,otherGroup,first,otherGroup_first,hands up
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,D,1,otherGroup,first,otherGroup_first,bowl
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,D,1,otherGroup,first,otherGroup_first,bowl
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,C,3,otherGroup,first,otherGroup_first,both hands up
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,A,1,otherGroup,first,otherGroup_first,zombie
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,B,1,otherGroup,first,otherGroup_first,mouse
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,C,7,ownGroup,first,ownGroup_first,Have two arms up! Looks like sleeping
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,A,1,otherGroup,first,otherGroup_first,zombie
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,B,1,otherGroup,first,otherGroup_first,mouse
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,A,4,otherGroup,first,otherGroup_first,"zombie, one leg up"
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,A,9,ownGroup,first,ownGroup_first,Standing with one feet or kicking and arms up
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,B,2,ownGroup,first,ownGroup_first,Is kneeking
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,B,7,ownGroup,first,ownGroup_first,Kneeling with a head and triangle arm
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,C,5,otherGroup,first,otherGroup_first,hands up in the air
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,B,1,ownGroup,second,ownGroup_second,mouse
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,A,1,ownGroup,second,ownGroup_second,zombie
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,D,4,otherGroup,first,otherGroup_first,someone holding a bowl
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,A,3,ownGroup,second,ownGroup_second,one leg up
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,C,2,ownGroup,second,ownGroup_second,hands up
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,C,5,ownGroup,first,ownGroup_first,"Slipping, falling with arms up"
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,B,1,ownGroup,second,ownGroup_second,mouse
+RfQj6i5FTEKewPtdP,ozxL7gp6r7bDGzetz,D,1,ownGroup,second,ownGroup_second,bowl
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,B,6,otherGroup,first,otherGroup_first,mouse or someone on their knees
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,D,7,ownGroup,first,ownGroup_first,Is the only standing with both feets
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,C,5,ownGroup,second,ownGroup_second,hands up in the air
+RfQj6i5FTEKewPtdP,bEgykACcvR4qXLeyT,D,1,ownGroup,second,ownGroup_second,bowl
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,A,4,ownGroup,first,ownGroup_first,Standing with one feet
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,C,6,ownGroup,first,ownGroup_first,"Is lying down / is slipping, falling"
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,B,1,ownGroup,second,ownGroup_second,mouse
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,A,3,ownGroup,first,ownGroup_first,standing one foot
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,A,1,ownGroup,second,ownGroup_second,zombie
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,D,10,ownGroup,first,ownGroup_first,Standing on two feet up straight with a diamond head
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,C,2,ownGroup,second,ownGroup_second,hands up
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,B,5,ownGroup,first,ownGroup_first,Is kneeling on the ground
+RfQj6i5FTEKewPtdP,9c7sE3HpQbK6YnS5x,D,1,ownGroup,second,ownGroup_second,bowl
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,C,4,ownGroup,first,ownGroup_first,"sliding, falling, arms up"
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,C,3,otherGroup,second,otherGroup_second,Two arms up
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,A,2,otherGroup,second,otherGroup_second,One feet
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,B,5,otherGroup,second,otherGroup_second,Is kneeling on the ground
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,D,3,ownGroup,first,ownGroup_first,standing both foot
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,B,1,otherGroup,second,otherGroup_second,Kneeking
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,B,9,otherGroup,second,otherGroup_second,Kneeling with a square head and a triangle arm
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,B,1,ownGroup,first,ownGroup_first,praying
+znqg5oiJkLubdmf2a,j6hbY87Cv8JQ3pzuB,D,2,otherGroup,second,otherGroup_second,Both fetets
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,B,3,ownGroup,first,ownGroup_first,"kneeling, open arms"
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,A,10,otherGroup,second,otherGroup_second,Is standing on one feet or kicking with arms up
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,C,3,ownGroup,first,ownGroup_first,both hands up
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,C,5,otherGroup,second,otherGroup_second,"Slipping, falling with arms up"
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,A,3,ownGroup,first,ownGroup_first,one leg up
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,C,6,otherGroup,second,otherGroup_second,"Is lying down/ is slipping, falling"
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,D,3,otherGroup,second,otherGroup_second,Standing both feet
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,D,3,ownGroup,first,ownGroup_first,bowl in hands
+znqg5oiJkLubdmf2a,nYXhDfNHSFDhQonSj,D,6,otherGroup,second,otherGroup_second,Is standing straight with both feet
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,A,3,otherGroup,second,otherGroup_second,standing one foot
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,D,11,otherGroup,second,otherGroup_second,Standing up straight with a diamond head and arm out left
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,C,3,otherGroup,second,otherGroup_second,both hands up
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,D,3,otherGroup,second,otherGroup_second,bowl in hand
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,C,4,otherGroup,second,otherGroup_second,"sliding, falling, arms up"
+znqg5oiJkLubdmf2a,dZKMMu9w2nMjC6YtK,A,5,otherGroup,second,otherGroup_second,"Standing on one foot, kicking"
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,B,3,otherGroup,second,otherGroup_second,praying or mouse
+znqg5oiJkLubdmf2a,5Q6MByedLGJZsKkSg,B,3,otherGroup,second,otherGroup_second,"kneeling, open arms"
+RfQj6i5FTEKewPtdP,bohYp3XXpnHCpxAz3,A,3,otherGroup,second,otherGroup_second,one leg up
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,A,1,otherGroup,first,otherGroup_first,zombie
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,B,1,otherGroup,first,otherGroup_first,praying
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,C,1,otherGroup,first,otherGroup_first,ghost
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,A,3,otherGroup,first,otherGroup_first,one leg up
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,D,3,otherGroup,first,otherGroup_first,holding a box
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,B,8,otherGroup,first,otherGroup_first,woman in a dress/kneeling to the right
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,A,2,ownGroup,second,ownGroup_second,a zombie
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,D,11,ownGroup,first,ownGroup_first,A praying monk or pope with the diamond head facing left
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,C,3,otherGroup,first,otherGroup_first,two arms up
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,C,1,ownGroup,second,ownGroup_second,ghost
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,A,11,otherGroup,first,otherGroup_first,"looks like a zombie on one foot, staring at the sky"
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,B,9,otherGroup,first,otherGroup_first,"A woman with a dress, kneeling towards right,"
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,B,7,ownGroup,first,ownGroup_first,Looks like he is on his knees.
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,D,5,otherGroup,first,otherGroup_first,monk/praying figure standing upright
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,A,10,ownGroup,first,ownGroup_first,Guy standing on one leg and one leg is up
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,B,8,ownGroup,second,ownGroup_second,woman in a dress/kneeling to the right
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,C,8,ownGroup,first,ownGroup_first,Looks like a ghost with both hands up.
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,A,9,otherGroup,first,otherGroup_first,"Zombie standing on one foot, going to the left"
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,D,10,otherGroup,first,otherGroup_first,"A monk facing left, standing upright, as if carrying something."
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,C,3,ownGroup,second,ownGroup_second,two arms up
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,D,3,ownGroup,second,ownGroup_second,monk/praying figure
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,D,17,otherGroup,first,otherGroup_first,"he is in straight position, he is holding a box or a candle or some dishesh idk"
+tpY4W7eRoxEtupkmw,Yq2j5SNQCXEyXe6ep,A,3,ownGroup,second,ownGroup_second,one leg up
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,C,6,otherGroup,first,otherGroup_first,Flying ghost with both hands up
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,A,8,ownGroup,first,ownGroup_first,Looks like a zombie with one leg up.
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,C,9,otherGroup,first,otherGroup_first,"A ghost with both hands up, as if shrugging."
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,B,15,ownGroup,first,ownGroup_first,The woman in the dress with the triangle titties and hair. She is facing left
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,C,5,ownGroup,first,ownGroup_first,The ghost with arms up
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,C,15,otherGroup,first,otherGroup_first,"similar to a ghost, or a flying guy, both arms to the sky, oblique orientation"
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,D,20,ownGroup,first,ownGroup_first,"He looks like a monk/pope someone in church clothes, facing left side. might be holding something in his hands"
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,D,11,ownGroup,first,ownGroup_first,He is in straight position holding a box on his left.
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,D,8,otherGroup,first,otherGroup_first,Person with a box on the left side
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,A,8,otherGroup,first,otherGroup_first,"Someone walking left, or standing on one leg."
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,C,7,otherGroup,second,otherGroup_second,The ghost with arms up going left
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,B,6,otherGroup,first,otherGroup_first,"Person on knees, looks like praying"
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,B,1,ownGroup,second,ownGroup_second,praying
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,B,12,otherGroup,first,otherGroup_first,"a guy on his knees, open arms, he is praying or something"
+XFepLi46hdo8jijkQ,g665jri8a7AyZLKM4,D,3,ownGroup,second,ownGroup_second,holding a box
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,C,7,ownGroup,second,ownGroup_second,A ghost shrugging with both hands up.
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,D,8,otherGroup,second,otherGroup_second,The monk praying facing left with diamond head
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,C,6,ownGroup,second,ownGroup_second,Flying ghost with both hands up
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,B,10,otherGroup,second,otherGroup_second,"He is on his knees, looks like he is praying."
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,C,10,ownGroup,first,ownGroup_first,he has 2 arms up. Looks like he he confused.
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,A,10,otherGroup,second,otherGroup_second,The guy standing on one leg with one leg up
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,A,5,ownGroup,second,ownGroup_second,Standing with one leg raised.
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,C,8,otherGroup,second,otherGroup_second,Looks like a ghost with both hands up.
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,D,8,ownGroup,second,ownGroup_second,Person holding a box on the left side
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,B,8,ownGroup,second,ownGroup_second,A woman in a dress kneeling towards right.
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,D,8,otherGroup,second,otherGroup_second,In straight position holding box on his left.
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,B,10,ownGroup,first,ownGroup_first,I would call it she. Woman in dress on knees
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,B,6,ownGroup,second,ownGroup_second,"Person on knees, looks like praying"
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,A,5,ownGroup,first,ownGroup_first,he has one leg up
+XFepLi46hdo8jijkQ,q5WzoKF6gMk7td6Xy,A,8,otherGroup,second,otherGroup_second,Looks like a zombie with one leg up.
+tpY4W7eRoxEtupkmw,Q72XWrb8xmoDeJgP3,D,10,ownGroup,second,ownGroup_second,"A monk facing left, standing upright, looks like holding something."
+XFepLi46hdo8jijkQ,k2rn7JafucZ87tLDN,A,8,ownGroup,second,ownGroup_second,Looks like a zombie with one leg up
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,A,11,ownGroup,second,ownGroup_second,similar to a zombie on one foot staring at the sky
+tpY4W7eRoxEtupkmw,7QnSd2kfFHmh5gcQ7,B,21,otherGroup,second,otherGroup_second,The woman in the dress with triangle titties and triangle hair at the back of her head. She is facing left
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,D,19,otherGroup,second,otherGroup_second,Looks like a monk/pope someine in church clothes. he is facing left and holding something in his hands
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,B,9,ownGroup,second,ownGroup_second,"a guy on his knees, praying with open arms"
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,B,12,otherGroup,second,otherGroup_second,woman in dress on knees. she is the smallest from all tangrams.
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,C,9,otherGroup,second,otherGroup_second,2 arms up. he looks like he is confused
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,D,14,ownGroup,second,ownGroup_second,"a stright position guy, holding a box or a candle or some dishesh idk"
+tpY4W7eRoxEtupkmw,GxLyHgZdotiHncJai,A,5,otherGroup,second,otherGroup_second,he has one leg up
+XFepLi46hdo8jijkQ,PgifY8pBJKS6R6yWH,C,17,ownGroup,second,ownGroup_second,"looks like a ghost, oblique orientation, with the arms to the sky, it's a flying guy"
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,B,12,otherGroup,first,otherGroup_first,person praying with arms up. Has a triangle falling from his head
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,D,7,ownGroup,first,ownGroup_first,man standing still with left arm open
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,C,10,otherGroup,first,otherGroup_first,a person flying with open arms. Has no feet showing
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,G,8,ownGroup,first,ownGroup_first,Looks like someone dancing. Two triangles on right
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,F,12,ownGroup,first,ownGroup_first,"looks like a person sitting on a wall, with a square head"
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,C,8,ownGroup,first,ownGroup_first,"Looks like a person flying, with open arms."
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,G,15,otherGroup,first,otherGroup_first,"looks like dancer, has a square to the left and two triangles to the right"
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,F,4,ownGroup,first,ownGroup_first,Person sitting against wall
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,C,6,ownGroup,first,ownGroup_first,man flying - arms up without feet
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,C,15,otherGroup,first,otherGroup_first,"Person with two arms up, no legs/feet showing, seems like he's falling down"
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,D,10,otherGroup,first,otherGroup_first,"A person standing still pointing left, has a long sleeve"
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,H,5,ownGroup,first,ownGroup_first,Simple. No limbs. No triangles
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,F,12,otherGroup,first,otherGroup_first,"person sitting against a wall. can see leg and foot, square head"
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,E,10,ownGroup,first,ownGroup_first,"Person sitting against a wall, 2 triangles on its head"
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,G,18,ownGroup,first,ownGroup_first,"looks like a person dancing, with a square as a head, and two triangles as hand and foot"
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,A,12,ownGroup,first,ownGroup_first,zombie - one foot up one down with arms high on left side
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,E,6,ownGroup,first,ownGroup_first,Two triangles on top of square
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,A,11,otherGroup,first,otherGroup_first,"Person with one foot up, and another foot on the floor"
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,H,12,otherGroup,first,otherGroup_first,"person on knees, can not see any limbs, square for a head"
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,D,18,ownGroup,first,ownGroup_first,Looks like a person (kind of a priest) with an open left arm (with a long sleeve).
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,B,6,ownGroup,first,ownGroup_first,man praying/kneeling with arms up
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,G,3,ownGroup,first,ownGroup_first,person thats dancing
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,E,15,ownGroup,first,ownGroup_first,"two triangles instead of a square as a head, could also say a split head"
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,E,7,otherGroup,second,otherGroup_second,Two split triangles on top of square.
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,A,16,otherGroup,first,otherGroup_first,"Person walking staring at the ground. A penguin with a backpack. One foot up, one down"
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,B,11,otherGroup,first,otherGroup_first,"Person kneeling down, two arms up, seems like he's praying"
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,H,7,ownGroup,first,ownGroup_first,"Person sitting on his knees, no limbs"
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,E,13,otherGroup,first,otherGroup_first,"person sitting against wall, square head, two triangles or bunny ears on head"
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,H,5,otherGroup,second,otherGroup_second,Square head and no limbs
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,H,13,ownGroup,first,ownGroup_first,"the most simple one, with a square as a head and no limbs"
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,D,7,otherGroup,second,otherGroup_second,man standing still with left arm open
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,D,4,ownGroup,second,ownGroup_second,priest with long sleeve
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,A,11,ownGroup,first,ownGroup_first,"Looks like a penguin with a backpack, with one leg up."
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,F,4,otherGroup,second,otherGroup_second,person sitting against wall
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,C,2,ownGroup,second,ownGroup_second,person flying
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,F,11,ownGroup,first,ownGroup_first,"Person sitting with his head down, no triangles on its head"
+zEBta7eAuxvtkjmTX,Ju8orRGqRLq3YN2QE,G,10,otherGroup,second,otherGroup_second,person dancing. two triangles on right. square on top left
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,B,9,ownGroup,first,ownGroup_first,"Looks like a person kneeling, with both arms open."
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,H,7,otherGroup,second,otherGroup_second,"Person sitting on his knees, no limbs"
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,B,8,otherGroup,second,otherGroup_second,man kneeling with arms up - seems like praying
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,E,9,ownGroup,second,ownGroup_second,"two triangles on top, square head, leading against wall"
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,A,9,ownGroup,second,ownGroup_second,"penguin with a backpack, one foot up one down"
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,G,4,otherGroup,second,otherGroup_second,The one thats dancing
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,G,22,otherGroup,second,otherGroup_second,"looks like a person dancing, with a square as a head and two triangles as hand and a foot on the right"
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,C,7,otherGroup,second,otherGroup_second,man flying with arms up without feet
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,D,11,otherGroup,first,otherGroup_first,"Person facing left, seems like the arm(s) is pointing left"
+ALPGtS424urRqjoB7,rquDbQbq4JWtwJAF3,B,2,ownGroup,second,ownGroup_second,person praying
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,F,11,otherGroup,second,otherGroup_second,"Person sitting with his head down, no triangles on its head"
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,G,11,ownGroup,second,ownGroup_second,"dancer, square head to the left, two triangles to the right"
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,E,9,otherGroup,second,otherGroup_second,split head ot two triangles instead of a head
+ALPGtS424urRqjoB7,jZWGtZ3PzGwfyqLce,A,11,otherGroup,second,otherGroup_second,zombie - one foot up one down with arms on the left
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,A,11,otherGroup,second,otherGroup_second,"Looks like a penguin with a backpack, with one leg up."
+zEBta7eAuxvtkjmTX,tq64WazLuRLW2jFpa,E,9,otherGroup,second,otherGroup_second,"person sitting against wall, 2 triangles on its head"
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,F,9,ownGroup,second,ownGroup_second,"person sitting down, can see foot and leg,"
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,B,6,ownGroup,second,ownGroup_second,"Person kneeling down, two arms up"
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,H,13,otherGroup,second,otherGroup_second,"the most simple one, with a square as a head and no limbs"
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,C,8,otherGroup,second,otherGroup_second,"Looks like a person flying, with open arms."
+zEBta7eAuxvtkjmTX,vNaGhMY44ag8WvoJa,H,8,ownGroup,second,ownGroup_second,"person on knees, can not see any limbs"
+zEBta7eAuxvtkjmTX,t6ctfHQ7DEPmGFEYB,F,14,otherGroup,second,otherGroup_second,"looks like a person sitting on a wall, with a square as a head"
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,C,13,ownGroup,second,ownGroup_second,"Person falling down, two arms up, and the legs/feet are not visible."
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,D,19,otherGroup,second,otherGroup_second,"Looks like a person (kind of like a priest), with an open left arm (with a long sleeve)."
+ALPGtS424urRqjoB7,3yzwrP6zwjQAfBhgu,B,9,otherGroup,second,otherGroup_second,"Looks like a person kneeling, with both arms open."
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,D,17,ownGroup,second,ownGroup_second,"Person facing left, with its arm(s) poiting left as well. Looks like he has long sleeves"
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,B,6,otherGroup,first,otherGroup_first,"deformed, sitting down on their knees"
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,E,4,ownGroup,first,ownGroup_first,sitting down bunny ears
+ALPGtS424urRqjoB7,aK7Jy9gb6q9u683Zu,A,16,ownGroup,second,ownGroup_second,Person with one foot down and another up. The foot that's up is facing left
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,A,7,ownGroup,first,ownGroup_first,It has on foot in the air.
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,E,5,otherGroup,first,otherGroup_first,sitting guy with bunny ears
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,F,5,otherGroup,first,otherGroup_first,sitting guy with no ears
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,C,6,ownGroup,first,ownGroup_first,Falling backwards with both hands up.
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,D,10,otherGroup,first,otherGroup_first,someone who is praying with their hands on the left
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,D,21,otherGroup,first,otherGroup_first,"to the one that look he is praying and wearing a cassock, not the one with the strange triangle and kneeling"
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,D,5,ownGroup,first,ownGroup_first,"Praying, with diamond on head."
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,G,8,ownGroup,first,ownGroup_first,weird dude with arms that are flying away
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,G,5,otherGroup,first,otherGroup_first,looks like it is running
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,B,13,ownGroup,first,ownGroup_first,Deformed guy with a triangle (right to his head) a little bit off
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,G,16,otherGroup,first,otherGroup_first,"weird thing that doesnt look like a person, some say that he is flying and running"
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,A,18,otherGroup,first,otherGroup_first,someone with 2 feet a cube on their back and 1 foot in the air while looking down
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,C,18,otherGroup,first,otherGroup_first,looks like a guy falling on its back. square in middle of 2 lozenges. arms in the air
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,A,10,otherGroup,first,otherGroup_first,The one with the tilted head and a lifted leg
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,H,6,ownGroup,first,ownGroup_first,guy with no arms standing up
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,F,5,otherGroup,first,otherGroup_first,"no ears, sitting, with legs"
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,H,8,otherGroup,first,otherGroup_first,standing person with no arms and no legs
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,E,3,otherGroup,first,otherGroup_first,with bunny ears
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,H,11,otherGroup,first,otherGroup_first,It looks like a standing person with no arms or legs
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,C,7,otherGroup,first,otherGroup_first,to the one with the arms lifted
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,H,7,ownGroup,second,ownGroup_second,standing person with no arms and legs
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,H,4,otherGroup,first,otherGroup_first,"no arms, no legs"
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,D,16,otherGroup,second,otherGroup_second,"It looks like it's praying and has a diamond on head, hands on the left"
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,F,6,ownGroup,first,ownGroup_first,guy sitting down with no ears
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,B,10,otherGroup,first,otherGroup_first,to the one with the strange tilted triangle and kneeling
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,A,5,otherGroup,second,otherGroup_second,One foot in the air
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,C,10,otherGroup,first,otherGroup_first,a guy falling backward with 2 hands in the air
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,G,16,ownGroup,second,ownGroup_second,weird thing that doesnt look like a person some say that it is running and flying
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,A,12,otherGroup,first,otherGroup_first,"one feet in the air, another in the floor, head looking down"
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,G,5,ownGroup,second,ownGroup_second,looks like it is running
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,B,12,otherGroup,second,otherGroup_second,"Triangle on the right side of square head, a little bit deformed"
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,E,5,ownGroup,second,ownGroup_second,sitting guy with bunny ears
+aLuopkgfJ8GHWfPNP,Q6SRkZJRdjCHvmN38,C,5,otherGroup,second,otherGroup_second,"Falling backwards, both hands up"
+CbjGXYiEYK62c59ta,rQDvXHhRzEAAGu52K,F,5,ownGroup,second,ownGroup_second,sitting guy with no ears
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,G,8,otherGroup,second,otherGroup_second,weird guy with weird arms look like wings 
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,F,5,ownGroup,second,ownGroup_second,"sitting, no ears, with legs"
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,E,3,ownGroup,second,ownGroup_second,with bunny ears
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,E,4,otherGroup,second,otherGroup_second,guy with bunny ears
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,G,20,otherGroup,first,otherGroup_first,"it does not look like a person, it has a square in the top and two triangles in the right"
+CbjGXYiEYK62c59ta,ZSJyxZ5G9927jrcXR,H,4,ownGroup,second,ownGroup_second,"no legs, no arms"
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,F,6,otherGroup,first,otherGroup_first,it looks like a sitting person
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,H,6,otherGroup,second,otherGroup_second,guy with no arms standing up
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,D,13,ownGroup,second,ownGroup_second,a person with their hands on the left looks like they are praying
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,D,20,ownGroup,second,ownGroup_second,"the one that look he is praying and wearing a cassock, not the one with the tilted triangle and kneeling"
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,E,9,otherGroup,first,otherGroup_first,it looks like a sitting person with bunny ears
+CbjGXYiEYK62c59ta,Qu3W23ScTXpnfWBH6,F,8,otherGroup,second,otherGroup_second,guy sitting down with legs and no ears
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,B,9,ownGroup,second,ownGroup_second,"deformed, looks like is sitting down on their knees"
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,G,5,ownGroup,second,ownGroup_second,it has a weird shape
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,B,24,otherGroup,first,otherGroup_first,"looks like a deformed body, full body on the floor, 2 triangles on its sides on top, and a square on top of it"
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,H,7,ownGroup,second,ownGroup_second,standing person with no arms or legs
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,A,18,ownGroup,second,ownGroup_second,"the one with the tilted head and a lifted leg, with also the head pending out from him"
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,E,2,ownGroup,second,ownGroup_second,bunny ears
+CbjGXYiEYK62c59ta,EiGsis3ca2vX9QLpE,F,2,ownGroup,second,ownGroup_second,sitting person
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,C,11,ownGroup,second,ownGroup_second,"the one with the arms lifted, and the body in diagonal"
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,C,11,ownGroup,second,ownGroup_second,2 hands in the air looks like they are falling backward
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,D,20,otherGroup,first,otherGroup_first,"looks like a praying guy, with pope clothes and hands to the left of the picture, square alone on top"
+aLuopkgfJ8GHWfPNP,7vPD38TZf7F6AQSB3,B,15,ownGroup,second,ownGroup_second,"the one with the strange tilted triangle and kneeling, a little deformed you can say"
+aLuopkgfJ8GHWfPNP,diJXDCjSTTMwuMQ7A,A,11,ownGroup,second,ownGroup_second,a person looking down with 2 feet and 1 foot up
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,A,13,ownGroup,second,ownGroup_second,"has 2 legs, one in the air, head looking down at the ground"
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,D,17,ownGroup,second,ownGroup_second,"looks like someone praying with pope clothes, arms to the left of the image square on top"
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,B,24,ownGroup,second,ownGroup_second,"looks like a deformed body, full body laying on the floor, 2 triangles with a square in the middle on top of it all"
+aLuopkgfJ8GHWfPNP,Ai5Nbez5mhir483Ca,C,12,ownGroup,second,ownGroup_second,"looks like a guy falling on his back, arms in the air"
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,E,10,otherGroup,first,otherGroup_first,"triangle bunny ears, square head looking down to our right"
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,H,13,ownGroup,first,ownGroup_first,"It is a man vertical, with diamond head, not seated neither laid down."
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,E,5,ownGroup,first,ownGroup_first,it has a rabbit ears
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,H,13,otherGroup,first,otherGroup_first,"Diamond head, closed body. It looks like he is seated on his knees."
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,F,10,otherGroup,first,otherGroup_first,"man sitting down, square head looking up to our left"
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,E,5,ownGroup,first,ownGroup_first,It has triangle bunny ears.
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,G,4,ownGroup,first,ownGroup_first,looks like an angel
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,F,5,ownGroup,first,ownGroup_first,a man sitting down normally
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,G,5,ownGroup,first,ownGroup_first,it looks like an angel
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,H,5,ownGroup,first,ownGroup_first,man sitting on his knees
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,H,11,otherGroup,first,otherGroup_first,"diamond head, vertical closed in figure. Neither lying down nor sitting."
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,F,3,ownGroup,first,ownGroup_first,man sitting down
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,F,10,otherGroup,first,otherGroup_first,"Person seated down legs facing left, square head facing down."
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,H,11,otherGroup,second,otherGroup_second,"a man vertical with diamond head , neither seated neither laid down"
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,H,4,otherGroup,second,otherGroup_second,man on his knees
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,G,4,otherGroup,second,otherGroup_second,looks like an angel
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,E,5,otherGroup,second,otherGroup_second,it has triangle bunny ears
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,G,9,otherGroup,first,otherGroup_first,"It looks like an angel seated down, facing left."
+hMRQdqJMNnJdkQdaZ,YqXMc6N55tPPG95HT,F,10,otherGroup,second,otherGroup_second,"a man sitting down normally, looking up to our left"
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,G,7,otherGroup,second,otherGroup_second,looks like angel or a tringle pose
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,G,18,otherGroup,first,otherGroup_first,"Looks like an angel. Two ears, one square shaped and one triangle shaped. Lying down to our left."
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,F,4,otherGroup,second,otherGroup_second,a man siiting down
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,E,13,otherGroup,first,otherGroup_first,It has bunny ears. It looks like he is seated down facing right.
+hMRQdqJMNnJdkQdaZ,EMNqg8kGmuf4rqgkR,E,5,otherGroup,second,otherGroup_second,it has a bunny ears
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,H,11,ownGroup,second,ownGroup_second,"Diamond head, closed in vertical figure. Neither lying down nor sitting."
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,F,11,ownGroup,second,ownGroup_second,"Man sitting down, square shaped head looking up to our left."
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,F,12,ownGroup,second,ownGroup_second,Man seated down facing left. His square head looks like facing down.
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,G,8,ownGroup,second,ownGroup_second,"Angel shaped figure, lying down to our left"
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,E,13,ownGroup,second,ownGroup_second,It has bunny ears. It looks like he is seated down facing right.
+hMRQdqJMNnJdkQdaZ,thiQcaJ2bb5dFM33E,E,11,ownGroup,second,ownGroup_second,"Triangle bunny ears, square shaped head looking down to our right."
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,G,9,ownGroup,second,ownGroup_second,It looks like an angel seated down facing left.
+hMRQdqJMNnJdkQdaZ,Se2oABguii2GSqBnh,H,13,ownGroup,second,ownGroup_second,Diamond head man closed body. Looks like he is sitting on his knees
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,F,9,otherGroup,first,otherGroup_first,sits on the side with nothing on his head
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,G,1,otherGroup,first,otherGroup_first,dance
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,H,8,otherGroup,first,otherGroup_first,sits facing forward with nothing on his head
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,E,7,otherGroup,first,otherGroup_first,sits with two things on his head
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,E,23,otherGroup,first,otherGroup_first,Looks like someone sitting sideways with 2 pieces on his head / Looks like an eagle on top of a mountain with open wings
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,E,10,otherGroup,first,otherGroup_first,Look like girl siiting sideways on 2 things on top
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,F,9,ownGroup,second,ownGroup_second,sits on the side with nothing on his head
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,G,1,ownGroup,second,ownGroup_second,dance
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,H,8,otherGroup,first,otherGroup_first,Looks like a person sitting down facing us
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,H,8,ownGroup,second,ownGroup_second,sits facing forward with nothing on his head
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,G,17,otherGroup,first,otherGroup_first,Looks like a lady in a loooong dress dancing / Looks like a seal playing with a toy
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,F,16,ownGroup,first,ownGroup_first,This looks like a man sitting sideways to the left with his head slightly tilted forward
+wjwzCZqktezhoNwdn,eq5bWXrnvhaHAifGC,E,7,ownGroup,second,ownGroup_second,sits with two things on his head
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,H,5,otherGroup,first,otherGroup_first,Looks like a garbage bag
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,E,9,ownGroup,first,ownGroup_first,The person with a hat that is facing right
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,E,4,ownGroup,first,ownGroup_first,"facing right, with hat"
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,F,5,otherGroup,first,otherGroup_first,Look like man sitting sideways.
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,E,14,otherGroup,first,otherGroup_first,"Looks like a person sitting down, facing right and has something like a hat"
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,F,13,otherGroup,first,otherGroup_first,Looks like a person sitting sideways with nothing on top on his head
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,H,6,ownGroup,first,ownGroup_first,the person that is facing us
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,F,8,ownGroup,first,ownGroup_first,"a man sitting, facing left with no hat"
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,H,5,otherGroup,first,otherGroup_first,Look like person sitting front
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,G,14,otherGroup,first,otherGroup_first,"Person sitting down, that has weird things sticking out of the back, facing left"
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,G,4,otherGroup,first,otherGroup_first,Look like dancing person
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,G,5,ownGroup,first,ownGroup_first,"facing left, the abstract one"
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,G,11,ownGroup,first,ownGroup_first,Looks like a dancer or a seal playing with a ball
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,G,8,ownGroup,first,ownGroup_first,"the strangest one (facing left, with hat)"
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,H,6,ownGroup,first,ownGroup_first,the man that is facing us
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,F,11,ownGroup,first,ownGroup_first,"the normal person that is facing left, with no weird things"
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,H,4,ownGroup,first,ownGroup_first,the one facing us
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,G,22,ownGroup,second,ownGroup_second,Looks like a dancing lady in a loooong dress / Looks like a seal playing with a toy on top of its head
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,F,13,otherGroup,first,otherGroup_first,"Person sitting down and facing left, no weird things sticking out or hat"
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,H,5,ownGroup,first,ownGroup_first,Looks like a garbage bag
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,E,8,ownGroup,first,ownGroup_first,"a man sitting, facing right with a hat"
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,H,4,ownGroup,second,ownGroup_second,Bag or sitting front
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,H,5,ownGroup,second,ownGroup_second,Looks like a garbage bag
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,F,11,ownGroup,second,ownGroup_second,"The person sitting down facing left, no weird things sticking out"
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,F,4,ownGroup,first,ownGroup_first,"facing left, no hat"
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,F,8,otherGroup,second,otherGroup_second,"a man sitting, facing left with no hat"
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,G,10,ownGroup,first,ownGroup_first,the strange person facing left with abstract and weird things
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,H,4,otherGroup,second,otherGroup_second,the one facing us
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,E,6,ownGroup,second,ownGroup_second,Sitting On 2 things on top
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,G,9,ownGroup,second,ownGroup_second,"Person sitting down, facing left, weird things sticking out"
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,G,8,otherGroup,second,otherGroup_second,"a man sitting, facing left, the abstract one"
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,E,16,ownGroup,first,ownGroup_first,like a man sitting sideways to the right with two things on top of his head
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,E,26,ownGroup,second,ownGroup_second,Looks like a person sitting sideways with 2 things on top of his head / Looks like an eagle on top of the mountain with open wings
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,H,4,otherGroup,second,otherGroup_second,a man facing us
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,F,6,otherGroup,second,otherGroup_second,"the man facing left, no hat"
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,E,11,ownGroup,second,ownGroup_second,"Person sitting down, facing right, has some sort of a hat"
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,F,7,ownGroup,second,ownGroup_second,Sitting sideways. No 2 things on top
+wjwzCZqktezhoNwdn,aE4iPm58cdyA733eQ,G,1,ownGroup,second,ownGroup_second,Dancing
+ytHtL6X7FZLgNXnib,6ry2id9XgeGjXzvKc,H,5,ownGroup,second,ownGroup_second,Person sitting down facing us
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,E,12,otherGroup,second,otherGroup_second,the person facing right with a hat and looks like a bunny
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,D,11,otherGroup,first,otherGroup_first,It looks like a priest with a tray in his hands
+ytHtL6X7FZLgNXnib,TEYpETCKMpuRJN97o,E,8,otherGroup,second,otherGroup_second,"a man sitting, facing right with a hat"
+wjwzCZqktezhoNwdn,mHrDkW2ufmq5577vw,F,13,ownGroup,second,ownGroup_second,Looks like a person sitting sideways with nothing on top of their head
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,D,11,otherGroup,first,otherGroup_first,It's the priest man holding something in front of him
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,A,2,ownGroup,first,ownGroup_first,Dancer!
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,G,8,otherGroup,second,otherGroup_second,"the strangest one, facing right, with a hat"
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,D,1,ownGroup,first,ownGroup_first,Priest
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,F,15,otherGroup,second,otherGroup_second,"Looks like a man sitting sideways to the left, with his head slightly tilted forward"
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,A,10,otherGroup,first,otherGroup_first,The sad bear man with a backpack on his back
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,B,11,otherGroup,first,otherGroup_first,Looks like a guy kneeling down with his hands close together
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,B,10,otherGroup,first,otherGroup_first,"kneeling down, looking at the ground with the arms open"
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,C,3,ownGroup,first,ownGroup_first,Falling man/superman
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,H,5,otherGroup,second,otherGroup_second,looks like a garbage bag
+ytHtL6X7FZLgNXnib,P7HQiz27Z69wYJo3Z,E,7,otherGroup,second,otherGroup_second,"the one facing left, with a hat"
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,G,7,otherGroup,second,otherGroup_second,the strangest thing that is facing left
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,B,2,ownGroup,first,ownGroup_first,Kneel/kneeler
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,C,6,otherGroup,first,otherGroup_first,The man falling from the sky
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,A,12,otherGroup,first,otherGroup_first,Looks like a guy with one leg down and one leg up
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,A,9,otherGroup,first,otherGroup_first,"leg up, leg down, with a weird tilted head"
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,B,2,otherGroup,second,otherGroup_second,Girl Kneeling
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,G,12,otherGroup,second,otherGroup_second,looks like a woman dancing or a seal playing with a ball
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,H,6,otherGroup,second,otherGroup_second,the person that is facing us
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,C,8,otherGroup,first,otherGroup_first,Looks like a person that is flying/falling
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,B,9,otherGroup,first,otherGroup_first,The man taking a dump kneeling while doing it
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,A,7,otherGroup,second,otherGroup_second,Bear with a cube on its back
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,D,10,otherGroup,first,otherGroup_first,"standing up, looking at his hands/arms, like a priest"
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,D,6,ownGroup,second,ownGroup_second,"yo, bros, its the priest one"
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,C,3,otherGroup,second,otherGroup_second,Someone falling backwards
+ytHtL6X7FZLgNXnib,nmgtMEMoRd5vazhJk,F,11,otherGroup,second,otherGroup_second,"the normal person that is facing left, not the weird one"
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,A,5,ownGroup,second,ownGroup_second,the sad bear man :(((
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,B,13,ownGroup,second,ownGroup_second,Looks like a guy that is kneeling down with is hands close together
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,C,8,otherGroup,first,otherGroup_first,"flying or falling down from somewhere, superman!"
+pCBFGvhS95qp75Kj2,mAuxNMzZ9CiZswZRo,D,5,otherGroup,second,otherGroup_second,Priest praying with a book
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,C,2,ownGroup,second,ownGroup_second,LUCIFER!!!
+pCBFGvhS95qp75Kj2,piYKppHmfjKfbqXgJ,B,4,ownGroup,second,ownGroup_second,the dump man :D
+wjwzCZqktezhoNwdn,SPX8pNAPj7f8RxfDg,E,17,otherGroup,second,otherGroup_second,looks like a man sitting sideways to the right with two things on top of his head
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,D,10,ownGroup,second,ownGroup_second,Looks like a priest with a tray in his hands
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,A,12,ownGroup,second,ownGroup_second,Looks like a person with one leg up and one leg down
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,B,10,ownGroup,second,ownGroup_second,"kneeling down, arms open to the side, head looking down"
+pCBFGvhS95qp75Kj2,yyJmyrtMsKAeJFXQT,C,8,ownGroup,second,ownGroup_second,Looks like a guy that is falling/flying
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,A,7,ownGroup,second,ownGroup_second,"leg up, leg down, weird tilted head"
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,D,12,ownGroup,second,ownGroup_second,"standing up, looking at the arms that are straight, like a priest"
+pCBFGvhS95qp75Kj2,9ekJDuCaLy9fa2n2N,C,8,ownGroup,second,ownGroup_second,"flying or falling from somewhere, arms wide open"
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,D,5,ownGroup,first,ownGroup_first,the one giving something away
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,B,4,ownGroup,first,ownGroup_first,the one praying down
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,A,3,ownGroup,first,ownGroup_first,the one leg
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,C,3,ownGroup,first,ownGroup_first,the flying one
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,D,9,otherGroup,first,otherGroup_first,It looks like a person standing up and praying
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,A,3,otherGroup,second,otherGroup_second,the one leg
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,D,6,otherGroup,second,otherGroup_second,the one who is giving something
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,C,10,ownGroup,first,ownGroup_first,the one that looks like flying with arms spread out
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,C,4,otherGroup,second,otherGroup_second,looks like is flying
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,C,7,otherGroup,first,otherGroup_first,it's a person sideways and flying
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,B,8,ownGroup,first,ownGroup_first,the one that looks like kneeling down praying
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,B,22,otherGroup,first,otherGroup_first,"Looks like a person kneeling down praying, the diamond shaped head is off centre, feet are a triangle shape behind the person"
+fbBEYS2xBiuER4yog,MNnPornW2LCWvewMN,B,6,otherGroup,second,otherGroup_second,looks like is praying looking down
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,D,12,ownGroup,first,ownGroup_first,the one that looks like standing up praying( or giving something)
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,D,23,otherGroup,first,otherGroup_first,"looks lie a person standing up praying, have the hands out in front of them. The diamond shaped head is in the centre."
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,B,8,otherGroup,first,otherGroup_first,It's a person kneeing down and praying
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,A,18,ownGroup,first,ownGroup_first,the one that looks like it has one leg on the ground ( carrying something in its back)
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,B,10,otherGroup,first,otherGroup_first,Looks like a man kneeling with his arms stretched out.
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,C,15,otherGroup,second,otherGroup_second,the one that looks like flying with its arms spread out ( kind of sideways)
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,D,8,otherGroup,first,otherGroup_first,looks like a man pointing to the left
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,D,3,otherGroup,first,otherGroup_first,a pointing man
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,C,23,otherGroup,first,otherGroup_first,"Looks like a person flying with their arms out either side of them, has no visible legs and the image is slanted sideways."
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,B,2,otherGroup,first,otherGroup_first,kneeling man
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,A,12,otherGroup,first,otherGroup_first,It's a person standing one leg carrying something on the back
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,B,11,otherGroup,second,otherGroup_second,the one that looks like kneeling down on the ground praying
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,C,9,otherGroup,first,otherGroup_first,looks like someone flying with their arms stretched out
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,A,5,otherGroup,first,otherGroup_first,man standing on one leg
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,C,5,otherGroup,first,otherGroup_first,man with arms wide open
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,A,4,otherGroup,first,otherGroup_first,standing on one leg
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,C,10,otherGroup,first,otherGroup_first,"Looks like a man who is flying, wide open arms."
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,A,21,otherGroup,second,otherGroup_second,"the one that looks like it has one """"leg"""" on the ground( seems like its carrying something in its back)"
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,C,3,ownGroup,second,ownGroup_second,wide open arms
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,A,11,otherGroup,first,otherGroup_first,looks like someone standing on one leg with their arms up
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,B,4,ownGroup,second,ownGroup_second,man on its knees
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,D,4,otherGroup,first,otherGroup_first,pointing to the left
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,D,7,ownGroup,second,ownGroup_second,looks like someone pointing to the left
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,B,2,otherGroup,first,otherGroup_first,on knees
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,A,30,otherGroup,first,otherGroup_first,"looks like a person stood on one leg with the other leg out in front of them, also has a diamond shape on their back like they are carrying something."
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,D,8,otherGroup,first,otherGroup_first,Looks like a man who is pointing something.
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,D,7,ownGroup,second,ownGroup_second,looks like its pointing or receiving something
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,C,1,otherGroup,first,otherGroup_first,flying
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,D,8,ownGroup,second,ownGroup_second,It's a person standing up and praying
+fbBEYS2xBiuER4yog,yanmYyJbogZxpMhs5,D,20,otherGroup,second,otherGroup_second,the one that looks like a person standing up praying or giving something ( with the diamond for a head)
+vKJfPn5PH2B49D7Ko,dANjNmhL9y9BW38Gd,A,6,ownGroup,second,ownGroup_second,a man standing on one leg
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,B,8,ownGroup,second,ownGroup_second,looks like someone kneeling with their arms out.
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,A,2,ownGroup,second,ownGroup_second,one leg
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,D,4,ownGroup,second,ownGroup_second,pointing to the left
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,C,10,ownGroup,second,ownGroup_second,It's a person sideways and flying (no legs)
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,C,8,ownGroup,second,ownGroup_second,looks like someone flying with their arms out
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,B,7,otherGroup,first,otherGroup_first,Looks like a man who is kneeling.
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,B,2,ownGroup,second,ownGroup_second,on knees
+vKJfPn5PH2B49D7Ko,66acao8F9x95q4Cs8,C,1,ownGroup,second,ownGroup_second,flying
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,C,22,ownGroup,second,ownGroup_second,"looks like a person flying with their arms out either side of them, no visible legs and the image is slanted sideways."
+vKJfPn5PH2B49D7Ko,sjjqCYRPsTMJmqHKy,A,11,ownGroup,second,ownGroup_second,looks like someone standing on one leg with their arms up
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,A,9,ownGroup,second,ownGroup_second,Person standing one leg carrying something in the back
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,A,11,otherGroup,first,otherGroup_first,Looks like a man who is standing on his one leg.
+fbBEYS2xBiuER4yog,iR7QPZXvDCcMSXX7o,B,7,ownGroup,second,ownGroup_second,It's a person kneeing down praying
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,B,22,ownGroup,second,ownGroup_second,"looks like a person kneeling down praying, the diamond shaped head is off centre and the triangle shaped feet are behind them."
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,A,8,ownGroup,second,ownGroup_second,Man who is standing on his one leg.
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,C,3,otherGroup,first,otherGroup_first,"Arms up, falling"
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,B,8,otherGroup,first,otherGroup_first,sitting one with a tray and a ponytail
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,E,6,otherGroup,first,otherGroup_first,This one looks like a Rabbit
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,F,2,otherGroup,first,otherGroup_first,sitting man
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,D,6,otherGroup,first,otherGroup_first,a man standing with a tray
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,C,5,otherGroup,first,otherGroup_first,both arms up falling backwards
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,C,8,ownGroup,second,ownGroup_second,"Man who is flying, he has open arms."
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,D,2,otherGroup,first,otherGroup_first,praying standing
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,D,23,ownGroup,second,ownGroup_second,"looks like a person standing up praying with their hands out in front of them, the diamond shaped head is in the centre."
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,G,6,otherGroup,first,otherGroup_first,This one looks like a dancer
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,A,3,otherGroup,first,otherGroup_first,one foot up
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,G,3,otherGroup,first,otherGroup_first,weird dancing figure
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,D,5,otherGroup,first,otherGroup_first,standing with a tray / praying
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,A,5,otherGroup,first,otherGroup_first,someone kicking on one foot
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,D,5,ownGroup,second,ownGroup_second,Man who is pointing something.
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,H,5,otherGroup,first,otherGroup_first,The tangram reseembles a cocoon
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,B,3,otherGroup,first,otherGroup_first,sitting looking up
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,C,8,ownGroup,first,ownGroup_first,A man falling backwards with his arms raised
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,F,2,otherGroup,first,otherGroup_first,sitting man
+vKJfPn5PH2B49D7Ko,2dFvHaxRGALZQAWht,B,4,ownGroup,second,ownGroup_second,Man who is kneeling.
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,C,6,otherGroup,first,otherGroup_first,falling man with both arms up
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,F,5,otherGroup,first,otherGroup_first,IT's a man sitting
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,H,6,otherGroup,first,otherGroup_first,man doing yoga or a cocoon
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,A,6,otherGroup,first,otherGroup_first,standing on one foot kicking something
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,H,1,otherGroup,first,otherGroup_first,Cocoon
+fbBEYS2xBiuER4yog,9uGM2BcYH4hk2uSzX,A,30,ownGroup,second,ownGroup_second,"looks like a person standing on one leg with the other leg out in front of them, also has a diamond shape on their back like they are carrying something."
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,E,2,otherGroup,first,otherGroup_first,rabbit ears
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,D,6,ownGroup,first,ownGroup_first,A man standing holding a tray
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,B,3,ownGroup,second,ownGroup_second,"sitting, looking up"
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,E,6,otherGroup,first,otherGroup_first,Looks like it has bunny ears
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,B,4,otherGroup,first,otherGroup_first,kneeling and praying woman
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,H,5,ownGroup,second,ownGroup_second,This one looks like Cocoon
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,D,5,ownGroup,second,ownGroup_second,standing with a tray / praying
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,C,3,ownGroup,second,ownGroup_second,both arms up
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,F,6,ownGroup,second,ownGroup_second,This one looks like sitting man
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,G,3,ownGroup,second,ownGroup_second,weird dancing figure
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,A,5,ownGroup,second,ownGroup_second,man kicking on one foot
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,G,9,otherGroup,first,otherGroup_first,This one is just weird. Probably resembles a dancer
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,D,2,ownGroup,second,ownGroup_second,praying standing
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,A,8,ownGroup,first,ownGroup_first,A bird looking down standing on one foot
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,G,5,ownGroup,second,ownGroup_second,This one looks like Dancer
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,A,3,ownGroup,second,ownGroup_second,one foot / kicking
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,E,2,ownGroup,second,ownGroup_second,rabbit ears
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,C,6,ownGroup,second,ownGroup_second,man falling with both arms up
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,C,3,ownGroup,second,ownGroup_second,arms up falling
+gevP48xWek252Nr68,hgkygjLRxCX9996Hf,E,5,ownGroup,second,ownGroup_second,This one looks like Rabbit
+vkbunGDg7rfy7MdPD,aftLQnY3Y33S2KbMF,B,4,ownGroup,second,ownGroup_second,sitting with a ponytail
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,G,3,ownGroup,second,ownGroup_second,The weird one.
+vkbunGDg7rfy7MdPD,kcH6fp3ksWD2dcE9S,A,3,ownGroup,second,ownGroup_second,one foot up
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,B,4,ownGroup,second,ownGroup_second,woman kneeling and praying
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,H,5,ownGroup,second,ownGroup_second,man doing yoga or cocoon
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,F,3,ownGroup,second,ownGroup_second,A sitting man
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,E,2,otherGroup,first,otherGroup_first,Rabbit ears.
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,B,9,ownGroup,first,ownGroup_first,A woman kneeling looking up while holding a tray
+gevP48xWek252Nr68,Bc9deARJZSZvQaxHn,F,2,ownGroup,second,ownGroup_second,sitting man
+vkbunGDg7rfy7MdPD,7sCNtPyG5JFnRqCdT,D,5,ownGroup,second,ownGroup_second,man standing with a tray
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,E,2,ownGroup,second,ownGroup_second,Bunny ears
+gevP48xWek252Nr68,2KrP2MJYyvmTxWwgv,H,1,ownGroup,second,ownGroup_second,Cocoon
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,G,5,otherGroup,first,otherGroup_first,Dancer or the strangest figure.
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,A,9,otherGroup,second,otherGroup_second,A bird looking down while standing on one foot
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,D,6,otherGroup,second,otherGroup_second,A man standing holding a tray
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,H,1,otherGroup,first,otherGroup_first,Cocoon
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,B,5,otherGroup,second,otherGroup_second,A woman kneeling looking up
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,F,2,otherGroup,first,otherGroup_first,Sitting man
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,G,2,ownGroup,second,ownGroup_second,rabbit ears
+vkbunGDg7rfy7MdPD,bdvW5J5HSm9CWAmvL,C,9,otherGroup,second,otherGroup_second,A man falling backwards arms up in the air
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,E,2,ownGroup,second,ownGroup_second,rabbit ears
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,H,1,ownGroup,second,ownGroup_second,cocoon
+gevP48xWek252Nr68,v8BQYnahpsx6vNSgg,F,2,ownGroup,second,ownGroup_second,sitting man
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,B,7,otherGroup,first,otherGroup_first,"On knees, trying to do a dance"
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,A,6,otherGroup,first,otherGroup_first,"One leg up, doing the thriller"
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,A,6,ownGroup,first,ownGroup_first,"one leg up, one arm up"
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,D,5,otherGroup,first,otherGroup_first,"Standing still, asking for something"
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,D,7,ownGroup,first,ownGroup_first,"both arms to the left, on knees"
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,C,7,otherGroup,first,otherGroup_first,"Laying on ground, relaxing with arms extended"
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,D,9,ownGroup,first,ownGroup_first,"standing straight, one arm to left, no leg up"
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,D,4,ownGroup,second,ownGroup_second,Standing still - doing nothing.
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,A,7,ownGroup,second,ownGroup_second,one leg up and both arms up
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,D,15,ownGroup,first,ownGroup_first,it is a person standing straight and with arm straight in front of this person
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,C,6,ownGroup,first,ownGroup_first,"tilted to left, both arms up"
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,B,3,ownGroup,second,ownGroup_second,on knees - dancing
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,B,9,otherGroup,first,otherGroup_first,This object looks like a girl sittng and praying.
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,B,10,ownGroup,first,ownGroup_first,"one leg to the left, one arm raised up slightly"
+Ko3v7THD2dqefyTAx,AfLPQRQ2yMkSegvuD,C,7,ownGroup,second,ownGroup_second,laying on ground with arms extended up
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,B,5,ownGroup,first,ownGroup_first,"on knees, both arms up"
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,A,9,ownGroup,first,ownGroup_first,"leg up, looking down, drunk dancer, the weirdst one"
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,C,8,ownGroup,first,ownGroup_first,the one that looks like he is flying
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,A,11,ownGroup,first,ownGroup_first,"one leg up, both arms and both legs to the left"
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,D,13,otherGroup,first,otherGroup_first,"He looks like a priest, standing with his arm in front and praying."
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,A,6,otherGroup,second,otherGroup_second,"one leg up, one hand up"
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,A,16,ownGroup,first,ownGroup_first,Person is standing on one leg and the second is up and the arms ar up
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,C,11,ownGroup,first,ownGroup_first,"both arms straight up, the person is leaning to the left"
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,B,9,ownGroup,first,ownGroup_first,the one that looks like he is praying kneeling
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,D,6,otherGroup,second,otherGroup_second,"standing straight, one arm to left"
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,D,10,otherGroup,first,otherGroup_first,A standing person with extended arms like holding a tray
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,C,20,otherGroup,first,otherGroup_first,He look like he is flying with arms wide open or like a goalkeeper whos trying to save a goal.
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,A,10,ownGroup,first,ownGroup_first,the one that looks like he is drunk and dancing
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,A,6,otherGroup,first,otherGroup_first,He looks like a drunk dancer
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,C,5,otherGroup,second,otherGroup_second,"tilted left, both arms up"
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,D,9,otherGroup,second,otherGroup_second,"both arms to the left, standing on their knees"
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,D,16,ownGroup,first,ownGroup_first,"standing, looks like its praying, arms in front, some might say the one with a backpack"
+Ko3v7THD2dqefyTAx,n3Q4td6qCse5aSv9e,B,5,otherGroup,second,otherGroup_second,"on knees, both arms up"
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,C,1,ownGroup,second,ownGroup_second,Flying
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,B,11,ownGroup,first,ownGroup_first,The person is on knees the arms are up and straight
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,D,15,ownGroup,first,ownGroup_first,the one that looks like he have a backpack and he is a shot person
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,B,1,ownGroup,second,ownGroup_second,Sitting
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,A,2,ownGroup,second,ownGroup_second,drunk dancer
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,B,12,ownGroup,first,ownGroup_first,"on the ground, sitting, maybe girl or dog, looking up maybe praying"
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,B,9,otherGroup,second,otherGroup_second,"one leg to the left, one arm raised slightly"
+76iJQ4QXdyAcYKseZ,up6Jjy6x3SYuzkRrC,D,3,ownGroup,second,ownGroup_second,Staying and praying
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,A,13,otherGroup,first,otherGroup_first,A dancer with their leg lifted and having a hump on the back
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,C,3,ownGroup,first,ownGroup_first,"arms open, flying"
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,C,10,ownGroup,first,ownGroup_first,The person is tilted left and the arms ar up
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,C,10,otherGroup,second,otherGroup_second,"both arms straight up, person is leaning to the left"
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,B,10,otherGroup,second,otherGroup_second,the one that looks like he is a dog kneeling
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,B,9,otherGroup,first,otherGroup_first,A kneeling dog with a bow on its head
+Ko3v7THD2dqefyTAx,E5uTCaEvboyi9W2jE,A,12,otherGroup,second,otherGroup_second,"one leg up, and both arms and legs are to the left"
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,C,7,otherGroup,first,otherGroup_first,"A goalkeeper, flying with their arm open"
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,B,10,otherGroup,second,otherGroup_second,"sitting down, looking up maybe praying, looks like a girl"
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,D,11,otherGroup,second,otherGroup_second,the one that looks like he is with the hands up
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,C,8,otherGroup,second,otherGroup_second,the one that looks like he is flying
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,D,5,otherGroup,second,otherGroup_second,"standing prayer, arms in front"
+76iJQ4QXdyAcYKseZ,gR2G6xLFF4jLsksxJ,A,10,otherGroup,second,otherGroup_second,the one that looks like he is drunk and dancing
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,B,13,ownGroup,second,ownGroup_second,A dog sitting on the ground and wearing a bow on its head
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,C,7,otherGroup,second,otherGroup_second,"arms wide open, looks like is flying"
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,C,5,otherGroup,second,otherGroup_second,those are squares and diamonds
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,A,11,ownGroup,second,ownGroup_second,"A dancer looking down, lifting their leg and having a hump"
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,D,5,otherGroup,second,otherGroup_second,Those are squares and diamonds
+76iJQ4QXdyAcYKseZ,sK8r54bPtKtwfCyE7,A,9,otherGroup,second,otherGroup_second,"weirdst one, leg up, looks like a drunk dancer"
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,A,5,otherGroup,second,otherGroup_second,Those are squares and diamonds
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,C,6,ownGroup,second,ownGroup_second,A flying goalkeeper with open arms
+Ko3v7THD2dqefyTAx,2iWCDAdpFvRCNSrEM,B,6,otherGroup,second,otherGroup_second,"Those are squares, diamonds and  triangles"
+76iJQ4QXdyAcYKseZ,NiKAGZngti7bqNjn2,D,10,ownGroup,second,ownGroup_second,A standing person wearing a cloak and caring a backpack
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,E,8,otherGroup,first,otherGroup_first,"A person looking down sad, with bunny ears"
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,F,8,ownGroup,first,ownGroup_first,Person sitting facing the left with knee up
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,F,5,ownGroup,first,ownGroup_first,men sitting with nee up
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,E,2,ownGroup,first,ownGroup_first,bunny ears
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,G,7,ownGroup,first,ownGroup_first,Person dancing in dress or doing yoga
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,F,10,otherGroup,first,otherGroup_first,A person with square head looking up with knees bent.
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,E,2,ownGroup,first,ownGroup_first,Bunny ears
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,H,5,ownGroup,first,ownGroup_first,"square up, more uniform shape"
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,G,3,ownGroup,first,ownGroup_first,high heel boot
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,H,8,ownGroup,first,ownGroup_first,Person sitting straight up kneeling as if praying
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,G,7,ownGroup,first,ownGroup_first,Girl with dress dancing or doing yoga
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,H,5,ownGroup,first,ownGroup_first,"person kneeling, as if praying"
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,G,3,otherGroup,second,otherGroup_second,high heel boot
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,G,12,otherGroup,first,otherGroup_first,A person or girl doing dancing yoga. Or A high heel shoe.
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,F,7,otherGroup,second,otherGroup_second,Person sitting with knee up facing left
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,H,5,otherGroup,second,otherGroup_second,square up more uniform space
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,H,9,otherGroup,first,otherGroup_first,Flat uniform shapes or a person kneeling to pray.
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,F,7,ownGroup,first,ownGroup_first,"Square shaped head, sitting with knee up"
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,H,6,otherGroup,second,otherGroup_second,Person sitting straight as if praying
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,F,5,otherGroup,second,otherGroup_second,men sitting with nee up
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,G,6,otherGroup,second,otherGroup_second,Person dancing in dress or cape
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,E,5,ownGroup,first,ownGroup_first,"Person sitting, with bunny ears"
+YLWsekeYoH9Nw4RCZ,QRnYtSZo4tMJcupJr,E,2,otherGroup,second,otherGroup_second,bunny ears
+YLWsekeYoH9Nw4RCZ,p5SCRgGJxGsbq8j7b,E,5,otherGroup,second,otherGroup_second,Sitting person with bunny ears
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,H,8,ownGroup,second,ownGroup_second,A person kneeling to pray or uniform shapes
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,G,7,ownGroup,second,ownGroup_second,Dancing Yoga girl or High heel shoe
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,E,2,ownGroup,second,ownGroup_second,Bunny Ears
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,F,7,otherGroup,second,otherGroup_second,"Square shaped head, sitting with knee up"
+YLWsekeYoH9Nw4RCZ,iw8xQKdDYweSkSWpQ,F,4,ownGroup,second,ownGroup_second,"Man sitting, Knees bent"
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,G,8,otherGroup,second,otherGroup_second,Girl in a dress doing yoga or dancing
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,F,5,otherGroup,first,otherGroup_first,"turtle, left sided legs,"
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,E,5,otherGroup,second,otherGroup_second,"person sitting, with bunny ears"
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,H,4,otherGroup,first,otherGroup_first,"buddha, coccon, standing man"
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,F,7,ownGroup,first,ownGroup_first,Like a sitting man or a turtle
+YLWsekeYoH9Nw4RCZ,XEcR3EEetjnWpMrbP,H,5,otherGroup,second,otherGroup_second,"person kneeling, as if praying"
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,E,9,otherGroup,first,otherGroup_first,"rabbit, two ripples on the head, square head, siting"
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,F,19,ownGroup,first,ownGroup_first,"Like a man sitting down, his legs on the left with a square on the top of his head."
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,G,10,ownGroup,first,ownGroup_first,Person trying to get up or a lady's shoe
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,E,1,otherGroup,first,otherGroup_first,Rabbit
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,E,19,ownGroup,first,ownGroup_first,"It looks like a bunny. It has two big triangle ears, a square head and a giant triangle body."
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,G,12,otherGroup,first,otherGroup_first,"seal, half standing man, he wants to stand but he still siting"
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,H,8,otherGroup,first,otherGroup_first,the one like coccon with a square head
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,F,4,otherGroup,first,otherGroup_first,Sitting man from side
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,E,1,ownGroup,second,ownGroup_second,rabbit
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,G,23,ownGroup,first,ownGroup_first,"It is the most complex shape, two hooks pointing to the right and one hook at the bottom and a square pointing left."
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,E,25,otherGroup,first,otherGroup_first,For me it is like sitting girl with big ribbon on her head. Or it would be sitting rabbit with typical big rabbit´s ears.
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,G,1,ownGroup,second,ownGroup_second,seal
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,G,21,ownGroup,first,ownGroup_first,"This looks someone doing a karate kick, there is a triangle on the right, and a larger shape of the left."
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,H,1,ownGroup,second,ownGroup_second,coccon
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,E,13,otherGroup,first,otherGroup_first,"the one like a depressed rabbit, two triangles to the top, head square"
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,G,14,otherGroup,first,otherGroup_first,The most complex one. It has a small triangle hanging on the right side
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,E,29,ownGroup,first,ownGroup_first,"Rabbit in a mountain or a girl with a ribbon on her head. A square with two triangles on top, and the square in on top of a mountain."
+dnzYp4v3YyS6WeYcY,TkjPiTcFnF8tateYW,F,1,ownGroup,second,ownGroup_second,turtle
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,H,23,ownGroup,first,ownGroup_first,"It is the simplest shape, it's a weird oval with a square up top. It kinda of looks like a chili!"
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,E,10,ownGroup,first,ownGroup_first,"This looks like a bunny, two ears on the top."
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,G,15,otherGroup,first,otherGroup_first,the one like a sitting dog hearing a noise and is ready to stand up
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,G,9,otherGroup,first,otherGroup_first,"Its like deer from behind, with a square horn"
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,H,13,ownGroup,first,ownGroup_first,"This looks like a chilli pepper, or a man from a frontal view."
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,F,12,otherGroup,first,otherGroup_first,the one like an old man who is got tired and sit
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,H,16,ownGroup,first,ownGroup_first,Sausage with a square on top or a meat shaped thing with a square on top
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,E,5,otherGroup,second,otherGroup_second,This looks like a bunny.
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,H,15,otherGroup,first,otherGroup_first,The most simple one. Looks like a chilli. Or like somone sitting seen from front
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,F,31,ownGroup,first,ownGroup_first,It looks like a man sitting down up against a wall. It has a square head pointing down with a big odd shaped body and legs pointing in with triangular feet.
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,H,11,otherGroup,second,otherGroup_second,Looks like a chilli pepper or man from a frontal view.
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,H,6,otherGroup,first,otherGroup_first,"Man from front, with rhombus head"
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,F,8,otherGroup,second,otherGroup_second,Looks like a sitting man or a turtle.
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,F,8,otherGroup,second,otherGroup_second,"A man sitting down, square is his head."
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,F,9,otherGroup,first,otherGroup_first,Looks like a man sitting as seen from side
+CjJsbbMomSi4dHiNp,vJ5WeTgtC8GwGr35b,G,5,otherGroup,second,otherGroup_second,Someone doing a karate kick.
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,G,23,otherGroup,second,otherGroup_second,"It is the most complex shape, it has two hooks pointing right and one hook at the bottom and a square pointing left."
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,H,5,ownGroup,second,ownGroup_second,Man from front with rhombus
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,G,20,otherGroup,second,otherGroup_second,Looks like a lady's shoe or a person trying to get up (the most abstract shape of all)
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,G,18,ownGroup,second,ownGroup_second,one square and one triangle to the top and one triangle left aside from the rest geometrical object
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,E,19,otherGroup,first,otherGroup_first,Looks like a rabbit sitting. It has a big black triangle with 90 degree angle on the lower part.
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,E,17,otherGroup,second,otherGroup_second,It looks like a bunny. Two big triangle ears and one square head. One big triangle body.
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,H,7,ownGroup,second,ownGroup_second,like a little sausage with square head
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,H,16,otherGroup,second,otherGroup_second,Sausage with a square on top or a meat shaped thing with a square on top.
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,G,8,ownGroup,second,ownGroup_second,"deer from behind, left horn is like square"
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,E,1,ownGroup,second,ownGroup_second,rabbit
+CjJsbbMomSi4dHiNp,hPQF45fFkxYyWa9yi,F,4,ownGroup,second,ownGroup_second,Sitting man from side
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,E,19,ownGroup,second,ownGroup_second,Looks like a rabbit sitting. It has a big black triangle with 90 degree angle on the lower part.
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,F,23,otherGroup,second,otherGroup_second,"It looks like a man sitting down. Square head pointing down, large oddly shaped body and rectangular legs tucked in with triangle feet."
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,H,8,ownGroup,second,ownGroup_second,"the most simple one, looks like a chilli"
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,H,21,otherGroup,first,otherGroup_first,"This is like sitting peaceful man, e.g. Buddha. Or it is like sausage with something (box?) at it´s end."
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,E,7,ownGroup,second,ownGroup_second,a square under two triangles like ears
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,F,9,ownGroup,second,ownGroup_second,looks like a man sitting as seen from side
+CjJsbbMomSi4dHiNp,WTtWh2MP4vWmF9CMf,H,19,otherGroup,second,otherGroup_second,"It is the simplest shape. A weird oval with a square up top, kinda of looks like a chili."
+dnzYp4v3YyS6WeYcY,uygYhykTj3MM8xQbk,E,24,otherGroup,second,otherGroup_second,Rabbit on top of a mountain or a girl with a ribbon sitting. Basically a mountain with a square on top and two triangles
+CjJsbbMomSi4dHiNp,XFHb4aQTy24MTYXyv,G,15,ownGroup,second,ownGroup_second,the most complex one. It has a small black triangle hanging on the right side
+dnzYp4v3YyS6WeYcY,QsJYKnnubqYXSDzbE,F,18,ownGroup,second,ownGroup_second,"like a turtle...head to the top, legs to the left side..the shell to the right side"
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,G,23,otherGroup,first,otherGroup_first,"It reminds me person who wants get up from bed, ground or something like this. Or it would be lady´s shoe too."
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,F,17,otherGroup,first,otherGroup_first,"In this picture I see the sitting man. This man is sitting on the bobsleigh, maybe :-)"
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,H,18,ownGroup,second,ownGroup_second,It is like sitting Buddha or like sausage with box or something like this at it´s end.
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,E,13,ownGroup,second,ownGroup_second,This is sitting ribonned girl or rabbit with typical rabbit´s big ears.
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,F,13,ownGroup,first,ownGroup_first,This looks like a man that’s sitting down looking to the stars
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,H,11,ownGroup,first,ownGroup_first,"Seems like the leeter """"i"""" with the square as the dot"
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,F,9,ownGroup,first,ownGroup_first,looks like a man sitting with his legs apart
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,F,13,ownGroup,second,ownGroup_second,Man sitting on the ground or on the bobsleigh or something like this.
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,F,2,ownGroup,first,ownGroup_first,Sitting man
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,E,21,ownGroup,first,ownGroup_first,This looks like a bunny with two triangles for ears. It also looks like a 90 degree triangle at the bottom
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,E,5,ownGroup,first,ownGroup_first,Triangule on base 90 degrees
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,H,10,ownGroup,first,ownGroup_first,looks like an i where the square is the point
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,G,8,ownGroup,first,ownGroup_first,It looks like high heels on the side
+dnzYp4v3YyS6WeYcY,zz94dJqE5mM4vERqy,G,9,ownGroup,second,ownGroup_second,Person who wants to stand up from the ground.
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,G,4,ownGroup,first,ownGroup_first,shoe in side view
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,F,5,ownGroup,first,ownGroup_first,It looks like sitting man
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,G,15,ownGroup,first,ownGroup_first,This is the weirdest shape. It kind of looks like a shoe or a heel.
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,G,4,otherGroup,second,otherGroup_second,shoe in side view
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,H,2,otherGroup,second,otherGroup_second,Letter i
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,G,6,ownGroup,first,ownGroup_first,looks like a shoe or heel
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,F,2,otherGroup,second,otherGroup_second,sitting man
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,H,14,ownGroup,first,ownGroup_first,This looks like the letter i. It has a diamond shape at the top
+HkiKxqzW8QB5kJNEB,4Wfi2J3wkGbdfiB52,E,2,otherGroup,second,otherGroup_second,bunny ears
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,H,17,ownGroup,first,ownGroup_first,"It looks like letter """"i"""". The diamond shape on the top is the dot in this letter."
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,E,11,ownGroup,first,ownGroup_first,90 degree triangle or a rabbit with two ears like triangles
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,E,12,ownGroup,first,ownGroup_first,It looks like 90 degrees triangle with bunny ears on the top
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,E,18,otherGroup,second,otherGroup_second,It looks like a rabbit. It has triangles for ears and a 90 degree triangle in the bottom.
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,G,8,otherGroup,second,otherGroup_second,It looks like high heel on the side
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,H,14,otherGroup,second,otherGroup_second,This looks like a letter i. It has a diamond shape on the top
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,H,14,otherGroup,second,otherGroup_second,"It looks like letter """"i"""" the diamond shape on the top is the dot"
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,G,13,otherGroup,second,otherGroup_second,This is the weirdest shape. It looks like a heel or a shoe.
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,F,5,otherGroup,second,otherGroup_second,It looks like sitting man
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,F,5,otherGroup,second,otherGroup_second,man sitting with legs apart
+HkiKxqzW8QB5kJNEB,83TWsQKpEn93idsMW,F,14,otherGroup,second,otherGroup_second,This looks like a man sitting down on the floor looking to the sky.
+HkiKxqzW8QB5kJNEB,SvorbMj2XjMKB6Zfy,E,7,otherGroup,second,otherGroup_second,It has bunny ears on the top
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,E,9,otherGroup,second,otherGroup_second,90º triangle or rabbit with both ears as triangles
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,G,3,otherGroup,second,otherGroup_second,heel or shoe
+HkiKxqzW8QB5kJNEB,pXny4jckQajNRAXwg,H,5,otherGroup,second,otherGroup_second,it looks like an i
