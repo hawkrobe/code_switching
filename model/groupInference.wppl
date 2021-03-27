@@ -70,7 +70,7 @@ var groups = ['group1', 'group2'];
 var numGroups = groups.length;
 var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
 var model = 'Listener';
-var scalingFactor = 0.5;
+var scalingFactor = 10;
 
 var params = {
   speakerAlpha : 5,
@@ -194,7 +194,7 @@ var iterate = function(iterationNum, outputF, remainingTrials, dataSoFar) {
     context : params.context,
   });
 
-  console.log('Iteration ' + iterationNum + ' Trial ' + currTrial.trialNum + ' Partner ' + currTrial.partnerID);
+  console.log('Iteration ' + iterationNum + ' Trial ' + currTrial.trialNum + ' Scale ' + scalingFactor);
 
   var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
   var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);

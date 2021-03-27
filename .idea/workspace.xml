@@ -8,20 +8,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Saving groupInference simulation figures">
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Implementing repeated interations and performing initial simulations for listener">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/experiment1.Rmd" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/experiment1.Rmd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/Listener0.05.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener0.05.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/Listener0.1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener0.1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/Listener0.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener0.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener0.05.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener0.05.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener0.1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener0.1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener0.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener0.5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/writing/overlap.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/writing/overlap.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/writing/simulations.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/writing/simulations.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/writing/speaker_curves.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/writing/speaker_curves.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/writing/utt_length.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/writing/utt_length.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/Listener1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/Listener5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener5.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +115,10 @@
       <workItem from="1616724194814" duration="728000" />
       <workItem from="1616728442385" duration="5000" />
       <workItem from="1616771998696" duration="41000" />
-      <workItem from="1616783451702" duration="2114000" />
+      <workItem from="1616783451702" duration="2230000" />
+      <workItem from="1616812404019" duration="89000" />
+      <workItem from="1616812600931" duration="111000" />
+      <workItem from="1616815431648" duration="92000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -425,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616172813213</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Implementing repeated interations and performing initial simulations for listener">
+      <created>1616795627185</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1616795627185</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -455,7 +458,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="make team details depend on treatment color" />
     <MESSAGE value="Importing images to repository" />
     <MESSAGE value="Updating red/blue communities" />
     <MESSAGE value="Editing comprehension experiment instructions" />
@@ -480,7 +482,8 @@
     <MESSAGE value="Setting up initial simulation graphs for partner group over time" />
     <MESSAGE value="First round of graphs for listener-focused model" />
     <MESSAGE value="Saving groupInference simulation figures" />
-    <option name="LAST_COMMIT_MESSAGE" value="Saving groupInference simulation figures" />
+    <MESSAGE value="Implementing repeated interations and performing initial simulations for listener" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementing repeated interations and performing initial simulations for listener" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">
