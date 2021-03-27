@@ -4,17 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand />
-    <select />
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Implementing repeated interations and performing initial simulations for listener">
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Completed Listener simulations uploaded as csv">
+      <change afterPath="$PROJECT_DIR$/model/output/Speaker0.05.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Speaker0.5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Speaker10.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker0.05.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker0.5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker10.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/Listener1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/Listener5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/Listener5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Listener5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Listener5.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,6 +140,7 @@
       <workItem from="1616812404019" duration="89000" />
       <workItem from="1616812600931" duration="111000" />
       <workItem from="1616815431648" duration="92000" />
+      <workItem from="1616860546715" duration="3189000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -428,7 +450,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616795627185</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Completed Listener simulations uploaded as csv">
+      <created>1616860625872</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1616860625872</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +471,7 @@
             <State>
               <option name="CUSTOM_BOOLEAN_PROPERTIES">
                 <map>
-                  <entry key="Show.Git.Branches" value="false" />
+                  <entry key="Show.Git.Branches" value="true" />
                 </map>
               </option>
             </State>
@@ -458,7 +487,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="Importing images to repository" />
     <MESSAGE value="Updating red/blue communities" />
     <MESSAGE value="Editing comprehension experiment instructions" />
     <MESSAGE value="Creating initial simulation structure - Speaker, Listener, basic file structure" />
@@ -483,7 +511,8 @@
     <MESSAGE value="First round of graphs for listener-focused model" />
     <MESSAGE value="Saving groupInference simulation figures" />
     <MESSAGE value="Implementing repeated interations and performing initial simulations for listener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing repeated interations and performing initial simulations for listener" />
+    <MESSAGE value="Completed Listener simulations uploaded as csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed Listener simulations uploaded as csv" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">

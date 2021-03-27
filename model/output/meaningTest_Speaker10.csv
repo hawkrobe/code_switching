@@ -1,0 +1,8 @@
+model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon, iterationNum, trialNum,                  condition,partnerID,partner,val
+Speaker,5,5,0.9,0.01,0,1,5,partner1,group1,1
+Speaker,5,5,0.9,0.01,0,1,5,partner2,group1,0.5096249999999998
+Speaker,5,5,0.9,0.01,0,1,5,partner2,group2,0.4903750000000002
+Speaker,5,5,0.9,0.01,0,1,5,partner3,group1,0.4872500000000002
+Speaker,5,5,0.9,0.01,0,1,5,partner3,group2,0.5127499999999999
+Speaker,5,5,0.9,0.01,0,1,5,partner4,group2,0.4997500000000001
+Speaker,5,5,0.9,0.01,0,1,5,partner4,group1,0.50025
