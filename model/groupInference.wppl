@@ -71,7 +71,7 @@ var numGroups = groups.length;
 var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
 //var model = 'Listener';
 var model = 'Speaker';
-var scalingFactor = 0.5;
+var scalingFactor = 0.05;
 
 var params = {
   speakerAlpha : 5,
@@ -298,7 +298,7 @@ var trials = [
 map(function(i){
     console.log('iteration', i);
     iterate(i, f, trials, {1: [], 2:[], 3:[], 4:[], 5 :[]});
-}, _.range(1));
+}, _.range(100));
 
 csv.close(f);
 csv.close(posttest_file);

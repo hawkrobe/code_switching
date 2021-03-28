@@ -1,1 +1,0 @@
-model,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessingEpsilon,scalingFactor,              iterationNum, trialNum,speakerID,listenerID,partnerID,intendedName,speakerChoice,listenerChoice,              longUttScore,correctProb
