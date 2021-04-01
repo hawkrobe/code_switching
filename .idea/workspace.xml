@@ -27,15 +27,17 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Completed Listener simulations uploaded as csv">
-      <change afterPath="$PROJECT_DIR$/model/output/Speaker0.05.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/Speaker0.5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/Speaker10.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker0.05.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker0.5.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker10.csv" afterDir="false" />
+    <list default="true" id="ebd569ce-5511-4067-93c4-5c095faa96b9" name="Default Changelist" comment="Cleaned listener simulation data">
+      <change afterPath="$PROJECT_DIR$/model/output/Speaker0.1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Speaker1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/Speaker5.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker0.1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker5.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/groupInference.wppl" beforeDir="false" afterPath="$PROJECT_DIR$/model/groupInference.wppl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Speaker0.5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker0.5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/output/meaningTest_Speaker10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/model/output/meaningTest_Speaker10.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +142,8 @@
       <workItem from="1616812404019" duration="89000" />
       <workItem from="1616812600931" duration="111000" />
       <workItem from="1616815431648" duration="92000" />
-      <workItem from="1616860546715" duration="3189000" />
+      <workItem from="1616860546715" duration="4650000" />
+      <workItem from="1616934555104" duration="3078000" />
     </task>
     <task id="LOCAL-00001" summary="Removed player requirement for displaying chat &amp; event log">
       <created>1604554031588</created>
@@ -457,7 +460,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616860625872</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Implementing Speaker model">
+      <created>1616863879961</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1616863879961</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Cleaned listener simulation data">
+      <created>1616897914890</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1616897914890</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -487,8 +504,6 @@
       <path value="$PROJECT_DIR$" />
       <path value="$PROJECT_DIR$/room-assignment-csop" />
     </ignored-roots>
-    <MESSAGE value="Updating red/blue communities" />
-    <MESSAGE value="Editing comprehension experiment instructions" />
     <MESSAGE value="Creating initial simulation structure - Speaker, Listener, basic file structure" />
     <MESSAGE value="Edits for readability" />
     <MESSAGE value="Integrating with refModule, renaming file" />
@@ -512,7 +527,9 @@
     <MESSAGE value="Saving groupInference simulation figures" />
     <MESSAGE value="Implementing repeated interations and performing initial simulations for listener" />
     <MESSAGE value="Completed Listener simulations uploaded as csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed Listener simulations uploaded as csv" />
+    <MESSAGE value="Implementing Speaker model" />
+    <MESSAGE value="Cleaned listener simulation data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned listener simulation data" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2610" y="293" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614631255045">

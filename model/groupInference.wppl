@@ -71,7 +71,7 @@ var numGroups = groups.length;
 var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
 //var model = 'Listener';
 var model = 'Speaker';
-var scalingFactor = 0.05;
+var scalingFactor = 10;
 
 var params = {
   speakerAlpha : 5,
