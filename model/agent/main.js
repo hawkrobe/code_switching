@@ -158,8 +158,8 @@ module.exports = {
     open: openFile,
     close: closeFile,
     writeLine: writeLine,
-    getL0Score,
-    getS1Score,
-    getUttCost,
-    getLexiconElement
+    getL0Score: getL0Score,
+    getS1Score : getS1Score,
+    getUttCost : getUttCost,
+    getLexiconElement: getLexiconElement
 };
