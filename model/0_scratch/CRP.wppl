@@ -1,3 +1,5 @@
+// sample from Chinese Restaurant Process distribution
+
 // Helper function: find prob of person n sitting at a table with b people at the table
 var tableProb = function(b, n, alpha) {
     return b != 0 ? b / (n + alpha) : alpha / (n + alpha);
@@ -6,6 +8,7 @@ var tableProb = function(b, n, alpha) {
 // Given a list `tableNums` of how many people are at each table, assign a table to a new person
 // `tableNums` is a list where the index corresponds to the table and the value is how many people are at the table
 var findTable = function(tableNums, alpha) {
+    console.log("Table counts: " + tableNums)
     var n = _.sum(tableNums); // number of people already seated
     var _tableNums = tableNums.concat([0]); // add unoccupied table to end of array for calculating probabilities
 
@@ -15,7 +18,9 @@ var findTable = function(tableNums, alpha) {
 
     var tableProbs = map(currentTableProb, _tableNums);
 
-    console.assert(_.sum(tableProbs) == 1);
+    // console.log(tableProbs)
+
+    console.assert(Math.abs(_.sum(tableProbs) - 1) < 0.0001);
     return sample(Discrete({ps: tableProbs}));
 }
 
@@ -28,7 +33,7 @@ var updateTable = function(tableNums, alpha) {
         var tableNums = [1];
         return {
             tables: tableNums,
-            choice: 0
+            choice: 0 // get rid of the choice field later
         };
     } else if (nTables == newTable) {  // If we occupy a new table, add 1 to the end of `tableNums`
         tableNums.push(1);
@@ -77,19 +82,19 @@ var CRP = function(n, alpha) {
         // console.log(tablesSoFar)
 
         var updatedTables = updateTable(tablesSoFar, alpha);
-        var tablesSoFar = updatedTables.tables;
+        var _tablesSoFar = updatedTables.tables;
         // console.log(tablesSoFar)
-        var nChoicesSoFar = nChoicesSoFar + 1;
-
-        if (nChoicesSoFar >= n) {
+        // var nChoicesSoFar = nChoicesSoFar + 1;
+        var _nChoicesSoFar = reduce(function(x, acc) { return x + acc; }, nChoicesSoFar, [1])
+        if (_nChoicesSoFar >= n) {
             return updatedTables;
         } else {
-            return iterate(n, tablesSoFar, nChoicesSoFar);
+            return iterate(n, _tablesSoFar, _nChoicesSoFar);
         }
     }
 
     var updatedTables = iterate(n, [], 0); // start with no occupied tables
-
+    console.log("Final table counts: " + updatedTables.tables)
     return updatedTables.tables;
 }
 
@@ -98,10 +103,15 @@ var CRP = function(n, alpha) {
 // var tableNums = [1, 2, 3]
 // console.log(findTable(tableNums, 1))
 // console.log(typeof updateTable)
-// console.log(CRP(10, 1))
+
+var output = CRP(10, 1) // 10 people, alpha=1
+// console.log(output.choice);
+console.log(output.tables);
+
 // console.log(typeof updateTable)
 
-var updatedTables = updateTable([1], 0.5)
-console.log(updatedTables)
+// var updatedTables = updateTable([1], 0.5)
+// console.log(updatedTables)
+
 // console.log(findTable([1], 0.5))
 // var findTable =
