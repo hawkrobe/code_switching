@@ -1,7 +1,7 @@
 /*
 Sample from Chinese Restaurant Process distribution
 
-CRP(n, alpha) outputs an object where
+`CRP(n, alpha)` outputs an object where
 tableCounts: array where index corresponds to the table and value is how many people are at that table
 choices: array where index corresponds to the person (out of `n`) and value is the table where that person sits
 */
@@ -29,7 +29,7 @@ var findTable = function(tableCounts, alpha) {
     return sample(Discrete({ps: tableProbs}));
 };
 
-// Update tableNums based on table sampled for new person
+// Update tableCounts based on table sampled for new person
 var updateTable = function(tableNums, alpha) {
     var newTable = findTable(tableNums, alpha);
     var nTables = tableNums.length;
@@ -69,8 +69,6 @@ var updateTable = function(tableNums, alpha) {
 var CRP = function(n, alpha) {
 
     var iterate = function(n, tablesSoFar, choicesSoFar) {
-        // console.log(tablesSoFar)
-
 
         var updatedTables = updateTable(tablesSoFar, alpha);
         var _tablesSoFar = updatedTables.tables;
