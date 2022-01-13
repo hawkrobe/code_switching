@@ -36,18 +36,17 @@ d.comprehension <- d.comprehension.raw %>%
   ungroup() %>%
   mutate(correct = response == tangram,
          logrt = log(rt),
-         upper = mean(logrt) + 2*sd(logrt),
-         lower = mean(logrt) - 2*sd(logrt)) %>%
-  filter(logrt < upper, logrt > lower)
+         upper = mean(logrt) + 3*sd(logrt),
+         lower = mean(logrt) - 3*sd(logrt))
 ```
 
 Look at how many annotations we got for each description.
 
 ```{r}
 d.targetData %>%
-  mutate(tangram = substr(tangram, 21, 21)) %>%
   rename(targetAudience = ownGroup) %>%
-  left_join(d.comprehension %>%
+  right_join(d.comprehension %>%
+   filter(tangram != 'catch') %>%
     group_by(playerId, tangram, origText) %>%
     filter(wID %in% passed_catch) %>%
     filter(wID %in% complete_data) %>%
@@ -64,6 +63,7 @@ Look at response time distribution to get a sense of outliers.
 
 ```{r}
 d.comprehension %>%
+  filter(tangram != 'catch') %>%
   ggplot(aes(x = logrt)) +
     geom_histogram() +
     geom_vline(aes(xintercept = lower)) +
@@ -87,20 +87,27 @@ d.4afc <- d.comprehension %>%
 ```
 
 ```{r}
+d.4afc %>%
+  ggplot(aes(x = factor(correct), y = logrt)) +
+    geom_boxplot()
+
+```
+
+
+```{r}
 dodge <- position_dodge(width = 0.2)
 d.4afc %>%
-  select(playerId, tangram, condition, targetAudience, correct, logrt) %>%
+  filter(rt > 1000) %>%
+  select(playerId, tangram, condition, targetAudience, correct, rt) %>%
   mutate(correct = 100 * correct) %>%
-  gather(metric, value, correct, logrt) %>%
+  gather(metric, value, correct, rt) %>%
   group_by(metric, condition, targetAudience) %>%
-  tidyboot_mean(value, na.rm = T) %>%
+  tidyboot_mean(value, na.rm = T, nboot = 100) %>%
   ggplot(aes(x = condition, y = empirical_stat, color = targetAudience)) +
     geom_point(position= dodge) +
     geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper),
                   width = 0, position= dodge) +
     theme_few() +
-    # scale_x_discrete(labels=c("first"="other -> own",
-    #                           "second"="own -> other")) +
     labs(x = '', y = '% correct') +
     facet_wrap(~ metric, scales = 'free') +
     theme(aspect.ratio = 1, 
