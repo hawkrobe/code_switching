@@ -157,7 +157,7 @@ var closeFile = function(handle){
 //     return assignments
 // }
 
-var convertToObj = function (a, b) { // from stack overflow
+var convertToObj = function (a, b) { // from stack overflow, converts 2 arrays into object where keys are in array a and values are in b
     if (a.length != b.length || a.length == 0 || b.length == 0) {
         return null;
     }

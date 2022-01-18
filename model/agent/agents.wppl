@@ -54,3 +54,101 @@ var updatePosterior = function(data, lexicalPrior, params) {
     };
   });
 };
+
+
+
+//// CRP stuff
+
+/*
+Sample from Chinese Restaurant Process distribution
+
+`CRP(n, alpha)` outputs an object where
+tableCounts: array where index corresponds to the table and value is how many people are at that table
+choices: array where index corresponds to the person (out of `n`) and value is the table where that person sits
+*/
+
+
+
+// Helper function: find prob of person n sitting at a table with b people at the table
+var tableProb = function (b, n, alpha) {
+  return b != 0 ? b / (n + alpha) : alpha / (n + alpha);
+};
+
+// Given array `tableCounts` of how many people are at each table, assign a table to a new person
+var findTable = function (tableCounts, alpha) {
+  // console.log("Table counts: " + tableCounts)
+  var n = _.sum(tableCounts); // number of people already seated
+  var _tableCounts = tableCounts.concat([0]); // add unoccupied table to end of array for purpose of calculating probabilities
+
+  var currentTableProb = function (b) {
+      return tableProb(b, n, alpha);
+  };
+
+  var tableProbs = map(currentTableProb, _tableCounts);
+
+  console.assert(Math.abs(_.sum(tableProbs) - 1) < 0.0001);
+  return sample(Discrete({ ps: tableProbs }));
+};
+
+// Update tableCounts based on table sampled for new person
+var updateTable = function (tableNums, alpha) {
+  var newTable = findTable(tableNums, alpha);
+  var nTables = tableNums.length;
+
+  if (nTables == 0) { // if there are no occupied tables yet, assign first person to table 0
+      var _tableNums = [1];
+      return {
+          tables: _tableNums,
+          choice: 0
+      };
+  } else if (nTables == newTable) {  // If we occupy a new table, add 1 to the end of `tableNums`
+      var _tableNums = tableNums.concat([1]);
+      return {
+          tables: _tableNums,
+          choice: newTable
+      };
+  } else { // if any other table gets occupied then increment the count for that table by 1
+
+      var incrementIfNewTable = function (val, idx) {
+          if (idx == newTable) {
+              return val + 1;
+          } else {
+              return val;
+          }
+      }
+
+      var _tableNums = map2(incrementIfNewTable, tableNums, _.range(0, tableNums.length))
+
+      return {
+          tables: _tableNums,
+          choice: newTable
+      };
+  };
+};
+
+
+var CRP = function (n, alpha) {
+
+  var iterate = function (n, tablesSoFar, choicesSoFar) {
+
+      var updatedTables = updateTable(tablesSoFar, alpha);
+      var _tablesSoFar = updatedTables.tables;
+      var newChoice = updatedTables.choice;
+
+      var _choicesSoFar = choicesSoFar.concat([newChoice]);
+      var nChoicesSoFar = _choicesSoFar.length;
+      if (nChoicesSoFar >= n) {
+          return {
+              tableCounts: _tablesSoFar,
+              choices: _choicesSoFar
+          };
+      } else {
+          return iterate(n, _tablesSoFar, _choicesSoFar);
+      }
+  }
+
+  var output = iterate(n, [], []);
+  // console.log("Final table counts: " + output.tableCounts);
+  return output;
+
+};
