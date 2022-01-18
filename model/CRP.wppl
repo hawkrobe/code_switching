@@ -9,28 +9,28 @@ choices: array where index corresponds to the person (out of `n`) and value is t
 
 
 // Helper function: find prob of person n sitting at a table with b people at the table
-var tableProb = function(b, n, alpha) {
+var tableProb = function (b, n, alpha) {
     return b != 0 ? b / (n + alpha) : alpha / (n + alpha);
 };
 
 // Given array `tableCounts` of how many people are at each table, assign a table to a new person
-var findTable = function(tableCounts, alpha) {
+var findTable = function (tableCounts, alpha) {
     console.log("Table counts: " + tableCounts)
     var n = _.sum(tableCounts); // number of people already seated
     var _tableCounts = tableCounts.concat([0]); // add unoccupied table to end of array for purpose of calculating probabilities
 
-    var currentTableProb = function(b) {
+    var currentTableProb = function (b) {
         return tableProb(b, n, alpha);
     };
 
     var tableProbs = map(currentTableProb, _tableCounts);
 
     console.assert(Math.abs(_.sum(tableProbs) - 1) < 0.0001);
-    return sample(Discrete({ps: tableProbs}));
+    return sample(Discrete({ ps: tableProbs }));
 };
 
 // Update tableCounts based on table sampled for new person
-var updateTable = function(tableNums, alpha) {
+var updateTable = function (tableNums, alpha) {
     var newTable = findTable(tableNums, alpha);
     var nTables = tableNums.length;
 
@@ -48,7 +48,7 @@ var updateTable = function(tableNums, alpha) {
         };
     } else { // if any other table gets occupied then increment the count for that table by 1
 
-        var incrementIfNewTable = function(val, idx) {
+        var incrementIfNewTable = function (val, idx) {
             if (idx == newTable) {
                 return val + 1;
             } else {
@@ -66,9 +66,9 @@ var updateTable = function(tableNums, alpha) {
 };
 
 
-var CRP = function(n, alpha) {
+var CRP = function (n, alpha) {
 
-    var iterate = function(n, tablesSoFar, choicesSoFar) {
+    var iterate = function (n, tablesSoFar, choicesSoFar) {
 
         var updatedTables = updateTable(tablesSoFar, alpha);
         var _tablesSoFar = updatedTables.tables;
@@ -94,4 +94,43 @@ var CRP = function(n, alpha) {
 
 
 // Testing: 10 people, alpha=1
-console.log(CRP(10, 1));
+// console.log(CRP(10, 1));
+
+var sampleGroups = function (nPartners, alpha) {
+    var _sample = CRP(nPartners, alpha);
+    var nGroups = _sample.tableCounts.length
+    var _choices = _sample.choices;
+
+    // make list of groups and partners
+    var _groups = mapN(function (x) { return 'group' + x }, nGroups);
+    var _partners = mapN(function (x) { return 'partner' + x }, nPartners);
+    var _assignments = map(function (x) { return 'group' + x }, _choices)
+    // make list of group assignments — dict from partner and groups (should be index of choices : and group index)
+    var groupAssignmentsArray = zip(_partners, _assignments);
+    // var groupAssignments = Object.fromEntries(groupAssignmentsArray)
+
+    // var groupAssignmentsDicts = map2(function (x, y) { return { x: y } }, _partners, _assignments)
+    // var result = reduce(function (x, acc) { return extend(x, acc); }, {}, groupAssignmentsDicts);
+    // return groups and group assignments
+
+    // Checking if the array lengths are same
+    // and none of the array is empty
+    // var convertToObj = function (a, b) {
+    //     if (a.length != b.length || a.length == 0 || b.length == 0) {
+    //         return null;
+    //     }
+    //     var obj = {};
+
+    //     // Using the foreach method
+    //     a.forEach((k, i) => { obj[k] = b[i] })
+    //     return obj;
+    // }
+    var result = agent.convertToObj(_partners, _assignments)
+    return {
+        groups: _groups,
+        assignments: result
+    }
+};
+
+var result = sampleGroups(5, 1)
+console.log(result)

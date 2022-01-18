@@ -1,5 +1,7 @@
 /*
 Nonparametric group inference with CRP prior
+
+webppl nonParamGroupInference.wppl --require ./agent/ --require webppl-csv -- --gameNum 'game1'
 */
 var utterances = ['word1', 'word2'];
 var objects = ['A', 'B'];
@@ -49,12 +51,83 @@ var writeLine = function (iterationNum, currTrial, speakerChoice, listenerChoice
         currTrial.intendedName,
         speakerChoice,
         listenerChoice,
-        listenerOutput.score(currTrial.intendedName),
+        listenerOutput.score(currTrial.intendedName),  // probability of listener being correct
     ].join(','), f);
 };
 
 
-var posttest_file = csv.open('./output/meaningTest_' + model + scalingFactor + '.csv');
-csv.writeLine('model,speakerAlpha,listenerAlpha, discountFactor,guessingEpsilon, iterationNum, trialNum,\
-                  speakerID, listenerID, partnerID,partner,val', posttest_file);
+////////////////////////////////////
+////////////////////////////////////
 
+// Function for sampling groups
+var sampleGroups = function (nPartners, alpha) {
+    var _sample = CRP(nPartners, alpha);
+    var nGroups = _sample.tableCounts.length
+    var _choices = _sample.choices;
+
+    // make list of groups and partners
+    var _groups = mapN(function (x) { return 'group' + x }, nGroups);
+    var _partners = mapN(function (x) {return 'partner' + x}, nPartners);
+    var _assignments = map(function (x) {return 'group' + x}, _choices)
+    // make list of group assignments — dict from partner and groups (should be index of choices : and group index)
+    var groupAssignmentsArray = zip(_partners, _assignments);
+    var groupAssignments = Object.fromEntries(groupAssignmentsArray)
+
+    // return groups and group assignments
+    return {
+        groups: _groups,
+        assignments: groupAssignments
+    }
+};
+
+//
+
+var lexicalPrior = function () {
+    var groupAssignmentZ = {
+        'partner1': 'group1',
+        'partner2': uniformDraw(groups),
+        'partner3': uniformDraw(groups),
+        'partner4': uniformDraw(groups),
+        //'partner5': uniformDraw(groups)
+    }
+
+    var meaning = map(function (utt) {
+        var hyperParams = {
+            'group1': dirichlet(sampleProbs()),
+            'group2': dirichlet(sampleProbs())
+        };
+        return {
+            group1hyperParams: hyperParams['group1'],
+            group2hyperParams: hyperParams['group2'],
+            partnerMeaning: map(function (id) {
+                var partnerGroup = groupAssignmentZ[id];
+                return categorical({ vs: meanings, ps: hyperParams[partnerGroup] });
+            }, partners)
+        };
+    }, utterances);
+
+    return {
+        'groupAssignment': groupAssignmentZ,
+        'hyperParams': {
+            'group1hyperParams': { 'word1': meaning[0].group1hyperParams, 'word2': meaning[1].group1hyperParams },
+            'group2hyperParams': { 'word1': meaning[0].group2hyperParams, 'word2': meaning[1].group2hyperParams },
+        },
+        'lexicon': {
+            '1': {
+                'word1': meaning[0].partnerMeaning[0], 'word2': meaning[1].partnerMeaning[0]
+            },
+            '2': {
+                'word1': meaning[0].partnerMeaning[1], 'word2': meaning[1].partnerMeaning[1]
+            },
+            '3': {
+                'word1': meaning[0].partnerMeaning[2], 'word2': meaning[1].partnerMeaning[2]
+            },
+            '4': {
+                'word1': meaning[0].partnerMeaning[3], 'word2': meaning[1].partnerMeaning[3]
+            }
+            //'5': {
+            //    'word1': meaning[0].partnerMeaning[4], 'word2': meaning[1].partnerMeaning[4]
+            //}
+        }
+    }
+};
