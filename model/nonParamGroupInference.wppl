@@ -74,27 +74,52 @@ csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,i
 ////////////////////////////////////
 ////////////////////////////////////
 
-// Function for sampling groups
-var sampleGroups = function (nPartners, alpha) {
-    var _sample = CRP(nPartners, alpha);
-    var nGroups = _sample.tableCounts.length
-    var _choices = _sample.choices;
+// Dirichlet process
 
-    // make list of groups and partners
-    var _groups = mapN(function (x) { return 'group' + x }, nGroups);
+
+// var sampleGroup = function (alpha) {  // Sample group for a single participant
+//     var sticks = mem(function (index) { return beta(1, alpha) });
+//     console.log(sticks)
+
+//     var pickStick = function (sticks, J) {
+//         return flip(sticks(J)) ? J : pickStick(sticks, J + 1);
+//     };
+//     console.log('hello')
+//     var groupIdx = pickStick(sticks, 0);
+
+//     // Assign label to group
+//     return 'group' + groupIdx
+// }
+
+
+var sampleGroup = function (alpha) {  // Sample group for a single participant
+    var sticks = mem(function (index) { return beta(1, alpha) });
+
+    var findStick = function (sticks, J) {
+      return flip(sticks(J)) ? J : findStick(sticks, J + 1);
+    };
+
+    var groupIdx = findStick(sticks, 0);
+
+    // Assign label to group
+    return 'group' + groupIdx
+  }
+
+var sampleGroups = function (nPartners, alpha) {  // Sample groups for n participants
     var _partners = mapN(function (x) { return 'partner' + x }, nPartners);
-    var _assignments = map(function (x) { return 'group' + x }, _choices)
 
-    var result = agent.convertToObj(_partners, _assignments)
-    return {
-        groups: _groups,  // list of groups
-        partners: _partners,
-        assignments: _assignments,
-        groupAssignments: result  // object of group assignments; key is partner
+    var sampleAGroup = function (partner) {
+        return sampleGroup (alpha)
     }
-};
 
-//
+    var _assignments = mapN(sampleAGroup, nPartners)
+    var _groups = _.uniq(_assignments)
+    var result = agent.convertToObj(_partners, _assignments)
+    return {assignments: result,
+    groups: _groups}
+}
+
+
 
 var sampleProbs = function () {
     return T.mul(ones([numMeanings, 1]), params.scalingFactor);
@@ -103,7 +128,7 @@ var sampleProbs = function () {
 var lexicalPrior = function () {
     var groupSample = sampleGroups(params.nPartners, params.priorAlpha);
     // console.log(groupSample.groups)
-    var groupAssignmentZ = groupSample.groupAssignments
+    var groupAssignmentZ = groupSample.assignments
 
     var meaning = map(function (utt) {
         var hyperParamsList = map(mem(function (x) { return dirichlet(sampleProbs()) }), groupSample.groups);
