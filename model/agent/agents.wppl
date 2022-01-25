@@ -31,9 +31,11 @@ var updatePosterior = function(data, lexicalPrior, params) {
     var prior = lexicalPrior();
     var lexicon = prior.lexicon;
     var groupAssignment = prior.groupAssignment;
-    var hyper1 = prior.hyperParams.group1hyperParams;
-    var hyper2 = prior.hyperParams.group2hyperParams;
+    // var hyper1 = prior.hyperParams.group1hyperParams;
+    // var hyper2 = prior.hyperParams.group2hyperParams;
 
+    var hypers = prior.hyperParams
+    // console.log(hypers)
     mapData({data: data}, function(trial) {
       var beta = Math.pow(params.discountFactor,  data.length - trial.trialNum);
       var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
@@ -47,10 +49,11 @@ var updatePosterior = function(data, lexicalPrior, params) {
     return {
       lexicon: lexicon,
       groupAssignment: groupAssignment,
-      hyperParams: {
-        group1hyper: hyper1,
-        group2hyper: hyper2
-      }
+      hyperParams: hypers
+      // hyperParams: {
+      //   group1hyper: hyper1,
+      //   group2hyper: hyper2
+      // } // what's the point of this?
     };
   });
 };

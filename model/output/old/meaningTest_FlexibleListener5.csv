@@ -1,0 +1,8 @@
+model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon, iterationNum, trialNum,                  speakerID, listenerID, partnerID,partner,val
+FlexibleListener,5,5,0.9,0.01,0,1,1,5,partner1,group1,1
+FlexibleListener,5,5,0.9,0.01,0,1,1,5,partner2,group2,0.4946250000000004
+FlexibleListener,5,5,0.9,0.01,0,1,1,5,partner2,group1,0.5053749999999996
+FlexibleListener,5,5,0.9,0.01,0,1,1,5,partner3,group2,0.4995000000000002
+FlexibleListener,5,5,0.9,0.01,0,1,1,5,partner3,group1,0.5004999999999998
+FlexibleListener,5,5,0.9,0.01,0,1,1,5,partner4,group1,0.5184999999999997
+FlexibleListener,5,5,0.9,0.01,0,1,1,5,partner4,group2,0.4815000000000002
