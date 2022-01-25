@@ -25,7 +25,7 @@ var params = {
     inferOptions: { method: 'MCMC', samples: 8000, burn: 5000, lag: 5, verbose: false },
     model: model,
     scalingFactor: 1,
-    priorAlpha: 1.5,  // CRP prior
+    priorAlpha: 1.1,  // CRP prior
     nPartners: partners.length
 };
 
@@ -66,8 +66,18 @@ var postTest = function (iterationNum, trial, posterior) {
     }, partners);
 }
 
+// var postTestSameGroup = function (iterationNum, trial, posterior) {
+//     var data = [params.model, params.speakerAlpha, params.listenerAlpha, params.discountFactor, params.guessingEpsilon,
+//         iterationNum, trial.trialNum];
+//     map(function (partner) {
+//         //console.log(marginalize(posterior, function(x){return x[partner]}))
+//         agent.writeMarginals(marginalize(posterior, function (x) { return x[partner]; }),
+//             posttest_file, data.concat([trial.speakerID, trial.listenerID, partner]));
+//     }, partners);
+// }
+
 var posttest_file = csv.open('./output/nonparam/meaningTest_' + model + '_alpha' + params.priorAlpha + 'scale' + params.scalingFactor + '.csv');
-csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,iterationNum,trialNum,speakerID,listenerID,partnerID,partner,val', posttest_file);
+csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,iterationNum,trialNum,speakerID,listenerID,partnerID,result,val', posttest_file);
 
 
 
@@ -96,28 +106,30 @@ var sampleGroup = function (alpha) {  // Sample group for a single participant
     var sticks = mem(function (index) { return beta(1, alpha) });
 
     var findStick = function (sticks, J) {
-      return flip(sticks(J)) ? J : findStick(sticks, J + 1);
+        return flip(sticks(J)) ? J : findStick(sticks, J + 1);
     };
 
     var groupIdx = findStick(sticks, 0);
 
     // Assign label to group
     return 'group' + groupIdx
-  }
+}
 
-var sampleGroups = function (nPartners, alpha) {  // Sample groups for n participants
+var sampleGroups = mem(function (nPartners, alpha) {  // Sample groups for n participants
     var _partners = mapN(function (x) { return 'partner' + x }, nPartners);
 
     var sampleAGroup = function (partner) {
-        return sampleGroup (alpha)
+        return sampleGroup(alpha)
     }
 
     var _assignments = mapN(sampleAGroup, nPartners)
     var _groups = _.uniq(_assignments)
     var result = agent.convertToObj(_partners, _assignments)
-    return {assignments: result,
-    groups: _groups}
-}
+    return {
+        assignments: result,
+        groups: _groups
+    }
+})
 
 
 
@@ -178,8 +190,9 @@ var iterate = function (iterationNum, outputF, remainingTrials, dataSoFar) {
 
     var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
     var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
-    postTest(iterationNum, currTrial, marginalize(listenerPosterior, 'groupAssignment')); //listener-focus
-
+    // postTest(iterationNum, currTrial, marginalize(listenerPosterior, 'groupAssignment')); //listener-focus
+    // console.log(listenerPosterior)
+    postTest(iterationNum, currTrial, marginalize(listenerPosterior, 'sameGroup0')); //listener-focus
     // get marginal prediction of next data point over lexicon posterior
     var trialParams = extend(params, { partnerID: currTrial.partnerID, speakerID: currTrial.speakerID });
     var speakerOutput = S(currTrial.intendedName, speakerPosterior, trialParams);
