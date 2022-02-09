@@ -4,3 +4,6 @@
 node_modules
 .DS_Store
 .Rproj.user
+.ipynb_checkpoints
+model/0_scratch/
+model/output/nonparam/

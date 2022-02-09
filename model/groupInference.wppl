@@ -115,7 +115,7 @@ var postTest = function(iterationNum, trial, posterior){
 var iterate = function(iterationNum, outputF, remainingTrials, dataSoFar) {
   var currTrial = extend(first(remainingTrials), {
     context : params.context,
-  });
+});
 
   console.log('Iteration ' + iterationNum + ' Trial ' + currTrial.trialNum + ' Scale ' + scalingFactor);
 

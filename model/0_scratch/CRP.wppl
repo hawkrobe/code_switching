@@ -1,0 +1,147 @@
+// sample from Chinese Restaurant Process distribution
+
+// Helper function: find prob of person n sitting at a table with b people at the table
+var tableProb = function(b, n, alpha) {
+    return b != 0 ? b / (n + alpha) : alpha / (n + alpha);
+}
+
+// Given a list `tableNums` of how many people are at each table, assign a table to a new person
+// `tableNums` is a list where the index corresponds to the table and the value is how many people are at the table
+var findTable = function(tableNums, alpha) {
+    console.log("Table counts: " + tableNums)
+    var n = _.sum(tableNums); // number of people already seated
+    var _tableNums = tableNums.concat([0]); // add unoccupied table to end of array for calculating probabilities
+
+    var currentTableProb = function(b) {
+        return tableProb(b, n, alpha);
+    }
+
+    var tableProbs = map(currentTableProb, _tableNums);
+
+    // console.log(tableProbs)
+
+    console.assert(Math.abs(_.sum(tableProbs) - 1) < 0.0001);
+    return sample(Discrete({ps: tableProbs}));
+}
+
+// Update tableNums based on table sampled for new person
+var updateTable = function(tableNums, alpha) {
+    var newTable = findTable(tableNums, alpha);
+    var nTables = tableNums.length;
+
+    if (nTables == 0) { // if there are no occupied tables yet, assign first person to table 0
+        var tableNums = [1];
+        return {
+            tables: tableNums,
+            choice: 0 // get rid of the choice field later
+        };
+    } else if (nTables == newTable) {  // If we occupy a new table, add 1 to the end of `tableNums`
+        tableNums.push(1);
+        return {
+            tables: tableNums,
+            choice: newTable
+        };
+    } else { // if any other table gets occupied then increment the count for that table by 1
+
+        // var newVal = tableNums[newTable] + 1;
+        // tableNums[newTable] = newVal; doesn't work
+        // console.log(tableNums)
+
+        var incrementIfNewTable = function(val, idx) {
+            if (idx == newTable) {
+                return val + 1;
+            } else {
+                return val;
+            }
+        }
+
+        var newTableNums = map2(incrementIfNewTable, tableNums, _.range(0, tableNums.length))
+        // console.log(newTableNums)
+        // seems like to change one element of a list you have to convert to an object and back again... is there an easier way? YES there is
+        // var tableNumsObj = Object.assign({}, tableNums);
+        // console.log(tableNumsObj)
+        // var keyLabel = newTable.toString();
+        // console.log(keyLabel)
+        // newObj = { [keyLabel]: tableNumsObj.keyLabel + 1};
+        // console.log(newObj)
+        // var newTableNumsObj = extend(tableNumsObj, {[keyLabel]: tableNumsObj.keyLabel + 1});
+        // console.log(newTableNumsObj)
+        // var newTableNums = Object.values(newTableNumsObj);
+        // console.log(newTableNums)
+        // console.log(typeof newTableNums)
+        return {
+            tables: newTableNums,
+            choice: newTable
+        };
+    };
+};
+
+// var CRP = function(n, alpha) {
+
+//     var iterate = function(n, tablesSoFar, nChoicesSoFar) {
+//         // console.log(tablesSoFar)
+
+//         var updatedTables = updateTable(tablesSoFar, alpha);
+//         var _tablesSoFar = updatedTables.tables;
+//         // console.log(tablesSoFar)
+//         // var nChoicesSoFar = nChoicesSoFar + 1;
+//         var _nChoicesSoFar = reduce(function(x, acc) { return x + acc; }, nChoicesSoFar, [1])
+//         if (_nChoicesSoFar >= n) {
+//             return updatedTables;
+//         } else {
+//             return iterate(n, _tablesSoFar, _nChoicesSoFar);
+//         }
+//     }
+
+//     var updatedTables = iterate(n, [], 0); // start with no occupied tables
+//     console.log("Final table counts: " + updatedTables.tables)
+//     return updatedTables.tables;
+// }
+
+// new: instead of nChoicesSoFar use ChoicesSoFar
+var CRP = function(n, alpha) {
+
+    var iterate = function(n, tablesSoFar, choicesSoFar) {
+        // console.log(tablesSoFar)
+
+
+        var updatedTables = updateTable(tablesSoFar, alpha);
+        var _tablesSoFar = updatedTables.tables;
+        var newChoice = updatedTables.choice;
+
+        // console.log(tablesSoFar)
+        // var nChoicesSoFar = nChoicesSoFar + 1;
+        // var _nChoicesSoFar = reduce(function(x, acc) { return x + acc; }, nChoicesSoFar, [1])
+        var _choicesSoFar = choicesSoFar.concat([newChoice]) // reduce(function(x, acc) { return x.concat([acc]) }, choicesSoFar, [newChoice])
+        var nChoicesSoFar = _choicesSoFar.length;
+        if (nChoicesSoFar >= n) {
+            return {
+                tableCounts: _tablesSoFar,
+                choices: _choicesSoFar
+            };
+        } else {
+            return iterate(n, _tablesSoFar, _choicesSoFar);
+        }
+    }
+
+    var output = iterate(n, [], []); // start with no occupied tables
+    console.log("Final table counts: " + output.tableCounts);
+    return output;
+
+};
+//
+// var tableNums = [1, 2, 3]
+// console.log(findTable(tableNums, 1))
+// console.log(typeof updateTable)
+
+var result = CRP(10, 1) // 10 people, alpha=1
+// console.log(output.choice);
+console.log(result);
+
+// console.log(typeof updateTable)
+
+// var updatedTables = updateTable([1], 0.5)
+// console.log(updatedTables)
+
+// console.log(findTable([1], 0.5))
+// var findTable =

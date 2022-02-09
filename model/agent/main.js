@@ -150,6 +150,23 @@ var closeFile = function(handle){
     fs.closeSync(handle);
 };
 
+//
+
+// var convertToObj = function(arr) {
+//     var assignments = Object.fromEntries(arr)
+//     return assignments
+// }
+
+var convertToObj = function (a, b) { // from stack overflow, converts 2 arrays into object where keys are in array a and values are in b
+    if (a.length != b.length || a.length == 0 || b.length == 0) {
+        return null;
+    }
+    var obj = {};
+
+    a.forEach((k, i) => { obj[k] = b[i] })
+    return obj;
+}
+
 module.exports = {
     readCSV: readCSV,
     writeCSV: writeCSV,
@@ -161,5 +178,6 @@ module.exports = {
     getL0Score: getL0Score,
     getS1Score : getS1Score,
     getUttCost : getUttCost,
-    getLexiconElement: getLexiconElement
+    getLexiconElement: getLexiconElement,
+    convertToObj: convertToObj
 };

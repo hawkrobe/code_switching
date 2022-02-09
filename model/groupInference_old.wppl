@@ -1,0 +1,306 @@
+// run using, e.g.:
+// webppl groupInference.wppl --require ./agent/ --require webppl-csv -- --gameNum 'game1'
+
+// inference of speaker choosing an utterance
+var S = function(object, posterior, params) {
+    return Infer({method: 'enumerate'}, function () {
+      var utt = uniformDraw(params.utterances);
+      var inf = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
+         return agent.getL0Score(object, utt, extend(params, {lexicon: lexicon[params.partnerID]}));
+      });
+      var utility = ((1-params.costWeight) * inf
+                      - params.costWeight * agent.getUttCost(utt));
+
+      factor(params.speakerAlpha * utility);
+      return utt;
+    })
+  };
+
+  // inference of listener choosing an object
+  var L = function(utt, posterior, params) {
+    return Infer({method: 'enumerate'}, function () {
+      var object = uniformDraw(params.context);
+      var utility = expectation(marginalize(posterior, 'lexicon'), function(lexicon) {
+        return agent.getS1Score(utt, object, extend(params, {lexicon: lexicon[params.partnerID]}));
+      });
+      factor(params.listenerAlpha * utility);
+      return object;
+    });
+  };
+
+  var updatePosterior = function(data, lexicalPrior, params) {
+    // console.log('updating posterior')
+    return Infer(params.inferOptions, function() {
+      // global prototype
+      var prior = lexicalPrior();
+      var lexicon = prior.lexicon;
+      //console.log(lexicon);
+      var groupAssignment = prior.groupAssignment;
+      var hyper1 = prior.hyperParams.group1hyperParams;
+      var hyper2 = prior.hyperParams.group2hyperParams;
+      //console.log(groupAssignment)
+      //console.log(hyper1)
+      //console.log(hyper2)
+
+      mapData({data: data}, function(trial) {
+        var beta = Math.pow(params.discountFactor,  data.length - trial.trialNum);
+        var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
+        var trialParams = extend(params, {context: trial.context, lexicon: lexicon[trial.partnerID]});
+        if(trial.role == 'speaker') {
+          factor(beta * agent.getL0Score(object, trial.wordID, trialParams));
+        } else {
+          factor(beta * agent.getS1Score(trial.wordID, object, trialParams)); // this is the conditioning part.. when u do the inference
+        }
+      });
+      return {lexicon: lexicon,
+              groupAssignment: groupAssignment,
+              hyperParams: {
+                  group1hyper: hyper1,
+                  group2hyper: hyper2
+              }
+      };
+    });
+  };
+
+  var utterances = ['word1', 'word2'];
+  var objects = ['A', 'B'];
+  var meanings = ['A', 'B'];
+  var numMeanings = meanings.length;
+  var groups = ['group1', 'group2'];
+  var numGroups = groups.length;
+  var partners = ['partner1', 'partner2', 'partner3', 'partner4'];
+  //var model = 'Listener';
+  //var model = 'Speaker';
+  var model = 'FlexibleListener'
+  var scalingFactor = 5;
+
+  var params = {
+    speakerAlpha : 5,
+    listenerAlpha: 5,
+    discountFactor: 0.9,
+    guessingEpsilon: 0.01,
+    costWeight: 0,
+    numTrials: 20,
+    context : objects,
+    utterances: utterances,
+    objects: objects,
+    inferOptions: {method: 'MCMC', samples: 8000, burn:5000, lag:5, verbose: false},
+    model: model,
+    scalingFactor: scalingFactor
+  };
+
+  // model 1 - completely distinct groups with opposite lexicons, single listener
+  // model 2 - completely distinct groups with opposite lexicons, single speaker
+
+  var f = csv.open('./output/' + model + scalingFactor + '.csv');
+  csv.writeLine('model,speakerAlpha,listenerAlpha,costWeight,discountFactor,guessingEpsilon,scalingFactor,\
+                iterationNum, trialNum,speakerID,listenerID,partnerID,intendedName,speakerChoice,listenerChoice,\
+                longUttScore,correctProb', f);
+
+  var posttest_file = csv.open('./output/meaningTest_' + model + scalingFactor + '.csv');
+  csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon, iterationNum, trialNum,\
+                    speakerID, listenerID, partnerID,partner,val', posttest_file); // this is where group assignemnt stuff goes
+                    // but this is confusing.. maybe move this around to where posttest is
+
+  var writeLine = function(iterationNum, currTrial, speakerChoice, listenerChoice, listenerOutput) {
+    csv.writeLine([
+      params.model, params.speakerAlpha, params.listenerAlpha,
+      params.costWeight, params.discountFactor, params.guessingEpsilon, params.scalingFactor,
+      iterationNum, currTrial.trialNum, currTrial.speakerID, currTrial.listenerID, currTrial.partnerID,
+      currTrial.intendedName, speakerChoice, listenerChoice,
+      listenerOutput.score(currTrial.intendedName),
+    ].join(','), f);
+  };
+
+  var sampleProbs = function() {
+    return T.mul(ones([numMeanings, 1]), scalingFactor);
+  }
+
+  var lexicalPrior = function() {
+    var groupAssignmentZ = {
+      'partner1': 'group1',
+      'partner2': uniformDraw(groups),
+      'partner3': uniformDraw(groups),
+      'partner4': uniformDraw(groups),
+      //'partner5': uniformDraw(groups)
+    } // want to make nonparametric partition over groupings
+
+    var meaning = map(function(utt){
+      var hyperParams = {
+        'group1': dirichlet(sampleProbs()),
+        'group2': dirichlet(sampleProbs())
+      };
+      return {
+        group1hyperParams: hyperParams['group1'],
+        group2hyperParams: hyperParams['group2'],
+        partnerMeaning: map(function(partnerID) {
+          var partnerGroup = groupAssignmentZ[partnerID];
+          return categorical({vs: meanings, ps: hyperParams[partnerGroup]});
+        }, partners)
+      };
+    }, utterances);
+
+    return {
+      'groupAssignment': groupAssignmentZ,
+      'hyperParams' : {
+          'group1hyperParams' : {'word1': meaning[0].group1hyperParams, 'word2' : meaning[1].group1hyperParams},
+          'group2hyperParams' : {'word1': meaning[0].group2hyperParams, 'word2' : meaning[1].group2hyperParams},
+      },
+      'lexicon': {
+          '1': {
+              'word1': meaning[0].partnerMeaning[0], 'word2': meaning[1].partnerMeaning[0]
+          },
+          '2': {
+              'word1': meaning[0].partnerMeaning[1], 'word2': meaning[1].partnerMeaning[1]
+          },
+          '3': {
+              'word1': meaning[0].partnerMeaning[2], 'word2': meaning[1].partnerMeaning[2]
+          },
+          '4': {
+              'word1': meaning[0].partnerMeaning[3], 'word2': meaning[1].partnerMeaning[3]
+          }
+          //'5': {
+          //    'word1': meaning[0].partnerMeaning[4], 'word2': meaning[1].partnerMeaning[4]
+          //}
+      }
+    }
+  };
+
+  var postTest = function(iterationNum, trial, posterior){
+      var data = [params.model, params.speakerAlpha, params.listenerAlpha, params.discountFactor, params.guessingEpsilon,
+                 iterationNum, trial.trialNum];
+      map(function(partner){
+          //console.log(marginalize(posterior, function(x){return x[partner]}))
+          agent.writeMarginals(marginalize(posterior, function(x) {return x[partner];}),
+                             posttest_file, data.concat([trial.speakerID, trial.listenerID, partner]));
+      }, partners);
+  }  // this figures out the group assignemnt, but you can figure out whatever
+
+  var iterate = function(iterationNum, outputF, remainingTrials, dataSoFar) {
+    var currTrial = extend(first(remainingTrials), {
+      context : params.context,
+    });
+
+    console.log('Iteration ' + iterationNum + ' Trial ' + currTrial.trialNum + ' Scale ' + scalingFactor);
+
+    var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
+    var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
+    postTest(iterationNum, currTrial, marginalize(listenerPosterior, 'groupAssignment')); //listener-focus
+    //postTest(iterationNum, currTrial, marginalize(speakerPosterior, 'groupAssignment')); //speaker-focus
+
+    // get marginal prediction of next data point over lexicon posterior
+    var trialParams = extend(params, {partnerID: currTrial.partnerID, speakerID: currTrial.speakerID});
+    var speakerOutput = S(currTrial.intendedName, speakerPosterior, trialParams);
+    //var nextUtt = currTrial.wordID; // listener-focus
+    var nextUtt = sample(speakerOutput); // speaker-focus
+
+    var listenerOutput = L(nextUtt, listenerPosterior, trialParams);
+    var nextChoice = sample(listenerOutput); // listener-focus
+    //var listenerChoice = function() {
+    //  if(currTrial.listenerID == 1 || currTrial.listenerID == 3) { // speaker-focus
+    //      if (nextUtt == 'word1'){
+    //          return 'A';
+    //      } else {
+    //          return 'B';
+    //      }
+    //    } else {
+    //      if (nextUtt == 'word1'){
+    //          return 'B';
+    //      } else {
+    //          return 'A';
+    //      }
+    //  }
+    //}
+    //var nextChoice = listenerChoice();
+
+    //console.log(nextChoice);
+
+    //console.log(marginalize(listenerPosterior, 'groupAssignment'));
+    //console.log(listenerOutput)
+    //console.log(marginalize(listenerPosterior, 'groupAssignment'))
+
+    writeLine(iterationNum, currTrial, nextUtt, nextChoice, listenerOutput);
+    var newDataSoFar = _.zipObject(_.range(1, 6), map(function(id) {
+      var trialPacket = extend(currTrial, {
+        role: id == currTrial.speakerID ? "speaker" : "listener",
+        wordID: nextUtt,
+        clickedName: nextChoice
+      });
+      return (id == currTrial.speakerID || id == currTrial.listenerID ?
+              dataSoFar[id].concat(trialPacket) : dataSoFar[id]);
+    }, _.range(1, 6)));
+
+    if(!_.isEmpty(rest(remainingTrials))) {
+      iterate(iterationNum, outputF, rest(remainingTrials), newDataSoFar);
+    }
+  };
+
+  var trials = [
+
+  // Context 1 Set: Same listener for all trials, Group 1: 1 & 3, Group 2: 2 & 4 --------------------------------
+  // Group 1 refers to A as "word1" and B as "word2"
+  // Group 2 refers to A as "word2" and B as "word1"
+
+    {trialNum: 1, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1'},
+    {trialNum: 2, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2'},
+    {trialNum: 3, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1'},
+    {trialNum: 4, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2'},
+    {trialNum: 5, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'A', wordID: 'word1'},
+    {trialNum: 6, speakerID: 1, listenerID: 5, partnerID: 1, intendedName: 'B', wordID: 'word2'},
+    {trialNum: 7, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2'},
+    {trialNum: 8, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1'},
+    {trialNum: 9, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2'},
+    {trialNum: 10, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1'},
+    {trialNum: 11, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'A', wordID: 'word2'},
+    {trialNum: 12, speakerID: 2, listenerID: 5, partnerID: 2, intendedName: 'B', wordID: 'word1'},
+    {trialNum: 13, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A', wordID: 'word1'},
+    {trialNum: 14, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B', wordID: 'word2'},
+    {trialNum: 15, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A', wordID: 'word1'},
+    {trialNum: 16, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B', wordID: 'word2'},
+    {trialNum: 17, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'A', wordID: 'word1'},
+    {trialNum: 18, speakerID: 3, listenerID: 5, partnerID: 3, intendedName: 'B', wordID: 'word2'},
+    {trialNum: 19, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A', wordID: 'word2'},
+    {trialNum: 20, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B', wordID: 'word1'},
+    {trialNum: 21, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A', wordID: 'word2'},
+    {trialNum: 22, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B', wordID: 'word1'},
+    {trialNum: 23, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'A', wordID: 'word2'},
+    {trialNum: 24, speakerID: 4, listenerID: 5, partnerID: 4, intendedName: 'B', wordID: 'word1'}
+
+  // Context 1 Set: Same speaker for all trials, Group 1: 1 & 3, Group 2: 2 & 4 --------------------------------
+  // Group 1 refers to A as "word1" and B as "word2"
+  // Group 2 refers to A as "word2" and B as "word1"
+
+  //  {trialNum: 1, speakerID: 5, listenerID: 1, partnerID: 1, intendedName: 'A'},
+  //  {trialNum: 2, speakerID: 5, listenerID: 1, partnerID: 1, intendedName: 'B'},
+  //  {trialNum: 3, speakerID: 5, listenerID: 1, partnerID: 1, intendedName: 'A'},
+  //  {trialNum: 4, speakerID: 5, listenerID: 1, partnerID: 1, intendedName: 'B'},
+  //  {trialNum: 5, speakerID: 5, listenerID: 1, partnerID: 1, intendedName: 'A'},
+  //  {trialNum: 6, speakerID: 5, listenerID: 1, partnerID: 1, intendedName: 'B'},
+  //  {trialNum: 7, speakerID: 5, listenerID: 2, partnerID: 2, intendedName: 'A'},
+  //  {trialNum: 8, speakerID: 5, listenerID: 2, partnerID: 2, intendedName: 'B'},
+  //  {trialNum: 9, speakerID: 5, listenerID: 2, partnerID: 2, intendedName: 'A'},
+  //  {trialNum: 10, speakerID: 5, listenerID: 2, partnerID: 2, intendedName: 'B'},
+  //  {trialNum: 11, speakerID: 5, listenerID: 2, partnerID: 2, intendedName: 'A'},
+  //  {trialNum: 12, speakerID: 5, listenerID: 2, partnerID: 2, intendedName: 'B'},
+  //  {trialNum: 13, speakerID: 5, listenerID: 3, partnerID: 3, intendedName: 'A'},
+  //  {trialNum: 14, speakerID: 5, listenerID: 3, partnerID: 3, intendedName: 'B'},
+  //  {trialNum: 15, speakerID: 5, listenerID: 3, partnerID: 3, intendedName: 'A'},
+  //  {trialNum: 16, speakerID: 5, listenerID: 3, partnerID: 3, intendedName: 'B'},
+  //  {trialNum: 17, speakerID: 5, listenerID: 3, partnerID: 3, intendedName: 'A'},
+  //  {trialNum: 18, speakerID: 5, listenerID: 3, partnerID: 3, intendedName: 'B'},
+  //  {trialNum: 19, speakerID: 5, listenerID: 4, partnerID: 4, intendedName: 'A'},
+  //  {trialNum: 20, speakerID: 5, listenerID: 4, partnerID: 4, intendedName: 'B'},
+  //  {trialNum: 21, speakerID: 5, listenerID: 4, partnerID: 4, intendedName: 'A'},
+  //  {trialNum: 22, speakerID: 5, listenerID: 4, partnerID: 4, intendedName: 'B'},
+  //  {trialNum: 23, speakerID: 5, listenerID: 4, partnerID: 4, intendedName: 'A'},
+  //  {trialNum: 24, speakerID: 5, listenerID: 4, partnerID: 4, intendedName: 'B'}
+
+  ];
+
+  map(function(i){
+      console.log('iteration', i);
+      iterate(i, f, trials, {1: [], 2:[], 3:[], 4:[], 5 :[]});
+  }, _.range(100));
+
+  csv.close(f);
+  csv.close(posttest_file);
