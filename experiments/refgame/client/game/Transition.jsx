@@ -11,7 +11,7 @@ export default class Task extends React.Component {
     const newPartnerId = player.get('partnerList')[round.index]
     const oldPartner = _.filter(game.players, p => p._id === oldPartnerId)[0];
     const newPartner = _.filter(game.players, p => p._id === newPartnerId)[0];
-    
+
     return (
       <div className="transition">
         <h1>Time to switch partners!</h1>
@@ -25,7 +25,7 @@ export default class Task extends React.Component {
         <h3>
           Now you're going to play a game with someone else.
           Instead of <strong style={{ color: oldPartner.get("nameColor")}}>
-                       {oldPartner.get("name")} 
+                       {oldPartner.get("name")}
                      </strong> your new partner will be
         </h3>
         <span className="image">
@@ -34,6 +34,12 @@ export default class Task extends React.Component {
         <span className="name" style={{ color: newPartner.get("nameColor") }}>
           {newPartner.get("name")}
         </span>
+
+        <h3>Here is a diagram of who you will be interacting with</h3>
+        <span className="image">
+          <img src={`experiment/communities/${player.get("avatarName")}_${newPartner.get("avatarName")}.png`}  style={{height: "300px"}}/>
+        </span>
+
       </div>
     );
   }

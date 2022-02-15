@@ -79,7 +79,7 @@ export default class TeamDetails extends React.Component {
           <p>
             Importantly, you will not just play with one partner, you are on a team with
             <strong>
-              {treatment.playerCount + 1} other people
+               {treatment.playerCount + 1} other people
             </strong>.
 
             Everyone on your team is a participant undertaking the same study at the same time as you.
@@ -88,7 +88,7 @@ export default class TeamDetails extends React.Component {
             team, we will assign an icon and a name to you when the game starts (as shown
             in the following example).
           </p>
-          
+
           <br />
           <div className="social-interactions" style={{ margin: "auto" }}>
             <div className="status">
@@ -122,7 +122,7 @@ export default class TeamDetails extends React.Component {
 
           <h1 className={"bp3-heading"}>Red vs. blue.</h1>
           <p>
-            there are actually two different communities simultaneously playing this game, a <strong>red</strong> community and a <strong>blue</strong> community.
+            There are actually two different communities simultaneously playing this game, a <strong>red</strong> community and a <strong>blue</strong> community.
             You will only interact with other players in your own community.
             For example, someone in the red community will only play with other members of the red community.
           </p>

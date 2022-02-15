@@ -1,0 +1,37 @@
+// webppl test.wppl --require ./agent/
+
+// var alpha = 0.5
+// var sticks = mem(function (index) { return beta(1, alpha) });
+
+// var pickStick = function (sticks, J) {
+//     return flip(sticks(J)) ? J : pickStick(sticks, J + 1);
+// };
+
+// console.log(pickStick(sticks, 0))
+
+// console.log(sampleGroup(1))
+
+
+// var alpha = 0.5
+// var sticks = mem(function (index) { return beta(1, alpha) });
+// var pickStick = function (sticks, J) {
+//     return flip(sticks(J)) ? J : pickStick(sticks, J + 1);
+//   };
+
+// var groupIdx = pickStick(sticks, 0)
+// console.log(groupIdx)
+
+var sampleGroup = function (alpha) {  // Sample group for a single participant
+    var sticks = mem(function (index) { return beta(1, alpha) });
+
+    var pickStick = function (sticks, J) {
+        return flip(sticks(J)) ? J : pickStick(sticks, J + 1);
+    };
+
+    var groupIdx = pickStick(sticks, 0);
+
+    // Assign label to group
+    return 'group' + groupIdx
+}
+
+console.log(sampleGroup(1))

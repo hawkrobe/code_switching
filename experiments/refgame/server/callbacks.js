@@ -22,6 +22,7 @@ Empirica.onGameStart((game) => {
     player.set("roleList", roleList[player._id]);
     player.set("name", names[i]);
     player.set("avatar", `/avatars/jdenticon/${avatarNames[teamColor][i]}`);
+    player.set("avatarName", avatarNames[teamColor][i]);
     player.set("nameColor", nameColors[teamColor][i]);
     player.set("bonus", 0);
   });
@@ -32,7 +33,7 @@ Empirica.onGameStart((game) => {
 Empirica.onRoundStart((game, round) => {
   const players = game.players;
   const rooms = game.get('rooms')[round.index];
-  round.set("chat", []); 
+  round.set("chat", []);
 
   players.forEach(player => {
     const roomId = _.findIndex(rooms, room => _.includes(room, player._id));
@@ -82,7 +83,7 @@ Empirica.onRoundEnd((game, round) => {
     const player1 = game.players.find(p => p._id == room[0]);
     const correctAnswer = target['room' + roomId];
     round.set('room' + roomId + 'response', player1.get('clicked'));
-    round.set('room' + roomId + 'correct', correctAnswer == player1.get('clicked')); 
+    round.set('room' + roomId + 'correct', correctAnswer == player1.get('clicked'));
   });
 });
 

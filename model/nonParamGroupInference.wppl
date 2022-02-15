@@ -16,7 +16,7 @@ var params = {
     speakerAlpha: 5,
     listenerAlpha: 5,
     discountFactor: 0.9,
-    guessingEpsilon: 0.01,
+    guessingEpsilon: 0.02,
     costWeight: 0,
     numTrials: 24,
     context: objects,
