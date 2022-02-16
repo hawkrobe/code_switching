@@ -44,7 +44,7 @@ Empirica.introSteps((game, treatment) => {
     steps.push(IndividualQuiz);
   }
 
-  return steps;
+  return []// steps;
 });
 
 // The Round component containing the game UI logic.
@@ -68,7 +68,8 @@ Empirica.exitSteps((game, player) => {
     const reds_setA = _.shuffle([RedA, RedB, RedC, RedD]);
     const blues_setB = _.shuffle([BlueE, BlueF, BlueG, BlueH]);
     const reds_setB = _.shuffle([RedE, RedF, RedG, RedH]);
-    const post_test = game.get('targetSet') == 'setA' ? [blues_setA, reds_setA] : [blues_setB, reds_setB];
+    const postTestGroup = _.sample(['red', 'blue'])
+    const post_test = game.treatment.teamColor == postTestGroup ? [reds_setA, reds_setB] : [blues_setA, blues_setB];
     return [PostTestInstructions].concat(_.flatten(_.shuffle(post_test))).concat(ExitSurvey, Thanks);
   }
 });
