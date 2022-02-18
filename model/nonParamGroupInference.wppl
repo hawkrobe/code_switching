@@ -87,21 +87,6 @@ csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,i
 // Dirichlet process
 
 
-// var sampleGroup = function (alpha) {  // Sample group for a single participant
-//     var sticks = mem(function (index) { return beta(1, alpha) });
-//     console.log(sticks)
-
-//     var pickStick = function (sticks, J) {
-//         return flip(sticks(J)) ? J : pickStick(sticks, J + 1);
-//     };
-//     console.log('hello')
-//     var groupIdx = pickStick(sticks, 0);
-
-//     // Assign label to group
-//     return 'group' + groupIdx
-// }
-
-
 var sampleGroup = function (alpha) {  // Sample group for a single participant
     var sticks = mem(function (index) { return beta(1, alpha) });
 
@@ -115,7 +100,7 @@ var sampleGroup = function (alpha) {  // Sample group for a single participant
     return 'group' + groupIdx
 }
 
-var sampleGroups = mem(function (nPartners, alpha) {  // Sample groups for n participants
+var sampleGroups = function (nPartners, alpha) {  // Sample groups for n participants
     var _partners = mapN(function (x) { return 'partner' + x }, nPartners);
 
     var sampleAGroup = function (partner) {
@@ -124,12 +109,12 @@ var sampleGroups = mem(function (nPartners, alpha) {  // Sample groups for n par
 
     var _assignments = mapN(sampleAGroup, nPartners)
     var _groups = _.uniq(_assignments)
-    var result = agent.convertToObj(_partners, _assignments)
+    var result = _.zipObject(_partners, _assignments)
     return {
         assignments: result,
         groups: _groups
     }
-})
+}
 
 
 
@@ -145,7 +130,7 @@ var lexicalPrior = function () {
     var meaning = map(function (utt) {
         var hyperParamsList = map(mem(function (x) { return dirichlet(sampleProbs()) }), groupSample.groups);
         // console.log(hyperParamsList)
-        var hyperParams = agent.convertToObj(groupSample.groups, hyperParamsList) // this might not work
+        var hyperParams = _.zipObject(groupSample.groups, hyperParamsList) // this might not work
         return extend(hyperParams,
             {
                 partnerMeaning: map(function (id) {
@@ -157,7 +142,7 @@ var lexicalPrior = function () {
 
     var hyperParamsVals = map(function (grp) { return { 'word1': meaning[0][grp], 'word2': meaning[1][grp] } }, groupSample.groups)
     // console.log(hyperParamsVals)
-    var hyperParamsDict = agent.convertToObj(groupSample.groups, hyperParamsVals)
+    var hyperParamsDict = _.zipObject(groupSample.groups, hyperParamsVals)
     // console.log(hyperParamsDict)
     // console.log(meaning[0].partnerMeaning[0])
     // console.log(meaning)
