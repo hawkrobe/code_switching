@@ -25,7 +25,7 @@ var params = {
     inferOptions: { method: 'MCMC', samples: 8000, burn: 5000, lag: 5, verbose: false },
     model: model,
     scalingFactor: 1,
-    priorAlpha: 1.1,  // CRP prior
+    priorAlpha: 1.2,  // CRP prior
     nPartners: partners.length
 };
 
@@ -142,13 +142,13 @@ var lexicalPrior = function () {
 
     var hyperParamsVals = map(function (grp) { return { 'word1': meaning[0][grp], 'word2': meaning[1][grp] } }, groupSample.groups)
     // console.log(hyperParamsVals)
-    var hyperParamsDict = _.zipObject(groupSample.groups, hyperParamsVals)
+    var hyperParamsObj = _.zipObject(groupSample.groups, hyperParamsVals)
     // console.log(hyperParamsDict)
     // console.log(meaning[0].partnerMeaning[0])
     // console.log(meaning)
     return {
         groupAssignment: groupAssignmentZ,
-        hyperParams: hyperParamsDict,
+        hyperParams: hyperParamsObj,
         lexicon: { // each entry is for a specific partner
             0: {
                 'word1': meaning[0].partnerMeaning[0], 'word2': meaning[1].partnerMeaning[0]
