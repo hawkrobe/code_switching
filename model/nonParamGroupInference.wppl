@@ -9,8 +9,8 @@ var utterances = ['word1', 'word2'];
 var objects = ['A', 'B'];
 var meanings = ['A', 'B'];
 var numMeanings = meanings.length;
-var partners = ['partner0', 'partner1', 'partner2', 'partner3'];
-var model = 'FlexibleListenerGroups'
+var partners = [0, 1, 2, 3];
+var model = 'FlexibleListenerGroups_new'
 
 var params = {
     speakerAlpha: 5,
@@ -81,90 +81,75 @@ csv.writeLine('model,speakerAlpha,listenerAlpha,discountFactor,guessingEpsilon,i
 
 
 
-////////////////////////////////////
-////////////////////////////////////
-
-// Dirichlet process
-
-
-var sampleGroup = function (alpha) {  // Sample group for a single participant
-    var sticks = mem(function (index) { return beta(1, alpha) });
-
-    var findStick = function (sticks, J) {
-        return flip(sticks(J)) ? J : findStick(sticks, J + 1);
-    };
-
-    var groupIdx = findStick(sticks, 0);
-
-    // Assign label to group
-    return 'group' + groupIdx
-}
-
-var sampleGroups = function (nPartners, alpha) {  // Sample groups for n participants
-    var _partners = mapN(function (x) { return 'partner' + x }, nPartners);
-
-    var sampleAGroup = function (partner) {
-        return sampleGroup(alpha)
-    }
-
-    var _assignments = mapN(sampleAGroup, nPartners)
-    var _groups = _.uniq(_assignments)
-    var result = _.zipObject(_partners, _assignments)
-    return {
-        assignments: result,
-        groups: _groups
-    }
-}
-
-
 
 var sampleProbs = function () {
     return T.mul(ones([numMeanings, 1]), params.scalingFactor);
 }
 
-var lexicalPrior = function () {
-    var groupSample = sampleGroups(params.nPartners, params.priorAlpha);
-    // console.log(groupSample.groups)
-    var groupAssignmentZ = groupSample.assignments
 
-    var meaning = map(function (utt) {
-        var hyperParamsList = map(mem(function (x) { return dirichlet(sampleProbs()) }), groupSample.groups);
-        // console.log(hyperParamsList)
-        var hyperParams = _.zipObject(groupSample.groups, hyperParamsList) // this might not work
-        return extend(hyperParams,
-            {
-                partnerMeaning: map(function (id) {
-                    var partnerGroup = groupAssignmentZ[id];
-                    return categorical({ vs: meanings, ps: hyperParams[partnerGroup] });
-                }, partners)
-            });
-    }, utterances);
+var updatePosterior = function (data, params) {
+    return Infer(params.inferOptions, function () {
 
-    var hyperParamsVals = map(function (grp) { return { 'word1': meaning[0][grp], 'word2': meaning[1][grp] } }, groupSample.groups)
-    // console.log(hyperParamsVals)
-    var hyperParamsObj = _.zipObject(groupSample.groups, hyperParamsVals)
-    // console.log(hyperParamsDict)
-    // console.log(meaning[0].partnerMeaning[0])
-    // console.log(meaning)
-    return {
-        groupAssignment: groupAssignmentZ,
-        hyperParams: hyperParamsObj,
-        lexicon: { // each entry is for a specific partner
-            0: {
-                'word1': meaning[0].partnerMeaning[0], 'word2': meaning[1].partnerMeaning[0]
-            },
-            1: {
-                'word1': meaning[0].partnerMeaning[1], 'word2': meaning[1].partnerMeaning[1]
-            },
-            2: {
-                'word1': meaning[0].partnerMeaning[2], 'word2': meaning[1].partnerMeaning[2]
-            },
-            3: {
-                'word1': meaning[0].partnerMeaning[3], 'word2': meaning[1].partnerMeaning[3]
-            }
+        // for each unique partner, sample a group
+        var makeGroup = mem(function(partnerID) {
+            var sticks = mem(function (index) { return beta(1, params.priorAlpha) });
+
+            var findStick = function (sticks, J) {
+                return flip(sticks(J)) ? J : findStick(sticks, J + 1);
+            };
+
+            var groupIdx = findStick(sticks, 0);
+
+            // Assign label to group
+            return 'group' + groupIdx
+        })
+
+        // each group has its own hyperparams
+        var hyperParams = mem(function (group) {
+            return dirichlet(sampleProbs())
+        })
+
+        // from the group's hyperparams, sample meanings
+        var makeLexicon = mem(function(group) {
+
+            var hypers = hyperParams(group)
+            var meanings = map(function (utt) {
+                return categorical({vs: meanings, ps: hypers})
+            }, utterances);
+
+            var lexicon = _.zipObject(utterances, meanings)
+
+            return lexicon
+        })
+
+        var groupAssignments = _.zipObject(partners, map(function(partner) {return makeGroup(partner)}, partners))
+        var sameGroupAsPartner0 = _.zipObject(partners, map(function(partner) {return makeGroup(partner) == makeGroup(0)}, partners))
+        var lexicons = _.zipObject(partners, map(function(partner) {return makeLexicon(_.get(groupAssignments, partner))}, partners))
+
+        var obsFn = function(trial) {
+            var group = makeGroup(trial.partnerID);
+            var beta = Math.pow(params.discountFactor, data.length - trial.trialNum);
+            var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
+            var trialParams = extend(params, { context: trial.context, lexicon: lexicons[trial.partnerID] }); //lexicon: makeLexicon(group)
+            if (trial.role == 'speaker') {
+                factor(beta * agent.getL0Score(object, trial.wordID, trialParams));
+            } else {
+                factor(beta * agent.getS1Score(trial.wordID, object, trialParams));
+            };
+
         }
-    }
+
+        mapData({data: data}, obsFn)
+
+        return {
+            lexicon: lexicons,
+            groupAssignments: groupAssignments,
+            // hyperParams: hypers,
+            sameGroup0: sameGroupAsPartner0
+        };
+    });
 };
+
 
 var iterate = function (iterationNum, outputF, remainingTrials, dataSoFar) {
     var currTrial = extend(first(remainingTrials), {
@@ -173,8 +158,8 @@ var iterate = function (iterationNum, outputF, remainingTrials, dataSoFar) {
 
     console.log('Iteration ' + iterationNum + ' Trial ' + currTrial.trialNum + ' Scale ' + params.scalingFactor);
 
-    var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], lexicalPrior, params);
-    var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], lexicalPrior, params);
+    var speakerPosterior = updatePosterior(dataSoFar[currTrial.speakerID], params);
+    var listenerPosterior = updatePosterior(dataSoFar[currTrial.listenerID], params);
     // postTest(iterationNum, currTrial, marginalize(listenerPosterior, 'groupAssignment')); //listener-focus
     // console.log(listenerPosterior)
     postTest(iterationNum, currTrial, marginalize(listenerPosterior, 'sameGroup0')); //listener-focus
@@ -204,7 +189,7 @@ var iterate = function (iterationNum, outputF, remainingTrials, dataSoFar) {
 
 var trials = [
 
-    // Context 1 Set: Same listener for all trials, Group 1: 1 & 3, Group 2: 2 & 4 --------------------------------
+    // Context 1 Set: Same listener for all trials, Group 1: 0 & 2, Group 2: 1 & 3 --------------------------------
     // Group 1 refers to A as "word1" and B as "word2"
     // Group 2 refers to A as "word2" and B as "word1"
 
