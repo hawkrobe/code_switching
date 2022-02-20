@@ -152,6 +152,16 @@ var updatePosterior = function (data, params) {
             return groupIdx
         })
 
+        // each group has its own hyperparams
+        var makeGroupHypers = mem(function(group) {
+            var a = dirichlet(sampleProbs())
+            var b = dirichlet(sampleProbs())
+            return {
+                word1probs: a,
+                word2probs: b
+            }
+        })
+
         // var getGroup = DPmem(params.priorAlpha, uuid);
         // var makeGroup = mem(function (partnerID) { return getGroup() });
 
@@ -164,10 +174,10 @@ var updatePosterior = function (data, params) {
 
 
         // from the group's hyperparams, sample meanings
-        var makeLexicon = mem(function (group) {
+        var makeLexicon = function (group) {
             // var word1probs = dirichlet(sampleProbs())
             // var word2probs = dirichlet(sampleProbs())
-
+            var hypers = makeGroupHypers(group)
             // var hypers = hyperParams(group)
 
             // console.log(hypers)
@@ -176,13 +186,13 @@ var updatePosterior = function (data, params) {
             //     return categorical({ vs: meanings, ps: hypers })
             // }, utterances);
 
-            var meanings = [categorical({vs: meanings}), categorical({vs: meanings})]
+            var meanings = [categorical({vs: meanings, ps: hypers.word1probs}), categorical({vs: meanings, ps: hypers.word2probs})]
 
 
             var lexicon = _.zipObject(utterances, meanings)
 
             return lexicon
-        })
+        }
 
         var groupAssignments = _.zipObject(partners, map(function (partner) { return makeGroup(partner) }, partners))
         // console.log(groupAssignments)
@@ -196,10 +206,11 @@ var updatePosterior = function (data, params) {
         // console.log(partitionString)
 
         var obsFn = function (trial) {
-            // var group = makeGroup(trial.partnerID);
+            var group = makeGroup(trial.partnerID);
             var beta = Math.pow(params.discountFactor, data.length - trial.trialNum); // this makes you discount earlier trials (forgetting?)
             var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
-            var trialParams = extend(params, { context: trial.context, lexicon: lexicons[trial.partnerID] }); //lexicon: makeLexicon(group)
+
+            var trialParams = extend(params, { context: trial.context, lexicon: makeLexicon(group)}); //lexicon: makeLexicon(group)
             if (trial.role == 'speaker') {
                 factor(beta * agent.getL0Score(object, trial.wordID, trialParams));
             } else {
@@ -235,8 +246,8 @@ var iterate = function (iterationNum, outputF, remainingTrials, dataSoFar) {
     // console.log(marginalize(listenerPosterior, 'hyper1'))
     // postTestPartner(iterationNum, currTrial, marginalize(listenerPosterior, 'groupAssignments')); //listener-focus
     // postTestPartner(iterationNum, currTrial, marginalize(listenerPosterior, 'sameGroup0')); //listener-focus
-    // postTest(iterationNum, currTrial, listenerPosterior);
-    postTestPartner(iterationNum, currTrial, marginalize(listenerPosterior, 'lexicon')); //listener-focus
+    postTest(iterationNum, currTrial, listenerPosterior);
+    // postTestPartner(iterationNum, currTrial, marginalize(listenerPosterior, 'lexicon')); //listener-focus
     // get marginal prediction of next data point over lexicon posterior
     var trialParams = extend(params, { partnerID: currTrial.partnerID, speakerID: currTrial.speakerID });
     var speakerOutput = S(currTrial.intendedName, speakerPosterior, trialParams);
