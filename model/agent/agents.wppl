@@ -72,42 +72,11 @@ var updatePosterior = function (data, lexicalPrior, params) {
   });
 };
 
-//// Stick-breaking construction of Dirichlet process
-
-// var sampleGroup = function (alpha) {  // Sample group for a single participant
-//   var sticks = mem(function (index) { return beta(1, alpha) });
-
-//   var pickStick = function (sticks, J) {
-//     return flip(sticks(J)) ? J : pickStick(sticks, J + 1);
-//   };
-
-//   var groupIdx = pickStick(sticks, 0);
-
-//   // Assign label to group
-//   return 'group' + groupIdx
-// }
-
-
-// var sampleGroups = function (nPartners, alpha) {  // Sample groups for n participants
-//   var _partners = mapN(function (x) { return 'partner' + x }, nPartners);
-//   var _assignments = mapN(sampleGroup(alpha), nPartners)
-
-//   var result = agent.convertToObj(_partners, _assignments)
-//   return result
-// }
+//// Dirichlet process
 
 
 
-// var makeSticks = function(alpha) {
-//   var sticks = mem(function(index) {return beta(1, alpha)});
-//   return function() {
-//     return pickStick(sticks, 0)
-//   };
-// }
 
-// var mySticks = makeSticks(1)
-
-// console.log(pickStick(sticks, 0))
 
 //// CRP stuff
 
