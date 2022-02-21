@@ -12,18 +12,18 @@ var partners = [0, 1, 2, 3];
 var model = 'nonparam_lexicon'
 
 var params = {
-    speakerAlpha: 5,
-    listenerAlpha: 5,
+    speakerAlpha: 1,
+    listenerAlpha: 1,
     discountFactor: 1,
     guessingEpsilon: 0.01, // 0.01
     costWeight: 0,
-    numTrials: 24,
+    numTrials: 48,
     context: objects,
     utterances: utterances,
     objects: objects,
-    inferOptions: { method: 'MCMC', samples: 8000, burn: 5000, lag: 5, verbose: false },
+    inferOptions: { method: 'MCMC', samples: 15000, burn: 5000, lag: 5, verbose: false },
     model: model,
-    scalingFactor: 0.1,
+    scalingFactor: 0.5,
     priorAlpha: 0.6,  // concentration parameter for DP
     nPartners: partners.length
 };
@@ -138,6 +138,8 @@ var uuid = function () {
 var updatePosterior = function (data, params) {
     return Infer(params.inferOptions, function () {
 
+        var hyperHypers = T.mul(ones([numMeanings, 1]), params.scalingFactor)
+
         // for each unique partner, sample a group
         var makeGroup = mem(function (partnerID) {
             var sticks = mem(function (index) { return beta(1, params.priorAlpha) });
@@ -154,8 +156,8 @@ var updatePosterior = function (data, params) {
 
         // each group has its own hyperparams
         var makeGroupHypers = mem(function(group) {
-            var a = dirichlet(sampleProbs())
-            var b = dirichlet(sampleProbs())
+            var a = dirichlet(hyperHypers)
+            var b = dirichlet(hyperHypers)
             return {
                 word1probs: a,
                 word2probs: b
@@ -174,7 +176,7 @@ var updatePosterior = function (data, params) {
 
 
         // from the group's hyperparams, sample meanings
-        var makeLexicon = function (group) {
+        var makeLexicon = mem(function (group) {
             // var word1probs = dirichlet(sampleProbs())
             // var word2probs = dirichlet(sampleProbs())
             var hypers = makeGroupHypers(group)
@@ -188,11 +190,29 @@ var updatePosterior = function (data, params) {
 
             var meanings = [categorical({vs: meanings, ps: hypers.word1probs}), categorical({vs: meanings, ps: hypers.word2probs})]
 
-
             var lexicon = _.zipObject(utterances, meanings)
 
             return lexicon
+        })
+
+
+        var obsFn = function (trial) {
+            var group = makeGroup(trial.partnerID);
+            var lexicon = makeLexicon(group);
+
+            var beta = Math.pow(params.discountFactor, data.length - trial.trialNum); // this makes you discount earlier trials (forgetting?)
+            var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
+
+            var trialParams = extend(params, { context: trial.context, lexicon: lexicon}); //lexicon: makeLexicon(group)
+            if (trial.role == 'speaker') {
+                factor(beta * agent.getL0Score(object, trial.wordID, trialParams));
+            } else {
+                factor(beta * agent.getS1Score(trial.wordID, object, trialParams));
+            };
+
         }
+
+
 
         var groupAssignments = _.zipObject(partners, map(function (partner) { return makeGroup(partner) }, partners))
         // console.log(groupAssignments)
@@ -204,20 +224,6 @@ var updatePosterior = function (data, params) {
         // change format so that you can write this to csv
         var partitionString = reduce(function(x, acc) {return "{" + x + "}" + acc}, "", partition) // yikes but... works lol
         // console.log(partitionString)
-
-        var obsFn = function (trial) {
-            var group = makeGroup(trial.partnerID);
-            var beta = Math.pow(params.discountFactor, data.length - trial.trialNum); // this makes you discount earlier trials (forgetting?)
-            var object = trial.role == 'speaker' ? trial.clickedName : trial.intendedName;
-
-            var trialParams = extend(params, { context: trial.context, lexicon: makeLexicon(group)}); //lexicon: makeLexicon(group)
-            if (trial.role == 'speaker') {
-                factor(beta * agent.getL0Score(object, trial.wordID, trialParams));
-            } else {
-                factor(beta * agent.getS1Score(trial.wordID, object, trialParams));
-            };
-
-        }
 
         mapData({ data: data }, obsFn)
 
@@ -297,80 +303,80 @@ var trials = [
     // Group 2 refers to A as "word2" and B as "word1"
 
     // 6 trials per convo
-    { trialNum: 1, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    { trialNum: 2, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    { trialNum: 3, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    { trialNum: 4, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    { trialNum: 5, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    { trialNum: 6, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    { trialNum: 7, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    { trialNum: 8, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    { trialNum: 9, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    { trialNum: 10, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    { trialNum: 11, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    { trialNum: 12, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    { trialNum: 13, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    { trialNum: 14, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    { trialNum: 15, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    { trialNum: 16, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    { trialNum: 17, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    { trialNum: 18, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    { trialNum: 19, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    { trialNum: 20, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    { trialNum: 21, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    { trialNum: 22, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    { trialNum: 23, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    { trialNum: 24, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' }
-
-    // morestuff: 12 trials per convo
     // { trialNum: 1, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
     // { trialNum: 2, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
     // { trialNum: 3, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
     // { trialNum: 4, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
     // { trialNum: 5, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
     // { trialNum: 6, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 7, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 8, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 9, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 10, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 11, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 12, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 13, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 14, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 15, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 16, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 17, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 18, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 19, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 20, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 21, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 22, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 23, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 24, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 25, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 26, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 27, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 28, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 29, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 30, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 31, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 32, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 33, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 34, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 35, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
-    // { trialNum: 36, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
-    // { trialNum: 37, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 38, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 39, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 40, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 41, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 42, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 43, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 44, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 45, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 46, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
-    // { trialNum: 47, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
-    // { trialNum: 48, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' }
+    // { trialNum: 7, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    // { trialNum: 8, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    // { trialNum: 9, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    // { trialNum: 10, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    // { trialNum: 11, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    // { trialNum: 12, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    // { trialNum: 13, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    // { trialNum: 14, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    // { trialNum: 15, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    // { trialNum: 16, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    // { trialNum: 17, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    // { trialNum: 18, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    // { trialNum: 19, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    // { trialNum: 20, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    // { trialNum: 21, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    // { trialNum: 22, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    // { trialNum: 23, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    // { trialNum: 24, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' }
+
+    // morestuff: 12 trials per convo
+    { trialNum: 1, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 2, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 3, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 4, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 5, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 6, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 7, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 8, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 9, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 10, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 11, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 12, partnerID: 0, speakerID: 0, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 13, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 14, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 15, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 16, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 17, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 18, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 19, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 20, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 21, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 22, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 23, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 24, partnerID: 1, speakerID: 1, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 25, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 26, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 27, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 28, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 29, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 30, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 31, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 32, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 33, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 34, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 35, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'A', wordID: 'word1' },
+    { trialNum: 36, partnerID: 2, speakerID: 2, listenerID: 4, intendedName: 'B', wordID: 'word2' },
+    { trialNum: 37, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 38, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 39, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 40, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 41, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 42, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 43, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 44, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 45, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 46, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' },
+    { trialNum: 47, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'A', wordID: 'word2' },
+    { trialNum: 48, partnerID: 3, speakerID: 3, listenerID: 4, intendedName: 'B', wordID: 'word1' }
 
 
 ];
