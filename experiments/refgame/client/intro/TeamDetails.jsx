@@ -1,16 +1,18 @@
 import React from "react";
 
 import { Centered } from "meteor/empirica:core";
+
+//
 const names = ["Kati", "Lepi", "Daru", "Soha"]; // for the players names to match avatar color
 
 const avatarNames = {
-  'blue' : [
+  'blue': [
     "Lincoln",
     "Leo",
     "Kayla",
     "Molly",
   ],
-  'red' : [
+  'red': [
     "Claire",
     "Jill",
     "Asher",
@@ -19,13 +21,13 @@ const avatarNames = {
 }
 
 const nameColor = {
-  'blue' : [
+  'blue': [
     "#7A9CDC",
     "#5697C3",
     "#6DBCD2",
     "#2D7496",
   ],
-  'red' : [
+  'red': [
     "#A33C49",
     "#B55D42",
     "#BB786C",
@@ -35,7 +37,7 @@ const nameColor = {
 
 export default class TeamDetails extends React.Component {
   componentDidMount() {
-    document.querySelector("main").scrollTo(0,0)
+    document.querySelector("main").scrollTo(0, 0)
   }
 
   renderPlayer(player, self = false) {
@@ -55,14 +57,14 @@ export default class TeamDetails extends React.Component {
 
   render() {
     console.log(this.props)
-    const {game, hasPrev, hasNext, onNext, onPrev, treatment } = this.props;
+    const { game, hasPrev, hasNext, onNext, onPrev, treatment, player } = this.props;
     const teamColor = treatment.teamColor
-    const player = {
-      _id: 0,
-      name: names[0],
-      nameColor: nameColor[teamColor][0],
-      avatar: `/avatars/jdenticon/${avatarNames[teamColor][0]}`
-    };
+    // const player = {
+    //   _id: 0,
+    //   name: names[0],
+    //   nameColor: nameColor[teamColor][0],
+    //   avatar: `/avatars/jdenticon/${avatarNames[teamColor][0]}`
+    // };
 
     const otherPlayers = [
       {
@@ -79,7 +81,7 @@ export default class TeamDetails extends React.Component {
           <p>
             Importantly, you will not just play with one partner, you are on a team with
             <strong>
-               {treatment.playerCount + 1} other people
+              {treatment.playerCount + 1} other people
             </strong>.
 
             Everyone on your team is a participant undertaking the same study at the same time as you.
@@ -117,7 +119,7 @@ export default class TeamDetails extends React.Component {
           <p>
             After the final round of your game with one partner, you will <b>switch partners</b> to
             play with someone on your team that you haven't talked to before!  Once you have played a game
-            with <b>three different partners</b>, we'll ask you a few addition questions and you'll be on your way.
+            with <b>three different partners</b>, we'll ask you a few additional questions and you'll be on your way.
           </p>
 
           <h1 className={"bp3-heading"}>Red vs. blue.</h1>
@@ -125,6 +127,11 @@ export default class TeamDetails extends React.Component {
             There are actually two different communities simultaneously playing this game, a <strong>red</strong> community and a <strong>blue</strong> community.
             You will only interact with other players in your own community.
             For example, someone in the red community will only play with other members of the red community.
+          </p>
+
+          <p>
+            There are <strong>six</strong> total members in each community.
+            However, each member of each community will only play with <strong>three</strong> randomly-selected partners in their community.
           </p>
 
           <div style={{ textAlign: "center" }}>
@@ -138,6 +145,14 @@ export default class TeamDetails extends React.Component {
           <p>
             Each community sees a different set of pictures, so remember which community you are in!
           </p>
+
+          <p>
+            Here are the three partners you'll be playing with:
+          </p>
+
+          <span className="image">
+            <img src={`experiment/communities/pre_test/${player.get("avatarName")}.png`} style={{ height: "300px" }} />
+          </span>
 
           <button
             type="button"

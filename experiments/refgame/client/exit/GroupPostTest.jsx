@@ -1,6 +1,6 @@
 import React from "react";
 
-import {AlertToaster, Centered} from "meteor/empirica:core";
+import { AlertToaster, Centered } from "meteor/empirica:core";
 
 import {
   Button,
@@ -15,7 +15,7 @@ import {
 class GroupPostTest extends React.Component {
   handleChange = (event) => {
     const el = event.currentTarget;
-    this.setState({ 'text' : el.value});
+    this.setState({ 'text': el.value });
   };
 
   handleSubmit = (event) => {
@@ -24,7 +24,7 @@ class GroupPostTest extends React.Component {
       AlertToaster.show({
         message: "Sorry, you have not completed the question above. Please answer the question before submitting!"
       });
-    } else if(this.state.loadingNextRound) {
+    } else if (this.state.loadingNextRound) {
       AlertToaster.show({
         message: "Sorry, you have already submitted. Please wait for the next question to load."
       });
@@ -41,10 +41,10 @@ class GroupPostTest extends React.Component {
         <div className="image">
           <center><img width='200px' src={this.state.tangram} /></center>
         </div>
-        
+
         <div className="pt-form-group">
           <div className="pt-form-content">
-            <label style={{color: this.state.group}} htmlFor={this.state.id}>
+            <label style={{ color: this.state.group }} htmlFor={this.state.id}>
               {"How would you describe the tangram above to a member of the " + this.state.group + " community?"}
             </label>
             <TextArea
@@ -60,8 +60,8 @@ class GroupPostTest extends React.Component {
       </div>
     )
   }
-  
-  componentWillMount() {}
+
+  componentWillMount() { }
 
   render() {
     const { player, game } = this.props;
@@ -74,8 +74,11 @@ class GroupPostTest extends React.Component {
         <div className="post-test">
           <form onSubmit={this.handleSubmit}>
             <h3>
-              Describe this object for a new member of <b style={{ color: this.state.color }}> {this.state.group == game.treatment.teamColor ? "your own community, " : " the other community, "} the {this.state.group} community</b>.
+              Describe this object for <b>Wepi</b>, who is a new member of <b style={{ color: this.state.color }}> {this.state.group == game.treatment.teamColor ? "your own community, " : " the other community, "} the {this.state.group} community</b>.
             </h3>
+            <span className="image">
+              <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
+            </span>
             <p>
               You'll receive a $0.10 bonus if they can choose it correctly based on your message.
             </p>
@@ -84,7 +87,7 @@ class GroupPostTest extends React.Component {
               Submit
               <span className="pt-icon-standard pt-icon-key-enter pt-align-right" />
             </button>
-          </form>  
+          </form>
         </div>
       </Centered>
     );
@@ -108,16 +111,16 @@ export class BlueA extends GroupPostTest {
 
 export class BlueB extends GroupPostTest {
   static stepName = 'blueB'
-    constructor(props) {
-      console.log('blue b props', props)
-      super(props);
-      this.state = {
-        tangram: "/experiment/tangram_B.png",
-        group: 'blue',
-        ownGroup: props.game.treatment.teamColor,
-        id: 'blueB',
-        text: ""
-      };
+  constructor(props) {
+    console.log('blue b props', props)
+    super(props);
+    this.state = {
+      tangram: "/experiment/tangram_B.png",
+      group: 'blue',
+      ownGroup: props.game.treatment.teamColor,
+      id: 'blueB',
+      text: ""
+    };
   }
 }
 
@@ -169,16 +172,16 @@ export class BlueE extends GroupPostTest {
 
 export class BlueF extends GroupPostTest {
   static stepName = 'blueF'
-    constructor(props) {
-      console.log('blue f props', props)
-      super(props);
-      this.state = {
-        tangram: "/experiment/tangram_F.png",
-        group: 'blue',
-        ownGroup: props.game.treatment.teamColor,
-        id: 'blueF',
-        text: ""
-      };
+  constructor(props) {
+    console.log('blue f props', props)
+    super(props);
+    this.state = {
+      tangram: "/experiment/tangram_F.png",
+      group: 'blue',
+      ownGroup: props.game.treatment.teamColor,
+      id: 'blueF',
+      text: ""
+    };
   }
 }
 
@@ -243,7 +246,7 @@ export class RedB extends GroupPostTest {
   }
 }
 
-export  class RedC extends GroupPostTest {
+export class RedC extends GroupPostTest {
   static stepName = 'RedC'
   constructor(props) {
     console.log('red c props', props)
@@ -302,7 +305,7 @@ export class RedF extends GroupPostTest {
   }
 }
 
-export  class RedG extends GroupPostTest {
+export class RedG extends GroupPostTest {
   static stepName = 'RedG'
   constructor(props) {
     console.log('red g props', props)

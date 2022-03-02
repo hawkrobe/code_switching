@@ -68,8 +68,8 @@ Empirica.exitSteps((game, player) => {
     const reds_setA = _.shuffle([RedA, RedB, RedC, RedD]);
     const blues_setB = _.shuffle([BlueE, BlueF, BlueG, BlueH]);
     const reds_setB = _.shuffle([RedE, RedF, RedG, RedH]);
-    const postTestGroup = _.sample(['red', 'blue'])
-    const post_test = game.treatment.teamColor == postTestGroup ? [reds_setA, reds_setB] : [blues_setA, blues_setB];
+    // const postTestGroup = _.sample(['red', 'blue'])
+    const post_test = game.treatment.teamColor == player.get("postTestGroup") ? [reds_setA, reds_setB] : [blues_setA, blues_setB];
     return [PostTestInstructions].concat(_.flatten(_.shuffle(post_test))).concat(ExitSurvey, Thanks);
   }
 });

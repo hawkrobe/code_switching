@@ -1,6 +1,6 @@
 import React from "react";
 
-import {AlertToaster, Centered} from "meteor/empirica:core";
+import { AlertToaster, Centered } from "meteor/empirica:core";
 
 import {
   Button,
@@ -18,13 +18,15 @@ export default class PostTestInstructions extends React.Component {
     event.preventDefault();
     this.props.onSubmit(this.state);
   };
-  
-  componentWillMount() {}
+
+  componentWillMount() { }
 
   render() {
     const { player, game } = this.props;
     const yourCommunity = game.treatment.teamColor;
     const otherCommunity = yourCommunity == 'red' ? 'blue' : 'red';
+
+
     return (
       <Centered>
         <div className="post-test">
@@ -34,12 +36,25 @@ export default class PostTestInstructions extends React.Component {
             Before you go, we have a few final questions for you.
           </p>
           <p>
-            You played with three different partners in your {yourCommunity} community today.
-            We're planning to follow up with some other members of your {yourCommunity} community that you didn't have a chance to meet, as well as some members of the other {otherCommunity} community.
+            You played with three different partners in the {yourCommunity} community today:
+          </p>
+          <span className="image">
+            <img src={`experiment/communities/pre_test/${player.get("avatarName")}.png`} style={{ height: "300px" }} />
+          </span>
+          <p>
+            {yourCommunity == player.get("postTestGroup") ? "We're planning to follow up with members of your own community that you haven't seen before."
+              : "We're planning to follow up with members of the other community, the " + otherCommunity + " community."
+            }
           </p>
           <p>
-            We'll ask them to play the listener role for some additional messages.
-            In the next few rounds, please write a message for us to show to these listeners.
+            Specifically, we'll show your messages to <b>Wepi</b>, who is a member of the {player.get("postTestGroup")} community:
+          </p>
+          <span className="image">
+            <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
+          </span>
+          <p>
+            Later, we'll ask them to play the listener role for some additional messages.
+            In the next few rounds, please write a message for us to show to them.
             We'll keep track of their responses and give you a $0.10 bonus for each correct response they make (up to $0.80 if they are all correct!)
           </p>
         </div>
@@ -48,7 +63,7 @@ export default class PostTestInstructions extends React.Component {
             Continue
             <span className="pt-icon-standard pt-icon-key-enter pt-align-right" />
           </button>
-        </form>  
+        </form>
       </Centered>
     );
   }
