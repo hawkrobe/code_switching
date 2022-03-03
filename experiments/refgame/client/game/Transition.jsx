@@ -37,7 +37,7 @@ export default class Task extends React.Component {
 
         <h3>Here is a diagram of who you will be interacting with</h3>
         <span className="image">
-          <img src={`experiment/communities/${player.get("avatarName")}_${newPartner.get("avatarName")}.png`}  style={{height: "300px"}}/>
+          <img src={`experiment/communities/during_test/${player.get('avatarName')}_${newPartner.get('avatarName')}.png`}  style={{height: "300px"}}/>
         </span>
 
       </div>

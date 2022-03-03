@@ -57,14 +57,16 @@ export default class TeamDetails extends React.Component {
 
   render() {
     console.log(this.props)
-    const { game, hasPrev, hasNext, onNext, onPrev, treatment, player } = this.props;
-    const teamColor = treatment.teamColor
-    // const player = {
-    //   _id: 0,
-    //   name: names[0],
-    //   nameColor: nameColor[teamColor][0],
-    //   avatar: `/avatars/jdenticon/${avatarNames[teamColor][0]}`
-    // };
+    const { game, hasPrev, hasNext, onNext, onPrev, treatment} = this.props;
+    const teamColor = treatment.teamColor;
+
+
+    const player = {
+      _id: 0,
+      name: names[0],
+      nameColor: nameColor[teamColor][0],
+      avatar: `/avatars/jdenticon/${avatarNames[teamColor][0]}`
+    };
 
     const otherPlayers = [
       {
@@ -79,16 +81,14 @@ export default class TeamDetails extends React.Component {
         <div className="instructions">
           <h1 className={"bp3-heading"}>You are on the {treatment.teamColor} team.</h1>
           <p>
-            Importantly, you will not just play with one partner, you are on a team with
-            <strong>
+            Importantly, you will not just play with one partner, you are on a team with <strong>
               {treatment.playerCount + 1} other people
             </strong>.
 
             Everyone on your team is a participant undertaking the same study at the same time as you.
             You will be paired off with different community members throughout the game.
             To help you identify yourself and differentiate each other in the
-            team, we will assign an icon and a name to you when the game starts (as shown
-            in the following example).
+            team, we will assign you an icon and a name, like in this example:
           </p>
 
           <br />
@@ -144,14 +144,14 @@ export default class TeamDetails extends React.Component {
           <p>
             Each community sees a different set of pictures, so remember which community you are in!
           </p>
-
+{/*
           <p>
             Here are the three partners you'll be playing with:
           </p>
 
           <span className="image">
             <img src={`experiment/communities/pre_test/${player.get("avatarName")}.png`} style={{ height: "300px" }} />
-          </span>
+          </span> */}
 
           <button
             type="button"
