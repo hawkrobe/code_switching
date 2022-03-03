@@ -36,6 +36,7 @@ class GroupPostTest extends React.Component {
   };
 
   showTangram = () => {
+    const { player, game } = this.props;
     return (
       <div>
         <div className="image">
@@ -44,8 +45,8 @@ class GroupPostTest extends React.Component {
 
         <div className="pt-form-group">
           <div className="pt-form-content">
-            <label style={{ color: this.state.group }} htmlFor={this.state.id}>
-              {"How would you describe the tangram above to a member of the " + this.state.group + " community?"}
+            <label style={{ color: player.get("postTestGroup") }} htmlFor={this.state.id}>
+              {"How would you describe the tangram above to a member of the " + player.get("postTestGroup") + " community?"}
             </label>
             <TextArea
               id={this.state.id}
@@ -74,14 +75,14 @@ class GroupPostTest extends React.Component {
         <div className="post-test">
           <form onSubmit={this.handleSubmit}>
             <h3>
-              Describe this object for <b>Wepi</b>, who is a new member of <b style={{ color: this.state.color }}> {this.state.group == game.treatment.teamColor ? "your own community, " : " the other community, "} the {this.state.group} community</b>.
+              You will be transmitting a message to <b>Wepi</b>, who is a new member of {player.get("postTestGroup") == game.treatment.teamColor ? "your own community, " : " the other community, "} the <b style={{ color: player.get("postTestGroup") }}>{player.get("postTestGroup")} community</b>.
             </h3>
             <span className="image">
               <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
             </span>
-            <p>
-              You'll receive a $0.10 bonus if they can choose it correctly based on your message.
-            </p>
+            <h4>
+              Describe this object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
+            </h4>
             {this.showTangram()}
             <button type="submit" id='submit-button' className="pt-button pt-intent-primary">
               Submit

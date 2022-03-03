@@ -33,30 +33,30 @@ export default class PostTestInstructions extends React.Component {
           <h1> Thanks for participating!! </h1>
           <br />
           <p>
-            Before you go, we have a few final questions for you.
-          </p>
-          <p>
             You played with three different partners in the {yourCommunity} community today:
           </p>
           <span className="image">
             <img src={`experiment/communities/pre_test/${player.get("avatarName")}.png`} style={{ height: "300px" }} />
           </span>
+          <h3>
+            Before you go, we have a few final questions for you.
+          </h3>
           <p>
-            {yourCommunity == player.get("postTestGroup") ? "We're planning to follow up with members of your own community that you haven't seen before."
-              : "We're planning to follow up with members of the other community, the " + otherCommunity + " community."
+            {yourCommunity == player.get("postTestGroup") ? "We're planning to follow up with another member of your own community that you haven't seen before."
+              : "We're planning to follow up with a member of the other community, the " + otherCommunity + " community."
             }
           </p>
-          <p>
-            Specifically, we'll show your messages to <b>Wepi</b>, who is a member of the {player.get("postTestGroup")} community:
-          </p>
-          <span className="image">
-            <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
-          </span>
           <p>
             Later, we'll ask them to play the listener role for some additional messages.
             In the next few rounds, please write a message for us to show to them.
             We'll keep track of their responses and give you a $0.10 bonus for each correct response they make (up to $0.80 if they are all correct!)
           </p>
+          <h3>
+            Specifically, we'll show your messages to <b>Wepi</b>, who is {yourCommunity == player.get("postTestGroup") ? "also" : ""} a member of the {player.get("postTestGroup")} community:
+          </h3>
+          <span className="image">
+            <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
+          </span>
         </div>
         <form onSubmit={this.handleSubmit}>
           <button type="submit" className="pt-button pt-intent-primary">

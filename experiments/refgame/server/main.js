@@ -45,7 +45,7 @@ function createSchedule(players, info) {
       addToSchedule(schedule, l1[player], l2[player], info);
       addToSchedule(schedule, l2[player], l1[player], info);
       addToRoles(roles, l1[player], 'speaker', info);
-      addToRoles(roles, l2[player], 'listener', info);      
+      addToRoles(roles, l2[player], 'listener', info);
     });
     // rotate around fixed point
     l.splice(1, 0, l.pop());
@@ -72,7 +72,7 @@ Empirica.gameInit((game, treatment) => {
   game.set("teamColor", treatment.teamColor);
 
   // Sample whether to use tangram set A or set B
-  game.set("targetSet", treatment.targetSet); 
+  game.set("targetSet", treatment.targetSet);
   game.set("team", game.players.length > 1);
   game.set('context', targetSets[treatment.targetSet]);
   const targets = game.get('context');
@@ -84,7 +84,7 @@ Empirica.gameInit((game, treatment) => {
     numRepsPerPartner : reps,
     numTrialsPerPartner: reps * numTargets
   };
-  
+
   // I use this to play the sound on the UI when the game starts
   game.set("justStarted", true);
 
@@ -103,7 +103,7 @@ Empirica.gameInit((game, treatment) => {
       const roomBlock = _.map(game.get('rooms'), room => _.shuffle(targets));
 
       // Loop through targets in block
-      _.times(numTargets, targetNum => {      
+      _.times(numTargets, targetNum => {
         const round = game.addRound();
         const roomTargets = _.map(roomBlock, room => room[targetNum]);
         round.set('target', _.zipObject(roomIds, roomTargets));
@@ -112,7 +112,7 @@ Empirica.gameInit((game, treatment) => {
         round.set('numPartners', numPartners);
         round.set('partnerNum', partnerNum);
         round.set('repNum', repNum);
-        
+
         // add 'partner swap' slide as first trial w/ new partner
         if(partnerNum > 0 & repNum == 0 & targetNum == 0) {
           round.addStage({
@@ -120,8 +120,8 @@ Empirica.gameInit((game, treatment) => {
             displayName: "Partner Swap!",
             durationInSeconds: 10
           });
-        } 
-        
+        }
+
         round.addStage({
           name: "selection",
           displayName: "Selection",
