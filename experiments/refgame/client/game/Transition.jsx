@@ -24,7 +24,7 @@ export default class Task extends React.Component {
           </span>
         </span>
         <h3>
-          Now you're going to play a game with someone else.
+          Now you're going to play a game with someone else on your own team.
           Instead of <strong style={{ color: oldPartner.get("nameColor")}}>
                        {oldPartner.get("name")}
                      </strong> your new partner will be
@@ -36,7 +36,7 @@ export default class Task extends React.Component {
           {newPartner.get("name")}
         </span>
 
-        <h3>Here is a diagram of who you will be interacting with</h3>
+        <h3>Here is a diagram showing the next player you'll be interacting with:</h3>
         <span className="image">
           <img src={`experiment/communities/test/${player.get('avatarName')}_${newPartner.get('avatarName')}.png`}  style={{height: "300px"}}/>
         </span>

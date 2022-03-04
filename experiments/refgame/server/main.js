@@ -85,6 +85,10 @@ Empirica.gameInit((game, treatment) => {
     numTrialsPerPartner: reps * numTargets
   };
 
+
+
+
+
   // I use this to play the sound on the UI when the game starts
   game.set("justStarted", true);
 
@@ -113,6 +117,15 @@ Empirica.gameInit((game, treatment) => {
         round.set('partnerNum', partnerNum);
         round.set('repNum', repNum);
 
+        if(partnerNum == 0 & repNum == 0 & targetNum == 0) {
+          round.addStage({
+            name: "preview",
+            displayName: "Avatar and partner assignment",
+            durationInSeconds: 15
+          });
+        }
+
+
         // add 'partner swap' slide as first trial w/ new partner
         if(partnerNum > 0 & repNum == 0 & targetNum == 0) {
           round.addStage({
@@ -127,6 +140,7 @@ Empirica.gameInit((game, treatment) => {
           displayName: "Selection",
           durationInSeconds: treatment.selectionDuration
         });
+
       });
     });
   });

@@ -130,7 +130,7 @@ export default class TeamDetails extends React.Component {
           </p>
 
           <p>
-            There are <strong>six</strong> total members in each community.
+            There are <strong>six</strong> total players in each community.
             However, each member of each community will only play with <strong>three</strong> randomly-selected partners in their community.
           </p>
 

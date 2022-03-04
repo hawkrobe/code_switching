@@ -25,6 +25,7 @@ export default class Thanks extends React.Component {
           </p>
           <p>
             Thank you again for participating! If you were curious, you were always interacting in real time with real human partners.
+            However, there were only four real human partners in each community.
             The aim of our study was to understand how new language spreads through a community, like slang and dialects do in the real world. Please email us at robertdh@princeton.edu if you have any questions or concerns.
 
           </p>

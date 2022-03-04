@@ -3,6 +3,7 @@ import React from "react";
 import SocialInteractions from "./SocialInteractions.jsx";
 import Task from "./Task.jsx";
 import Transition from "./Transition.jsx";
+import Preview from "./Preview.jsx";
 
 const roundSound = new Audio("experiment/round-sound.mp3");
 const gameSound = new Audio("experiment/bell.mp3");
@@ -43,6 +44,13 @@ export default class Round extends React.Component {
       setTimeout(player);
     } else {
       cancelTimeout(player);
+    }
+    if(stage.name == 'preview') {
+      return (
+        <div className="round">
+        <Preview game={game} round={round} stage={stage} player={player} />
+      </div>
+      )
     }
     if(stage.name == 'transition') {
       return (
