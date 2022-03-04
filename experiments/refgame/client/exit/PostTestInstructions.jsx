@@ -33,7 +33,7 @@ export default class PostTestInstructions extends React.Component {
           <h1> Thanks for participating!! </h1>
           <br />
           <p>
-            You played with three different partners in the {yourCommunity} community today:
+            You interacted with three different players in the {yourCommunity} community today:
           </p>
           <span className="image">
             <img src={`experiment/communities/pre_test/${player.get("avatarName")}.png`} style={{ height: "300px" }} />

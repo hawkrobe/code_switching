@@ -44,7 +44,7 @@ export default class Preview extends React.Component {
                     </span>
                 </span>
                 <h3>
-                    Here are the three partners you'll be playing with:
+                    Here are the three players you'll be interacting with:
                 </h3>
                 <span className="image">
                     <img src={`experiment/communities/pre_test/${player.get("avatarName")}.png`} style={{ height: "300px" }} />
