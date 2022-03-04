@@ -12,6 +12,7 @@ export default class Task extends React.Component {
     const oldPartner = _.filter(game.players, p => p._id === oldPartnerId)[0];
     const newPartner = _.filter(game.players, p => p._id === newPartnerId)[0];
 
+
     return (
       <div className="transition">
         <h1>Time to switch partners!</h1>
@@ -37,7 +38,7 @@ export default class Task extends React.Component {
 
         <h3>Here is a diagram of who you will be interacting with</h3>
         <span className="image">
-          <img src={`experiment/communities/during_test/${player.get('avatarName')}_${newPartner.get('avatarName')}.png`}  style={{height: "300px"}}/>
+          <img src={`experiment/communities/test/${player.get('avatarName')}_${newPartner.get('avatarName')}.png`}  style={{height: "300px"}}/>
         </span>
 
       </div>

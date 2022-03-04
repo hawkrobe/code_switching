@@ -33,6 +33,7 @@ export default class Round extends React.Component {
       roundSound.play();
     }
   }
+  // TODO: add intro screan here!!!
 
   render() {
     const {round, stage, player, game } = this.props;

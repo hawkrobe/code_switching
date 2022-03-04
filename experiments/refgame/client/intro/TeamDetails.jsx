@@ -96,6 +96,7 @@ export default class TeamDetails extends React.Component {
             <div className="status">
               <div className="players bp3-card">
                 {this.renderPlayer(player, true)}
+                {otherPlayers.map(p => this.renderPlayer(p))}
               </div>
               <div className="total-score bp3-card">
                 <h6 className={"bp3-heading"}>Total Score</h6>

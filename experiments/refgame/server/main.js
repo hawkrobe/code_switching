@@ -118,7 +118,7 @@ Empirica.gameInit((game, treatment) => {
           round.addStage({
             name: "transition",
             displayName: "Partner Swap!",
-            durationInSeconds: 10
+            durationInSeconds: 15
           });
         }
 
