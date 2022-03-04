@@ -30,7 +30,7 @@ export default class Preview extends React.Component {
 
         return (
             <div className="instructions">
-                <h1>You have been assigned to your partners!</h1>
+                <h1>Your partners have been assigned!</h1>
                 <p>The game will start in a few seconds.</p>
                 <h3>
                     You are <strong style={{ color: player.get("nameColor")}}>
