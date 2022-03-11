@@ -25,6 +25,7 @@ Empirica.onGameStart((game) => {
     player.set("avatarName", avatarNames[teamColor][i]);
     player.set("nameColor", nameColors[teamColor][i]);
     player.set("postTestGroup", _.sample(['red', 'blue']));
+    player.set("postTestFirstSet", _.sample(['setA', 'setB']));
     player.set("bonus", 0);
   });
 });

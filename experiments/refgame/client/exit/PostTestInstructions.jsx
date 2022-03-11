@@ -48,7 +48,14 @@ export default class PostTestInstructions extends React.Component {
           </p>
           <p>
             Later, we'll ask them to play the listener role for some additional messages.
-            In the next few rounds, please write a message for us to show to them.
+          </p>
+          <p>
+            In the next few rounds, you will see a total of <b>eight</b> tangrams.
+            The <b>first four</b> tangrams you will see are tangrams <b>{game.treatment.targetSet == player.get("postTestFirstSet") ? "you have seen before" : "you have not seen before"}</b>.
+            The <b>second four</b> tangrams you will see are tangrams <b>{game.treatment.targetSet == player.get("postTestFirstSet") ? "you have not seen before" : "you have seen before"}</b>.
+          </p>
+          <p>
+            For each of the tangrams, please write a message for us to show to them.
             We'll keep track of their responses and give you a $0.10 bonus for each correct response they make (up to $0.80 if they are all correct!)
           </p>
           <h3>

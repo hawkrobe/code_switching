@@ -44,7 +44,7 @@ Empirica.introSteps((game, player, treatment) => {
     steps.push(IndividualQuiz);
   }
 
-  return [];//steps;
+  return steps;
 });
 
 // The Round component containing the game UI logic.
@@ -69,8 +69,27 @@ Empirica.exitSteps((game, player) => {
     const blues_setB = _.shuffle([BlueE, BlueF, BlueG, BlueH]);
     const reds_setB = _.shuffle([RedE, RedF, RedG, RedH]);
     // const postTestGroup = _.sample(['red', 'blue'])
-    const post_test = game.treatment.teamColor == 'red' ? [reds_setA, reds_setB] : [blues_setA, blues_setB];
-    return [PostTestInstructions].concat(_.flatten(_.shuffle(post_test))).concat(ExitSurvey, Thanks);
+
+    if (game.treatment.teamColor == 'red') {
+      if (player.get("postTestFirstSet") == 'setA') {
+        var post_test = [reds_setA, reds_setB];
+      } else {
+        var post_test = [reds_setB, reds_setA]
+      };
+    };
+
+    if (game.treatment.teamColor == 'blue') {
+      if (player.get("postTestFirstSet") == 'setA') {
+        var post_test = [blues_setA, blues_setB];
+      } else {
+        var post_test = [blues_setB, blues_setA];
+      };
+    };
+
+    // const post_test = game.treatment.teamColor == 'red' ? [reds_setA, reds_setB] : [blues_setA, blues_setB];
+    // game.treatment.targetSet == 'setA'
+
+    return [PostTestInstructions].concat(_.flatten(post_test)).concat(ExitSurvey, Thanks);
   }
 });
 
