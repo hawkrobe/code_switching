@@ -102,7 +102,7 @@ export class BlueA extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_A.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueA',
       text: ""
@@ -117,7 +117,7 @@ export class BlueB extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_B.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueB',
       text: ""
@@ -132,7 +132,7 @@ export class BlueC extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_C.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueC',
       text: ""
@@ -147,7 +147,7 @@ export class BlueD extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_D.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueD',
       text: ""
@@ -163,7 +163,7 @@ export class BlueE extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_E.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueE',
       text: ""
@@ -178,7 +178,7 @@ export class BlueF extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_F.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueF',
       text: ""
@@ -193,7 +193,7 @@ export class BlueG extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_G.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueG',
       text: ""
@@ -208,7 +208,7 @@ export class BlueH extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_H.png",
-      group: 'blue',
+      recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueH',
       text: ""
@@ -224,7 +224,7 @@ export class RedA extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_A.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redA',
       text: ""
@@ -239,7 +239,7 @@ export class RedB extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_B.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redB',
       text: ""
@@ -254,7 +254,7 @@ export class RedC extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_C.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redC',
       text: ""
@@ -269,7 +269,7 @@ export class RedD extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_D.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redD',
       text: ""
@@ -283,7 +283,7 @@ export class RedE extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_E.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redE',
       text: ""
@@ -298,7 +298,7 @@ export class RedF extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_F.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redF',
       text: ""
@@ -313,7 +313,7 @@ export class RedG extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_G.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redG',
       text: ""
@@ -328,7 +328,7 @@ export class RedH extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_H.png",
-      group: 'red',
+      recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redH',
       text: ""

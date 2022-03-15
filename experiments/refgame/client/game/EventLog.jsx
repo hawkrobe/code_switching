@@ -59,6 +59,7 @@ class Event extends React.Component {
           <div className="content">
             You're playing with <strong style={{color: partner.get('nameColor')}}>{partner.get('name')}</strong>! 
           </div>
+          <img src={`experiment/communities/test/${player.get('avatarName')}_${partner.get('avatarName')}.png`}  style={{height: "150px"}}/>
           <br/>
           <br/>
           <div className="content">
