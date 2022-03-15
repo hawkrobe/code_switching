@@ -121,7 +121,7 @@ Empirica.gameInit((game, treatment) => {
           round.addStage({
             name: "preview",
             displayName: "Avatar and partner assignment",
-            durationInSeconds: 15
+            durationInSeconds: 20
           });
         }
 
