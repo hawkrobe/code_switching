@@ -22,6 +22,11 @@ export default class Task extends React.Component {
           <span className="name" style={{ color: oldPartner.get("nameColor") }}>
             {oldPartner.get("name")}
           </span>
+          <div>
+          <span className="image">
+            <img src={`experiment/communities/test/${player.get('avatarName')}_${oldPartner.get('avatarName')}.png`}  style={{height: "300px"}}/>
+          </span>
+            </div>
         </span>
         <h3>
           Now you're going to play a game with someone else on your own team.

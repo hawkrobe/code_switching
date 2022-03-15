@@ -12,7 +12,7 @@ export default class Consent extends React.Component {
           <p>
             Thank you for deciding to participate in this research project.
             This research is being conducted by Robert Hawkins, a postdoctoral
-            research fellow, Irina Liu, an undergraduate student, and Tom Griffiths, a faculty member,
+            research fellow, Irina Liu and Alicia Chen, research assistants, and Tom Griffiths, a faculty member,
             all at Princeton University. This study takes approximately 30 minutes to complete, but will
             vary a bit depending on how long you must wait for other participants to join.
 
