@@ -20,4 +20,4 @@ less@3.0.1
 
 empirica:core
 empirica:slider
-service-configuration
+service-configuration@1.0.11
