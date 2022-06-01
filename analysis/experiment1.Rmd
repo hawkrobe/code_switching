@@ -17,10 +17,13 @@ source('helpers.R')
 ```
 
 ```{r}
-d.games <- read_csv(here('data/games.csv')) %>% 
+d.games <- read_csv(here('~/Downloads/Empirica Data - 2022-03-14 20-29-37/games.csv')) %>% 
   rename(gameId = `_id`)
 
-d.chat.raw <- read_csv(here('data/rounds.csv')) %>%
+d.players <- read_csv(here('~/Downloads/Empirica Data - 2022-03-14 20-29-37/players.csv')) %>% 
+  rename(gameId = `_id`)
+
+d.chat.raw <- read_csv(here('~/Downloads/Empirica Data - 2022-03-14 20-29-37/rounds.csv')) %>%
   filter(createdAt >= lubridate::ymd('2021-01-21')) %>%
   mutate(data.chat = ifelse(is.na(data.chat), '{}', data.chat)) %>%
   rename(row_id = `_id`) %>%
@@ -29,7 +32,7 @@ d.chat.raw <- read_csv(here('data/rounds.csv')) %>%
   select(-data.target, -ends_with('response'), -ends_with('correct')) %>%
   rename_with(~ gsub("data.", "", .x, fixed = TRUE))
 
-d.room_info <- read_csv(here('data/rounds.csv')) %>%
+d.room_info <- read_csv(here('~/Downloads/Empirica Data - 2022-03-14 20-29-37/rounds.csv')) %>%
   filter(createdAt >= lubridate::ymd('2021-01-21')) %>%
   mutate(data.target = map(data.target, .f = ParseJSONColumn)) %>%
   unnest(data.target) %>%
@@ -37,7 +40,7 @@ d.room_info <- read_csv(here('data/rounds.csv')) %>%
   filter(!is.na(text)) %>%
   rename_with(~ gsub("data.", "", .x, fixed = TRUE)) %>%
   rename(room1_response = room1response, room0_response = room0response) %>%
-  select(-room0data, -room1data, -ends_with('correct'), -chat) %>%
+  select(-chat) %>%
   gather(key, value, starts_with('room')) %>%
   separate(key, into = c('roomId', 'info')) %>%
   spread(info, value) %>%
@@ -47,7 +50,7 @@ d.room_info <- read_csv(here('data/rounds.csv')) %>%
 Get exit survey responses
 
 ```{r}
-d.exit.survey <- read_csv(here('data/player-inputs.csv')) %>%
+d.exit.survey <- read_csv(here('~/Downloads/Empirica Data - 2022-03-14 20-29-37/player-inputs.csv')) %>%
   filter(createdAt >= lubridate::ymd('2021-01-21')) %>%
   filter(!is.na(data.community)) %>%
   left_join(d.games, by = c('gameId')) %>%
@@ -117,8 +120,8 @@ d.chat <- d.chat.raw %>%
 ```
 
 ```{r}
-post_test.raw <- read_csv(here('data/player-inputs.csv')) %>%
-  filter(gameId %in% talked) %>%
+post_test.raw <- read_csv(here('~/Downloads/Empirica Data - 2022-03-14 20-29-37/player-inputs.csv')) %>%
+  #filter(gameId %in% talked) %>%
   filter(playerId %in% correct_community_response) %>%
   group_by(playerId) %>%
   mutate(blockOrder = ifelse(row_number() <= 4, 'first', 'second')) %>%
