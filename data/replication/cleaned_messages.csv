@@ -1,0 +1,373 @@
+gameId,trialNum,partnerNum,repNum,roomId,tangram,text,total_num_words,total_num_chars,listener,speaker
+5DPBkeiGxRisStRiY,0,1,0,room0,C,Person falling back with arms in air,7,36,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,0,1,0,room1,C,Person falling with both arms in the air,8,40,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,0,2,0,room0,A,Standing on one foot,4,20,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,0,2,0,room1,C,falling back with arms out,5,26,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,1,0,0,room0,A,"A person standing up holding a book, A person with one foot in air and one arm bend",18,81,W4MQ5woSyJjCuAE5G,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,1,0,0,room1,D,"looking left, standing, standing straight",5,37,NqAQeDPXaQh2Xv2KD,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,1,1,0,room0,B,Person kneeling or sitting,4,26,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,1,1,0,room1,B,Person kneeling with arms out,5,29,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,1,2,0,room0,D,Standing with arms to left,5,26,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,1,2,0,room1,D,"standing with arms to the left, holding tray",8,44,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,2,0,0,room0,B,A person sitting down with both arms up,8,39,W4MQ5woSyJjCuAE5G,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,2,1,0,room0,D,Person standing with arms to the left,7,37,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,2,1,0,room1,A,Person standing on one foot,5,27,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,2,2,0,room0,B,Kneeling or sitting,3,19,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,2,2,0,room1,A,standing with one foot stuck out,6,32,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,3,0,0,room0,C,A person falling down with arms up in air,9,41,W4MQ5woSyJjCuAE5G,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,3,0,0,room1,A,"one leg lifted, he has one leg lifted",8,35,NqAQeDPXaQh2Xv2KD,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,3,1,0,room0,A,Person with one foot in air,6,27,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,3,1,0,room1,D,Person standing with arms to the left,7,37,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,3,2,0,room0,C,Falling back with arms up in air,7,32,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,3,2,0,room1,B,sitting crouching,2,17,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,4,0,1,room0,A,Person Standing on one foot,5,27,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,4,0,1,room1,D,"standing, looking left",3,22,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,4,1,1,room0,C,"arms out, falling backwards",4,27,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,4,1,1,room1,D,person standing with arm to the left,7,36,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,4,2,1,room0,C,falling back both arms up,5,25,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,4,2,1,room1,D,Standing with arms to the left,6,30,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,5,0,1,room0,C,Person falling with both arms in the air,8,40,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,5,0,1,room1,C,"leaning to the sides, arms stuck out, head tilted",9,49,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,5,1,1,room0,A,"leg stuck out, standing",4,23,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,5,1,1,room1,C,person leaNING NG TO THE LEFT WITH ARMS UP,9,42,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,5,2,1,room0,B,kneeling crouching,2,18,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,5,2,1,room1,B,sitting kneeling,2,16,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,6,0,1,room0,D,Person standing with arms out to the left,8,41,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,6,0,1,room1,B,"sitting down, looking left with a triangle on back of head",11,58,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,6,1,1,room0,D,standing with tray in hands,5,27,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,6,1,1,room1,B,person kneeling,2,15,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,6,2,1,room0,A,standing one leg lifted,4,23,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,6,2,1,room1,C,falling with arms up,4,20,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,7,0,1,room0,B,Person kneeling sitting with arms out,6,37,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,7,0,1,room1,A,standing with one leg stuck out,6,31,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,7,1,1,room0,B,sitting kneeling,2,16,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,7,1,1,room1,A,person lifting one leg in the air,7,33,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,7,2,1,room0,D,standing looking left with a tray,6,33,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,7,2,1,room1,A,Standing on one foot,4,20,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,8,0,2,room0,B,Person kneeling with arms out,5,29,W4MQ5woSyJjCuAE5G,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,8,0,2,room1,B,crouching down maybe triangle on the right,7,42,NqAQeDPXaQh2Xv2KD,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,8,1,2,room0,D,Standing up with arms to left,6,29,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,8,1,2,room1,B,Person kneeling,2,15,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,8,2,2,room0,B,Kneeling or sitting,3,19,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,8,2,2,room1,C,falling with arms out,4,21,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,9,0,2,room0,D,Person standing with arms out to left,7,37,W4MQ5woSyJjCuAE5G,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,9,0,2,room1,A,standing with one leg lifted,5,28,NqAQeDPXaQh2Xv2KD,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,9,1,2,room0,B,Kneeling or sitting,3,19,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,9,1,2,room1,A,Person on one leg,4,17,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,9,2,2,room0,D,Standing up with arms to left,6,29,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,9,2,2,room1,A,standing with one foot stuck out,6,32,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,10,0,2,room0,A,Person with one foot up in air,7,30,W4MQ5woSyJjCuAE5G,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,10,0,2,room1,C,arms in the air on each side of the head,10,40,NqAQeDPXaQh2Xv2KD,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,10,1,2,room0,A,Standing on one foot,4,20,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,10,1,2,room1,C,Persson leaning left with arms in the air,8,41,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,10,2,2,room0,C,Falling back arms up in air,6,27,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,10,2,2,room1,D,standing with arms to the left,6,30,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,11,0,2,room0,C,Person falling down with arms up in air,8,39,W4MQ5woSyJjCuAE5G,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,11,0,2,room1,D,standing looking to the left with what looks like a tray in the arms,14,68,NqAQeDPXaQh2Xv2KD,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,11,1,2,room0,C,Falling back with arms in air,6,29,NqAQeDPXaQh2Xv2KD,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,11,1,2,room1,D,Person standing with arms to the left,7,37,NWBxYqkdH4xSzDiw9,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,11,2,2,room0,A,Standing on one foot,4,20,NWBxYqkdH4xSzDiw9,8YFWjNuom6bt9tfJG
+5DPBkeiGxRisStRiY,11,2,2,room1,B,sitting kneeling,2,16,W4MQ5woSyJjCuAE5G,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,12,0,3,room0,D,Person standing with arms to the left,7,37,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,12,0,3,room1,A,standing with one leg stuck out,6,31,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,12,1,3,room0,B,sitting kneeling,2,16,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,12,1,3,room1,C,"leaning to the left arms upperson, person leaning to the left arms up",13,67,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,12,2,3,room0,B,kneeling,1,8,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,12,2,3,room1,B,sitting kneeling,2,16,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,13,0,3,room0,A,Person with one foot in the air,7,31,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,13,0,3,room1,C,"arms stretched in opposite directions, leaning to the side",9,58,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,13,1,3,room0,D,"standing iwth arms to left, holding tray",7,40,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,13,1,3,room1,A,person with one leg up,5,22,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,13,2,3,room0,D,standing looking left,3,21,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,13,2,3,room1,C,falling with arms up,4,20,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,14,0,3,room0,C,Person falling with arms in the air,7,35,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,14,0,3,room1,B,sitting down crouched down with a triangle on back of head,11,58,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,14,1,3,room0,C,falling back with arms out,5,26,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,14,1,3,room1,B,person kneeling crouching,3,25,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,14,2,3,room0,A,standing one leg out,4,20,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,14,2,3,room1,D,standing with arms to the left,6,30,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,15,0,3,room0,B,Person kneeling with arms out,5,29,8YFWjNuom6bt9tfJG,W4MQ5woSyJjCuAE5G
+5DPBkeiGxRisStRiY,15,0,3,room1,D,standing with a tray in hands,6,29,NWBxYqkdH4xSzDiw9,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,15,1,3,room0,A,standing with one foot stuck out,6,32,8YFWjNuom6bt9tfJG,NqAQeDPXaQh2Xv2KD
+5DPBkeiGxRisStRiY,15,1,3,room1,D,person standing and looking to the left,7,39,W4MQ5woSyJjCuAE5G,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,15,2,3,room0,C,leaning left both arms up,5,25,8YFWjNuom6bt9tfJG,NWBxYqkdH4xSzDiw9
+5DPBkeiGxRisStRiY,15,2,3,room1,A,standing sticking one foot out,5,30,NqAQeDPXaQh2Xv2KD,W4MQ5woSyJjCuAE5G
+EAxRXE75t42iKMLtA,0,1,0,room0,E,"Bunny ears, 2 triangles, Bottom and top",7,35,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,0,1,0,room1,G,looks like someone dancing,4,26,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,0,2,0,room0,H,"No feet on show, Kneeling, Diamond dheqd",7,36,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,0,2,0,room1,H,"looks pregnant and sitting down, no feet",7,38,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,1,0,0,room0,F,"A man sitting down, A square head",7,31,avSXPP4tF6v6Z3hAq,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,1,1,0,room0,F,"Square head man sitting, Triangle feet",6,36,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,1,1,0,room1,F,"looks like man sitting down, legs to the left",9,43,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,1,2,0,room0,F,"Sitting diamond head, Triangle deet, Feet, ",7,37,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,1,2,0,room1,G,looks like dancing,3,18,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,2,0,0,room0,E,"Looks like rabbit ears, Triangle at feet, Square head",9,49,avSXPP4tF6v6Z3hAq,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,2,1,0,room0,H,Long thin diamond head,4,22,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,2,1,0,room1,E,"looks like rabbit ears, two triangles coming out of top of diamond head",13,69,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,2,2,0,room0,G,"Jumbled, Square topeft, Triangle bottom r",6,37,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,2,2,0,room1,E,head is split into two triangles,6,32,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,3,0,0,room0,G,"Parallelogram bottom left, Triangle at bottom right",7,49,avSXPP4tF6v6Z3hAq,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,3,1,0,room0,G,"Wide shape, Square top left",5,25,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,3,1,0,room1,H,"diamon head, long body, triangle on bottom right",8,44,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,3,2,0,room0,E,Split triangle ears,3,19,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,3,2,0,room1,F,sitting down square head,4,24,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,4,0,1,room0,H,"triangle head, small triangle on right",6,36,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,4,0,1,room1,G,dancing,1,7,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,4,1,1,room0,E,"split head, two triangles head",5,28,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,4,1,1,room1,E,two triangles on head,4,21,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,4,2,1,room0,E,"rabbit ears, two triangle head",5,28,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,4,2,1,room1,G,"looks like someone dancing, lots of shapes",7,40,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,5,0,1,room0,G,parallelogram on left,3,21,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,5,0,1,room1,F,sitting down,2,12,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,5,1,1,room0,F,sitting down,2,12,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,5,1,1,room1,F,square head sat down,4,20,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,5,2,1,room0,G,"weirdest looking, lots of shapes",5,30,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,5,2,1,room1,E,"looks like rabbit ears, two triangles from top of diamond",10,55,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,6,0,1,room0,E,looks like rabbit ears,4,22,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,6,0,1,room1,H,"no hands,",3,9,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,6,1,1,room0,G,dancing,1,7,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,6,1,1,room1,G,triangle bottom right,3,21,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,6,2,1,room0,F,"sat down, feet left",4,17,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,6,2,1,room1,H,"looks pregnant, diamond head",4,26,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,7,0,1,room0,F,"man sitting down, legs to left",6,28,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,7,0,1,room1,E,preaching,1,9,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,7,1,1,room0,H,looks pregnant,2,14,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,7,1,1,room1,H,looks pregnant,2,14,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,7,2,1,room0,H,pregnant looking,2,16,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,7,2,1,room1,F,"man sitting down, legs to left",6,28,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,8,0,2,room1,G,"weirdest shape, loads of different ones",6,37,Zvis4zQYCcmj9WPAS,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,8,1,2,room0,H,"Kneeling, Long and think",4,22,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,8,1,2,room1,F,"man sitting down, legs to left",6,28,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,8,2,2,room0,H,"Pregnant, No feet",3,15,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,8,2,2,room1,F,sitting down square head,4,24,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,9,0,2,room0,F,"Man sitting down, Square head",5,27,avSXPP4tF6v6Z3hAq,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,9,0,2,room1,F,"sat down, head looking down",5,25,Zvis4zQYCcmj9WPAS,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,9,1,2,room0,G,"Square top left, 2 triangles right",6,32,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,9,1,2,room1,G,"looks like someone dancing, 2 triangles on right, diamond to left",11,61,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,9,2,2,room0,G,"Weirdest looking lots of shales, Shapes",6,37,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,9,2,2,room1,H,no legs showing,3,15,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,10,0,2,room0,H,"Diamond head, Long thin, Triangular shoulders",6,41,avSXPP4tF6v6Z3hAq,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,10,0,2,room1,H,looks pregnant,2,14,Zvis4zQYCcmj9WPAS,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,10,1,2,room0,E,"Rabbit ears, Square head",4,22,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,10,1,2,room1,E,rabbit ears,2,11,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,10,2,2,room0,F,Sitting square head triangle feet bottom left,7,45,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,10,2,2,room1,G,dancing,1,7,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,11,0,2,room0,E,Rabbit ears,2,11,avSXPP4tF6v6Z3hAq,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,11,0,2,room1,E,two triangles as hair,4,21,Zvis4zQYCcmj9WPAS,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,11,1,2,room0,F,"Square head, Sitting, Triangle feet",5,31,Zvis4zQYCcmj9WPAS,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,11,1,2,room1,H,"diamond on top, long body, triangle on right",8,40,3po2pCre5CgtX7euo,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,11,2,2,room0,E,Bunny ears,2,10,3po2pCre5CgtX7euo,3cNdpmDp6YkmE9HPv
+EAxRXE75t42iKMLtA,11,2,2,room1,E,bunny ears split triangles,4,26,avSXPP4tF6v6Z3hAq,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,12,0,3,room0,E,rabbit,1,6,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,12,0,3,room1,H,pregnant looking,2,16,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,12,1,3,room0,F,square head sitting down,4,24,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,12,1,3,room1,H,"long body, triangle on right",5,26,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,12,2,3,room0,H,pregnant looking,2,16,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,12,2,3,room1,E,rabbit ears,2,11,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,13,0,3,room0,F,man sitting down,3,16,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,13,0,3,room1,F,sitting down,2,12,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,13,1,3,room0,E,2 trianlge head,3,15,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,13,1,3,room1,E,rabbit ears,2,11,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,13,2,3,room0,G,weirdest looking shape,3,22,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,13,2,3,room1,H,"looks pregnant, diamond head",4,26,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,14,0,3,room0,G,parallelogram on left,3,21,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,14,0,3,room1,G,looks like dancing,3,18,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,14,1,3,room0,G,dancing,1,7,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,14,1,3,room1,G,"weirdest looking one, loads of shapes",6,35,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,14,2,3,room0,F,"sat down, feet to left",5,20,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,14,2,3,room1,F,"man sitting down, legs to left",6,28,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,15,0,3,room0,H,"diamond head, thin body, triangle on right at bottom",9,48,3cNdpmDp6YkmE9HPv,avSXPP4tF6v6Z3hAq
+EAxRXE75t42iKMLtA,15,0,3,room1,E,two triangle making the head,5,28,3po2pCre5CgtX7euo,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,15,1,3,room0,H,no feet showing,3,15,3cNdpmDp6YkmE9HPv,Zvis4zQYCcmj9WPAS
+EAxRXE75t42iKMLtA,15,1,3,room1,F,"sat down, sqaure head",4,19,avSXPP4tF6v6Z3hAq,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,15,2,3,room0,E,bunny,1,5,3cNdpmDp6YkmE9HPv,3po2pCre5CgtX7euo
+EAxRXE75t42iKMLtA,15,2,3,room1,G,dancing,1,7,Zvis4zQYCcmj9WPAS,avSXPP4tF6v6Z3hAq
+wsHxcQMsocXdSP4Xj,0,0,0,room0,E,Looks like a rabbit sitting down,6,32,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,0,1,0,room0,F,Person sat down with knees bent,6,31,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,0,1,0,room1,H,like a bottle with diamond lid,6,30,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,0,2,0,room0,E,Rabbit sat down,3,15,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,0,2,0,room1,E,rabbit sat down,3,15,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,1,0,0,room0,F,"Looks like a person sat on floor on the side, With bended knee",13,60,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,1,1,0,room0,H,Like a bottle with a diamond shaped lid,8,39,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,1,1,0,room1,E,like a rabbit sitting down,5,26,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,1,2,0,room0,F,Person sat down,3,15,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,1,2,0,room1,H,bottle with diamond top,4,23,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,2,0,0,room0,H,"Diamond on top of block, Triangle bottom right",8,44,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,2,0,0,room1,G,the one with 2 things on its head laying backwards,10,50,bXuH7inc2zA3trvbs,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,2,1,0,room0,G,Square top left,3,15,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,2,1,0,room1,F,like a person sitting with knees bent,7,37,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,2,2,0,room0,G,Square top left,3,15,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,2,2,0,room1,G,square top left,3,15,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,3,0,0,room0,G,Diamond top left opposite triangle,5,34,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,3,0,0,room1,H,the one with 1 on its head forward facing,9,41,bXuH7inc2zA3trvbs,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,3,1,0,room0,E,Rabbit sitting down,3,19,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,3,1,0,room1,G,square on top left,4,18,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,3,2,0,room0,H,Bottle with diamond top,4,23,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,3,2,0,room1,F,person sat down,3,15,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,4,0,1,room0,F,like a person with a diamond head sitting down with knees bent,12,62,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,4,0,1,room1,F,"looks like a side profiole of someone reading a book, resting on their knees",14,74,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,4,1,1,room0,G,square top left,3,15,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,4,1,1,room1,H,forward facing,2,14,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,4,2,1,room0,F,reading facing left,3,19,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,4,2,1,room1,F,person sat down,3,15,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,5,0,1,room0,G,square in the top corner,5,24,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,5,0,1,room1,E,looks like a right angle on bottom left corner of pic,11,53,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,5,1,1,room0,F,person with knees bent,4,22,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,5,1,1,room1,G,one square ear one triangle ear,6,31,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,5,2,1,room0,G,1 square ear 1 triangle ear,6,27,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,5,2,1,room1,H,bottle with diamond lid,4,23,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,6,0,1,room0,H,like a bottle with a diamond lid,7,32,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,6,0,1,room1,H,looks like a swaddled baby,5,26,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,6,1,1,room0,E,rabbit sitting down,3,19,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,6,1,1,room1,F,reading a book facing left,5,26,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,6,2,1,room0,H,forward facing,2,14,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,6,2,1,room1,G,sqaure ear and triangle ear,5,27,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,7,0,1,room0,E,windmill sails on top of a right-angled triangle,9,48,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,7,0,1,room1,G,looks like someone lunging or dancing,6,37,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,7,1,1,room0,H,bottle with diamond top,4,23,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,7,1,1,room1,E,reading a book facing right,5,27,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,7,2,1,room0,E,sitting facing right,3,20,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,7,2,1,room1,E,rabbit sitting down,3,19,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,8,0,2,room0,G,Square top left,3,15,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,8,0,2,room1,G,looks like a dog with 2 ears 1 is bent,10,38,bXuH7inc2zA3trvbs,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,8,1,2,room0,H,Bottle with diamond lid,4,23,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,8,1,2,room1,E,reading book facing right,4,25,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,8,2,2,room0,E,Sitting facing right,3,20,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,8,2,2,room1,H,bottle with diamond lid,4,23,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,9,0,2,room0,H,Bottle with diamond shaped lid,5,30,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,9,0,2,room1,H,forward facing,2,14,bXuH7inc2zA3trvbs,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,9,1,2,room0,G,Square top left,3,15,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,9,1,2,room1,H,bottle with diamond lid,4,23,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,9,2,2,room0,H,"Facing forward, Bottle with diamond top",6,37,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,9,2,2,room1,F,person sat down,3,15,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,10,0,2,room0,E,2 windmill sails on top,5,23,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,10,0,2,room1,F,sitting reading a book facing left,6,34,bXuH7inc2zA3trvbs,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,10,1,2,room0,E,Rabbit sat down,3,15,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,10,1,2,room1,G,square ear and triangle ear,5,27,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,10,2,2,room0,F,Person sat down facing left,5,27,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,10,2,2,room1,G,square top left,3,15,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,11,0,2,room0,F,Person sat down with knees bent,6,31,gwsH5KiNdqjPbxHeh,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,11,0,2,room1,E,"sitting facing right, right angle on the bottom left",9,52,bXuH7inc2zA3trvbs,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,11,1,2,room0,F,Person sat down,3,15,bXuH7inc2zA3trvbs,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,11,1,2,room1,F,reading facing left,3,19,6ppYmNd9mDPXaR9MZ,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,11,2,2,room0,G,Square top left,3,15,6ppYmNd9mDPXaR9MZ,6kaMFu6qq8zRYowRw
+wsHxcQMsocXdSP4Xj,11,2,2,room1,E,rabbit sat down,3,15,gwsH5KiNdqjPbxHeh,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,12,0,3,room0,E,like a rabbit sitting down,5,26,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,12,0,3,room1,F,reading book facing left,4,24,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,12,1,3,room0,F,person sat down,3,15,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,12,1,3,room1,E,reading facing right,3,20,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,12,2,3,room0,E,facing right sitting,3,20,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,12,2,3,room1,F,person sittinf,2,14,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,13,0,3,room0,F,person sitting with knees bent,5,30,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,13,0,3,room1,H,swaddled baby,2,13,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,13,1,3,room0,H,bottle with diamond top,4,23,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,13,1,3,room1,H,forward facing,2,14,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,13,2,3,room0,H,forward facing,2,14,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,13,2,3,room1,H,bottle with diamond lid,4,23,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,14,0,3,room0,H,bottle with diamond lid,4,23,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,14,0,3,room1,E,"two triangle ears, right angle bottom left corner",8,47,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,14,1,3,room0,E,rabbit sat down,3,15,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,14,1,3,room1,F,reading facing left,3,19,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,14,2,3,room0,G,1 square ear 1 triangle ear,6,27,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,14,2,3,room1,E,rabbit sitting,2,14,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,15,0,3,room0,G,"not the bottle, rabbit or person",6,32,6kaMFu6qq8zRYowRw,gwsH5KiNdqjPbxHeh
+wsHxcQMsocXdSP4Xj,15,0,3,room1,G,doing lunges,2,12,6ppYmNd9mDPXaR9MZ,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,15,1,3,room0,G,square top left,3,15,6kaMFu6qq8zRYowRw,bXuH7inc2zA3trvbs
+wsHxcQMsocXdSP4Xj,15,1,3,room1,G,1 square ear 1 triangle ear,6,27,gwsH5KiNdqjPbxHeh,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,15,2,3,room0,F,sitting facing left,3,19,6kaMFu6qq8zRYowRw,6ppYmNd9mDPXaR9MZ
+wsHxcQMsocXdSP4Xj,15,2,3,room1,G,squRE top and triangle top,5,26,bXuH7inc2zA3trvbs,gwsH5KiNdqjPbxHeh
+yaSSoefnWt2KKKe5Y,0,0,0,room0,F,"looks like a man sitting down, with legs sticking out",10,51,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,0,1,0,room0,E,the one with the square and two triangle at the top,11,51,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,0,1,0,room1,E,sitting down with two triangles on head,7,39,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,0,2,0,room0,F,man sitting down with legs sticking out,7,39,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,0,2,0,room1,E,triangle ears hat,3,17,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,1,0,0,room0,H,looks like someone kneeling,4,27,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,1,0,0,room1,G,flat bottom with a squareat the top,7,35,bSPgQvCJa4Bqcqxir,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,1,1,0,room0,G,the one that looks least human like square and triangle on top,12,62,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,1,1,0,room1,G,weird shape one with square and triangle on head,9,48,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,1,2,0,room0,G,triangle sticking out on the bottom right,7,41,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,1,2,0,room1,F,"someone sat on bottom, feet out, looking down",8,41,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,2,0,0,room0,G,looks like a backwards c shape with a square and triangle on top,13,64,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,2,0,0,room1,H,pointy top with no other bits sticking out anywhere,9,51,bSPgQvCJa4Bqcqxir,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,2,1,0,room0,F,looks like man sitting down with legs sticking out,9,50,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,2,1,0,room1,H,diamond shaped square on head,5,29,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,2,2,0,room0,H,blob with a square on top,6,25,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,2,2,0,room1,G,triangle bottom right,3,21,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,3,0,0,room0,E,the one that you picked when i said the man kneelinh,11,52,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,3,0,0,room1,E,triangle base with 2 triangles on top of a square,10,49,bSPgQvCJa4Bqcqxir,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,3,1,0,room0,H,like a blob and square on top,7,29,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,3,1,0,room1,F,sitting with foot out,4,21,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,3,2,0,room0,E,two triangles at the top,5,24,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,3,2,0,room1,H,someone kneeling from behin,4,27,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,4,0,1,room0,F,backwards C shape,3,17,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,4,0,1,room1,G,Head looking backwards arm up,5,29,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,4,1,1,room0,F,like man sat down with feet out knees bent,9,42,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,4,1,1,room1,E,2 triangles on a square on a triangle,8,37,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,4,2,1,room0,H,blob with a square on top,6,25,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,4,2,1,room1,F,sat down with foot sticking out square head,8,43,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,5,0,1,room0,H,the one that looks like he is kneeling,8,38,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,5,0,1,room1,H,looks like someone kneeling down from behind,7,44,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,5,1,1,room0,H,somone knelt down from behind,5,29,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,5,1,1,room1,G,sat down with hands back square head,7,36,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,5,2,1,room0,E,2 trianlges on a square on a triangle,8,37,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,5,2,1,room1,H,diamond shape square head more front on kneeling,8,48,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,6,0,1,room0,E,sitting with legs out and two triangles on head,9,47,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,6,0,1,room1,E,big ears,2,8,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,6,1,1,room0,E,big ears or triangles hat,5,25,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,6,1,1,room1,F,sat with kneesbent head down,5,28,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,6,2,1,room0,F,sat with knees bent square head,6,31,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,6,2,1,room1,G,the one with a square and triangle head and triangle hand,11,57,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,7,0,1,room0,G,the one that looks like it is less human shaped,10,47,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,7,0,1,room1,F,"sat down, feet foward, looking slighly down",7,43,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,7,1,1,room0,G,triangle bottom right,3,21,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,7,1,1,room1,H,blobwith diamond head,3,21,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,7,2,1,room0,G,sat down triangle on right,5,26,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,7,2,1,room1,E,two triangles on head,4,21,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,8,0,2,room0,G,less human one,3,14,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,8,0,2,room1,G,sat down hands back,4,19,bSPgQvCJa4Bqcqxir,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,8,1,2,room0,H,blob with square on top,5,23,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,8,1,2,room1,F,sat down foot sticking out square head,7,38,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,8,2,2,room0,G,triangle bottom right,3,21,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,8,2,2,room1,H,"kneeling from behind, blob with square on top",8,43,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,9,0,2,room0,H,the one thats like a blob with a square on top,11,46,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,9,0,2,room1,F,sat kees bend head down,5,23,bSPgQvCJa4Bqcqxir,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,9,1,2,room0,F,sitting down with legs sticking out,6,35,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,9,1,2,room1,G,weird shaped one with a sqaure and triangle on head and a triangle hand,14,71,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,9,2,2,room0,H,blob with square on top,5,23,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,9,2,2,room1,F,sat on bottom with legs out head down,8,37,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,10,0,2,room0,F,"sitting down and legs out, square head",7,38,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,10,0,2,room1,E,big ears,2,8,bSPgQvCJa4Bqcqxir,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,10,1,2,room0,E,two triangles ears,3,18,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,10,1,2,room1,E,sat down square and two triangles on head,8,41,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,10,2,2,room0,E,two triangles on top,4,20,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,10,2,2,room1,G,triangle bottom right,3,21,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,11,0,2,room0,E,"two triangle at the top, like a rabbit",8,38,pdcfpzEknd6MZ9Fba,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,11,0,2,room1,H,kneeing from behind,3,19,bSPgQvCJa4Bqcqxir,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,11,1,2,room0,G,triangle bottom right,3,21,bSPgQvCJa4Bqcqxir,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,11,1,2,room1,H,diamond shaped head,3,19,TWuHKQ4ug3ATkxNXt,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,11,2,2,room0,F,"sitting down, ;legs out",4,23,TWuHKQ4ug3ATkxNXt,Gsk9wfyztmMMsboDj
+yaSSoefnWt2KKKe5Y,11,2,2,room1,E,triangle ears or hat,4,20,pdcfpzEknd6MZ9Fba,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,12,0,3,room0,H,blob with diamond shaped square,5,31,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,12,0,3,room1,H,kneeling from behind,3,20,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,12,1,3,room0,G,triangle bottom right,3,21,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,12,1,3,room1,F,sat down knees bent looking down,6,32,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,12,2,3,room0,G,sitting with triangle on right,5,30,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,12,2,3,room1,F,sat down with foot sticking out,6,31,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,13,0,3,room0,E,sitting down with two triangles on head,7,39,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,13,0,3,room1,F,"Sat on bottom, feet forward, head down",7,34,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,13,1,3,room0,H,"blob square on top, or man knelt down from behind",10,49,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,13,1,3,room1,H,blob with diamond head,4,22,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,13,2,3,room0,F,sitting knees bent square head,5,30,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,13,2,3,room1,G,triangle botton right,3,21,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,14,0,3,room0,G,one that doesn't look human with a square and triangle at top,13,61,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,14,0,3,room1,G,triangle sticking out at the bottom,6,35,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,14,1,3,room0,F,someone sat down with legs out no ears,8,38,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,14,1,3,room1,E,2 triangles on a square on a triangle,8,37,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,14,2,3,room0,H,blob with square head,4,21,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,14,2,3,room1,H,diamond shape square on head,5,28,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,15,0,3,room0,F,sitting down with square on head and foot sticking out,10,54,Gsk9wfyztmMMsboDj,pdcfpzEknd6MZ9Fba
+yaSSoefnWt2KKKe5Y,15,0,3,room1,E,big ears,2,8,TWuHKQ4ug3ATkxNXt,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,15,1,3,room0,E,"triange ears hat, triangle",4,24,Gsk9wfyztmMMsboDj,bSPgQvCJa4Bqcqxir
+yaSSoefnWt2KKKe5Y,15,1,3,room1,G,sat down square head with triangle at back,8,42,pdcfpzEknd6MZ9Fba,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,15,2,3,room0,E,2 triangles on a square on a triangle,8,37,Gsk9wfyztmMMsboDj,TWuHKQ4ug3ATkxNXt
+yaSSoefnWt2KKKe5Y,15,2,3,room1,E,two triangles on head,4,21,bSPgQvCJa4Bqcqxir,pdcfpzEknd6MZ9Fba

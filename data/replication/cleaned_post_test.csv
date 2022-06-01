@@ -1,0 +1,129 @@
+gameId,playerId,tangram,text,ownGroup,recipientGroup,tangramCond,utt_length_words
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,B,person kneeling or crouching,ownGroup,red,repeated,4
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,A,person standing on one leg,ownGroup,red,repeated,5
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,A,person standing with one foot stuck out,ownGroup,red,repeated,7
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,D,person standing looking left maybe holding a tray,ownGroup,red,repeated,8
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,D,"person standing with arms to the left, holding a tray",ownGroup,red,repeated,10
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,D,Person standing with arms to the left,ownGroup,red,repeated,7
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,C,person falling backwards with arms stretched out,ownGroup,red,repeated,7
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,G,Person with a sweeping tail gown at left,otherGroup,blue,control,8
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,A,Person standing on one foot,ownGroup,red,repeated,5
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,C,Person falling with arms up,ownGroup,red,repeated,5
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,B,Person kneeling sticking their arms out,ownGroup,red,repeated,6
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,B,person sitting kneeling with triangle on back of head,ownGroup,red,repeated,9
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,H,A person sitting like on a chair,otherGroup,blue,control,7
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,C,person leaning left with both arms up,ownGroup,red,repeated,7
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,E,Having two triangles on the head,otherGroup,blue,control,6
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,F,person sitting on the floor with their arms on their legs and heels on the floor,ownGroup,red,control,16
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,E,person sitting leaning against a wall with a headdress hat,ownGroup,red,control,10
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,G,Person sitting with arms behind them,ownGroup,red,control,6
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,F,A person sitting on the floor with legs out to left,otherGroup,blue,control,11
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,H,a person kneeling to the right with not much detail,ownGroup,red,control,10
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,F,person sitting on the floor with head bowed down,ownGroup,red,control,9
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,C,Person falling to left with arms up in air,otherGroup,blue,repeated,9
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,F,"Person sitting with legs out, knees bent",ownGroup,red,control,7
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,A,Person standing on one foot,otherGroup,blue,repeated,5
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,B,Kneeling or sitting,otherGroup,blue,repeated,3
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,H,Person sitting facing away,ownGroup,red,control,4
+5DPBkeiGxRisStRiY,8YFWjNuom6bt9tfJG,D,Person standing with arms out to left as if holding a book or tray,otherGroup,blue,repeated,14
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,G,a person with one leg stretched far back behind them and an arm stretched in the opposite direction Their other leg is in the same direction as their arm,ownGroup,red,control,29
+5DPBkeiGxRisStRiY,W4MQ5woSyJjCuAE5G,E,Rabbit,ownGroup,red,control,1
+5DPBkeiGxRisStRiY,NqAQeDPXaQh2Xv2KD,E,"A person sat, looking right with 2 triangles on their head",ownGroup,red,control,11
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,G,square on top to the left triangle to the bottom right,ownGroup,red,control,11
+5DPBkeiGxRisStRiY,NWBxYqkdH4xSzDiw9,H,person with arms not showing maybe down by their sides,ownGroup,red,control,10
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,G,"Weirdest looking shapes, square and triangle head",otherGroup,blue,repeated,7
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,A,"Dancing person with wings , square head",ownGroup,red,control,6
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,C,looks like somone falling with their arms in the air,otherGroup,blue,control,10
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,H,"Pregnant looking, triangle feet to left",otherGroup,blue,repeated,6
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,B,lady gaga,otherGroup,blue,control,2
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,D,Looks like a monk praying,ownGroup,red,control,5
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,D,like a priest,otherGroup,blue,control,3
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,E,"Rabbit ears, two triangles on head",otherGroup,blue,repeated,6
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,F,"Sat down, feet to left",otherGroup,blue,repeated,5
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,A,"diamond head leaning to right, looks like is lifting on leg in the air",otherGroup,blue,control,14
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,C,"man leaning to left, with hands in air",otherGroup,blue,control,8
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,C,hands up,otherGroup,blue,control,2
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,B,"Diamond head, 2 triangles underneath , kneeling people",ownGroup,red,control,7
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,B,looks like a mouse square and triangle ears and point of a triangle makes the nose on the left hand side,otherGroup,blue,control,21
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,D,"looks like they are holding a hat, stood up straight",otherGroup,blue,control,10
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,H,"diamond head, long body, triangle pointing to right",otherGroup,blue,repeated,8
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,A,twisted head,otherGroup,blue,control,2
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,C,Parallelogram top fight and left,ownGroup,red,control,5
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,F,sitting down,otherGroup,blue,repeated,2
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,B,"Loads of shapes, square on top, triangle of right",otherGroup,blue,control,9
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,E,"Bunny ears, sitting down",ownGroup,red,repeated,4
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,E,bunny ears,otherGroup,blue,repeated,2
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,G,"looks like someone dancing, lots of different shapes, diamond head leaning to left",otherGroup,blue,repeated,13
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,F,"Sitting, square head",ownGroup,red,repeated,3
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,F,looks like a man sitting down legs to the left,otherGroup,blue,repeated,10
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,G,kneeling square figure,otherGroup,blue,repeated,3
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,E,"looks like bunny ears, two triangles coming out of top of a diamond",otherGroup,blue,repeated,13
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,G,"Square top left , parallelogram bottom left",ownGroup,red,repeated,6
+EAxRXE75t42iKMLtA,Zvis4zQYCcmj9WPAS,H,no legs showing,otherGroup,blue,repeated,3
+EAxRXE75t42iKMLtA,3cNdpmDp6YkmE9HPv,H,"No feet, long and thin diamond head",ownGroup,red,repeated,7
+EAxRXE75t42iKMLtA,avSXPP4tF6v6Z3hAq,D,looks like someone with wide sleeves with their arms held out to the left,otherGroup,blue,control,14
+EAxRXE75t42iKMLtA,3po2pCre5CgtX7euo,A,"Bird beak, two feet one on floor and one in air",otherGroup,blue,control,11
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,E,rabbit sitting down,otherGroup,red,repeated,3
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,A,"Square top right Looks like a person with 2 legs, one raised",otherGroup,red,control,12
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,B,Diamond on top with 2 triangles below,otherGroup,red,control,7
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,D,Person with diamond head carrying a square,otherGroup,red,control,7
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,H,bottle with diamond lid,otherGroup,red,repeated,4
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,F,person sitting down,otherGroup,red,repeated,3
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,H,Like a bottle with a diamond-shaped lid,otherGroup,red,repeated,8
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,F,sitting reading facing left,otherGroup,red,repeated,4
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,F,Person sat down facing left,otherGroup,red,repeated,5
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,D,priest reading bible,otherGroup,red,control,3
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,G,1 square ear 1 triangle ear,otherGroup,red,repeated,6
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,H,forward facing,otherGroup,red,repeated,2
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,E,Rabbit sat down facing right,otherGroup,red,repeated,5
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,A,person kicking,otherGroup,red,control,2
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,E,rabbit sitting facing right,otherGroup,red,repeated,4
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,G,square ear and triangle ear,otherGroup,red,repeated,5
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,G,Square top left opposite triangle,otherGroup,red,repeated,5
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,C,Diamond head Body floating with arms up,otherGroup,red,control,7
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,B,sqaure on top with triangle underneath,otherGroup,red,control,6
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,G,"Square in the top left, triangle in the top right",otherGroup,red,repeated,10
+wsHxcQMsocXdSP4Xj,6kaMFu6qq8zRYowRw,H,Bottle with diamond top,otherGroup,red,repeated,4
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,E,Like a rabbit sitting down or a right-angle triangle in the bottom left corner,otherGroup,red,repeated,15
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,F,Like a person sitting down with knees bent,otherGroup,red,repeated,8
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,B,sugar lump on top of a coffee pot with a triangle lid which needs to be flipped up to close,otherGroup,red,control,20
+wsHxcQMsocXdSP4Xj,gwsH5KiNdqjPbxHeh,C,person diving for a ball,otherGroup,red,control,5
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,C,Like a person going to save a goal with their arms up,otherGroup,red,control,12
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,A,Carrying a box on my back whilst walking left,otherGroup,red,control,9
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,D,person standing hands out stretched in front of them facing left,otherGroup,red,control,11
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,B,Kneeling monk with triangle coming from mouth,otherGroup,red,control,7
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,A,person walking left with a square on their back,otherGroup,red,control,9
+wsHxcQMsocXdSP4Xj,bXuH7inc2zA3trvbs,D,Diamond head man with upside-down hat in hands,otherGroup,red,control,9
+wsHxcQMsocXdSP4Xj,6ppYmNd9mDPXaR9MZ,C,letter Y with a diamond in the top centre,otherGroup,red,control,9
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,D,standing with hands out with a diamond head,ownGroup,blue,control,8
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,H,diamond shape square head,otherGroup,red,repeated,4
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,E,two triangles on top of a square on top of another triangle,otherGroup,red,repeated,12
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,F,sat down with foot sticking out square head,otherGroup,red,repeated,8
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,G,triangle hand bottom right,otherGroup,red,repeated,4
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,G,"square and triangle on top, with a triangle on the bottom right",otherGroup,red,repeated,12
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,A,standing with one leg raised with diamond on back,ownGroup,blue,control,9
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,E,two triangles on head,otherGroup,red,repeated,4
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,A,someone walking while looking backwards,otherGroup,red,control,5
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,F,"like a side view of man sitting down with legs sticking out and knees bent, square head",otherGroup,red,repeated,17
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,C,flying open arms diamond square head,otherGroup,red,control,6
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,B,diamond on a triangle on a funny shape,ownGroup,blue,control,8
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,D,someone stood up with arms out carrying something,otherGroup,red,control,8
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,H,a blob with a square on top,otherGroup,red,repeated,7
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,D,diamond shape square head reading a book,otherGroup,red,control,7
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,C,floating with a diamond head,ownGroup,blue,control,5
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,H,blob with diamond on top,ownGroup,blue,repeated,5
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,C,looks like a man with his arms opened out and square head,otherGroup,red,control,12
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,A,zombie looking two feet slanted square head,otherGroup,red,control,7
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,B,"someone kneeling maybe, with triangle upper right",otherGroup,red,control,7
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,G,"bit of a dancing pose, triangle bottom right",otherGroup,red,repeated,8
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,G,sitting with one hand back and a square head,ownGroup,blue,repeated,9
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,C,legless body with arms in the air,otherGroup,red,control,7
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,D,looks like a side view of a man standing in a robe and holding something out,otherGroup,red,control,16
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,E,2 triangles on a square on a triangle,ownGroup,blue,repeated,8
+yaSSoefnWt2KKKe5Y,pdcfpzEknd6MZ9Fba,B,kneeling diamond shape square head foot sticking out on left,otherGroup,red,control,10
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,E,triangle ears hat,otherGroup,red,repeated,3
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,B,sqaure and triangle on the top with triangle on bottom left,otherGroup,red,control,11
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,F,someone sat on bottom with legs out,otherGroup,red,repeated,7
+yaSSoefnWt2KKKe5Y,TWuHKQ4ug3ATkxNXt,F,sitting with knees bent looking down,ownGroup,blue,repeated,6
+yaSSoefnWt2KKKe5Y,bSPgQvCJa4Bqcqxir,H,someone kneeling down from behind,otherGroup,red,repeated,5
+yaSSoefnWt2KKKe5Y,Gsk9wfyztmMMsboDj,A,looks like a man walking with a square on his back,otherGroup,red,control,11
