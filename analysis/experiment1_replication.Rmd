@@ -135,7 +135,8 @@ post_test.raw <- read_csv(here('data/Empirica Data - 2022-05-25 22-57-06/player-
          tangram = gsub('.png', '', tangram, fixed=TRUE),
          utt_length_chars = str_length(text), 
          utt_length_words = str_count(text, "\\W+") + 1,
-         ownGroup = ifelse(ownGroup == recipientGroup, 'ownGroup', 'otherGroup')) %>%
+         group = ownGroup,
+         ownGroup = ifelse(group == recipientGroup, 'ownGroup', 'otherGroup')) %>%
   mutate(currSet = ifelse(tangram %in% c("A", "B", "C", "D"), "setA", "setB")) %>%
   mutate(tangramCond = ifelse(currSet == targetSet, 'repeated', 'control')) %>%
   filter(!is.na(text))
@@ -223,6 +224,38 @@ ggplot(temp.chat, aes(x = repNum + 1, y = empirical_stat, group = ownGroup, colo
     theme(aspect.ratio = 1)
 # ggsave('../writing/speaker_curves.pdf', units = 'in', height = 3, width = 4)
 ```
+
+Normalize utterance length based on partner 2 rep 0 (aka partner 3 rep 1)
+
+```{r}
+post_test.raw.temp <- post_test.raw %>%
+  filter(tangramCond == "repeated") %>%
+  left_join(d.chat %>%
+              filter(partnerNum == 2, repNum == 0)
+            , by = c("playerId" = "speaker", "tangram")) %>%
+  mutate(diff = total_num_words - utt_length_words)
+
+post_test.raw.temp.means <- post_test.raw.temp %>%
+  group_by(ownGroup) %>%
+  tidyboot_mean(diff, na.rm = TRUE) %>%
+  ungroup()
+```
+
+```{r}
+ggplot(post_test.raw.temp.means, aes(x = ownGroup, y = empirical_stat, color = ownGroup)) + 
+    geom_line(position = dodge) +
+    geom_point(position = dodge) +
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), width = 0, position = dodge) +
+    theme_few() +
+    theme(aspect.ratio = 1)
+
+ggplot(post_test.raw.temp, aes(x = ownGroup, y = diff, color=ownGroup)) + 
+  geom_point() + 
+  theme_few() + 
+  theme(aspect.ratio = 1)
+```
+
+
 Look at per-tangram results
 ```{r}
 
