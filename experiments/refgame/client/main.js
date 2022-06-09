@@ -33,16 +33,16 @@ Empirica.consent(Consent);
 // different instruction steps depending on the assigned treatment.
 Empirica.introSteps((game, player, treatment) => {
   const steps = [Overview];
-  if (game.treatment.playerCount > 1) {
-    steps.push(TeamDetails, SocialInteractionDetails);
-  }
-  steps.push(MoreAboutBonus, UIOverview);
+  // if (game.treatment.playerCount > 1) {
+  //   steps.push(TeamDetails, SocialInteractionDetails);
+  // }
+  // steps.push(MoreAboutBonus, UIOverview);
 
-  if (game.treatment.playerCount > 1) {
-    steps.push(GroupQuiz);
-  } else {
-    steps.push(IndividualQuiz);
-  }
+  // if (game.treatment.playerCount > 1) {
+  //   steps.push(GroupQuiz);
+  // } else {
+  //   steps.push(IndividualQuiz);
+  // }
 
   return steps;
 });
