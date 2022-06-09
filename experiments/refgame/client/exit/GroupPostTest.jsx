@@ -1,5 +1,7 @@
 import React from "react";
-
+import Tangram from "../game/Tangram.jsx";
+import ChatLog from "../game/ChatLog.jsx";
+import EventLog from "../game/EventLog.jsx";
 import { AlertToaster, Centered } from "meteor/empirica:core";
 
 import {
@@ -37,12 +39,41 @@ class GroupPostTest extends React.Component {
 
   showTangram = () => {
     const { player, game } = this.props;
+    player.set('clicked', false)
+    const tangramsToRender = this.state.context.map((tangram, i) => (
+        <Tangram
+          key={tangram}
+          tangram={tangram}
+          tangram_num={i}
+          game={game}
+          player={player}
+          target={this.state.tangram}
+        />
+    ));
+    //                {this.renderPlayer(player, true)}
+
     return (
       <div>
-        <div className="image">
-          <center><img width='200px' src={this.state.tangram} /></center>
+        <div className="round">
+          <div className="social-interactions">
+            <div className="status">
+              <div className="players bp3-card">
+              </div>
+            </div>
+            <ChatLog messages={[]} player={player} />
+            <EventLog events={[]} game={game} player={player} />
+          </div>
+          <div className="task">
+            <div className="board">
+              <h1 className="roleIndicator"> You are the speaker.</h1>
+              <div className="all-tangrams">
+                <div className="tangrams">
+                  {tangramsToRender}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
         <div className="pt-form-group">
           <div className="pt-form-content">
             <label style={{ color: player.get("postTestGroup") }} htmlFor={this.state.id}>
@@ -102,6 +133,8 @@ export class BlueA extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_A.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueA',
@@ -117,12 +150,14 @@ export class BlueB extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_B.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueB',
       text: ""
     };
-  }
+ }
 }
 
 export class BlueC extends GroupPostTest {
@@ -132,6 +167,8 @@ export class BlueC extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_C.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueC',
@@ -147,6 +184,8 @@ export class BlueD extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_D.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueD',
@@ -163,6 +202,8 @@ export class BlueE extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_E.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueE',
@@ -178,6 +219,8 @@ export class BlueF extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_F.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueF',
@@ -193,6 +236,8 @@ export class BlueG extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_G.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueG',
@@ -208,6 +253,8 @@ export class BlueH extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_H.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueH',
@@ -224,6 +271,8 @@ export class RedA extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_A.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redA',
@@ -239,6 +288,8 @@ export class RedB extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_B.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redB',
@@ -254,6 +305,8 @@ export class RedC extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_C.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redC',
@@ -269,6 +322,8 @@ export class RedD extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_D.png",
+      context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
+                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redD',
@@ -283,6 +338,8 @@ export class RedE extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_E.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redE',
@@ -298,6 +355,8 @@ export class RedF extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_F.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redF',
@@ -313,6 +372,8 @@ export class RedG extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_G.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redG',
@@ -328,6 +389,8 @@ export class RedH extends GroupPostTest {
     super(props);
     this.state = {
       tangram: "/experiment/tangram_H.png",
+      context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
+                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redH',
