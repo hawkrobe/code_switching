@@ -21,9 +21,8 @@ export default class Tangram extends React.Component {
   };
   
   render() {
-    const { tangram, tangram_num, round, stage, player, ...rest } = this.props;
+    const { tangram, tangram_num, round, stage, player, target, ...rest } = this.props;
     const room = player.get('roomId')
-    const target = round.get("target")[room]
     const row = 1 + Math.floor(tangram_num / 2)
     const column = 1 + tangram_num % 2
     const mystyle = {
