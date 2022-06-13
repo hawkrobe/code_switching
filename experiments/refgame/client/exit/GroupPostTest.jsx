@@ -35,7 +35,30 @@ class GroupPostTest extends React.Component {
     }
   };
 
-  showTangram = () => {
+  // showTangram = () => {
+  //   const { player, game } = this.props;
+  //   player.set('clicked', false)
+  //   player.set('role', 'speaker')
+  //   const tangramsToRender = this.state.context.map((tangram, i) => (
+  //     <TangramExit
+  //       key={tangram}
+  //       tangram={tangram}
+  //       tangram_num={i}
+  //       // game={game}
+  //       player={player}
+  //       target={this.state.tangram}
+  //     />
+  //   ));
+  //   //                {this.renderPlayer(player, true)}
+
+  //   return (
+  //     []
+  //   )
+  // }
+
+  componentWillMount() { }
+
+  render() {
     const { player, game } = this.props;
     player.set('clicked', false)
     player.set('role', 'speaker')
@@ -48,61 +71,8 @@ class GroupPostTest extends React.Component {
         player={player}
         target={this.state.tangram}
       />
-    ));
-    //                {this.renderPlayer(player, true)}
+    ))
 
-    return (
-      <div>
-        <div className="round">
-          <div className="social-interactions">
-            <div className="status">
-              <div className="players bp3-card">
-                <h4 className="bp3-heading">
-                  Describe the target object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
-                </h4>
-              </div>
-            </div>
-
-            <div className="chat bp3-card">
-            <div className="messages">
-            <div className="empty">No messages yet...</div>
-            </div>
-              <form onSubmit={this.handleSubmit}>
-                <div className="bp3-control-group">
-                  <input
-                    name="comment"
-                    type="text"
-                    className="bp3-input bp3-fill"
-                    placeholder="Enter chat message"
-                    onChange={this.handleChange}
-                    autoComplete="off"
-                  />
-                  <button type="submit" className="bp3-button bp3-intent-primary">
-                    Send
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div className="task">
-            <div className="board">
-              <h1 className="roleIndicator"> You are the speaker.</h1>
-              <div className="all-tangrams">
-                <div className="tangrams">
-                  {tangramsToRender}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  componentWillMount() { }
-
-  render() {
-    const { player, game } = this.props;
     return this.state.loadingNextRound ? (
       <Centered>
         <div className="post-test"> <h3> Got it! Loading next question... </h3></div>
@@ -110,13 +80,57 @@ class GroupPostTest extends React.Component {
     ) : (
       <Centered>
         <div className="post-test">
-            <h1>
-              You are transmitting a message to <b>Wepi</b>, who is a member of {player.get("postTestGroup") == game.treatment.teamColor ? "your own community, " : " the other community, "} the <b style={{ color: player.get("postTestGroup") }}>{player.get("postTestGroup")} community</b>.
-            </h1>
-            <span className="image">
-              <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
-            </span>
-            {this.showTangram()}
+          <h1>
+            You are transmitting a message to <b>Wepi</b>, who is a member of {player.get("postTestGroup") == game.treatment.teamColor ? "your own community, " : " the other community, "} the <b style={{ color: player.get("postTestGroup") }}>{player.get("postTestGroup")} community</b>.
+          </h1>
+          <span className="image">
+            <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
+          </span>
+          <div>
+            <div className="round">
+              <div className="social-interactions">
+                <div className="status">
+                  <div className="players bp3-card">
+                    <h4 className="bp3-heading">
+                      Describe the target object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
+                    </h4>
+                  </div>
+                </div>
+
+                <div className="chat bp3-card">
+                  <div className="messages">
+                    <div className="empty">No messages yet...</div>
+                  </div>
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="bp3-control-group">
+                      <input
+                        name="comment"
+                        type="text"
+                        className="bp3-input bp3-fill"
+                        placeholder="Enter chat message"
+                        onChange={this.handleChange}
+                        autoComplete="off"
+                      />
+                      <button type="submit" className="bp3-button bp3-intent-primary">
+                        Send
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div className="task">
+                <div className="board">
+                  <h1 className="roleIndicator"> You are the speaker.</h1>
+                  <div className="all-tangrams">
+                    <div className="tangrams">
+                      {tangramsToRender}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </Centered>
     );
