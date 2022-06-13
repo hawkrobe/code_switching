@@ -40,6 +40,7 @@ class GroupPostTest extends React.Component {
   showTangram = () => {
     const { player, game } = this.props;
     player.set('clicked', false)
+    player.set('role', 'speaker')
     const tangramsToRender = this.state.context.map((tangram, i) => (
         <Tangram
           key={tangram}
@@ -106,13 +107,13 @@ class GroupPostTest extends React.Component {
         <div className="post-test">
           <form onSubmit={this.handleSubmit}>
             <h3>
-              You will be transmitting a message to <b>Wepi</b>, who is a new member of {player.get("postTestGroup") == game.treatment.teamColor ? "your own community, " : " the other community, "} the <b style={{ color: player.get("postTestGroup") }}>{player.get("postTestGroup")} community</b>.
+              You will be transmitting a message to <b>Wepi</b>, who is a member of {player.get("postTestGroup") == game.treatment.teamColor ? "your own community, " : " the other community, "} the <b style={{ color: player.get("postTestGroup") }}>{player.get("postTestGroup")} community</b>.
             </h3>
             <span className="image">
               <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
             </span>
             <h4>
-              Describe this object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
+              Describe the target object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
             </h4>
             {this.showTangram()}
             <button type="submit" id='submit-button' className="pt-button pt-intent-primary">
