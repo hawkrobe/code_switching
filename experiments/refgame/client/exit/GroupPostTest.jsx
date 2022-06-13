@@ -1,7 +1,5 @@
 import React from "react";
-import Tangram from "../game/Tangram.jsx";
-import ChatLog from "../game/ChatLog.jsx";
-import EventLog from "../game/EventLog.jsx";
+import TangramExit from "./TangramExit";
 import { AlertToaster, Centered } from "meteor/empirica:core";
 
 import {
@@ -42,14 +40,14 @@ class GroupPostTest extends React.Component {
     player.set('clicked', false)
     player.set('role', 'speaker')
     const tangramsToRender = this.state.context.map((tangram, i) => (
-        <Tangram
-          key={tangram}
-          tangram={tangram}
-          tangram_num={i}
-          game={game}
-          player={player}
-          target={this.state.tangram}
-        />
+      <TangramExit
+        key={tangram}
+        tangram={tangram}
+        tangram_num={i}
+        // game={game}
+        player={player}
+        target={this.state.tangram}
+      />
     ));
     //                {this.renderPlayer(player, true)}
 
@@ -59,10 +57,32 @@ class GroupPostTest extends React.Component {
           <div className="social-interactions">
             <div className="status">
               <div className="players bp3-card">
+                <h4 className="bp3-heading">
+                  Describe the target object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
+                </h4>
               </div>
             </div>
-            <ChatLog messages={[]} player={player} />
-            <EventLog events={[]} game={game} player={player} />
+
+            <div className="chat bp3-card">
+            <div className="messages">
+            <div className="empty">No messages yet...</div>
+            </div>
+              <form onSubmit={this.handleSubmit}>
+                <div className="bp3-control-group">
+                  <input
+                    name="comment"
+                    type="text"
+                    className="bp3-input bp3-fill"
+                    placeholder="Enter chat message"
+                    onChange={this.handleChange}
+                    autoComplete="off"
+                  />
+                  <button type="submit" className="bp3-button bp3-intent-primary">
+                    Send
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
           <div className="task">
             <div className="board">
@@ -73,21 +93,6 @@ class GroupPostTest extends React.Component {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="pt-form-group">
-          <div className="pt-form-content">
-            <label style={{ color: player.get("postTestGroup") }} htmlFor={this.state.id}>
-              {"How would you describe the tangram above to a member of the " + player.get("postTestGroup") + " community?"}
-            </label>
-            <TextArea
-              id={this.state.id}
-              large={true}
-              intent={Intent.PRIMARY}
-              onChange={this.handleChange}
-              fill={true}
-              name={this.state.id}
-            />
           </div>
         </div>
       </div>
@@ -105,22 +110,13 @@ class GroupPostTest extends React.Component {
     ) : (
       <Centered>
         <div className="post-test">
-          <form onSubmit={this.handleSubmit}>
-            <h3>
-              You will be transmitting a message to <b>Wepi</b>, who is a member of {player.get("postTestGroup") == game.treatment.teamColor ? "your own community, " : " the other community, "} the <b style={{ color: player.get("postTestGroup") }}>{player.get("postTestGroup")} community</b>.
-            </h3>
+            <h1>
+              You are transmitting a message to <b>Wepi</b>, who is a member of {player.get("postTestGroup") == game.treatment.teamColor ? "your own community, " : " the other community, "} the <b style={{ color: player.get("postTestGroup") }}>{player.get("postTestGroup")} community</b>.
+            </h1>
             <span className="image">
               <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
             </span>
-            <h4>
-              Describe the target object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
-            </h4>
             {this.showTangram()}
-            <button type="submit" id='submit-button' className="pt-button pt-intent-primary">
-              Submit
-              <span className="pt-icon-standard pt-icon-key-enter pt-align-right" />
-            </button>
-          </form>
         </div>
       </Centered>
     );
@@ -135,7 +131,7 @@ export class BlueA extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_A.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueA',
@@ -152,13 +148,13 @@ export class BlueB extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_B.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueB',
       text: ""
     };
- }
+  }
 }
 
 export class BlueC extends GroupPostTest {
@@ -169,7 +165,7 @@ export class BlueC extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_C.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueC',
@@ -186,7 +182,7 @@ export class BlueD extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_D.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueD',
@@ -204,7 +200,7 @@ export class BlueE extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_E.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueE',
@@ -221,7 +217,7 @@ export class BlueF extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_F.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueF',
@@ -238,7 +234,7 @@ export class BlueG extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_G.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueG',
@@ -255,7 +251,7 @@ export class BlueH extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_H.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'blue',
       ownGroup: props.game.treatment.teamColor,
       id: 'blueH',
@@ -273,7 +269,7 @@ export class RedA extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_A.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redA',
@@ -290,7 +286,7 @@ export class RedB extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_B.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redB',
@@ -307,7 +303,7 @@ export class RedC extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_C.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redC',
@@ -324,7 +320,7 @@ export class RedD extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_D.png",
       context: ["/experiment/tangram_A.png", "/experiment/tangram_B.png",
-                "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
+        "/experiment/tangram_C.png", "/experiment/tangram_D.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redD',
@@ -340,7 +336,7 @@ export class RedE extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_E.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redE',
@@ -357,7 +353,7 @@ export class RedF extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_F.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redF',
@@ -374,7 +370,7 @@ export class RedG extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_G.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redG',
@@ -391,7 +387,7 @@ export class RedH extends GroupPostTest {
     this.state = {
       tangram: "/experiment/tangram_H.png",
       context: ["/experiment/tangram_E.png", "/experiment/tangram_F.png",
-                "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
+        "/experiment/tangram_G.png", "/experiment/tangram_H.png"],
       recipientGroup: 'red',
       ownGroup: props.game.treatment.teamColor,
       id: 'redH',
