@@ -13,6 +13,10 @@ import {
 } from "@blueprintjs/core";
 
 class GroupPostTest extends React.Component {
+  // componentDidMount() {
+  //   this.messagesEl.scrollTop = this.messagesEl.scrollHeight;
+  // }
+
   handleChange = (event) => {
     const el = event.currentTarget;
     this.setState({ 'text': el.value });
@@ -36,7 +40,9 @@ class GroupPostTest extends React.Component {
   };
 
 
+
   componentWillMount() { }
+
 
   render() {
     const { player, game } = this.props;
@@ -67,10 +73,11 @@ class GroupPostTest extends React.Component {
           <span className="image">
             <img src={`experiment/communities/post_test/${player.get("avatarName")}_${player.get("postTestGroup")}.png`} style={{ height: "300px" }} />
           </span>
+          <hr></hr>
           <div>
             <div className="round">
               <div className="social-interactions">
-                <div className="status">
+                <div className="status" style={{ height: 130}}>
                   <div className="players bp3-card">
                     <h4 className="bp3-heading">
                       Describe the target object for <b>Wepi</b>. You'll receive a $0.10 bonus if they can choose it correctly based on your message.
@@ -79,7 +86,7 @@ class GroupPostTest extends React.Component {
                 </div>
 
                 <div className="chat bp3-card">
-                  <div className="messages">
+                  <div className="messages" style={{ height: 420 }}>
                     <div className="empty">No messages yet...</div>
                   </div>
                   <form onSubmit={this.handleSubmit}>
@@ -88,6 +95,7 @@ class GroupPostTest extends React.Component {
                         id={this.state.id}
                         name={this.state.id}
                         type="text"
+                        large={true}
                         intent={Intent.PRIMARY}
                         className="bp3-input bp3-fill"
                         placeholder="Enter chat message"
