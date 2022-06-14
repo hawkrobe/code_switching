@@ -35,26 +35,6 @@ class GroupPostTest extends React.Component {
     }
   };
 
-  // showTangram = () => {
-  //   const { player, game } = this.props;
-  //   player.set('clicked', false)
-  //   player.set('role', 'speaker')
-  //   const tangramsToRender = this.state.context.map((tangram, i) => (
-  //     <TangramExit
-  //       key={tangram}
-  //       tangram={tangram}
-  //       tangram_num={i}
-  //       // game={game}
-  //       player={player}
-  //       target={this.state.tangram}
-  //     />
-  //   ));
-  //   //                {this.renderPlayer(player, true)}
-
-  //   return (
-  //     []
-  //   )
-  // }
 
   componentWillMount() { }
 
@@ -62,6 +42,7 @@ class GroupPostTest extends React.Component {
     const { player, game } = this.props;
     player.set('clicked', false)
     player.set('role', 'speaker')
+
     const tangramsToRender = this.state.context.map((tangram, i) => (
       <TangramExit
         key={tangram}
@@ -104,14 +85,16 @@ class GroupPostTest extends React.Component {
                   <form onSubmit={this.handleSubmit}>
                     <div className="bp3-control-group">
                       <input
-                        name="comment"
+                        id={this.state.id}
+                        name={this.state.id}
                         type="text"
+                        intent={Intent.PRIMARY}
                         className="bp3-input bp3-fill"
                         placeholder="Enter chat message"
                         onChange={this.handleChange}
                         autoComplete="off"
                       />
-                      <button type="submit" className="bp3-button bp3-intent-primary">
+                      <button type="submit" id='submit-button' className="bp3-button bp3-intent-primary">
                         Send
                       </button>
                     </div>
