@@ -33,16 +33,16 @@ Empirica.consent(Consent);
 // different instruction steps depending on the assigned treatment.
 Empirica.introSteps((game, player, treatment) => {
   const steps = [Overview];
-  // if (game.treatment.playerCount > 1) {
-  //   steps.push(TeamDetails, SocialInteractionDetails);
-  // }
-  // steps.push(MoreAboutBonus, UIOverview);
+  if (game.treatment.playerCount > 1) {
+    steps.push(TeamDetails, SocialInteractionDetails);
+  }
+  steps.push(MoreAboutBonus, UIOverview);
 
-  // if (game.treatment.playerCount > 1) {
-  //   steps.push(GroupQuiz);
-  // } else {
-  //   steps.push(IndividualQuiz);
-  // }
+  if (game.treatment.playerCount > 1) {
+    steps.push(GroupQuiz);
+  } else {
+    steps.push(IndividualQuiz);
+  }
 
   return steps;
 });
@@ -50,6 +50,7 @@ Empirica.introSteps((game, player, treatment) => {
 // The Round component containing the game UI logic.
 // This is where you will be doing the most development.
 // See client/game/Round.jsx to learn more.
+
 Empirica.round(Round);
 
 // End of Game pages. These may vary depending on player or game information.
@@ -85,9 +86,6 @@ Empirica.exitSteps((game, player) => {
         var post_test = [blues_setB, blues_setA];
       };
     };
-
-    // const post_test = game.treatment.teamColor == 'red' ? [reds_setA, reds_setB] : [blues_setA, blues_setB];
-    // game.treatment.targetSet == 'setA'
 
     return [PostTestInstructions].concat(_.flatten(post_test)).concat(ExitSurvey, Thanks);
   }

@@ -13,9 +13,6 @@ import {
 } from "@blueprintjs/core";
 
 class GroupPostTest extends React.Component {
-  // componentDidMount() {
-  //   this.messagesEl.scrollTop = this.messagesEl.scrollHeight;
-  // }
 
   handleChange = (event) => {
     const el = event.currentTarget;
@@ -46,8 +43,8 @@ class GroupPostTest extends React.Component {
 
   render() {
     const { player, game } = this.props;
-    player.set('clicked', false)
-    player.set('role', 'speaker')
+    // player.set('clicked', false)
+    // player.set('role', 'speaker')
 
     const tangramsToRender = this.state.context.map((tangram, i) => (
       <TangramExit
@@ -95,11 +92,10 @@ class GroupPostTest extends React.Component {
                         id={this.state.id}
                         name={this.state.id}
                         type="text"
-                        large={true}
                         intent={Intent.PRIMARY}
+                        onChange={this.handleChange}
                         className="bp3-input bp3-fill"
                         placeholder="Enter chat message"
-                        onChange={this.handleChange}
                         autoComplete="off"
                       />
                       <button type="submit" id='submit-button' className="bp3-button bp3-intent-primary">
