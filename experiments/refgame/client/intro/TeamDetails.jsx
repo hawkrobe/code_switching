@@ -118,7 +118,7 @@ export default class TeamDetails extends React.Component {
 
           <p>
             After the final round of your game with one partner, you will <b>switch partners</b> to
-            play with someone on your team that you haven't talked to before!  Once you have played a game
+            play with someone on your team that you haven't talked to before!  Once you have interacted
             with <b>three different partners</b>, we'll ask you a few additional questions and you'll be on your way.
           </p>
 
