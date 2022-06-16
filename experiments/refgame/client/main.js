@@ -8,6 +8,7 @@ import "@blueprintjs/core/lib/css/blueprint.css";
 import Empirica from "meteor/empirica:core";
 
 import Consent from "./intro/Consent.jsx";
+import Lobby from "./intro/Lobby.jsx";
 import Overview from "./intro/Overview.jsx";
 import TeamDetails from "./intro/TeamDetails.jsx";
 import SocialInteractionDetails from "./intro/SocialInteractionDetails.jsx";
@@ -28,9 +29,10 @@ import customBreadcrumb from "./game/Breadcrumb.jsx";
 // Set the Consent Component you want to present players (optional).
 Empirica.consent(Consent);
 
+// Set a custom Lobby
+Empirica.lobby(Lobby)
+
 // Introduction pages to show before they play the game (optional).
-// At this point they have been assigned a treatment. You can return
-// different instruction steps depending on the assigned treatment.
 Empirica.introSteps((game, player, treatment) => {
   const steps = [Overview];
   if (game.treatment.playerCount > 1) {
